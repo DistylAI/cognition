@@ -34,7 +34,10 @@ export default async function GuidelinesPage() {
       </p>
 
       {/* Component quick-reference */}
-      <h2 className="mt-12 mb-4 border-b border-border-default pb-2 text-2xl font-bold tracking-tight text-text-default">
+      <h2
+        id="component-semantics"
+        className="mt-12 mb-4 scroll-mt-8 border-b border-border-default pb-2 text-2xl font-bold tracking-tight text-text-default"
+      >
         Component semantics
       </h2>
       <p className="mb-5 text-sm text-text-subtle">
@@ -107,7 +110,10 @@ className="bg-background-default text-text-default"`}
       </div>
 
       {/* Full spec */}
-      <h2 className="mt-14 mb-4 border-b border-border-default pb-2 text-2xl font-bold tracking-tight text-text-default">
+      <h2
+        id="full-specification"
+        className="mt-14 mb-4 scroll-mt-8 border-b border-border-default pb-2 text-2xl font-bold tracking-tight text-text-default"
+      >
         Full specification
       </h2>
       <p className="mb-2 text-sm text-text-subtle">

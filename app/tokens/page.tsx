@@ -28,8 +28,8 @@ export default function TokensPage() {
         Never hardcode a hex value; always reference the token utility.
       </p>
 
-      {/* On-this-page */}
-      <nav className="mt-6 flex flex-wrap gap-2">
+      {/* On-this-page — desktop uses the sidebar subnav, so this is mobile-only */}
+      <nav className="mt-6 flex flex-wrap gap-2 md:hidden">
         {[...colorGroups.map((g) => ({ id: g.id, title: g.title })),
           { id: "radius", title: "Radius" },
           { id: "spacing", title: "Spacing" },
