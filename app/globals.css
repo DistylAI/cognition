@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Cognition v1.2 — Distyl AI Design System
+   --------------------------------------------------------------------------
+   Source values live on `--cog-*` and are remapped under [data-theme="dark"]
+   on <html>. The canonical spec names `--color-*` are exposed as live aliases
+   (so the deployed CSS literally contains the spec variables), and the same
+   `--color-*` names are registered with Tailwind via `@theme inline` so the
+   utilities (bg-background-default, text-text-subtle, …) resolve to the live
+   variable and remap with the theme. Dark mode is entirely token-driven — no
+   `dark:` classes anywhere in the app.
+   ────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Source values (light) ── */
+  --cog-background-primary: #5d4ee7;
+  --cog-background-accent: #efedfd;
+  --cog-background-default: #ffffff;
+  --cog-background-subtle: #f9fafb;
+  --cog-background-secondary: #f3f4f6;
+  --cog-background-inverse: #0f1117;
+  --cog-background-danger: #fef2f2;
+  --cog-background-success: #f0fdf4;
+  --cog-background-warning: #fffbeb;
+
+  --cog-text-default: #0f1117;
+  --cog-text-subtle: #6b7280;
+  --cog-text-inverse: #ffffff;
+  --cog-text-primary: #5d4ee7;
+  --cog-text-disabled: #d1d5db;
+  --cog-text-danger: #dc2626;
+  --cog-text-success: #15803d;
+  --cog-text-warning: #b45309;
+
+  --cog-border-default: #e5e7eb;
+  --cog-border-subtle: #f3f4f6;
+  --cog-border-strong: #9ca3af;
+  --cog-border-primary: #5d4ee7;
+  --cog-border-danger: #ef4444;
+  --cog-border-success: #16a34a;
+
+  --cog-feedback-danger: #ef4444;
+  --cog-feedback-success: #15803d;
+  --cog-feedback-warning: #f59e0b;
+  --cog-feedback-info: #5d4ee7;
+
+  /* ── Canonical spec aliases (these are the names in cognition-tokens.css) ── */
+  --color-background-primary: var(--cog-background-primary);
+  --color-background-accent: var(--cog-background-accent);
+  --color-background-default: var(--cog-background-default);
+  --color-background-subtle: var(--cog-background-subtle);
+  --color-background-secondary: var(--cog-background-secondary);
+  --color-background-inverse: var(--cog-background-inverse);
+  --color-background-danger: var(--cog-background-danger);
+  --color-background-success: var(--cog-background-success);
+  --color-background-warning: var(--cog-background-warning);
+
+  --color-text-default: var(--cog-text-default);
+  --color-text-subtle: var(--cog-text-subtle);
+  --color-text-inverse: var(--cog-text-inverse);
+  --color-text-primary: var(--cog-text-primary);
+  --color-text-disabled: var(--cog-text-disabled);
+  --color-text-danger: var(--cog-text-danger);
+  --color-text-success: var(--cog-text-success);
+  --color-text-warning: var(--cog-text-warning);
+
+  --color-border-default: var(--cog-border-default);
+  --color-border-subtle: var(--cog-border-subtle);
+  --color-border-strong: var(--cog-border-strong);
+  --color-border-primary: var(--cog-border-primary);
+  --color-border-danger: var(--cog-border-danger);
+  --color-border-success: var(--cog-border-success);
+
+  --color-feedback-danger: var(--cog-feedback-danger);
+  --color-feedback-success: var(--cog-feedback-success);
+  --color-feedback-warning: var(--cog-feedback-warning);
+  --color-feedback-info: var(--cog-feedback-info);
+}
+
+[data-theme="dark"] {
+  --cog-background-primary: #7c6ff7;
+  --cog-background-accent: #06041b;
+  --cog-background-default: #0f1117;
+  --cog-background-subtle: #141820;
+  --cog-background-secondary: #1f2937;
+  --cog-background-inverse: #f9fafb;
+  --cog-background-danger: #450a0a;
+  --cog-background-success: #052e16;
+  --cog-background-warning: #431407;
+
+  --cog-text-default: #f9fafb;
+  --cog-text-subtle: #9ca3af;
+  --cog-text-inverse: #0f1117;
+  --cog-text-primary: #7c6ff7;
+  --cog-text-disabled: #4b5563;
+  --cog-text-danger: #f87171;
+  --cog-text-success: #4ade80;
+  --cog-text-warning: #fbbf24;
+
+  --cog-border-default: #374151;
+  --cog-border-subtle: #1f2937;
+  --cog-border-strong: #6b7280;
+  --cog-border-primary: #7c6ff7;
+  --cog-border-danger: #f87171;
+  --cog-border-success: #4ade80;
+
+  --cog-feedback-danger: #f87171;
+  --cog-feedback-success: #4ade80;
+  --cog-feedback-warning: #fbbf24;
+  --cog-feedback-info: #7c6ff7;
+}
+
+/* Register the live token aliases with Tailwind. `inline` => utilities embed
+   the var() reference (so they follow [data-theme]) instead of a static value. */
+@theme inline {
+  --color-background-primary: var(--cog-background-primary);
+  --color-background-accent: var(--cog-background-accent);
+  --color-background-default: var(--cog-background-default);
+  --color-background-subtle: var(--cog-background-subtle);
+  --color-background-secondary: var(--cog-background-secondary);
+  --color-background-inverse: var(--cog-background-inverse);
+  --color-background-danger: var(--cog-background-danger);
+  --color-background-success: var(--cog-background-success);
+  --color-background-warning: var(--cog-background-warning);
+
+  --color-text-default: var(--cog-text-default);
+  --color-text-subtle: var(--cog-text-subtle);
+  --color-text-inverse: var(--cog-text-inverse);
+  --color-text-primary: var(--cog-text-primary);
+  --color-text-disabled: var(--cog-text-disabled);
+  --color-text-danger: var(--cog-text-danger);
+  --color-text-success: var(--cog-text-success);
+  --color-text-warning: var(--cog-text-warning);
+
+  --color-border-default: var(--cog-border-default);
+  --color-border-subtle: var(--cog-border-subtle);
+  --color-border-strong: var(--cog-border-strong);
+  --color-border-primary: var(--cog-border-primary);
+  --color-border-danger: var(--cog-border-danger);
+  --color-border-success: var(--cog-border-success);
+
+  --color-feedback-danger: var(--cog-feedback-danger);
+  --color-feedback-success: var(--cog-feedback-success);
+  --color-feedback-warning: var(--cog-feedback-warning);
+  --color-feedback-info: var(--cog-feedback-info);
+
+  --font-sans: var(--font-lato);
+  --font-mono: var(--font-roboto-mono);
+}
+
+/* Radius is theme-independent — register canonical Cognition values directly
+   (overrides Tailwind's defaults so rounded-sm/md/lg/xl match the spec). */
+@theme {
+  --radius-none: 0px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background-default);
+  color: var(--color-text-default);
+  font-family: var(--font-lato), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: var(--color-background-accent);
+  color: var(--color-text-primary);
+}

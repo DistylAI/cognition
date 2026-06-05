@@ -1,0 +1,27 @@
+{
+  "name": "design-dot-distyl",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cognition design system documentation — Distyl AI",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^15.5.19",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-markdown": "9.0.1",
+    "remark-gfm": "4.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.1.13",
+    "@types/node": "22.10.0",
+    "@types/react": "19.1.0",
+    "@types/react-dom": "19.1.0",
+    "tailwindcss": "4.1.13",
+    "typescript": "5.7.3"
+  }
+}
