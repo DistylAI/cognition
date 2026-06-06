@@ -188,7 +188,10 @@ export default function TokensPage() {
             >
               <div
                 className="text-2xl text-text-default"
-                style={{ fontWeight: w.weight }}
+                style={{
+                  fontWeight: w.weight,
+                  fontVariationSettings: `"wght" ${w.weight}`,
+                }}
               >
                 Aa
               </div>
