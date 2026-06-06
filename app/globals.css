@@ -96,9 +96,9 @@
      Format: text-{size}/leading-{height}/{weight}
   */
 
-  /* H1 — text-5xl/leading-normal/extrabold */
-  --text-h1-size:        var(--font-size-5xl);
-  --text-h1-weight:      var(--font-weight-extrabold);
+  /* H1 — text-4xl/leading-normal/semibold */
+  --text-h1-size:        var(--font-size-4xl);
+  --text-h1-weight:      var(--font-weight-semibold);
   --text-h1-line-height: var(--line-height-normal);
   --text-h1-font:        var(--font-sans);
 
@@ -236,18 +236,26 @@ body {
    Layout/color utilities (mt-*, border-b, text-text-danger, …) still compose.
    ────────────────────────────────────────────────────────────────────────── */
 @layer components {
-  /* H1/H2 sizes are scaled back for the docs-site layout only (the canonical
-     Cognition tokens and the type-ramp specimen still document H1 = 48px).
-     Weights are unchanged. */
+  /* One-off hero display — NOT part of the Cognition heading scale.
+     Drives the variable wght axis directly so extrabold renders. */
+  .text-display {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-5xl); /* 48px */
+    font-weight: var(--font-weight-extrabold);
+    font-variation-settings: "wght" 800;
+    line-height: 1.1;
+  }
+  /* H1/H2 keep a tightened 1.2 line-height for the docs layout; sizes and
+     weights are the canonical token values (H1 36px semibold, H2 30px). */
   .text-h1 {
     font-family: var(--text-h1-font);
-    font-size: var(--font-size-4xl); /* 36px (layout); spec H1 stays 48px */
+    font-size: var(--text-h1-size);
     font-weight: var(--text-h1-weight);
     line-height: 1.2;
   }
   .text-h2 {
     font-family: var(--text-h2-font);
-    font-size: var(--text-h2-size); /* 30px */
+    font-size: var(--text-h2-size);
     font-weight: var(--text-h2-weight);
     line-height: 1.2;
   }

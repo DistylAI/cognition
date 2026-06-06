@@ -111,7 +111,7 @@ export type TypeScaleToken = {
 // Cognition has no "Display" style — the scale starts at H1. Each row renders
 // at its real weight (driven via font-variation-settings on the specimen).
 export const typeScale: TypeScaleToken[] = [
-  { px: 48, label: "H1", weight: 800, weightLabel: "Extrabold", sample: "Cognition" },
+  { px: 36, label: "H1", weight: 600, weightLabel: "Semibold", sample: "Cognition" },
   { px: 30, label: "H2", weight: 600, weightLabel: "Semibold", sample: "Design system" },
   { px: 24, label: "H3", weight: 600, weightLabel: "Semibold", sample: "Tokens & components" },
   { px: 20, label: "H4", weight: 600, weightLabel: "Semibold", sample: "Semantic colors" },
