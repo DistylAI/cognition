@@ -10,6 +10,11 @@ export const metadata: Metadata = {
 const variants = [
   { variant: "default", label: "Button", code: `<Button>Button</Button>` },
   {
+    variant: "secondary",
+    label: "Secondary",
+    code: `<Button variant="secondary">Secondary</Button>`,
+  },
+  {
     variant: "outline",
     label: "Outline",
     code: `<Button variant="outline">Outline</Button>`,
