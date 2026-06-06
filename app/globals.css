@@ -318,15 +318,18 @@ body {
     line-height: var(--text-code-line-height);
   }
 
-  /* Balance line lengths to avoid widows on titles and prose, sitewide. */
+  /* Headings balance their line lengths; prose uses pretty to curb widows
+     and orphans on longer blocks (no line-count cap). Sitewide. */
   .text-h1,
   .text-h2,
   .text-h3,
-  .text-h4,
+  .text-h4 {
+    text-wrap: balance;
+  }
   .text-lead,
   .text-large,
   .text-body,
   .text-small {
-    text-wrap: balance;
+    text-wrap: pretty;
   }
 }
