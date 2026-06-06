@@ -236,17 +236,20 @@ body {
    Layout/color utilities (mt-*, border-b, text-text-danger, …) still compose.
    ────────────────────────────────────────────────────────────────────────── */
 @layer components {
+  /* H1/H2 sizes are scaled back for the docs-site layout only (the canonical
+     Cognition tokens and the type-ramp specimen still document H1 = 48px).
+     Weights are unchanged. */
   .text-h1 {
     font-family: var(--text-h1-font);
-    font-size: var(--text-h1-size);
+    font-size: var(--font-size-4xl); /* 36px (layout); spec H1 stays 48px */
     font-weight: var(--text-h1-weight);
-    line-height: var(--text-h1-line-height);
+    line-height: 1.2;
   }
   .text-h2 {
     font-family: var(--text-h2-font);
-    font-size: var(--text-h2-size);
+    font-size: var(--text-h2-size); /* 30px */
     font-weight: var(--text-h2-weight);
-    line-height: var(--text-h2-line-height);
+    line-height: 1.2;
   }
   .text-h3 {
     font-family: var(--text-h3-font);
