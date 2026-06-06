@@ -116,8 +116,15 @@ export default function HomePage() {
       </div>
 
       <footer className="mt-16 border-t border-border-default pt-6 text-small">
-        Cognition v1.2 · February 2026 · Owned by Tony Yates · Questions in{" "}
-        <span className="text-text-primary">#design</span>
+        Cognition v1.2 · February 2026 · Questions?{" "}
+        <a
+          href="https://distylai.slack.com/team/U07KY4SEFH7"
+          target="_blank"
+          rel="noreferrer"
+          className="text-text-primary transition-opacity hover:opacity-80"
+        >
+          Ask Tony Yates
+        </a>
       </footer>
     </div>
   );

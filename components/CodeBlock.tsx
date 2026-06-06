@@ -49,8 +49,10 @@ export function CopyButton({
   );
 }
 
-// Code container. The copy button sits in a toolbar row above the code — never
-// overlapping the content.
+// Code container. Multi-line code gets a toolbar row above it so the copy
+// button never overlaps the content. Single-line code keeps the icon inline on
+// the right (no toolbar) and truncates — a stacked toolbar over one line leaves
+// odd empty space above it.
 export function CodeBlock({
   code,
   size = "md",
@@ -60,6 +62,22 @@ export function CodeBlock({
   size?: "sm" | "md";
   className?: string;
 }) {
+  const isSingleLine = !code.includes("\n");
+
+  if (isSingleLine) {
+    const pad = size === "sm" ? "py-1.5 pl-3 text-xs" : "py-2.5 pl-4 text-sm";
+    return (
+      <div className={cn("flex items-center gap-1", className)}>
+        <pre className={cn("min-w-0 flex-1 overflow-hidden", pad)}>
+          <code className="block truncate font-mono text-text-default">
+            {code}
+          </code>
+        </pre>
+        <CopyButton value={code} className="mr-1 shrink-0" />
+      </div>
+    );
+  }
+
   const body = size === "sm" ? "px-3 pb-2 text-xs" : "px-4 pb-4 text-sm";
   return (
     <div className={className}>
