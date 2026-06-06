@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function TokensPage() {
   return (
     <div>
-      <p className="mb-2 text-xs font-bold uppercase tracking-wide text-text-subtle">
+      <p className="mb-2 text-xs font-bold tracking-wide text-text-subtle">
         Foundations
       </p>
       <h1 className="text-h1 text-text-default">

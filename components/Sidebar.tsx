@@ -107,7 +107,7 @@ export function Sidebar() {
             design<span className="text-text-primary">.distyl</span>
           </span>
         </div>
-        <p className="mt-2 text-xs font-bold uppercase tracking-wide text-text-subtle">
+        <p className="mt-2 text-xs font-bold tracking-wide text-text-subtle">
           Cognition v1.2
         </p>
       </Link>

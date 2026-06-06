@@ -4,7 +4,7 @@ export default function HomePage() {
   return (
     <div>
       {/* Hero */}
-      <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-border-default bg-background-subtle px-3 py-1 text-xs font-bold uppercase tracking-wide text-text-subtle">
+      <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-border-default bg-background-subtle px-3 py-1 text-xs font-bold tracking-wide text-text-subtle">
         <span className="inline-block h-2 w-2 rounded-full bg-feedback-info" />
         Cognition v1.2 · Distyl AI
       </div>
