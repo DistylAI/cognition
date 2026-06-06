@@ -49,7 +49,8 @@ export function CopyButton({
   );
 }
 
-// Code container with a copy button pinned to the top-right corner.
+// Code container. The copy button sits in a toolbar row above the code — never
+// overlapping the content.
 export function CodeBlock({
   code,
   size = "md",
@@ -59,11 +60,13 @@ export function CodeBlock({
   size?: "sm" | "md";
   className?: string;
 }) {
-  const pad = size === "sm" ? "px-3 py-2 text-xs" : "p-4 text-sm";
+  const body = size === "sm" ? "px-3 pb-2 text-xs" : "px-4 pb-4 text-sm";
   return (
-    <div className={cn("relative", className)}>
-      <CopyButton value={code} className="absolute right-2 top-2" />
-      <pre className={cn("overflow-x-auto pr-10", pad)}>
+    <div className={className}>
+      <div className="flex justify-end px-1.5 pt-1.5">
+        <CopyButton value={code} />
+      </div>
+      <pre className={cn("overflow-x-auto", body)}>
         <code className="font-mono text-text-default">{code}</code>
       </pre>
     </div>

@@ -10,14 +10,6 @@ export const metadata: Metadata = {
 
 const doCode = `<Tag>Engineering</Tag>`;
 
-const dontButtonCode = `// impls/tower/.../Agent/ActionPill.tsx — a category as a button
-<Button variant="outline" size="sm" className="rounded-full">
-  Engineering
-</Button>`;
-
-const dontSpanCode = `// impls/spear/ExecutionSelector.tsx — status as a styled span (raw hex)
-<span className="rounded-full bg-[#f7f4c8]">Status</span>`;
-
 const installCode = `import { Tag } from "@/components/ui/tag";
 
 export function Category() {
@@ -75,56 +67,38 @@ export default function TagPage() {
         </p>
       </section>
 
-      {/* Do / Don't */}
+      {/* Don't / Do */}
       <section id="do-dont" className="scroll-mt-8">
         <h2 className="mt-12 mb-4 text-h2 text-text-default">
-          Do &amp; Don&apos;t
+          Don&apos;t &amp; Do
         </h2>
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="relative rounded-lg border border-border-success bg-background-success p-5">
-            <CopyButton value={doCode} className="absolute right-2 top-2" />
-            <div className="mb-2 text-sm font-bold text-text-success">
-              Do — a category
+          <div className="rounded-lg border border-border-danger bg-background-danger p-5">
+            <div className="mb-2 text-sm font-bold text-text-danger">
+              Don&apos;t
             </div>
-            <pre className="overflow-x-auto pr-10">
+            <p className="text-small text-text-default">
+              Don&apos;t render a category with an outline button (tower&apos;s
+              ActionPill) or a raw styled span (spear&apos;s status pill) — and a
+              status belongs in a Badge, not a Tag.
+            </p>
+          </div>
+          <div className="rounded-lg border border-border-success bg-background-success p-5">
+            <div className="mb-2 flex items-center justify-between">
+              <span className="text-sm font-bold text-text-success">Do</span>
+              <CopyButton value={doCode} />
+            </div>
+            <pre className="overflow-x-auto">
               <code className="font-mono text-xs leading-6 text-text-default">
                 {doCode}
               </code>
             </pre>
           </div>
-          <div className="relative rounded-lg border border-border-danger bg-background-danger p-5">
-            <CopyButton
-              value={dontButtonCode}
-              className="absolute right-2 top-2"
-            />
-            <div className="mb-2 text-sm font-bold text-text-danger">
-              Don&apos;t — a button as a label
-            </div>
-            <pre className="overflow-x-auto pr-10">
-              <code className="font-mono text-xs leading-6 text-text-default">
-                {dontButtonCode}
-              </code>
-            </pre>
-          </div>
-        </div>
-
-        <div className="relative mt-4 rounded-lg border border-border-danger bg-background-danger p-5">
-          <CopyButton value={dontSpanCode} className="absolute right-2 top-2" />
-          <div className="mb-2 text-sm font-bold text-text-danger">
-            Also don&apos;t — a raw styled span (and it&apos;s a status — use
-            Badge)
-          </div>
-          <pre className="overflow-x-auto pr-10">
-            <code className="font-mono text-xs leading-6 text-text-default">
-              {dontSpanCode}
-            </code>
-          </pre>
         </div>
       </section>
 
       {/* Copy-paste */}
-      <section id="copy-paste" className="scroll-mt-8">
-        <h2 className="mt-12 mb-4 text-h2 text-text-default">Copy-paste</h2>
+      <section id="copy-paste" className="mt-12 scroll-mt-8">
         <CodeBlock
           code={installCode}
           className="rounded-lg border border-border-default bg-background-subtle"

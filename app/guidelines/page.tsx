@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { Markdown } from "@/components/Markdown";
+import { CopyButton } from "@/components/CodeBlock";
 import { loadContent } from "@/lib/content";
+
+const semanticsDoCode = `className="bg-background-subtle text-text-subtle"
+<Tag>Engineering</Tag>
+className="p-3"
+className="bg-background-default text-text-default"`;
 
 export const metadata: Metadata = {
   title: "Guidelines",
@@ -83,28 +89,23 @@ export default async function GuidelinesPage() {
         </table>
       </div>
 
-      {/* Do / Don't */}
+      {/* Don't / Do */}
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         <div className="rounded-lg border border-border-danger bg-background-danger p-5">
-          <div className="mb-2 text-sm font-bold text-text-danger">
-            Don't — bypass the system
-          </div>
-          <pre className="overflow-x-auto font-mono text-xs leading-6 text-text-default">
-{`className="bg-[#f5f5f5] text-gray-500"
-<button className="rounded-full px-2">Eng</button>
-style={{ padding: '13px' }}
-className="bg-white dark:bg-gray-950"`}
-          </pre>
+          <div className="mb-2 text-sm font-bold text-text-danger">Don&apos;t</div>
+          <p className="text-small text-text-default">
+            Don&apos;t bypass the system with hardcoded colors, raw Tailwind
+            palette utilities, off-scale spacing, dark-mode classes, or a button
+            used as a label.
+          </p>
         </div>
         <div className="rounded-lg border border-border-success bg-background-success p-5">
-          <div className="mb-2 text-sm font-bold text-text-success">
-            Do — semantic tokens & components
+          <div className="mb-2 flex items-center justify-between">
+            <span className="text-sm font-bold text-text-success">Do</span>
+            <CopyButton value={semanticsDoCode} />
           </div>
           <pre className="overflow-x-auto font-mono text-xs leading-6 text-text-default">
-{`className="bg-background-subtle text-text-subtle"
-<Tag>Engineering</Tag>
-className="p-3"
-className="bg-background-default text-text-default"`}
+            {semanticsDoCode}
           </pre>
         </div>
       </div>

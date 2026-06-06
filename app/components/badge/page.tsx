@@ -31,11 +31,6 @@ const colors = [
 const doCode = `// Status indicator
 <Badge color="success">Active</Badge>`;
 
-const dontCode = `// A status faked as a pill-shaped button
-<Button variant="outline" className="rounded-full">
-  Active
-</Button>`;
-
 const installCode = `import { Badge } from "@/components/ui/badge";
 
 export function Status() {
@@ -93,31 +88,29 @@ export default function BadgePage() {
         </p>
       </section>
 
-      {/* Do / Don't */}
+      {/* Don't / Do */}
       <section id="do-dont" className="scroll-mt-8">
         <h2 className="mt-12 mb-4 text-h2 text-text-default">
-          Do &amp; Don&apos;t
+          Don&apos;t &amp; Do
         </h2>
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="relative rounded-lg border border-border-success bg-background-success p-5">
-            <CopyButton value={doCode} className="absolute right-2 top-2" />
-            <div className="mb-2 text-sm font-bold text-text-success">
-              Do — a status
+          <div className="rounded-lg border border-border-danger bg-background-danger p-5">
+            <div className="mb-2 text-sm font-bold text-text-danger">
+              Don&apos;t
             </div>
-            <pre className="overflow-x-auto pr-10">
+            <p className="text-small text-text-default">
+              Don&apos;t fake a status with a pill-shaped Button or a raw styled
+              span — that&apos;s what a Badge is for.
+            </p>
+          </div>
+          <div className="rounded-lg border border-border-success bg-background-success p-5">
+            <div className="mb-2 flex items-center justify-between">
+              <span className="text-sm font-bold text-text-success">Do</span>
+              <CopyButton value={doCode} />
+            </div>
+            <pre className="overflow-x-auto">
               <code className="font-mono text-xs leading-6 text-text-default">
                 {doCode}
-              </code>
-            </pre>
-          </div>
-          <div className="relative rounded-lg border border-border-danger bg-background-danger p-5">
-            <CopyButton value={dontCode} className="absolute right-2 top-2" />
-            <div className="mb-2 text-sm font-bold text-text-danger">
-              Don&apos;t — a button
-            </div>
-            <pre className="overflow-x-auto pr-10">
-              <code className="font-mono text-xs leading-6 text-text-default">
-                {dontCode}
               </code>
             </pre>
           </div>
@@ -125,8 +118,7 @@ export default function BadgePage() {
       </section>
 
       {/* Copy-paste */}
-      <section id="copy-paste" className="scroll-mt-8">
-        <h2 className="mt-12 mb-4 text-h2 text-text-default">Copy-paste</h2>
+      <section id="copy-paste" className="mt-12 scroll-mt-8">
         <CodeBlock
           code={installCode}
           className="rounded-lg border border-border-default bg-background-subtle"
