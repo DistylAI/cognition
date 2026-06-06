@@ -100,17 +100,25 @@ export const spacingTokens: SpacingToken[] = [
   { name: "space.16", utility: "p-16", px: 64 },
 ];
 
-export type TypeScaleToken = { px: number; label: string; sample: string };
+export type TypeScaleToken = {
+  px: number;
+  label: string;
+  weight: number;
+  weightLabel: string;
+  sample: string;
+};
 
+// Cognition has no "Display" style — the scale starts at H1. Each row renders
+// at its real weight (driven via font-variation-settings on the specimen).
 export const typeScale: TypeScaleToken[] = [
-  { px: 36, label: "Display", sample: "Cognition" },
-  { px: 30, label: "Heading 1", sample: "Design system" },
-  { px: 24, label: "Heading 2", sample: "Tokens & components" },
-  { px: 20, label: "Heading 3", sample: "Semantic colors" },
-  { px: 18, label: "Lead", sample: "One source of truth." },
-  { px: 16, label: "Body", sample: "The quick brown fox jumps over the lazy dog." },
-  { px: 14, label: "Small", sample: "Secondary copy and helper text." },
-  { px: 12, label: "Caption", sample: "Captions, labels, metadata." },
+  { px: 48, label: "H1", weight: 800, weightLabel: "Extrabold", sample: "Cognition" },
+  { px: 30, label: "H2", weight: 600, weightLabel: "Semibold", sample: "Design system" },
+  { px: 24, label: "H3", weight: 600, weightLabel: "Semibold", sample: "Tokens & components" },
+  { px: 20, label: "H4", weight: 600, weightLabel: "Semibold", sample: "Semantic colors" },
+  { px: 18, label: "Lead", weight: 600, weightLabel: "Semibold", sample: "One source of truth." },
+  { px: 16, label: "Body", weight: 400, weightLabel: "Regular", sample: "The quick brown fox jumps over the lazy dog." },
+  { px: 14, label: "Small", weight: 500, weightLabel: "Medium", sample: "Secondary copy and helper text." },
+  { px: 12, label: "Caption", weight: 400, weightLabel: "Regular", sample: "Captions, labels, metadata." },
 ];
 
 export const fontWeights = [

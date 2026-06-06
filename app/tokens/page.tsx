@@ -168,13 +168,17 @@ export default function TokensPage() {
               className="flex items-baseline justify-between gap-4 border-b border-border-subtle pb-3 last:border-0 last:pb-0"
             >
               <span
-                className="truncate font-normal text-text-default"
-                style={{ fontSize: `${t.px}px` }}
+                className="truncate text-text-default"
+                style={{
+                  fontSize: `${t.px}px`,
+                  fontWeight: t.weight,
+                  fontVariationSettings: `"wght" ${t.weight}`,
+                }}
               >
                 {t.sample}
               </span>
               <span className="shrink-0 font-mono text-xs text-text-subtle">
-                {t.label} · {t.px}px
+                {t.label} · {t.px}px · {t.weightLabel}
               </span>
             </div>
           ))}
