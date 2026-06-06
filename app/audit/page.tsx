@@ -57,7 +57,7 @@ export default async function AuditPage() {
 
   return (
     <div>
-      <p className="mb-2 text-xs font-bold tracking-wide text-text-subtle">
+      <p className="mb-2 text-xs font-normal text-text-subtle">
         Status
       </p>
       <h1 className="text-h1 text-text-default">

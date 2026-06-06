@@ -21,7 +21,7 @@ export default async function GuidelinesPage() {
 
   return (
     <div>
-      <p className="mb-2 text-xs font-bold tracking-wide text-text-subtle">
+      <p className="mb-2 text-xs font-normal text-text-subtle">
         Foundations
       </p>
       <h1 className="text-h1 text-text-default">

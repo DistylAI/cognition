@@ -9,7 +9,7 @@ export default function HomePage() {
         Cognition v1.2 · Distyl AI
       </div>
 
-      <h1 className="text-display tracking-[-0.025em] text-text-default">
+      <h1 className="text-h1 tracking-[-0.025em] text-text-default">
         The design system that makes everything <span className="text-text-primary">look and behave like Distyl</span>.
       </h1>
 

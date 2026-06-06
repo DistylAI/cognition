@@ -96,9 +96,9 @@
      Format: text-{size}/leading-{height}/{weight}
   */
 
-  /* H1 — text-4xl/leading-normal/semibold */
+  /* H1 — text-4xl/leading-normal/bold */
   --text-h1-size:        var(--font-size-4xl);
-  --text-h1-weight:      var(--font-weight-semibold);
+  --text-h1-weight:      var(--font-weight-bold);
   --text-h1-line-height: var(--line-height-normal);
   --text-h1-font:        var(--font-sans);
 
@@ -236,17 +236,8 @@ body {
    Layout/color utilities (mt-*, border-b, text-text-danger, …) still compose.
    ────────────────────────────────────────────────────────────────────────── */
 @layer components {
-  /* One-off hero display — NOT part of the Cognition heading scale.
-     Drives the variable wght axis directly so extrabold renders. */
-  .text-display {
-    font-family: var(--font-sans);
-    font-size: var(--font-size-5xl); /* 48px */
-    font-weight: var(--font-weight-extrabold);
-    font-variation-settings: "wght" 800;
-    line-height: 1.1;
-  }
-  /* H1/H2 keep a tightened 1.2 line-height for the docs layout; sizes and
-     weights are the canonical token values (H1 36px semibold, H2 30px). */
+  /* H1–H4 keep a tightened 1.2 line-height for the docs layout; sizes and
+     weights are the canonical token values (H1 36px bold, H2 30px, H4 20px). */
   .text-h1 {
     font-family: var(--text-h1-font);
     font-size: var(--text-h1-size);
@@ -269,7 +260,7 @@ body {
     font-family: var(--text-h4-font);
     font-size: var(--text-h4-size);
     font-weight: var(--text-h4-weight);
-    line-height: var(--text-h4-line-height);
+    line-height: 1.2;
   }
   .text-lead {
     font-family: var(--text-lead-font);

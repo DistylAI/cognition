@@ -115,7 +115,7 @@ export function Sidebar() {
       <nav className="flex-1 space-y-7">
         {nav.map((group) => (
           <div key={group.section}>
-            <p className="mb-2 text-xs font-bold tracking-wide text-text-subtle">
+            <p className="mb-2 text-xs font-normal text-text-subtle">
               {group.section}
             </p>
             <ul className="space-y-0.5">
@@ -170,7 +170,24 @@ export function Sidebar() {
       <div className="mt-8 border-t border-border-default pt-6">
         <ThemeToggle />
         <p className="mt-4 text-xs text-text-subtle">
-          Distyl AI · #design · #frontend
+          Design at Distyl AI ·{" "}
+          <a
+            href="https://distylai.slack.com/archives/C0A22RR2N6P"
+            target="_blank"
+            rel="noreferrer"
+            className="text-text-default transition-colors hover:text-text-primary"
+          >
+            #research-and-design
+          </a>{" "}
+          ·{" "}
+          <a
+            href="https://distylai.slack.com/archives/C079VBDTJLA"
+            target="_blank"
+            rel="noreferrer"
+            className="text-text-default transition-colors hover:text-text-primary"
+          >
+            #engineering-fe
+          </a>
         </p>
       </div>
     </aside>

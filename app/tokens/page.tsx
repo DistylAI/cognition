@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function TokensPage() {
   return (
     <div>
-      <p className="mb-2 text-xs font-bold tracking-wide text-text-subtle">
+      <p className="mb-2 text-xs font-normal text-text-subtle">
         Foundations
       </p>
       <h1 className="text-h1 text-text-default">
@@ -105,7 +105,7 @@ export default function TokensPage() {
               className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-5"
             >
               <div
-                className="h-16 w-16 border-2 border-border-primary bg-background-accent"
+                className="h-16 w-16 border-2 border-border-default bg-background-accent"
                 style={{ borderRadius: r.value }}
                 aria-hidden
               />
