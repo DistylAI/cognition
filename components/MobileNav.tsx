@@ -33,9 +33,9 @@ export function MobileNav() {
               key={l.href}
               href={l.href}
               className={[
-                "whitespace-nowrap rounded-md px-3 py-1.5 text-sm transition-colors",
+                "whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium transition-colors",
                 active
-                  ? "bg-background-secondary font-bold text-text-default"
+                  ? "bg-background-secondary text-text-default"
                   : "text-text-subtle hover:bg-background-secondary",
               ].join(" ")}
             >

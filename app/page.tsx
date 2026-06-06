@@ -9,11 +9,11 @@ export default function HomePage() {
         Cognition v1.2 · Distyl AI
       </div>
 
-      <h1 className="text-h1 text-text-default">
+      <h1 className="text-h1 tracking-[-0.02em] text-text-default">
         The design system that makes everything <span className="text-text-primary">look and behave like Distyl</span>.
       </h1>
 
-      <p className="mt-4 max-w-2xl text-large">
+      <p className="mt-4 max-w-2xl text-body text-text-subtle">
         Cognition is the single source of truth for color, spacing, radius,
         typography, and component semantics across every Distyl frontend. Tokens
         carry brand and dark mode automatically — components never reach past the
@@ -23,13 +23,13 @@ export default function HomePage() {
       <div className="mt-8 flex flex-wrap gap-3">
         <Link
           href="/tokens"
-          className="rounded-md bg-background-primary px-5 py-2.5 text-sm font-bold text-text-inverse transition-opacity hover:opacity-90"
+          className="rounded-md bg-background-primary px-5 py-2.5 text-sm font-medium text-text-inverse transition-opacity hover:opacity-90"
         >
           Explore tokens
         </Link>
         <Link
           href="/audit"
-          className="rounded-md border border-border-default bg-background-default px-5 py-2.5 text-sm font-bold text-text-default transition-colors hover:border-border-strong"
+          className="rounded-md border border-border-default bg-background-default px-5 py-2.5 text-sm font-medium text-text-default transition-colors hover:border-border-strong"
         >
           Read the codebase audit
         </Link>
@@ -79,7 +79,7 @@ export default function HomePage() {
             <div className="font-mono text-xl font-bold text-text-default">
               {s.stat}
             </div>
-            <div className="mt-1 text-xs text-text-subtle">{s.label}</div>
+            <div className="mt-1 text-xs font-normal text-text-subtle">{s.label}</div>
           </div>
         ))}
       </div>

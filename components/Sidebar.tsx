@@ -115,7 +115,7 @@ export function Sidebar() {
       <nav className="flex-1 space-y-7">
         {nav.map((group) => (
           <div key={group.section}>
-            <p className="mb-2 text-xs font-bold uppercase tracking-wide text-text-subtle">
+            <p className="mb-2 text-xs font-bold tracking-wide text-text-subtle">
               {group.section}
             </p>
             <ul className="space-y-0.5">
@@ -126,9 +126,9 @@ export function Sidebar() {
                     <Link
                       href={item.href}
                       className={[
-                        "block rounded-md px-3 py-2 text-sm transition-colors",
+                        "block rounded-md px-3 py-2 text-sm font-medium transition-colors",
                         active
-                          ? "bg-background-secondary font-bold text-text-default"
+                          ? "bg-background-secondary text-text-default"
                           : "text-text-subtle hover:bg-background-secondary hover:text-text-default",
                       ].join(" ")}
                     >
@@ -148,8 +148,8 @@ export function Sidebar() {
                                 className={[
                                   "block rounded-sm px-2 py-1 text-[13px] transition-colors",
                                   current
-                                    ? "font-bold text-text-default"
-                                    : "text-text-subtle hover:text-text-default",
+                                    ? "font-semibold text-text-default"
+                                    : "font-medium text-text-subtle hover:text-text-default",
                                 ].join(" ")}
                               >
                                 {s.label}

@@ -29,7 +29,7 @@ export function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label="Toggle color theme"
-      className="flex items-center gap-2 rounded-md border border-border-default bg-background-default px-3 py-2 text-sm font-bold text-text-subtle transition-colors hover:border-border-strong hover:text-text-default"
+      className="flex items-center gap-2 rounded-md border border-border-default bg-background-default px-3 py-2 text-sm font-medium text-text-subtle transition-colors hover:border-border-strong hover:text-text-default"
     >
       <span
         aria-hidden

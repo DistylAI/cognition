@@ -27,7 +27,7 @@ export default async function GuidelinesPage() {
       <h1 className="text-h1 text-text-default">
         Guidelines
       </h1>
-      <p className="mt-3 max-w-2xl text-large">
+      <p className="mt-3 max-w-2xl text-body text-text-subtle">
         The rules every Distyl frontend follows. Use the semantic token for
         intent, the correct component for the job, and let the token layer handle
         dark mode.
@@ -52,7 +52,7 @@ export default async function GuidelinesPage() {
                 (h) => (
                   <th
                     key={h}
-                    className="border-b border-border-default px-4 py-2.5 text-left font-bold text-text-default"
+                    className="border-b border-border-default px-4 py-2.5 text-left text-xs font-semibold text-text-default"
                   >
                     {h}
                   </th>
@@ -63,18 +63,18 @@ export default async function GuidelinesPage() {
           <tbody>
             {componentRules.map((r) => (
               <tr key={r.c}>
-                <td className="border-b border-border-subtle px-4 py-2.5">
-                  <span className="font-mono font-bold text-text-default">
+                <td className="border-b border-border-subtle px-4 py-2.5 text-xs">
+                  <span className="font-mono text-xs font-semibold text-text-default">
                     {r.c}
                   </span>
                 </td>
-                <td className="border-b border-border-subtle px-4 py-2.5 text-text-default">
+                <td className="border-b border-border-subtle px-4 py-2.5 text-xs font-normal text-text-default">
                   {r.interactive}
                 </td>
-                <td className="border-b border-border-subtle px-4 py-2.5 text-text-default">
+                <td className="border-b border-border-subtle px-4 py-2.5 text-xs font-normal text-text-default">
                   {r.action}
                 </td>
-                <td className="border-b border-border-subtle px-4 py-2.5 text-text-subtle">
+                <td className="border-b border-border-subtle px-4 py-2.5 text-xs font-normal text-text-subtle">
                   {r.use}
                 </td>
               </tr>

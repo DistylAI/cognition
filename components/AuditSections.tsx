@@ -40,7 +40,7 @@ export function AuditSections({ sections }: { sections: AuditSection[] }) {
         <button
           type="button"
           onClick={() => setOpen(sections.map(() => !allOpen))}
-          className="rounded-md border border-border-default px-3 py-1.5 text-sm font-bold text-text-subtle transition-colors hover:border-border-strong hover:text-text-default"
+          className="rounded-md border border-border-default px-3 py-1.5 text-sm font-medium text-text-subtle transition-colors hover:border-border-strong hover:text-text-default"
         >
           {allOpen ? "Collapse all" : "Expand all"}
         </button>

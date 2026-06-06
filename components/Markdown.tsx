@@ -113,12 +113,12 @@ export function Markdown({ content }: { content: string }) {
             <thead className="bg-background-secondary">{children}</thead>
           ),
           th: ({ children }) => (
-            <th className="border-b border-border-default px-4 py-2.5 text-left font-bold text-text-default">
+            <th className="border-b border-border-default px-4 py-2.5 text-left text-xs font-semibold text-text-default">
               {children}
             </th>
           ),
           td: ({ children }) => (
-            <td className="border-b border-border-subtle px-4 py-2.5 align-top text-text-default">
+            <td className="border-b border-border-subtle px-4 py-2.5 align-top text-xs font-normal text-text-default">
               {children}
             </td>
           ),

@@ -22,7 +22,7 @@ export default function TokensPage() {
       <h1 className="text-h1 text-text-default">
         Tokens
       </h1>
-      <p className="mt-3 max-w-2xl text-large">
+      <p className="mt-3 max-w-2xl text-body text-text-subtle">
         The canonical Cognition v1.2 token set. Swatches below render from the
         live CSS variables — toggle the theme and they remap automatically.
         Never hardcode a hex value; always reference the token utility.
@@ -37,7 +37,7 @@ export default function TokensPage() {
           <a
             key={s.id}
             href={`#${s.id}`}
-            className="rounded-full border border-border-default px-3 py-1 text-sm text-text-subtle transition-colors hover:border-border-strong hover:text-text-default"
+            className="rounded-full border border-border-default px-3 py-1 text-sm font-medium text-text-subtle transition-colors hover:border-border-strong hover:text-text-default"
           >
             {s.title}
           </a>
@@ -64,16 +64,16 @@ export default function TokensPage() {
                   aria-hidden
                 />
                 <div className="min-w-0">
-                  <div className="truncate font-mono text-sm font-bold text-text-default">
+                  <div className="truncate font-mono text-xs font-semibold text-text-default">
                     {t.name}
                   </div>
-                  <div className="mt-0.5 truncate font-mono text-xs text-text-subtle">
+                  <div className="mt-0.5 truncate font-mono text-xs font-normal text-text-subtle">
                     {t.utility}
                   </div>
-                  <p className="mt-1 text-xs leading-5 text-text-subtle">
+                  <p className="mt-1 text-xs font-normal leading-5 text-text-subtle">
                     {t.usage}
                   </p>
-                  <div className="mt-2 flex gap-3 font-mono text-[11px] text-text-subtle">
+                  <div className="mt-2 flex gap-3 font-mono text-xs font-normal text-text-subtle">
                     <span>
                       <span className="text-text-disabled">light</span>{" "}
                       {t.light}
@@ -168,7 +168,7 @@ export default function TokensPage() {
               className="flex items-baseline justify-between gap-4 border-b border-border-subtle pb-3 last:border-0 last:pb-0"
             >
               <span
-                className="truncate font-bold text-text-default"
+                className="truncate font-normal text-text-default"
                 style={{ fontSize: `${t.px}px` }}
               >
                 {t.sample}
