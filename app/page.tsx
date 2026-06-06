@@ -61,11 +61,8 @@ export default function HomePage() {
         ))}
       </div>
 
-      {/* At a glance */}
-      <h2 className="mt-16 mb-4 text-h2 text-text-default">
-        At a glance
-      </h2>
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+      {/* Key facts */}
+      <div className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-4">
         {[
           { stat: "32", label: "Canonical tokens" },
           { stat: "#5D4EE7", label: "Brand purple" },
@@ -84,11 +81,8 @@ export default function HomePage() {
         ))}
       </div>
 
-      {/* What's inside */}
-      <h2 className="mt-16 mb-4 text-h2 text-text-default">
-        What's inside
-      </h2>
-      <div className="divide-y divide-border-subtle rounded-lg border border-border-default">
+      {/* Navigation cards */}
+      <div className="mt-12 divide-y divide-border-subtle rounded-lg border border-border-default">
         {[
           {
             href: "/tokens",

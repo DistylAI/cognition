@@ -126,7 +126,7 @@ export function Sidebar() {
                     <Link
                       href={item.href}
                       className={[
-                        "block rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                        "-mx-3 block rounded-md px-3 py-2 text-sm font-medium transition-colors",
                         active
                           ? "bg-background-secondary text-text-default"
                           : "text-text-subtle hover:bg-background-secondary hover:text-text-default",
@@ -137,7 +137,7 @@ export function Sidebar() {
 
                     {/* Sub-navigation: only render under the active page */}
                     {active && item.sections && (
-                      <ul className="mt-1 ml-3 space-y-px border-l border-border-default pl-3">
+                      <ul className="mt-1 space-y-px border-l border-border-default pl-3">
                         {item.sections.map((s) => {
                           const current = activeSection === s.id;
                           return (
@@ -146,7 +146,7 @@ export function Sidebar() {
                                 href={`${item.href}#${s.id}`}
                                 aria-current={current ? "true" : undefined}
                                 className={[
-                                  "block rounded-sm px-2 py-1 text-[13px] transition-colors",
+                                  "block rounded-sm py-1 text-[13px] transition-colors",
                                   current
                                     ? "font-semibold text-text-default"
                                     : "font-medium text-text-subtle hover:text-text-default",
