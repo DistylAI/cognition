@@ -107,9 +107,6 @@ export function Sidebar() {
             design<span className="text-text-primary">.distyl</span>
           </span>
         </div>
-        <p className="mt-2 text-xs font-bold tracking-wide text-text-subtle">
-          Cognition v1.2
-        </p>
       </Link>
 
       <nav className="flex-1 space-y-7">
@@ -169,7 +166,8 @@ export function Sidebar() {
 
       <div className="mt-8 border-t border-border-default pt-6">
         <ThemeToggle />
-        <p className="mt-4 text-xs text-text-subtle">
+        <p className="mt-4 text-xs font-normal text-text-subtle">Cognition v1.2</p>
+        <p className="mt-2 text-xs text-text-subtle">
           Design at Distyl AI ·{" "}
           <a
             href="https://distylai.slack.com/archives/C0A22RR2N6P"
