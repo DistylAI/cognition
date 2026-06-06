@@ -67,8 +67,15 @@ export default function TokensPage() {
                   <div className="truncate font-mono text-xs font-semibold text-text-default">
                     {t.name}
                   </div>
-                  <div className="mt-0.5 truncate font-mono text-xs font-normal text-text-subtle">
-                    {t.utility}
+                  <div className="mt-0.5 space-y-0.5">
+                    {(t.utilities ?? [t.utility]).map((u) => (
+                      <div
+                        key={u}
+                        className="truncate font-mono text-xs font-normal text-text-subtle"
+                      >
+                        {u}
+                      </div>
+                    ))}
                   </div>
                   <p className="mt-1 text-xs font-normal leading-5 text-text-subtle">
                     {t.usage}

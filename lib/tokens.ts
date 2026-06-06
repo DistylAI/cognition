@@ -6,6 +6,9 @@ export type ColorToken = {
   name: string;
   cssVar: string;
   utility: string;
+  // Optional full utility set (bg/text/border). Feedback tokens are used in all
+  // three contexts, so the swatch lists each; other groups fall back to `utility`.
+  utilities?: string[];
   light: string;
   dark: string;
   usage: string;
@@ -68,10 +71,10 @@ export const colorGroups: ColorGroup[] = [
     title: "Feedback",
     description: "Canonical status colors — use these for every status state.",
     tokens: [
-      { name: "feedback.info", cssVar: "--color-feedback-info", utility: "bg-feedback-info", light: "#5D4EE7", dark: "#7C6FF7", usage: "All info states" },
-      { name: "feedback.success", cssVar: "--color-feedback-success", utility: "bg-feedback-success", light: "#15803D", dark: "#4ADE80", usage: "All success states" },
-      { name: "feedback.warning", cssVar: "--color-feedback-warning", utility: "bg-feedback-warning", light: "#F59E0B", dark: "#FBBF24", usage: "All warning states" },
-      { name: "feedback.danger", cssVar: "--color-feedback-danger", utility: "bg-feedback-danger", light: "#EF4444", dark: "#F87171", usage: "All error / destructive states" },
+      { name: "feedback.info", cssVar: "--color-feedback-info", utility: "bg-feedback-info", utilities: ["bg-feedback-info", "text-feedback-info", "border-feedback-info"], light: "#5D4EE7", dark: "#7C6FF7", usage: "All info states" },
+      { name: "feedback.success", cssVar: "--color-feedback-success", utility: "bg-feedback-success", utilities: ["bg-feedback-success", "text-feedback-success", "border-feedback-success"], light: "#15803D", dark: "#4ADE80", usage: "All success states" },
+      { name: "feedback.warning", cssVar: "--color-feedback-warning", utility: "bg-feedback-warning", utilities: ["bg-feedback-warning", "text-feedback-warning", "border-feedback-warning"], light: "#F59E0B", dark: "#FBBF24", usage: "All warning states" },
+      { name: "feedback.danger", cssVar: "--color-feedback-danger", utility: "bg-feedback-danger", utilities: ["bg-feedback-danger", "text-feedback-danger", "border-feedback-danger"], light: "#EF4444", dark: "#F87171", usage: "All error / destructive states" },
     ],
   },
 ];

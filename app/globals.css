@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* Safelist — always emit the full feedback utility family (bg/text/border ×
+   danger/success/warning/info), independent of JIT usage scanning. */
+@source inline("bg-feedback-danger text-feedback-danger border-feedback-danger bg-feedback-success text-feedback-success border-feedback-success bg-feedback-warning text-feedback-warning border-feedback-warning bg-feedback-info text-feedback-info border-feedback-info");
+
 /* Cognition v1.2 — Distyl AI Design System */
 /* Drop into globals.css at the app root */
 /*
