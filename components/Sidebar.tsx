@@ -54,6 +54,26 @@ const nav: NavGroup[] = [
           { id: "copy-paste", label: "Copy-paste" },
         ],
       },
+      {
+        href: "/components/badge",
+        label: "Badge",
+        sections: [
+          { id: "preview", label: "Preview" },
+          { id: "variants", label: "Variants" },
+          { id: "do-dont", label: "Do & Don't" },
+          { id: "copy-paste", label: "Copy-paste" },
+        ],
+      },
+      {
+        href: "/components/tag",
+        label: "Tag",
+        sections: [
+          { id: "preview", label: "Preview" },
+          { id: "variants", label: "Variants" },
+          { id: "do-dont", label: "Do & Don't" },
+          { id: "copy-paste", label: "Copy-paste" },
+        ],
+      },
     ],
   },
   {
