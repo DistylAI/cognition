@@ -56,6 +56,7 @@ const nav: NavGroup[] = [
       { href: "/components/select", label: "Select" },
       { href: "/components/sidebar", label: "Sidebar" },
       { href: "/components/skeleton", label: "Skeleton" },
+      { href: "/components/spinner", label: "Spinner" },
       { href: "/components/switch", label: "Switch" },
       { href: "/components/tabs", label: "Tabs" },
       { href: "/components/tag", label: "Tag" },

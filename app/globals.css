@@ -336,4 +336,29 @@ body {
   .text-small {
     text-wrap: pretty;
   }
+
+  /* Spinner — the Distyl logo mark as an animated stroke chase. Both paths use
+     pathLength="1" so the dash maths are resolution-independent; stroke is
+     currentColor (set to a Cognition token by the component) so it remaps in
+     dark mode. The two paths share one keyframe but chase-2 is delayed 0.4s so
+     they chase rather than sync. */
+  .chase {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 16;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 0.35 0.65;
+    stroke-dashoffset: 1;
+    animation: spinner-chase 1.4s linear infinite;
+  }
+  .chase-2 {
+    animation-delay: 0.4s;
+  }
+}
+
+@keyframes spinner-chase {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
