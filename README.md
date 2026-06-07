@@ -1,9 +1,9 @@
 # design.distyl
 
-## Documentation site for Cognition, the Distyl AI design system.
+Documentation site for **Cognition**, the Distyl AI design system.
+Built with Next.js (App Router) and Tailwind CSS v4. The site dogfoods the Cognition token system itself: every surface is styled with semantic tokens, and dark mode is driven entirely by `[data-theme="dark"]` on `<html>`. No `dark:` classes anywhere.
 
-Built with Next.js (App Router) and Tailwind CSS v4. The site dogfoods the Cognition token system itself: every surface is styled with semantic tokens, and dark mode is driven entirely by [data-theme="dark"] on <html>. No dark: classes anywhere.
-Dark mode as compliance test
+## Dark mode as compliance test
 
 Every surface on the docs site uses Cognition semantic tokens exclusively. When you toggle dark mode, the token layer remaps automatically. If any element fails to adapt — wrong background, hardcoded color, broken contrast — it is a token violation, not a dark mode bug. The toggle is a live audit tool.
 

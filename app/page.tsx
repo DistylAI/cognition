@@ -13,10 +13,10 @@ export default function HomePage() {
       </h1>
 
       <p className="mt-4 max-w-2xl text-body text-text-subtle">
-        Cognition is the single source of truth for color, spacing, radius,
-        typography, and component semantics across every Distyl frontend. Tokens
-        carry brand and dark mode automatically — components never reach past the
-        system.
+        Cognition is Distyl&apos;s design system — the single set of rules for how every
+        frontend surface looks, responds, and adapts. Every color, spacing step,
+        radius, and typographic choice is a named token. Components consume
+        tokens, not raw values. Brand and dark mode come for free.
       </p>
 
       <div className="mt-8 flex flex-wrap gap-3">
@@ -116,7 +116,7 @@ export default function HomePage() {
       </div>
 
       <footer className="mt-16 border-t border-border-default pt-6 text-small">
-        Cognition v1.2 · February 2026 · Questions?{" "}
+        Cognition v1.2 · June 2026 · Questions?{" "}
         <a
           href="https://distylai.slack.com/team/U07KY4SEFH7"
           target="_blank"
