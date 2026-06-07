@@ -344,20 +344,21 @@ body {
      they chase rather than sync. */
   .chase {
     fill: none;
-    stroke: currentColor;
-    stroke-width: 16;
+    stroke: var(--color-background-primary);
+    stroke-width: 6;
     stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-dasharray: 0.35 0.65;
-    stroke-dashoffset: 1;
-    animation: spinner-chase 1.4s linear infinite;
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+  }
+  .chase-1 {
+    animation: chase 2s linear infinite;
   }
   .chase-2 {
-    animation-delay: 0.4s;
+    animation: chase 2s linear infinite 0.4s;
   }
 }
 
-@keyframes spinner-chase {
+@keyframes chase {
   to {
     stroke-dashoffset: 0;
   }

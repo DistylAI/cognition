@@ -44,12 +44,10 @@ const Spinner = React.forwardRef<HTMLSpanElement, SpinnerProps>(
         aria-hidden="true"
       >
         <path
-          pathLength={1}
           className="chase chase-1"
           d="M102.681 92.2672H148.326L125.503 130.727L138.749 153.073L188.062 70.0625H89.4723L102.681 92.2672Z"
         />
         <path
-          pathLength={1}
           className="chase chase-2"
           d="M47.9375 70.0625L117.982 188.063L131.264 165.716L74.4655 70.0625H47.9375Z"
         />
