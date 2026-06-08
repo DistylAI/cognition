@@ -23,6 +23,7 @@ export const nav: NavGroup[] = [
       { href: "/components/dialog", label: "Dialog" },
       { href: "/components/dropdown-menu", label: "Dropdown Menu" },
       { href: "/components/empty-state", label: "Empty State" },
+      { href: "/components/graph-canvas-node", label: "Graph Canvas Node" },
       { href: "/components/input", label: "Input" },
       { href: "/components/kbd", label: "Keyboard Input" },
       { href: "/components/select", label: "Select" },
