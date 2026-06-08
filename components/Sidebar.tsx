@@ -81,7 +81,9 @@ export function Sidebar() {
   }, []);
 
   return (
-    <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col overflow-y-auto border-r border-border-default bg-background-subtle px-6 py-8 md:flex">
+    <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col overflow-y-auto border-r border-border-default bg-background-subtle md:flex">
+      {/* Sticky header — logo + search stay pinned; the nav scrolls under. */}
+      <div className="sticky top-0 z-10 bg-background-subtle px-6 pt-8 pb-4">
       <Link href="/" className="group mb-6 block">
         <div className="flex items-center gap-2">
           <span className="inline-block h-6 w-6 rounded-full bg-background-primary" />
@@ -92,7 +94,7 @@ export function Sidebar() {
       </Link>
 
       {/* Search — filters the whole nav. Grows with the component list. */}
-      <div className="relative mb-6">
+      <div className="relative">
         <Search
           aria-hidden
           className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-text-subtle"
@@ -133,8 +135,9 @@ export function Sidebar() {
           </Kbd>
         )}
       </div>
+      </div>
 
-      <nav className="flex-1 space-y-7">
+      <nav className="flex-1 space-y-7 px-6">
         {filteredNav.length === 0 ? (
           <p className="px-1 text-sm text-text-subtle">
             No matches for &ldquo;{query.trim()}&rdquo;.
@@ -196,7 +199,7 @@ export function Sidebar() {
         )}
       </nav>
 
-      <div className="mt-8 border-t border-border-default pt-6">
+      <div className="mt-8 border-t border-border-default px-6 pb-8 pt-6">
         <ThemeToggle />
         <div className="mt-4 flex flex-col gap-1 text-xs text-text-subtle">
           <span>Cognition v1.2</span>
