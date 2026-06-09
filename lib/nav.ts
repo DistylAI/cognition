@@ -24,6 +24,7 @@ export const nav: NavGroup[] = [
       { href: "/components/conversational-ui", label: "Conversational UI" },
       { href: "/components/data-table", label: "Data Table" },
       { href: "/components/dialog", label: "Dialog" },
+      { href: "/components/drawer", label: "Drawer" },
       { href: "/components/dropdown-menu", label: "Dropdown Menu" },
       { href: "/components/empty-state", label: "Empty State" },
       { href: "/components/graph-canvas-node", label: "Graph Canvas Node" },
