@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "Avatar component — an image element with a fallback for representing the user. API matches fe-distillery components/ui/avatar.tsx.",
 };
 
-const IMG = "https://github.com/tonydistyl.png";
+const IMG = "/avatar-sample.svg";
 
 const parts = [
   {
@@ -34,7 +34,7 @@ const sizeCode = `<Avatar className="size-6">…</Avatar>   {/* sm */}
 
 const imageCode = `<Avatar>
   <AvatarImage src={user.avatarUrl} alt={user.name} />
-  <AvatarFallback>TY</AvatarFallback>
+  <AvatarFallback>CN</AvatarFallback>
 </Avatar>`;
 
 const fallbackCode = `<Avatar>
@@ -70,8 +70,8 @@ function StatusAvatar() {
   return (
     <div className="relative inline-flex">
       <Avatar className="size-8">
-        <AvatarImage src={IMG} alt="Tony Yates" />
-        <AvatarFallback>TY</AvatarFallback>
+        <AvatarImage src={IMG} alt="Sample avatar" />
+        <AvatarFallback>CN</AvatarFallback>
       </Avatar>
       <span className="absolute bottom-0 right-0 size-2.5 rounded-full border-2 border-background-default bg-feedback-success" />
     </div>
@@ -113,8 +113,8 @@ export default function AvatarPage() {
         <h3 className="mt-12 mb-4 text-h3 text-text-default">Preview</h3>
         <div className="flex items-center justify-center gap-4 rounded-lg border border-border-default bg-background-subtle p-10">
           <Avatar>
-            <AvatarImage src={IMG} alt="Tony Yates" />
-            <AvatarFallback>TY</AvatarFallback>
+            <AvatarImage src={IMG} alt="Sample avatar" />
+            <AvatarFallback>CN</AvatarFallback>
           </Avatar>
           <Avatar>
             <AvatarFallback>CN</AvatarFallback>
@@ -166,8 +166,8 @@ export default function AvatarPage() {
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="flex items-center justify-center bg-background-subtle p-8">
               <Avatar>
-                <AvatarImage src={IMG} alt="Tony Yates" />
-                <AvatarFallback>TY</AvatarFallback>
+                <AvatarImage src={IMG} alt="Sample avatar" />
+                <AvatarFallback>CN</AvatarFallback>
               </Avatar>
             </div>
             <div className="border-t border-border-default p-3">
