@@ -15,6 +15,7 @@ export const nav: NavGroup[] = [
     items: [
       { href: "/components/accordion", label: "Accordion" },
       { href: "/components/alert", label: "Alert" },
+      { href: "/components/aspect-ratio", label: "Aspect Ratio" },
       { href: "/components/avatar", label: "Avatar" },
       { href: "/components/badge", label: "Badge" },
       { href: "/components/breadcrumb", label: "Breadcrumb" },
@@ -34,6 +35,7 @@ export const nav: NavGroup[] = [
       { href: "/components/popover", label: "Popover" },
       { href: "/components/progress", label: "Progress" },
       { href: "/components/select", label: "Select" },
+      { href: "/components/sheet", label: "Sheet" },
       { href: "/components/sidebar", label: "Sidebar" },
       { href: "/components/skeleton", label: "Skeleton" },
       { href: "/components/slider", label: "Slider" },
