@@ -71,7 +71,7 @@ function StatusAvatar() {
     <div className="relative inline-flex">
       <Avatar className="size-8">
         <AvatarImage src={IMG} alt="Derek Ho" />
-        <AvatarFallback>CN</AvatarFallback>
+        <AvatarFallback>DH</AvatarFallback>
       </Avatar>
       <span className="absolute bottom-0 right-0 size-2.5 rounded-full border-2 border-background-default bg-feedback-success" />
     </div>
@@ -114,7 +114,7 @@ export default function AvatarPage() {
         <div className="flex items-center justify-center gap-4 rounded-lg border border-border-default bg-background-subtle p-10">
           <Avatar>
             <AvatarImage src={IMG} alt="Derek Ho" />
-            <AvatarFallback>CN</AvatarFallback>
+            <AvatarFallback>DH</AvatarFallback>
           </Avatar>
           <Avatar>
             <AvatarFallback>CN</AvatarFallback>
@@ -167,7 +167,7 @@ export default function AvatarPage() {
             <div className="flex items-center justify-center bg-background-subtle p-8">
               <Avatar>
                 <AvatarImage src={IMG} alt="Derek Ho" />
-                <AvatarFallback>CN</AvatarFallback>
+                <AvatarFallback>DH</AvatarFallback>
               </Avatar>
             </div>
             <div className="border-t border-border-default p-3">
