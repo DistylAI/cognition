@@ -31,6 +31,7 @@ export const nav: NavGroup[] = [
       { href: "/components/input", label: "Input" },
       { href: "/components/kbd", label: "Keyboard Input" },
       { href: "/components/popover", label: "Popover" },
+      { href: "/components/progress", label: "Progress" },
       { href: "/components/select", label: "Select" },
       { href: "/components/sidebar", label: "Sidebar" },
       { href: "/components/skeleton", label: "Skeleton" },
