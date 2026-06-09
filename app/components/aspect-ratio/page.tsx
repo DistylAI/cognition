@@ -56,7 +56,7 @@ export function Cover({ src }: { src: string }) {
   );
 }`;
 
-const IMG = "https://github.com/tonydistyl.png";
+const IMG = "/aspect-ratio-sample.svg";
 
 function Placeholder({ label }: { label: string }) {
   return (

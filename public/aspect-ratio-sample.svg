@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Sample image">
+  <defs>
+    <linearGradient id="ar-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5D4EE7" />
+      <stop offset="100%" stop-color="#A99FF2" />
+    </linearGradient>
+  </defs>
+  <rect width="320" height="180" fill="url(#ar-grad)" />
+  <circle cx="252" cy="44" r="78" fill="#FFFFFF" opacity="0.12" />
+  <circle cx="64" cy="150" r="52" fill="#FFFFFF" opacity="0.10" />
+</svg>
