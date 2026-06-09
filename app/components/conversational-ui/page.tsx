@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ChatShell, LoadingBubble } from "@/components/ConversationalUI";
 import { CodeBlock } from "@/components/CodeBlock";
+import { getMenoSystemPrompt } from "@/lib/meno";
 import {
   ChatInputDemo,
   EmptyStateDemo,
@@ -206,6 +207,7 @@ function PropsTable({
 }
 
 export default function ConversationalUIPage() {
+  const menoPrompt = getMenoSystemPrompt();
   return (
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
@@ -230,13 +232,15 @@ export default function ConversationalUIPage() {
       <section id="preview" className="scroll-mt-8">
         <h3 className="mt-12 mb-4 text-h3 text-text-default">Preview</h3>
         <div className="overflow-hidden rounded-lg border border-border-default">
-          <ChatShell />
+          <ChatShell
+            systemPrompt={menoPrompt}
+            placeholder="Ask Meno about Cognition..."
+          />
         </div>
         <p className="mt-2 text-small">
-          Live — type a message and send. Toggle the theme from the sidebar and
-          the token layer remaps automatically. No{" "}
-          <code className="font-mono">dark:</code> classes anywhere in this
-          component.
+          This preview is live — it&apos;s running Meno, Cognition&apos;s
+          built-in assistant. Ask it anything about tokens, components, or system
+          rules.
         </p>
       </section>
 
