@@ -173,7 +173,7 @@ export default function PopoverDocsPage() {
         <h3 className="mt-12 mb-4 text-h3 text-text-default">Alignment</h3>
         <div className="grid grid-cols-1 gap-4">
           <Cell code={alignCode}>
-            <div className="flex flex-wrap items-center justify-center gap-3">
+            <div className="flex w-full max-w-2xl flex-wrap items-center justify-between gap-6">
               <AlignPopover align="start" />
               <AlignPopover align="center" />
               <AlignPopover align="end" />
