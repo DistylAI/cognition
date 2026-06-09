@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "Avatar component — an image element with a fallback for representing the user. API matches fe-distillery components/ui/avatar.tsx.",
 };
 
-const IMG = "/avatar-sample.svg";
+const IMG = "/avatar-sample.jpg";
 
 const parts = [
   {
