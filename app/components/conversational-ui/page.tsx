@@ -259,9 +259,9 @@ export default function ConversationalUIPage() {
         </p>
       </section>
 
-      {/* Anatomy */}
+      {/* API */}
       <section id="anatomy" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Anatomy</h3>
+        <h3 className="mt-12 mb-4 text-h3 text-text-default">API</h3>
 
         <div className="overflow-x-auto rounded-lg border border-border-default">
           <div className="min-w-[640px]">

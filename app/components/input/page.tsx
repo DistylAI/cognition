@@ -136,6 +136,40 @@ export default function InputPage() {
         </p>
       </section>
 
+      {/* API */}
+      <section id="api" className="scroll-mt-8">
+        <h3 className="mt-12 mb-4 text-h3 text-text-default">API</h3>
+        <div className="overflow-x-auto rounded-lg border border-border-default">
+          <div className="min-w-[640px]">
+            <div className="grid grid-cols-[1.4fr_1.8fr_1fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-xs font-medium text-text-subtle">
+              <div>Prop</div>
+              <div>Type</div>
+              <div>Default</div>
+              <div>Description</div>
+            </div>
+            <div className="divide-y divide-border-default">
+              {[
+                { name: "type", type: "string", def: "\"text\"", desc: "Native input type — text, email, password, number." },
+                { name: "placeholder", type: "string", def: "undefined", desc: "Hint shown while the field is empty." },
+                { name: "value / defaultValue", type: "string", def: "undefined", desc: "Controlled / uncontrolled value." },
+                { name: "disabled", type: "boolean", def: "false", desc: "Dims and blocks input." },
+                { name: "...props", type: "InputHTMLAttributes", def: "—", desc: "All native input attributes pass through." },
+              ].map((p) => (
+                <div
+                  key={p.name}
+                  className="grid grid-cols-[1.4fr_1.8fr_1fr_3fr] gap-4 px-4 py-3"
+                >
+                  <div className="font-mono text-sm text-text-default">{p.name}</div>
+                  <div className="font-mono text-xs text-text-subtle">{p.type}</div>
+                  <div className="font-mono text-xs text-text-subtle">{p.def}</div>
+                  <div className="text-sm text-text-subtle">{p.desc}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
         <h3 className="mt-12 mb-4 text-h3 text-text-default">Don&apos;t and Do</h3>

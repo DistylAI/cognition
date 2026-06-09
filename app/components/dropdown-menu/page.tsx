@@ -58,9 +58,9 @@ export default function DropdownMenuPage() {
         </p>
       </section>
 
-      {/* Anatomy */}
+      {/* API */}
       <section id="anatomy" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Anatomy</h3>
+        <h3 className="mt-12 mb-4 text-h3 text-text-default">API</h3>
         <CodeBlock
           code={anatomyCode}
           className="rounded-lg border border-border-default bg-background-subtle"

@@ -195,9 +195,9 @@ export default function SliderDocsPage() {
         </p>
       </section>
 
-      {/* Props */}
-      <section id="props" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Props</h3>
+      {/* API */}
+      <section id="api" className="scroll-mt-8">
+        <h3 className="mt-12 mb-4 text-h3 text-text-default">API</h3>
         <div className="overflow-x-auto rounded-lg border border-border-default">
           <div className="min-w-[640px]">
             <div className="grid grid-cols-[1.6fr_1.8fr_1fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-xs font-medium text-text-subtle">

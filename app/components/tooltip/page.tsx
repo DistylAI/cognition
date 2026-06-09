@@ -68,6 +68,35 @@ export default function TooltipPage() {
         </p>
       </section>
 
+      {/* API */}
+      <section id="api" className="scroll-mt-8">
+        <h3 className="mt-12 mb-4 text-h3 text-text-default">API</h3>
+        <div className="overflow-x-auto rounded-lg border border-border-default">
+          <div className="min-w-[560px]">
+            <div className="grid grid-cols-[1.6fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-xs font-medium text-text-subtle">
+              <div>Part</div>
+              <div>Description</div>
+            </div>
+            <div className="divide-y divide-border-default">
+              {[
+                { name: "TooltipProvider", desc: "Wraps the app or a region; sets delayDuration for the tooltips inside." },
+                { name: "Tooltip", desc: "Root for a single tooltip. Holds open / defaultOpen." },
+                { name: "TooltipTrigger", desc: "The element that reveals the tooltip on hover or focus. Use asChild." },
+                { name: "TooltipContent", desc: "The floating label. side and sideOffset control placement." },
+              ].map((p) => (
+                <div
+                  key={p.name}
+                  className="grid grid-cols-[1.6fr_3fr] gap-4 px-4 py-3"
+                >
+                  <div className="font-mono text-sm text-text-default">{p.name}</div>
+                  <div className="text-sm text-text-subtle">{p.desc}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
         <h3 className="mt-12 mb-4 text-h3 text-text-default">Don&apos;t and Do</h3>

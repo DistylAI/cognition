@@ -120,9 +120,9 @@ export default function CardPage() {
         </p>
       </section>
 
-      {/* Anatomy */}
+      {/* API */}
       <section id="anatomy" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Anatomy</h3>
+        <h3 className="mt-12 mb-4 text-h3 text-text-default">API</h3>
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           <div className="flex items-start justify-center rounded-lg border border-border-default bg-background-subtle p-8">
             <Card className="w-full max-w-sm">

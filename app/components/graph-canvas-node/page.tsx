@@ -262,9 +262,9 @@ export default function GraphCanvasNodePage() {
         </p>
       </section>
 
-      {/* Props */}
-      <section id="props" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Props</h3>
+      {/* API */}
+      <section id="api" className="scroll-mt-8">
+        <h3 className="mt-12 mb-4 text-h3 text-text-default">API</h3>
         <PropsTable rows={props} />
       </section>
 
