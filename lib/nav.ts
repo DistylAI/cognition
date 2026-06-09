@@ -30,6 +30,7 @@ export const nav: NavGroup[] = [
       { href: "/components/graph-canvas-node", label: "Graph Canvas Node" },
       { href: "/components/input", label: "Input" },
       { href: "/components/kbd", label: "Keyboard Input" },
+      { href: "/components/popover", label: "Popover" },
       { href: "/components/select", label: "Select" },
       { href: "/components/sidebar", label: "Sidebar" },
       { href: "/components/skeleton", label: "Skeleton" },
