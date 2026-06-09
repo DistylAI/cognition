@@ -28,12 +28,29 @@ export function ChatShell({
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
+  const lastMessageRef = useRef<HTMLDivElement>(null);
 
+  // When an assistant message arrives, bring the TOP of it into view so the
+  // reader starts at the beginning of the reply. For user messages, fall back
+  // to scrolling to the bottom so the just-sent message stays visible.
   useEffect(() => {
-    if (listRef.current) {
+    const last = messages[messages.length - 1];
+    if (last?.role === "assistant" && lastMessageRef.current) {
+      lastMessageRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    } else if (listRef.current) {
       listRef.current.scrollTop = listRef.current.scrollHeight;
     }
-  }, [messages, loading]);
+  }, [messages]);
+
+  // Keep the loading bubble in view while a reply streams in.
+  useEffect(() => {
+    if (loading && listRef.current) {
+      listRef.current.scrollTop = listRef.current.scrollHeight;
+    }
+  }, [loading]);
 
   const handleSend = async (text: string) => {
     if (!text.trim() || loading) return;
@@ -96,12 +113,12 @@ export function ChatShell({
           <EmptyState onChipClick={handleSend} />
         ) : (
           messages.map((m, i) => (
-            <MessageBubble
+            <div
               key={i}
-              role={m.role}
-              content={m.content}
-              error={m.error}
-            />
+              ref={i === messages.length - 1 ? lastMessageRef : undefined}
+            >
+              <MessageBubble role={m.role} content={m.content} error={m.error} />
+            </div>
           ))
         )}
         {loading && <LoadingBubble />}

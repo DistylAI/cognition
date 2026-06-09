@@ -1,17 +1,25 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { ArrowUp } from "lucide-react";
+import { ArrowUp, Mic, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
 interface ChatInputProps {
   onSend: (message: string) => void;
+  onAttach?: () => void;
+  onVoice?: () => void;
   disabled?: boolean;
   placeholder?: string;
 }
 
-export function ChatInput({ onSend, disabled, placeholder }: ChatInputProps) {
+export function ChatInput({
+  onSend,
+  onAttach = () => {},
+  onVoice = () => {},
+  disabled,
+  placeholder,
+}: ChatInputProps) {
   const [value, setValue] = useState("");
   const ref = useRef<HTMLTextAreaElement>(null);
 
@@ -25,7 +33,27 @@ export function ChatInput({ onSend, disabled, placeholder }: ChatInputProps) {
 
   return (
     <div>
-      <div className="flex items-end gap-2 rounded-xl border border-border-default bg-background-subtle px-4 py-2 transition-colors focus-within:border-border-primary">
+      <div className="flex items-end gap-2 rounded-xl border border-border-default bg-background-subtle px-2 py-2 transition-colors focus-within:border-border-primary">
+        <Button
+          type="button"
+          variant="ghost"
+          size="icon-sm"
+          onClick={onAttach}
+          className="shrink-0 text-text-subtle"
+        >
+          <Plus aria-hidden />
+          <span className="sr-only">Attach</span>
+        </Button>
+        <Button
+          type="button"
+          variant="ghost"
+          size="icon-sm"
+          onClick={onVoice}
+          className="shrink-0 text-text-subtle"
+        >
+          <Mic aria-hidden />
+          <span className="sr-only">Voice input</span>
+        </Button>
         <Textarea
           ref={ref}
           value={value}
@@ -45,16 +73,16 @@ export function ChatInput({ onSend, disabled, placeholder }: ChatInputProps) {
           }}
           // Seamless inside the framed wrapper: strip the Textarea's own
           // border/bg/shadow/ring so the wrapper owns the focus state.
-          className="min-h-0 max-h-[120px] resize-none border-0 bg-transparent px-0 py-1.5 shadow-none focus-visible:border-0 focus-visible:ring-0"
+          className="min-h-0 max-h-[120px] min-w-0 flex-1 resize-none border-0 bg-transparent px-0 py-1.5 shadow-none focus-visible:border-0 focus-visible:ring-0"
         />
         <Button
           type="button"
-          size="sm"
+          size="icon-sm"
           onClick={send}
           disabled={disabled || !value.trim()}
           className="shrink-0"
         >
-          <ArrowUp size={14} aria-hidden />
+          <ArrowUp aria-hidden />
           <span className="sr-only">Send message</span>
         </Button>
       </div>
