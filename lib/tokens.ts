@@ -77,6 +77,19 @@ export const colorGroups: ColorGroup[] = [
       { name: "feedback.danger", cssVar: "--color-feedback-danger", utility: "bg-feedback-danger", utilities: ["bg-feedback-danger", "text-feedback-danger", "border-feedback-danger"], light: "#EF4444", dark: "#F87171", usage: "All error / destructive states" },
     ],
   },
+  {
+    id: "chart",
+    title: "Chart",
+    description:
+      "Data series colors for charts. Use in order — chart-1 first, chart-5 last. Never use feedback or primary tokens for neutral data series.",
+    tokens: [
+      { name: "chart.1", cssVar: "--color-chart-1", utility: "var(--color-chart-1)", light: "#7C6FF7", dark: "#9089F9", usage: "First data series" },
+      { name: "chart.2", cssVar: "--color-chart-2", utility: "var(--color-chart-2)", light: "#38BDF8", dark: "#7DD3FC", usage: "Second data series" },
+      { name: "chart.3", cssVar: "--color-chart-3", utility: "var(--color-chart-3)", light: "#34D399", dark: "#6EE7B7", usage: "Third data series" },
+      { name: "chart.4", cssVar: "--color-chart-4", utility: "var(--color-chart-4)", light: "#FB923C", dark: "#FDBA74", usage: "Fourth data series" },
+      { name: "chart.5", cssVar: "--color-chart-5", utility: "var(--color-chart-5)", light: "#A78BFA", dark: "#C4B5FD", usage: "Fifth data series" },
+    ],
+  },
 ];
 
 export type RadiusToken = { name: string; utility: string; value: string };

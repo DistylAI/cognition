@@ -14,7 +14,7 @@ const tokensPath = process.argv[3] || "lib/tokens.ts";
 const css = readFileSync(cssPath, "utf-8");
 const toks = readFileSync(tokensPath, "utf-8");
 
-const COLOR_RE = /(--color-[a-z-]+):\s*(#[0-9A-Fa-f]{3,6})/g;
+const COLOR_RE = /(--color-[a-z0-9-]+):\s*(#[0-9A-Fa-f]{3,6})/g;
 
 function block(re, label) {
   const m = css.match(re);
@@ -33,7 +33,7 @@ for (const m of css.matchAll(/\[data-theme="dark"\]\s*\{([^}]*)\}/g)) {
 
 const entries = [
   ...toks.matchAll(
-    /cssVar:\s*"(--color-[a-z-]+)"[\s\S]*?light:\s*"(#[0-9A-Fa-f]{3,6})"[\s\S]*?dark:\s*"(#[0-9A-Fa-f]{3,6})"/g,
+    /cssVar:\s*"(--color-[a-z0-9-]+)"[\s\S]*?light:\s*"(#[0-9A-Fa-f]{3,6})"[\s\S]*?dark:\s*"(#[0-9A-Fa-f]{3,6})"/g,
   ),
 ].map((m) => ({ cssVar: m[1], light: m[2].toLowerCase(), dark: m[3].toLowerCase() }));
 

@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/chart";
 
 // Each bar carries its own fill, pointing at a --color-<name> var the config
-// defines. Colors are Cognition feedback / semantic tokens — never hardcoded
+// defines. Colors are the Cognition chart tokens (chart-1 through chart-5) — never hardcoded
 // hex, and never the brand primary (purple).
 const catData = [
   { source: "organic", visitors: 275, fill: "var(--color-organic)" },
@@ -28,17 +28,17 @@ const catData = [
 
 const catConfig = {
   visitors: { label: "Visitors" },
-  organic: { label: "Organic", color: "var(--color-feedback-success)" },
-  referral: { label: "Referral", color: "var(--color-feedback-warning)" },
-  social: { label: "Social", color: "var(--color-feedback-danger)" },
-  email: { label: "Email", color: "var(--color-feedback-info)" },
-  direct: { label: "Direct", color: "var(--color-border-strong)" },
+  organic: { label: "Organic", color: "var(--color-chart-1)" },
+  referral: { label: "Referral", color: "var(--color-chart-2)" },
+  social: { label: "Social", color: "var(--color-chart-3)" },
+  email: { label: "Email", color: "var(--color-chart-4)" },
+  direct: { label: "Direct", color: "var(--color-chart-5)" },
 } satisfies ChartConfig;
 
 const stackData = [{ period: "H1", desktop: 1260, mobile: 570 }];
 const stackConfig = {
-  desktop: { label: "Desktop", color: "var(--color-feedback-success)" },
-  mobile: { label: "Mobile", color: "var(--color-feedback-warning)" },
+  desktop: { label: "Desktop", color: "var(--color-chart-1)" },
+  mobile: { label: "Mobile", color: "var(--color-chart-2)" },
 } satisfies ChartConfig;
 const stackTotal = stackData[0].desktop + stackData[0].mobile;
 

@@ -210,10 +210,11 @@ export default function ChartTooltipDocsPage() {
             </div>
             <p className="text-small text-text-default">
               Don&apos;t hardcode the indicator color — it&apos;s drawn from the
-              series config, so it must use token vars; and the brand primary
-              (purple) is reserved for brand and interactive actions, not data.
-              Don&apos;t hide essential information only in a tooltip; it&apos;s
-              hover-only and skips touch and keyboard users.
+              series config, so it must use the chart-1…chart-5 tokens; the brand
+              primary and feedback tokens carry meaning (brand, status) and
+              aren&apos;t for neutral data. Don&apos;t hide essential information
+              only in a tooltip; it&apos;s hover-only and skips touch and keyboard
+              users.
             </p>
           </div>
           <div className="rounded-lg border border-border-success bg-background-success p-5">

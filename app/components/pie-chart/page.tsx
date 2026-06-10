@@ -15,7 +15,7 @@ const parts = [
   },
   {
     name: "ChartConfig",
-    desc: "Per-slice label and color, keyed by nameKey value. Use Cognition token vars for colors (e.g. var(--color-feedback-success)).",
+    desc: "Per-slice label and color, keyed by nameKey value. Use Cognition token vars for colors (e.g. var(--color-chart-1)).",
   },
   {
     name: "ChartTooltip / ChartTooltipContent",
@@ -35,8 +35,8 @@ const setupCode = `const chartData = [
 
 const chartConfig = {
   visitors: { label: "Visitors" },
-  organic: { label: "Organic", color: "var(--color-feedback-success)" },
-  referral: { label: "Referral", color: "var(--color-feedback-warning)" },
+  organic: { label: "Organic", color: "var(--color-chart-1)" },
+  referral: { label: "Referral", color: "var(--color-chart-2)" },
 } satisfies ChartConfig;`;
 
 const basicCode = `<ChartContainer config={chartConfig} className="mx-auto aspect-square w-full max-w-[260px]">
@@ -69,7 +69,7 @@ import {
 
 const chartConfig = {
   visitors: { label: "Visitors" },
-  organic: { label: "Organic", color: "var(--color-feedback-success)" },
+  organic: { label: "Organic", color: "var(--color-chart-1)" },
 } satisfies ChartConfig;
 
 export function SourcePie({ data }) {
@@ -215,10 +215,9 @@ export default function PieChartDocsPage() {
             <p className="text-small text-text-default">
               Don&apos;t hardcode slice colors with a hex or raw palette utility —
               drive them from the config with token vars so they theme. Don&apos;t
-              use the brand primary (purple) for a data slice — it&apos;s reserved
-              for brand and interactive actions; reach for{" "}
-              <code className="font-mono">feedback-*</code> or other semantic
-              tokens. And don&apos;t split a pie into many tiny slices; past five
+              use the brand primary or feedback tokens for a data slice — those
+              carry meaning (brand, status); use the chart-1…chart-5 tokens, in
+              order. And don&apos;t split a pie into many tiny slices; past five
               or six, use a bar chart.
             </p>
           </div>
@@ -231,7 +230,7 @@ export default function PieChartDocsPage() {
 ];
 
 const config = {
-  organic: { label: "Organic", color: "var(--color-feedback-success)" },
+  organic: { label: "Organic", color: "var(--color-chart-1)" },
 } satisfies ChartConfig;`}
               </code>
             </pre>
@@ -257,7 +256,7 @@ const config = {
         <code className="font-mono text-text-default">Content</code>,{" "}
         <code className="font-mono text-text-default">ChartLegend</code>/
         <code className="font-mono text-text-default">Content</code> on Recharts.
-        Slice colors are feedback / semantic token vars from the config.
+        Slice colors are chart-token vars from the config.
       </footer>
     </div>
   );

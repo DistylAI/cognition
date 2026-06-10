@@ -19,11 +19,11 @@ const data = [
   { metric: "Value", a: 264, b: 170 },
 ];
 
-// Series colors come from Cognition feedback tokens — never hardcoded hex, and
-// never the brand primary (purple), which is reserved for brand / interactive.
+// Series colors come from the Cognition chart tokens (chart-1 through chart-5) — never hardcoded hex, and
+// never feedback or primary tokens for neutral data series.
 const config = {
-  a: { label: "Model A", color: "var(--color-feedback-success)" },
-  b: { label: "Model B", color: "var(--color-feedback-warning)" },
+  a: { label: "Model A", color: "var(--color-chart-1)" },
+  b: { label: "Model B", color: "var(--color-chart-2)" },
 } satisfies ChartConfig;
 
 export function BasicRadar() {

@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/chart";
 
 // Each slice carries its own fill, pointing at a --color-<name> var that the
-// config defines. Colors are Cognition feedback / semantic tokens — never
+// config defines. Colors are the Cognition chart tokens (chart-1 through chart-5) — never
 // hardcoded hex, and never the brand primary (purple).
 const pieData = [
   { source: "organic", visitors: 275, fill: "var(--color-organic)" },
@@ -23,11 +23,11 @@ const pieData = [
 
 const config = {
   visitors: { label: "Visitors" },
-  organic: { label: "Organic", color: "var(--color-feedback-success)" },
-  referral: { label: "Referral", color: "var(--color-feedback-warning)" },
-  social: { label: "Social", color: "var(--color-feedback-danger)" },
-  email: { label: "Email", color: "var(--color-feedback-info)" },
-  direct: { label: "Direct", color: "var(--color-border-strong)" },
+  organic: { label: "Organic", color: "var(--color-chart-1)" },
+  referral: { label: "Referral", color: "var(--color-chart-2)" },
+  social: { label: "Social", color: "var(--color-chart-3)" },
+  email: { label: "Email", color: "var(--color-chart-4)" },
+  direct: { label: "Direct", color: "var(--color-chart-5)" },
 } satisfies ChartConfig;
 
 const total = pieData.reduce((sum, d) => sum + d.visitors, 0);

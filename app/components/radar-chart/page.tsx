@@ -20,7 +20,7 @@ const parts = [
   },
   {
     name: "ChartConfig",
-    desc: "Per-series label and color. Use a Cognition token var for color (e.g. var(--color-feedback-success)).",
+    desc: "Per-series label and color. Use a Cognition token var for color (e.g. var(--color-chart-1)).",
   },
   {
     name: "ChartTooltip / ChartTooltipContent",
@@ -33,8 +33,8 @@ const parts = [
 ] as const;
 
 const setupCode = `const chartConfig = {
-  a: { label: "Model A", color: "var(--color-feedback-success)" },
-  b: { label: "Model B", color: "var(--color-feedback-warning)" },
+  a: { label: "Model A", color: "var(--color-chart-1)" },
+  b: { label: "Model B", color: "var(--color-chart-2)" },
 } satisfies ChartConfig;`;
 
 const basicCode = `<ChartContainer config={chartConfig} className="mx-auto aspect-square w-full max-w-[260px]">
@@ -70,7 +70,7 @@ import {
 } from "@/components/ui/chart";
 
 const chartConfig = {
-  a: { label: "Model A", color: "var(--color-feedback-success)" },
+  a: { label: "Model A", color: "var(--color-chart-1)" },
 } satisfies ChartConfig;
 
 export function ProfileRadar({ data }) {
@@ -218,10 +218,9 @@ export default function RadarChartDocsPage() {
             <p className="text-small text-text-default">
               Don&apos;t hardcode radar colors with a hex or raw palette utility —
               drive them from the config with token vars so they theme. Don&apos;t
-              use the brand primary (purple) for a data series — it&apos;s
-              reserved for brand and interactive actions; reach for{" "}
-              <code className="font-mono">feedback-*</code> or other semantic
-              tokens. And don&apos;t plot more than two or three series; the web
+              use the brand primary or feedback tokens for a data series — those carry
+              meaning (brand, status); use the chart-1…chart-5 tokens, in
+              order. And don&apos;t plot more than two or three series; the web
               gets unreadable.
             </p>
           </div>
@@ -232,7 +231,7 @@ export default function RadarChartDocsPage() {
                 {`const config = {
   a: {
     label: "Model A",
-    color: "var(--color-feedback-success)",
+    color: "var(--color-chart-1)",
   },
 } satisfies ChartConfig;
 
@@ -261,7 +260,7 @@ export default function RadarChartDocsPage() {
         <code className="font-mono text-text-default">Content</code>,{" "}
         <code className="font-mono text-text-default">ChartLegend</code>/
         <code className="font-mono text-text-default">Content</code> on Recharts.
-        Series colors are feedback-token vars from the config.
+        Series colors are chart-token vars from the config.
       </footer>
     </div>
   );

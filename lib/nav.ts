@@ -68,6 +68,7 @@ export const nav: NavGroup[] = [
           { id: "text", label: "Text" },
           { id: "border", label: "Borders" },
           { id: "feedback", label: "Feedback" },
+          { id: "chart", label: "Chart" },
           { id: "radius", label: "Radius" },
           { id: "spacing", label: "Spacing" },
           { id: "typography", label: "Typography" },

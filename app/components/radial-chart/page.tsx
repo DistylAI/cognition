@@ -20,7 +20,7 @@ const parts = [
   },
   {
     name: "ChartConfig",
-    desc: "Per-bar label and color, keyed by name. Use Cognition token vars for colors (e.g. var(--color-feedback-success)).",
+    desc: "Per-bar label and color, keyed by name. Use Cognition token vars for colors (e.g. var(--color-chart-1)).",
   },
   {
     name: "ChartTooltip / ChartTooltipContent",
@@ -39,7 +39,7 @@ const setupCode = `const chartData = [
 
 const chartConfig = {
   visitors: { label: "Visitors" },
-  organic: { label: "Organic", color: "var(--color-feedback-success)" },
+  organic: { label: "Organic", color: "var(--color-chart-1)" },
 } satisfies ChartConfig;`;
 
 const basicCode = `<ChartContainer config={chartConfig} className="mx-auto aspect-square w-full max-w-[260px]">
@@ -76,7 +76,7 @@ import {
 
 const chartConfig = {
   visitors: { label: "Visitors" },
-  organic: { label: "Organic", color: "var(--color-feedback-success)" },
+  organic: { label: "Organic", color: "var(--color-chart-1)" },
 } satisfies ChartConfig;
 
 export function SourceRadial({ data }) {
@@ -222,10 +222,9 @@ export default function RadialChartDocsPage() {
             <p className="text-small text-text-default">
               Don&apos;t hardcode bar colors with a hex or raw palette utility —
               drive them from the config with token vars so they theme. Don&apos;t
-              use the brand primary (purple) for a data series — it&apos;s
-              reserved for brand and interactive actions; reach for{" "}
-              <code className="font-mono">feedback-*</code> or other semantic
-              tokens. And don&apos;t use a radial chart for precise value
+              use the brand primary or feedback tokens for a data series — those carry
+              meaning (brand, status); use the chart-1…chart-5 tokens, in
+              order. And don&apos;t use a radial chart for precise value
               comparison — a bar chart reads more accurately.
             </p>
           </div>
@@ -238,7 +237,7 @@ export default function RadialChartDocsPage() {
 ];
 
 const config = {
-  organic: { label: "Organic", color: "var(--color-feedback-success)" },
+  organic: { label: "Organic", color: "var(--color-chart-1)" },
 } satisfies ChartConfig;`}
               </code>
             </pre>
@@ -262,7 +261,7 @@ const config = {
         — <code className="font-mono text-text-default">ChartContainer</code>,{" "}
         <code className="font-mono text-text-default">ChartTooltip</code>/
         <code className="font-mono text-text-default">Content</code> on Recharts.
-        Bar colors are feedback / semantic token vars from the config.
+        Bar colors are chart-token vars from the config.
       </footer>
     </div>
   );

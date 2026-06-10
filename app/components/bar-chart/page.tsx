@@ -21,7 +21,7 @@ const parts = [
   },
   {
     name: "ChartConfig",
-    desc: "Per-series label, optional icon, and color. Use a Cognition token var for color (e.g. var(--color-feedback-success)).",
+    desc: "Per-series label, optional icon, and color. Use a Cognition token var for color (e.g. var(--color-chart-1)).",
   },
   {
     name: "ChartTooltip / ChartTooltipContent",
@@ -34,8 +34,8 @@ const parts = [
 ] as const;
 
 const setupCode = `const chartConfig = {
-  desktop: { label: "Desktop", color: "var(--color-feedback-success)" },
-  mobile: { label: "Mobile", color: "var(--color-feedback-warning)" },
+  desktop: { label: "Desktop", color: "var(--color-chart-1)" },
+  mobile: { label: "Mobile", color: "var(--color-chart-2)" },
 } satisfies ChartConfig;`;
 
 const basicCode = `<ChartContainer config={chartConfig} className="h-[240px] w-full">
@@ -66,7 +66,7 @@ const negativeCode = `<Bar dataKey="net" radius={4}>
   {data.map((d) => (
     <Cell
       key={d.month}
-      fill={d.net >= 0 ? "var(--color-feedback-success)" : "var(--color-feedback-danger)"}
+      fill={d.net >= 0 ? "var(--color-chart-1)" : "var(--color-chart-4)"}
     />
   ))}
 </Bar>`;
@@ -80,7 +80,7 @@ import {
 } from "@/components/ui/chart";
 
 const chartConfig = {
-  desktop: { label: "Desktop", color: "var(--color-feedback-success)" },
+  desktop: { label: "Desktop", color: "var(--color-chart-1)" },
 } satisfies ChartConfig;
 
 export function VisitorsChart({ data }) {
@@ -183,7 +183,7 @@ export default function BarChartDocsPage() {
           <code className="font-mono">layout=&quot;vertical&quot;</code>), grouped
           and stacked series (<code className="font-mono">stackId</code>), and
           per-bar colors via <code className="font-mono">Cell</code> — e.g.
-          success/danger for positive and negative values.
+          chart-1 / chart-4 for positive and negative values.
         </p>
       </section>
 
@@ -231,10 +231,9 @@ export default function BarChartDocsPage() {
             <p className="text-small text-text-default">
               Don&apos;t hardcode bar colors with a hex or raw palette utility —
               drive them from the config with token vars so they theme. Don&apos;t
-              use the brand primary (purple) for a data series — it&apos;s
-              reserved for brand and interactive actions; reach for{" "}
-              <code className="font-mono">feedback-*</code> or other semantic
-              tokens. And don&apos;t stack more than three or four series; past
+              use the brand primary or feedback tokens for a data series — those carry
+              meaning (brand, status); use the chart-1…chart-5 tokens, in
+              order. And don&apos;t stack more than three or four series; past
               that, bars get hard to read.
             </p>
           </div>
@@ -245,7 +244,7 @@ export default function BarChartDocsPage() {
                 {`const config = {
   desktop: {
     label: "Desktop",
-    color: "var(--color-feedback-success)",
+    color: "var(--color-chart-1)",
   },
 } satisfies ChartConfig;
 

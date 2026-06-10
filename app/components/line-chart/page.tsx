@@ -15,7 +15,7 @@ const parts = [
   },
   {
     name: "ChartConfig",
-    desc: "Per-series label, optional icon, and color. Use a Cognition token var for color (e.g. var(--color-feedback-success)).",
+    desc: "Per-series label, optional icon, and color. Use a Cognition token var for color (e.g. var(--color-chart-1)).",
   },
   {
     name: "ChartTooltip / ChartTooltipContent",
@@ -28,8 +28,8 @@ const parts = [
 ] as const;
 
 const setupCode = `const chartConfig = {
-  desktop: { label: "Desktop", color: "var(--color-feedback-success)" },
-  mobile: { label: "Mobile", color: "var(--color-feedback-warning)" },
+  desktop: { label: "Desktop", color: "var(--color-chart-1)" },
+  mobile: { label: "Mobile", color: "var(--color-chart-2)" },
 } satisfies ChartConfig;`;
 
 const basicCode = `<ChartContainer config={chartConfig} className="h-[240px] w-full">
@@ -67,7 +67,7 @@ import {
 } from "@/components/ui/chart";
 
 const chartConfig = {
-  desktop: { label: "Desktop", color: "var(--color-feedback-success)" },
+  desktop: { label: "Desktop", color: "var(--color-chart-1)" },
 } satisfies ChartConfig;
 
 export function TrendChart({ data }) {
@@ -215,10 +215,9 @@ export default function LineChartDocsPage() {
             <p className="text-small text-text-default">
               Don&apos;t hardcode line colors with a hex or raw palette utility —
               drive them from the config with token vars so they theme. Don&apos;t
-              use the brand primary (purple) for a data series — it&apos;s
-              reserved for brand and interactive actions; reach for{" "}
-              <code className="font-mono">feedback-*</code> or other semantic
-              tokens. And don&apos;t crowd one chart with too many lines.
+              use the brand primary or feedback tokens for a data series — those carry
+              meaning (brand, status); use the chart-1…chart-5 tokens, in
+              order. And don&apos;t crowd one chart with too many lines.
             </p>
           </div>
           <div className="rounded-lg border border-border-success bg-background-success p-5">
@@ -228,7 +227,7 @@ export default function LineChartDocsPage() {
                 {`const config = {
   desktop: {
     label: "Desktop",
-    color: "var(--color-feedback-success)",
+    color: "var(--color-chart-1)",
   },
 } satisfies ChartConfig;
 
@@ -258,7 +257,7 @@ export default function LineChartDocsPage() {
         <code className="font-mono text-text-default">ChartLegend</code>/
         <code className="font-mono text-text-default">Content</code> on Recharts.
         The muted / border / background colors are replaced with Cognition
-        tokens, and series colors are feedback-token vars from the config.
+        tokens, and series colors are chart-token vars from the config.
       </footer>
     </div>
   );
