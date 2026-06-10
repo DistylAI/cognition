@@ -30,18 +30,21 @@ export function ChatShell({
   const listRef = useRef<HTMLDivElement>(null);
   const lastMessageRef = useRef<HTMLDivElement>(null);
 
-  // When an assistant message arrives, bring the TOP of it into view so the
-  // reader starts at the beginning of the reply. For user messages, fall back
-  // to scrolling to the bottom so the just-sent message stays visible.
+  // When an assistant message arrives, bring the TOP of it to the top of the
+  // message container. Scoped strictly to the container's own scroll — we never
+  // call scrollIntoView (it bubbles up and scrolls the page/window too); instead
+  // we adjust the container's scrollTop by the gap between the message's top and
+  // the container's top. For user messages, scroll the container to the bottom.
   useEffect(() => {
+    const list = listRef.current;
+    if (!list) return;
     const last = messages[messages.length - 1];
-    if (last?.role === "assistant" && lastMessageRef.current) {
-      lastMessageRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    } else if (listRef.current) {
-      listRef.current.scrollTop = listRef.current.scrollHeight;
+    const el = lastMessageRef.current;
+    if (last?.role === "assistant" && el) {
+      const delta = el.getBoundingClientRect().top - list.getBoundingClientRect().top;
+      list.scrollTo({ top: list.scrollTop + delta, behavior: "smooth" });
+    } else {
+      list.scrollTo({ top: list.scrollHeight, behavior: "smooth" });
     }
   }, [messages]);
 
