@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import {
   colorGroups,
+  colorParentTitle,
   radiusTokens,
   spacingTokens,
   typeScale,
@@ -30,7 +31,8 @@ export default function TokensPage() {
 
       {/* On-this-page — desktop uses the sidebar subnav, so this is mobile-only */}
       <nav className="mt-6 flex flex-wrap gap-2 md:hidden">
-        {[...colorGroups.map((g) => ({ id: g.id, title: g.title })),
+        {[
+          { id: "color", title: "Color" },
           { id: "radius", title: "Radius" },
           { id: "spacing", title: "Spacing" },
           { id: "typography", title: "Typography" }].map((s) => (
@@ -44,12 +46,21 @@ export default function TokensPage() {
         ))}
       </nav>
 
-      {/* Color groups */}
+      {/* Color — parent heading over backgrounds, text, borders, feedback, chart */}
+      <section id="color" className="scroll-mt-8">
+        <h3 className="mt-14 mb-1 border-b border-border-default pb-2 text-h3 text-text-default">
+          {colorParentTitle}
+        </h3>
+        <p className="mb-6 text-small">
+          Every color token, grouped by role — backgrounds, text, borders,
+          feedback, and chart series.
+        </p>
+      </section>
+
+      {/* Color sub-groups */}
       {colorGroups.map((group) => (
         <section key={group.id} id={group.id} className="scroll-mt-8">
-          <h3 className="mt-14 mb-1 border-b border-border-default pb-2 text-h3 text-text-default">
-            {group.title}
-          </h3>
+          <h4 className="mt-10 mb-1 text-h4 text-text-default">{group.title}</h4>
           <p className="mb-6 text-small">{group.description}</p>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">

@@ -21,6 +21,9 @@ export type ColorGroup = {
   tokens: ColorToken[];
 };
 
+// Parent heading the color groups render under on the Tokens page.
+export const colorParentTitle = "Color";
+
 export const colorGroups: ColorGroup[] = [
   {
     id: "background",

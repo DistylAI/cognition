@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
-import { Menu, Search, X } from "lucide-react";
+import { ChevronRight, Menu, Search, X } from "lucide-react";
 import { nav } from "@/lib/nav";
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -11,6 +11,7 @@ export function MobileNav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({});
 
   // Close the drawer whenever the route changes (i.e. a link was followed).
   useEffect(() => {
@@ -38,7 +39,16 @@ export function MobileNav() {
     return nav
       .map((group) => ({
         ...group,
-        items: group.items.filter((i) => i.label.toLowerCase().includes(q)),
+        items: group.items.flatMap((item) => {
+          if (item.children) {
+            const parentMatch = item.label.toLowerCase().includes(q);
+            const kids = parentMatch
+              ? item.children
+              : item.children.filter((c) => c.label.toLowerCase().includes(q));
+            return kids.map((c) => ({ href: c.href, label: c.label }));
+          }
+          return item.label.toLowerCase().includes(q) ? [item] : [];
+        }),
       }))
       .filter((group) => group.items.length > 0);
   }, [q]);
@@ -128,11 +138,69 @@ export function MobileNav() {
                     </p>
                     <ul className="space-y-0.5">
                       {group.items.map((item) => {
+                        // Collapsible group of child pages (e.g. Charts).
+                        if (item.children && !q) {
+                          const childActive = item.children.some(
+                            (c) => c.href === pathname,
+                          );
+                          const grpOpen =
+                            openGroups[item.label] ?? childActive;
+                          return (
+                            <li key={item.label}>
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  setOpenGroups((p) => ({
+                                    ...p,
+                                    [item.label]: !(
+                                      p[item.label] ?? childActive
+                                    ),
+                                  }))
+                                }
+                                aria-expanded={grpOpen}
+                                className="flex w-full items-center justify-between rounded-md px-3 py-2 text-sm font-medium text-text-subtle transition-colors hover:bg-background-secondary hover:text-text-default"
+                              >
+                                <span>{item.label}</span>
+                                <ChevronRight
+                                  aria-hidden
+                                  className={`size-4 shrink-0 transition-transform ${grpOpen ? "rotate-90" : ""}`}
+                                />
+                              </button>
+                              {grpOpen && (
+                                <ul className="mt-1 space-y-px border-l border-border-default pl-3">
+                                  {item.children.map((c) => {
+                                    const cActive = pathname === c.href;
+                                    return (
+                                      <li key={c.href}>
+                                        <Link
+                                          href={c.href ?? "#"}
+                                          onClick={() => setOpen(false)}
+                                          aria-current={
+                                            cActive ? "page" : undefined
+                                          }
+                                          className={[
+                                            "block rounded-md px-3 py-1.5 text-[13px] transition-colors",
+                                            cActive
+                                              ? "font-semibold text-text-default"
+                                              : "font-medium text-text-subtle hover:text-text-default",
+                                          ].join(" ")}
+                                        >
+                                          {c.label}
+                                        </Link>
+                                      </li>
+                                    );
+                                  })}
+                                </ul>
+                              )}
+                            </li>
+                          );
+                        }
+
                         const active = pathname === item.href;
                         return (
                           <li key={item.href}>
                             <Link
-                              href={item.href}
+                              href={item.href ?? "#"}
                               onClick={() => setOpen(false)}
                               className={[
                                 "block rounded-md px-3 py-2 text-sm font-medium transition-colors",

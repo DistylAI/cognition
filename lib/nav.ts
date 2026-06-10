@@ -2,7 +2,14 @@
 // and the mobile drawer menu so the two never drift.
 
 export type NavSection = { id: string; label: string };
-export type NavItem = { href: string; label: string; sections?: NavSection[] };
+// An item is either a page link (href) or a collapsible group of child pages
+// (children, no href of its own). sections are in-page anchors for a page.
+export type NavItem = {
+  href?: string;
+  label: string;
+  sections?: NavSection[];
+  children?: NavItem[];
+};
 export type NavGroup = { section: string; items: NavItem[] };
 
 export const nav: NavGroup[] = [
@@ -15,16 +22,25 @@ export const nav: NavGroup[] = [
     items: [
       { href: "/components/accordion", label: "Accordion" },
       { href: "/components/alert", label: "Alert" },
-      { href: "/components/area-chart", label: "Area Chart" },
       { href: "/components/aspect-ratio", label: "Aspect Ratio" },
       { href: "/components/avatar", label: "Avatar" },
       { href: "/components/badge", label: "Badge" },
-      { href: "/components/bar-chart", label: "Bar Chart" },
       { href: "/components/breadcrumb", label: "Breadcrumb" },
       { href: "/components/button", label: "Button" },
       { href: "/components/card", label: "Card" },
       { href: "/components/carousel", label: "Carousel" },
-      { href: "/components/chart-tooltip", label: "Chart Tooltip" },
+      {
+        label: "Charts",
+        children: [
+          { href: "/components/area-chart", label: "Area Chart" },
+          { href: "/components/bar-chart", label: "Bar Chart" },
+          { href: "/components/chart-tooltip", label: "Chart Tooltip" },
+          { href: "/components/line-chart", label: "Line Chart" },
+          { href: "/components/pie-chart", label: "Pie Chart" },
+          { href: "/components/radar-chart", label: "Radar Chart" },
+          { href: "/components/radial-chart", label: "Radial Chart" },
+        ],
+      },
       { href: "/components/checkbox", label: "Checkbox" },
       { href: "/components/collapsible", label: "Collapsible" },
       { href: "/components/conversational-ui", label: "Conversational UI" },
@@ -36,13 +52,9 @@ export const nav: NavGroup[] = [
       { href: "/components/graph-canvas-node", label: "Graph Canvas Node" },
       { href: "/components/input", label: "Input" },
       { href: "/components/kbd", label: "Keyboard Input" },
-      { href: "/components/line-chart", label: "Line Chart" },
       { href: "/components/pagination", label: "Pagination" },
-      { href: "/components/pie-chart", label: "Pie Chart" },
       { href: "/components/popover", label: "Popover" },
       { href: "/components/progress", label: "Progress" },
-      { href: "/components/radar-chart", label: "Radar Chart" },
-      { href: "/components/radial-chart", label: "Radial Chart" },
       { href: "/components/select", label: "Select" },
       { href: "/components/sheet", label: "Sheet" },
       { href: "/components/sidebar", label: "Sidebar" },

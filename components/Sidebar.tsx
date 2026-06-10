@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Search, X } from "lucide-react";
+import { ChevronRight, Search, X } from "lucide-react";
 import { Kbd } from "@/components/ui/kbd";
 import { nav, type NavSection } from "@/lib/nav";
 import { ThemeToggle } from "./ThemeToggle";
@@ -45,17 +45,28 @@ export function Sidebar() {
   const activeSection = useActiveSection(activeItem?.sections, pathname);
 
   const [query, setQuery] = useState("");
+  const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({});
   const searchRef = useRef<HTMLInputElement>(null);
   const q = query.trim().toLowerCase();
   const searching = q.length > 0;
 
   // Filter every group by label as the list grows. Empty query → full nav.
+  // While searching, child pages of a collapsible group surface as flat links.
   const filteredNav = useMemo(() => {
     if (!q) return nav;
     return nav
       .map((group) => ({
         ...group,
-        items: group.items.filter((i) => i.label.toLowerCase().includes(q)),
+        items: group.items.flatMap((item) => {
+          if (item.children) {
+            const parentMatch = item.label.toLowerCase().includes(q);
+            const kids = parentMatch
+              ? item.children
+              : item.children.filter((c) => c.label.toLowerCase().includes(q));
+            return kids.map((c) => ({ href: c.href, label: c.label }));
+          }
+          return item.label.toLowerCase().includes(q) ? [item] : [];
+        }),
       }))
       .filter((group) => group.items.length > 0);
   }, [q]);
@@ -150,11 +161,63 @@ export function Sidebar() {
               </p>
               <ul className="space-y-0.5">
                 {group.items.map((item) => {
+                  // Collapsible group of child pages (e.g. Charts).
+                  if (item.children && !searching) {
+                    const childActive = item.children.some(
+                      (c) => c.href === pathname,
+                    );
+                    const open = openGroups[item.label] ?? childActive;
+                    return (
+                      <li key={item.label}>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setOpenGroups((p) => ({
+                              ...p,
+                              [item.label]: !(p[item.label] ?? childActive),
+                            }))
+                          }
+                          aria-expanded={open}
+                          className="-mx-3 flex w-full items-center justify-between rounded-md px-3 py-2 text-sm font-medium text-text-subtle transition-colors hover:bg-background-secondary hover:text-text-default"
+                        >
+                          <span>{item.label}</span>
+                          <ChevronRight
+                            aria-hidden
+                            className={`size-4 shrink-0 transition-transform ${open ? "rotate-90" : ""}`}
+                          />
+                        </button>
+                        {open && (
+                          <ul className="mt-1 space-y-px border-l border-border-default pl-3">
+                            {item.children.map((c) => {
+                              const cActive = pathname === c.href;
+                              return (
+                                <li key={c.href}>
+                                  <Link
+                                    href={c.href ?? "#"}
+                                    aria-current={cActive ? "page" : undefined}
+                                    className={[
+                                      "block rounded-sm py-1 text-[13px] transition-colors",
+                                      cActive
+                                        ? "font-semibold text-text-default"
+                                        : "font-medium text-text-subtle hover:text-text-default",
+                                    ].join(" ")}
+                                  >
+                                    {c.label}
+                                  </Link>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        )}
+                      </li>
+                    );
+                  }
+
                   const active = pathname === item.href;
                   return (
                     <li key={item.href}>
                       <Link
-                        href={item.href}
+                        href={item.href ?? "#"}
                         className={[
                           "-mx-3 block rounded-md px-3 py-2 text-sm font-medium transition-colors",
                           active
