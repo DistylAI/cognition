@@ -19,10 +19,11 @@ const data = [
   { month: "Jun", desktop: 264, mobile: 140 },
 ];
 
-// Series colors come from Cognition tokens — never hardcoded hex.
+// Series colors come from Cognition feedback tokens — never hardcoded hex, and
+// never the brand primary (purple), which is reserved for brand / interactive.
 const config = {
-  desktop: { label: "Desktop", color: "var(--color-background-primary)" },
-  mobile: { label: "Mobile", color: "var(--color-feedback-success)" },
+  desktop: { label: "Desktop", color: "var(--color-feedback-success)" },
+  mobile: { label: "Mobile", color: "var(--color-feedback-warning)" },
 } satisfies ChartConfig;
 
 const negData = [

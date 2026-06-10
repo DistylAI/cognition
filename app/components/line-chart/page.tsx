@@ -1,17 +1,11 @@
 import type { Metadata } from "next";
 import { CodeBlock } from "@/components/CodeBlock";
-import {
-  BasicBar,
-  HorizontalBar,
-  MultipleBar,
-  NegativeBar,
-  StackedBar,
-} from "./BarChartDemos";
+import { BasicLine, DotsLine, MultipleLine, StepLine } from "./LineChartDemos";
 
 export const metadata: Metadata = {
-  title: "Bar Chart",
+  title: "Line Chart",
   description:
-    "Bar Chart — a Recharts bar chart wrapped in the Cognition Chart primitives, with token-driven series colors, tooltips, and legends.",
+    "Line Chart — a Recharts line chart wrapped in the Cognition Chart primitives, with token-driven series colors, tooltips, and legends.",
 };
 
 const parts = [
@@ -39,39 +33,32 @@ const setupCode = `const chartConfig = {
 } satisfies ChartConfig;`;
 
 const basicCode = `<ChartContainer config={chartConfig} className="h-[240px] w-full">
-  <BarChart data={data}>
+  <LineChart data={data} margin={{ left: 12, right: 12 }}>
     <CartesianGrid vertical={false} />
     <XAxis dataKey="month" tickLine={false} axisLine={false} />
     <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
-    <Bar dataKey="desktop" fill="var(--color-desktop)" radius={6} />
-  </BarChart>
+    <Line dataKey="desktop" type="monotone" stroke="var(--color-desktop)" strokeWidth={2} dot={false} />
+  </LineChart>
 </ChartContainer>`;
 
-const horizontalCode = `<BarChart data={data} layout="vertical">
-  <YAxis dataKey="month" type="category" tickLine={false} axisLine={false} />
-  <XAxis type="number" hide />
-  <Bar dataKey="desktop" fill="var(--color-desktop)" radius={5} />
-</BarChart>`;
-
-const multipleCode = `<BarChart data={data}>
+const multipleCode = `<LineChart data={data}>
   <ChartLegend content={<ChartLegendContent />} />
-  <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
-  <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
-</BarChart>`;
+  <Line dataKey="desktop" type="monotone" stroke="var(--color-desktop)" strokeWidth={2} dot={false} />
+  <Line dataKey="mobile" type="monotone" stroke="var(--color-mobile)" strokeWidth={2} dot={false} />
+</LineChart>`;
 
-const stackedCode = `<Bar dataKey="desktop" stackId="a" fill="var(--color-desktop)" radius={[0, 0, 4, 4]} />
-<Bar dataKey="mobile" stackId="a" fill="var(--color-mobile)" radius={[4, 4, 0, 0]} />`;
+const dotsCode = `<Line
+  dataKey="desktop"
+  type="monotone"
+  stroke="var(--color-desktop)"
+  strokeWidth={2}
+  dot={{ fill: "var(--color-desktop)", r: 4 }}
+  activeDot={{ r: 6 }}
+/>`;
 
-const negativeCode = `<Bar dataKey="net" radius={4}>
-  {data.map((d) => (
-    <Cell
-      key={d.month}
-      fill={d.net >= 0 ? "var(--color-feedback-success)" : "var(--color-feedback-danger)"}
-    />
-  ))}
-</Bar>`;
+const stepCode = `<Line dataKey="desktop" type="step" stroke="var(--color-desktop)" strokeWidth={2} dot={false} />`;
 
-const installCode = `import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
+const installCode = `import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
 import {
   ChartContainer,
   type ChartConfig,
@@ -83,15 +70,15 @@ const chartConfig = {
   desktop: { label: "Desktop", color: "var(--color-feedback-success)" },
 } satisfies ChartConfig;
 
-export function VisitorsChart({ data }) {
+export function TrendChart({ data }) {
   return (
     <ChartContainer config={chartConfig} className="h-[240px] w-full">
-      <BarChart data={data}>
+      <LineChart data={data} margin={{ left: 12, right: 12 }}>
         <CartesianGrid vertical={false} />
         <XAxis dataKey="month" tickLine={false} axisLine={false} />
         <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
-        <Bar dataKey="desktop" fill="var(--color-desktop)" radius={6} />
-      </BarChart>
+        <Line dataKey="desktop" type="monotone" stroke="var(--color-desktop)" strokeWidth={2} dot={false} />
+      </LineChart>
     </ChartContainer>
   );
 }`;
@@ -117,13 +104,13 @@ function Cell({
   );
 }
 
-export default function BarChartDocsPage() {
+export default function LineChartDocsPage() {
   return (
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
-      <h1 className="text-h1 text-text-default">Bar Chart</h1>
+      <h1 className="text-h1 text-text-default">Line Chart</h1>
       <p className="mt-3 max-w-2xl text-body text-text-subtle">
-        A bar chart built on Recharts and wrapped in the Cognition Chart
+        A line chart built on Recharts and wrapped in the Cognition Chart
         primitives. A <code className="font-mono">ChartConfig</code> maps each
         series to a label and a token color; the container, tooltip, and legend
         handle the rest.
@@ -133,24 +120,24 @@ export default function BarChartDocsPage() {
       <section id="preview" className="scroll-mt-8">
         <h3 className="mt-12 mb-4 text-h3 text-text-default">Preview</h3>
         <div className="rounded-lg border border-border-default bg-background-subtle p-6">
-          <BasicBar />
+          <BasicLine />
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens — bars, axes, grid, and tooltip all
-          remap on theme change, no <code className="font-mono">dark:</code>{" "}
+          Rendered with live Cognition tokens — the line, axes, grid, and tooltip
+          all remap on theme change, no <code className="font-mono">dark:</code>{" "}
           classes. Series colors are injected from the config as{" "}
           <code className="font-mono">--color-*</code> CSS vars.
         </p>
       </section>
 
-      {/* Setup */}
+      {/* Config */}
       <section id="config" className="scroll-mt-8">
         <h3 className="mt-12 mb-4 text-h3 text-text-default">Config</h3>
         <p className="mb-4 text-small">
           Every chart starts with a <code className="font-mono">ChartConfig</code>{" "}
           — one entry per series, each pointing at a Cognition token. The
           container turns those into <code className="font-mono">--color-*</code>{" "}
-          variables the bars reference.
+          variables the lines reference.
         </p>
         <CodeBlock
           code={setupCode}
@@ -163,27 +150,24 @@ export default function BarChartDocsPage() {
         <h3 className="mt-12 mb-4 text-h3 text-text-default">Variants</h3>
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
           <Cell code={basicCode}>
-            <BasicBar />
-          </Cell>
-          <Cell code={horizontalCode}>
-            <HorizontalBar />
+            <BasicLine />
           </Cell>
           <Cell code={multipleCode}>
-            <MultipleBar />
+            <MultipleLine />
           </Cell>
-          <Cell code={stackedCode}>
-            <StackedBar />
+          <Cell code={dotsCode}>
+            <DotsLine />
           </Cell>
-          <Cell code={negativeCode}>
-            <NegativeBar />
+          <Cell code={stepCode}>
+            <StepLine />
           </Cell>
         </div>
         <p className="mt-2 text-small">
-          The same primitives cover vertical and horizontal layouts (
-          <code className="font-mono">layout=&quot;vertical&quot;</code>), grouped
-          and stacked series (<code className="font-mono">stackId</code>), and
-          per-bar colors via <code className="font-mono">Cell</code> — e.g.
-          success/danger for positive and negative values.
+          One series or several, with or without dots. Switch the curve with{" "}
+          <code className="font-mono">type</code> —{" "}
+          <code className="font-mono">monotone</code> for smooth,{" "}
+          <code className="font-mono">linear</code> for straight, or{" "}
+          <code className="font-mono">step</code> for stepped.
         </p>
       </section>
 
@@ -212,8 +196,8 @@ export default function BarChartDocsPage() {
           </div>
         </div>
         <p className="mt-2 text-small">
-          The Recharts pieces — <code className="font-mono">BarChart</code>,{" "}
-          <code className="font-mono">Bar</code>,{" "}
+          The Recharts pieces — <code className="font-mono">LineChart</code>,{" "}
+          <code className="font-mono">Line</code>,{" "}
           <code className="font-mono">XAxis</code>,{" "}
           <code className="font-mono">CartesianGrid</code> — are used directly
           inside <code className="font-mono">ChartContainer</code>.
@@ -229,13 +213,12 @@ export default function BarChartDocsPage() {
               Don&apos;t
             </div>
             <p className="text-small text-text-default">
-              Don&apos;t hardcode bar colors with a hex or raw palette utility —
+              Don&apos;t hardcode line colors with a hex or raw palette utility —
               drive them from the config with token vars so they theme. Don&apos;t
               use the brand primary (purple) for a data series — it&apos;s
               reserved for brand and interactive actions; reach for{" "}
               <code className="font-mono">feedback-*</code> or other semantic
-              tokens. And don&apos;t stack more than three or four series; past
-              that, bars get hard to read.
+              tokens. And don&apos;t crowd one chart with too many lines.
             </p>
           </div>
           <div className="rounded-lg border border-border-success bg-background-success p-5">
@@ -249,7 +232,7 @@ export default function BarChartDocsPage() {
   },
 } satisfies ChartConfig;
 
-<Bar dataKey="desktop" fill="var(--color-desktop)" />`}
+<Line dataKey="desktop" stroke="var(--color-desktop)" />`}
               </code>
             </pre>
           </div>
@@ -275,7 +258,7 @@ export default function BarChartDocsPage() {
         <code className="font-mono text-text-default">ChartLegend</code>/
         <code className="font-mono text-text-default">Content</code> on Recharts.
         The muted / border / background colors are replaced with Cognition
-        tokens, and series colors are token vars from the config.
+        tokens, and series colors are feedback-token vars from the config.
       </footer>
     </div>
   );

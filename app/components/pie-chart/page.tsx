@@ -1,0 +1,264 @@
+import type { Metadata } from "next";
+import { CodeBlock } from "@/components/CodeBlock";
+import { BasicPie, DonutPie, DonutTextPie, LegendPie } from "./PieChartDemos";
+
+export const metadata: Metadata = {
+  title: "Pie Chart",
+  description:
+    "Pie Chart — a Recharts pie/donut chart wrapped in the Cognition Chart primitives, with token-driven slice colors and tooltips.",
+};
+
+const parts = [
+  {
+    name: "ChartContainer",
+    desc: "Wraps a Recharts chart. Takes a config and injects each slice color as a --color-<key> CSS var.",
+  },
+  {
+    name: "ChartConfig",
+    desc: "Per-slice label and color, keyed by nameKey value. Use Cognition token vars for colors (e.g. var(--color-feedback-success)).",
+  },
+  {
+    name: "ChartTooltip / ChartTooltipContent",
+    desc: "Recharts tooltip + the styled content. hideLabel and formatters supported.",
+  },
+  {
+    name: "ChartLegend / ChartLegendContent",
+    desc: "Recharts legend + styled content; pass nameKey to label slices.",
+  },
+] as const;
+
+const setupCode = `const chartData = [
+  { source: "organic", visitors: 275, fill: "var(--color-organic)" },
+  { source: "referral", visitors: 200, fill: "var(--color-referral)" },
+  // …
+];
+
+const chartConfig = {
+  visitors: { label: "Visitors" },
+  organic: { label: "Organic", color: "var(--color-feedback-success)" },
+  referral: { label: "Referral", color: "var(--color-feedback-warning)" },
+} satisfies ChartConfig;`;
+
+const basicCode = `<ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[260px]">
+  <PieChart>
+    <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
+    <Pie data={chartData} dataKey="visitors" nameKey="source" />
+  </PieChart>
+</ChartContainer>`;
+
+const donutCode = `<Pie data={chartData} dataKey="visitors" nameKey="source" innerRadius={52} />`;
+
+const donutTextCode = `<Pie data={chartData} dataKey="visitors" nameKey="source" innerRadius={60}>
+  <Label content={({ viewBox }) => (
+    /* center <text>: total on top, label beneath — fill via fill-text-* tokens */
+  )} />
+</Pie>`;
+
+const legendCode = `<PieChart>
+  <Pie data={chartData} dataKey="visitors" nameKey="source" />
+  <ChartLegend content={<ChartLegendContent nameKey="source" />} />
+</PieChart>`;
+
+const installCode = `import { Pie, PieChart } from "recharts";
+import {
+  ChartContainer,
+  type ChartConfig,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart";
+
+const chartConfig = {
+  visitors: { label: "Visitors" },
+  organic: { label: "Organic", color: "var(--color-feedback-success)" },
+} satisfies ChartConfig;
+
+export function SourcePie({ data }) {
+  return (
+    <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[260px]">
+      <PieChart>
+        <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
+        <Pie data={data} dataKey="visitors" nameKey="source" />
+      </PieChart>
+    </ChartContainer>
+  );
+}`;
+
+function Cell({
+  children,
+  code,
+}: {
+  children: React.ReactNode;
+  code: string;
+}) {
+  return (
+    <div className="overflow-hidden rounded-lg border border-border-default">
+      <div className="flex justify-center bg-background-subtle p-6">
+        {children}
+      </div>
+      <div className="border-t border-border-default p-3">
+        <CodeBlock
+          code={code}
+          size="sm"
+          className="rounded-md border border-border-subtle bg-background-subtle"
+        />
+      </div>
+    </div>
+  );
+}
+
+export default function PieChartDocsPage() {
+  return (
+    <div>
+      <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
+      <h1 className="text-h1 text-text-default">Pie Chart</h1>
+      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+        A pie or donut chart built on Recharts and wrapped in the Cognition Chart
+        primitives. Each slice draws its color from the config; the container and
+        tooltip handle the rest.
+      </p>
+
+      {/* Preview */}
+      <section id="preview" className="scroll-mt-8">
+        <h3 className="mt-12 mb-4 text-h3 text-text-default">Preview</h3>
+        <div className="flex justify-center rounded-lg border border-border-default bg-background-subtle p-6">
+          <DonutTextPie />
+        </div>
+        <p className="mt-2 text-small">
+          Rendered with live Cognition tokens — slices and the center label remap
+          on theme change, no <code className="font-mono">dark:</code> classes.
+          Each slice&apos;s color is injected from the config as a{" "}
+          <code className="font-mono">--color-*</code> CSS var.
+        </p>
+      </section>
+
+      {/* Config */}
+      <section id="config" className="scroll-mt-8">
+        <h3 className="mt-12 mb-4 text-h3 text-text-default">Config</h3>
+        <p className="mb-4 text-small">
+          Give each datum a <code className="font-mono">fill</code> that points at
+          a <code className="font-mono">--color-&lt;name&gt;</code> var, and define
+          those names in the <code className="font-mono">ChartConfig</code> with
+          Cognition tokens.
+        </p>
+        <CodeBlock
+          code={setupCode}
+          className="rounded-lg border border-border-default bg-background-subtle"
+        />
+      </section>
+
+      {/* Variants */}
+      <section id="variants" className="scroll-mt-8">
+        <h3 className="mt-12 mb-4 text-h3 text-text-default">Variants</h3>
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+          <Cell code={basicCode}>
+            <BasicPie />
+          </Cell>
+          <Cell code={donutCode}>
+            <DonutPie />
+          </Cell>
+          <Cell code={donutTextCode}>
+            <DonutTextPie />
+          </Cell>
+          <Cell code={legendCode}>
+            <LegendPie />
+          </Cell>
+        </div>
+        <p className="mt-2 text-small">
+          A solid pie, a donut via <code className="font-mono">innerRadius</code>,
+          a donut with a center total using{" "}
+          <code className="font-mono">Label</code>, or a pie with a legend. Center
+          text is filled with <code className="font-mono">fill-text-*</code>{" "}
+          tokens.
+        </p>
+      </section>
+
+      {/* API */}
+      <section id="api" className="scroll-mt-8">
+        <h3 className="mt-12 mb-4 text-h3 text-text-default">API</h3>
+        <div className="overflow-x-auto rounded-lg border border-border-default">
+          <div className="min-w-[640px]">
+            <div className="grid grid-cols-[1.8fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-xs font-medium text-text-subtle">
+              <div>Part</div>
+              <div>Description</div>
+            </div>
+            <div className="divide-y divide-border-default">
+              {parts.map((p) => (
+                <div
+                  key={p.name}
+                  className="grid grid-cols-[1.8fr_3fr] gap-4 px-4 py-3"
+                >
+                  <div className="font-mono text-sm text-text-default">
+                    {p.name}
+                  </div>
+                  <div className="text-sm text-text-subtle">{p.desc}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <p className="mt-2 text-small">
+          The Recharts pieces — <code className="font-mono">PieChart</code>,{" "}
+          <code className="font-mono">Pie</code>,{" "}
+          <code className="font-mono">Label</code> — are used directly inside{" "}
+          <code className="font-mono">ChartContainer</code>.
+        </p>
+      </section>
+
+      {/* Don't and Do */}
+      <section id="do-dont" className="scroll-mt-8">
+        <h3 className="mt-12 mb-4 text-h3 text-text-default">Don&apos;t and Do</h3>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="rounded-lg border border-border-danger bg-background-danger p-5">
+            <div className="mb-2 text-sm font-bold text-text-danger">
+              Don&apos;t
+            </div>
+            <p className="text-small text-text-default">
+              Don&apos;t hardcode slice colors with a hex or raw palette utility —
+              drive them from the config with token vars so they theme. Don&apos;t
+              use the brand primary (purple) for a data slice — it&apos;s reserved
+              for brand and interactive actions; reach for{" "}
+              <code className="font-mono">feedback-*</code> or other semantic
+              tokens. And don&apos;t split a pie into many tiny slices; past five
+              or six, use a bar chart.
+            </p>
+          </div>
+          <div className="rounded-lg border border-border-success bg-background-success p-5">
+            <div className="mb-2 text-sm font-bold text-text-success">Do</div>
+            <pre className="overflow-x-auto">
+              <code className="font-mono text-xs leading-6 text-text-default">
+                {`const data = [
+  { source: "organic", visitors: 275, fill: "var(--color-organic)" },
+];
+
+const config = {
+  organic: { label: "Organic", color: "var(--color-feedback-success)" },
+} satisfies ChartConfig;`}
+              </code>
+            </pre>
+          </div>
+        </div>
+      </section>
+
+      {/* Copy-paste */}
+      <section id="copy-paste" className="mt-12 scroll-mt-8">
+        <CodeBlock
+          code={installCode}
+          className="rounded-lg border border-border-default bg-background-subtle"
+        />
+      </section>
+
+      <footer className="mt-16 border-t border-border-default pt-6 text-small">
+        API matches{" "}
+        <code className="font-mono text-text-default">
+          fe-distillery/components/ui/chart.tsx
+        </code>{" "}
+        — <code className="font-mono text-text-default">ChartContainer</code>,{" "}
+        <code className="font-mono text-text-default">ChartTooltip</code>/
+        <code className="font-mono text-text-default">Content</code>,{" "}
+        <code className="font-mono text-text-default">ChartLegend</code>/
+        <code className="font-mono text-text-default">Content</code> on Recharts.
+        Slice colors are feedback / semantic token vars from the config.
+      </footer>
+    </div>
+  );
+}

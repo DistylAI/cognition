@@ -1,77 +1,72 @@
 import type { Metadata } from "next";
 import { CodeBlock } from "@/components/CodeBlock";
 import {
-  BasicBar,
-  HorizontalBar,
-  MultipleBar,
-  NegativeBar,
-  StackedBar,
-} from "./BarChartDemos";
+  BasicRadial,
+  GridRadial,
+  LabelRadial,
+  StackedRadial,
+} from "./RadialChartDemos";
 
 export const metadata: Metadata = {
-  title: "Bar Chart",
+  title: "Radial Chart",
   description:
-    "Bar Chart — a Recharts bar chart wrapped in the Cognition Chart primitives, with token-driven series colors, tooltips, and legends.",
+    "Radial Chart — a Recharts radial bar chart wrapped in the Cognition Chart primitives, with token-driven colors and tooltips.",
 };
 
 const parts = [
   {
     name: "ChartContainer",
-    desc: "Wraps a Recharts chart. Takes a config and injects each series color as a --color-<key> CSS var.",
+    desc: "Wraps a Recharts chart. Takes a config and injects each bar color as a --color-<key> CSS var.",
   },
   {
     name: "ChartConfig",
-    desc: "Per-series label, optional icon, and color. Use a Cognition token var for color (e.g. var(--color-feedback-success)).",
+    desc: "Per-bar label and color, keyed by name. Use Cognition token vars for colors (e.g. var(--color-feedback-success)).",
   },
   {
     name: "ChartTooltip / ChartTooltipContent",
-    desc: "Recharts tooltip + the styled content. hideLabel, indicator (dot | line | dashed), and formatters supported.",
+    desc: "Recharts tooltip + the styled content. hideLabel and nameKey supported.",
   },
   {
-    name: "ChartLegend / ChartLegendContent",
-    desc: "Recharts legend + styled content, driven by the same config.",
+    name: "PolarRadiusAxis / Label",
+    desc: "Used to anchor a center label (e.g. a total) inside a stacked radial chart.",
   },
 ] as const;
 
-const setupCode = `const chartConfig = {
-  desktop: { label: "Desktop", color: "var(--color-feedback-success)" },
-  mobile: { label: "Mobile", color: "var(--color-feedback-warning)" },
+const setupCode = `const chartData = [
+  { source: "organic", visitors: 275, fill: "var(--color-organic)" },
+  // …
+];
+
+const chartConfig = {
+  visitors: { label: "Visitors" },
+  organic: { label: "Organic", color: "var(--color-feedback-success)" },
 } satisfies ChartConfig;`;
 
-const basicCode = `<ChartContainer config={chartConfig} className="h-[240px] w-full">
-  <BarChart data={data}>
-    <CartesianGrid vertical={false} />
-    <XAxis dataKey="month" tickLine={false} axisLine={false} />
-    <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
-    <Bar dataKey="desktop" fill="var(--color-desktop)" radius={6} />
-  </BarChart>
+const basicCode = `<ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[260px]">
+  <RadialBarChart data={chartData} innerRadius={30} outerRadius={110}>
+    <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel nameKey="source" />} />
+    <RadialBar dataKey="visitors" background />
+  </RadialBarChart>
 </ChartContainer>`;
 
-const horizontalCode = `<BarChart data={data} layout="vertical">
-  <YAxis dataKey="month" type="category" tickLine={false} axisLine={false} />
-  <XAxis type="number" hide />
-  <Bar dataKey="desktop" fill="var(--color-desktop)" radius={5} />
-</BarChart>`;
+const labelCode = `<RadialBarChart data={chartData} startAngle={-90} endAngle={270} innerRadius={30} outerRadius={110}>
+  <RadialBar dataKey="visitors" background>
+    <LabelList position="insideStart" dataKey="source" className="fill-text-inverse" fontSize={11} />
+  </RadialBar>
+</RadialBarChart>`;
 
-const multipleCode = `<BarChart data={data}>
-  <ChartLegend content={<ChartLegendContent />} />
-  <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
-  <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
-</BarChart>`;
+const gridCode = `<PolarGrid gridType="circle" />
+<RadialBar dataKey="visitors" background />`;
 
-const stackedCode = `<Bar dataKey="desktop" stackId="a" fill="var(--color-desktop)" radius={[0, 0, 4, 4]} />
-<Bar dataKey="mobile" stackId="a" fill="var(--color-mobile)" radius={[4, 4, 0, 0]} />`;
+const stackedCode = `<RadialBarChart data={data} endAngle={180} innerRadius={80} outerRadius={130}>
+  <PolarRadiusAxis tick={false} axisLine={false}>
+    <Label content={/* center total via fill-text-* tokens */} />
+  </PolarRadiusAxis>
+  <RadialBar dataKey="desktop" stackId="a" fill="var(--color-desktop)" />
+  <RadialBar dataKey="mobile" stackId="a" fill="var(--color-mobile)" />
+</RadialBarChart>`;
 
-const negativeCode = `<Bar dataKey="net" radius={4}>
-  {data.map((d) => (
-    <Cell
-      key={d.month}
-      fill={d.net >= 0 ? "var(--color-feedback-success)" : "var(--color-feedback-danger)"}
-    />
-  ))}
-</Bar>`;
-
-const installCode = `import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
+const installCode = `import { RadialBar, RadialBarChart } from "recharts";
 import {
   ChartContainer,
   type ChartConfig,
@@ -80,18 +75,17 @@ import {
 } from "@/components/ui/chart";
 
 const chartConfig = {
-  desktop: { label: "Desktop", color: "var(--color-feedback-success)" },
+  visitors: { label: "Visitors" },
+  organic: { label: "Organic", color: "var(--color-feedback-success)" },
 } satisfies ChartConfig;
 
-export function VisitorsChart({ data }) {
+export function SourceRadial({ data }) {
   return (
-    <ChartContainer config={chartConfig} className="h-[240px] w-full">
-      <BarChart data={data}>
-        <CartesianGrid vertical={false} />
-        <XAxis dataKey="month" tickLine={false} axisLine={false} />
-        <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
-        <Bar dataKey="desktop" fill="var(--color-desktop)" radius={6} />
-      </BarChart>
+    <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[260px]">
+      <RadialBarChart data={data} innerRadius={30} outerRadius={110}>
+        <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel nameKey="source" />} />
+        <RadialBar dataKey="visitors" background />
+      </RadialBarChart>
     </ChartContainer>
   );
 }`;
@@ -105,7 +99,9 @@ function Cell({
 }) {
   return (
     <div className="overflow-hidden rounded-lg border border-border-default">
-      <div className="bg-background-subtle p-6">{children}</div>
+      <div className="flex justify-center bg-background-subtle p-6">
+        {children}
+      </div>
       <div className="border-t border-border-default p-3">
         <CodeBlock
           code={code}
@@ -117,40 +113,39 @@ function Cell({
   );
 }
 
-export default function BarChartDocsPage() {
+export default function RadialChartDocsPage() {
   return (
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
-      <h1 className="text-h1 text-text-default">Bar Chart</h1>
+      <h1 className="text-h1 text-text-default">Radial Chart</h1>
       <p className="mt-3 max-w-2xl text-body text-text-subtle">
-        A bar chart built on Recharts and wrapped in the Cognition Chart
-        primitives. A <code className="font-mono">ChartConfig</code> maps each
-        series to a label and a token color; the container, tooltip, and legend
-        handle the rest.
+        A radial bar chart built on Recharts and wrapped in the Cognition Chart
+        primitives — bars drawn around a center rather than along an axis. Colors
+        come from the config.
       </p>
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
         <h3 className="mt-12 mb-4 text-h3 text-text-default">Preview</h3>
-        <div className="rounded-lg border border-border-default bg-background-subtle p-6">
-          <BasicBar />
+        <div className="flex justify-center rounded-lg border border-border-default bg-background-subtle p-6">
+          <StackedRadial />
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens — bars, axes, grid, and tooltip all
+          Rendered with live Cognition tokens — bars, track, and center label
           remap on theme change, no <code className="font-mono">dark:</code>{" "}
-          classes. Series colors are injected from the config as{" "}
+          classes. Bar colors are injected from the config as{" "}
           <code className="font-mono">--color-*</code> CSS vars.
         </p>
       </section>
 
-      {/* Setup */}
+      {/* Config */}
       <section id="config" className="scroll-mt-8">
         <h3 className="mt-12 mb-4 text-h3 text-text-default">Config</h3>
         <p className="mb-4 text-small">
-          Every chart starts with a <code className="font-mono">ChartConfig</code>{" "}
-          — one entry per series, each pointing at a Cognition token. The
-          container turns those into <code className="font-mono">--color-*</code>{" "}
-          variables the bars reference.
+          Give each datum a <code className="font-mono">fill</code> that points at
+          a <code className="font-mono">--color-&lt;name&gt;</code> var, and define
+          those names in the <code className="font-mono">ChartConfig</code> with
+          Cognition tokens.
         </p>
         <CodeBlock
           code={setupCode}
@@ -163,27 +158,23 @@ export default function BarChartDocsPage() {
         <h3 className="mt-12 mb-4 text-h3 text-text-default">Variants</h3>
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
           <Cell code={basicCode}>
-            <BasicBar />
+            <BasicRadial />
           </Cell>
-          <Cell code={horizontalCode}>
-            <HorizontalBar />
+          <Cell code={labelCode}>
+            <LabelRadial />
           </Cell>
-          <Cell code={multipleCode}>
-            <MultipleBar />
+          <Cell code={gridCode}>
+            <GridRadial />
           </Cell>
           <Cell code={stackedCode}>
-            <StackedBar />
-          </Cell>
-          <Cell code={negativeCode}>
-            <NegativeBar />
+            <StackedRadial />
           </Cell>
         </div>
         <p className="mt-2 text-small">
-          The same primitives cover vertical and horizontal layouts (
-          <code className="font-mono">layout=&quot;vertical&quot;</code>), grouped
-          and stacked series (<code className="font-mono">stackId</code>), and
-          per-bar colors via <code className="font-mono">Cell</code> — e.g.
-          success/danger for positive and negative values.
+          Concentric bars per category, optional inline labels via{" "}
+          <code className="font-mono">LabelList</code>, a circular grid, or a
+          stacked gauge with a center total anchored on{" "}
+          <code className="font-mono">PolarRadiusAxis</code>.
         </p>
       </section>
 
@@ -212,11 +203,11 @@ export default function BarChartDocsPage() {
           </div>
         </div>
         <p className="mt-2 text-small">
-          The Recharts pieces — <code className="font-mono">BarChart</code>,{" "}
-          <code className="font-mono">Bar</code>,{" "}
-          <code className="font-mono">XAxis</code>,{" "}
-          <code className="font-mono">CartesianGrid</code> — are used directly
-          inside <code className="font-mono">ChartContainer</code>.
+          The Recharts pieces — <code className="font-mono">RadialBarChart</code>,{" "}
+          <code className="font-mono">RadialBar</code>,{" "}
+          <code className="font-mono">PolarGrid</code>,{" "}
+          <code className="font-mono">LabelList</code> — are used directly inside{" "}
+          <code className="font-mono">ChartContainer</code>.
         </p>
       </section>
 
@@ -234,22 +225,21 @@ export default function BarChartDocsPage() {
               use the brand primary (purple) for a data series — it&apos;s
               reserved for brand and interactive actions; reach for{" "}
               <code className="font-mono">feedback-*</code> or other semantic
-              tokens. And don&apos;t stack more than three or four series; past
-              that, bars get hard to read.
+              tokens. And don&apos;t use a radial chart for precise value
+              comparison — a bar chart reads more accurately.
             </p>
           </div>
           <div className="rounded-lg border border-border-success bg-background-success p-5">
             <div className="mb-2 text-sm font-bold text-text-success">Do</div>
             <pre className="overflow-x-auto">
               <code className="font-mono text-xs leading-6 text-text-default">
-                {`const config = {
-  desktop: {
-    label: "Desktop",
-    color: "var(--color-feedback-success)",
-  },
-} satisfies ChartConfig;
+                {`const data = [
+  { source: "organic", visitors: 275, fill: "var(--color-organic)" },
+];
 
-<Bar dataKey="desktop" fill="var(--color-desktop)" />`}
+const config = {
+  organic: { label: "Organic", color: "var(--color-feedback-success)" },
+} satisfies ChartConfig;`}
               </code>
             </pre>
           </div>
@@ -271,11 +261,8 @@ export default function BarChartDocsPage() {
         </code>{" "}
         — <code className="font-mono text-text-default">ChartContainer</code>,{" "}
         <code className="font-mono text-text-default">ChartTooltip</code>/
-        <code className="font-mono text-text-default">Content</code>,{" "}
-        <code className="font-mono text-text-default">ChartLegend</code>/
         <code className="font-mono text-text-default">Content</code> on Recharts.
-        The muted / border / background colors are replaced with Cognition
-        tokens, and series colors are token vars from the config.
+        Bar colors are feedback / semantic token vars from the config.
       </footer>
     </div>
   );

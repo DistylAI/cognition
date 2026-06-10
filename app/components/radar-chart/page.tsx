@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
 import { CodeBlock } from "@/components/CodeBlock";
 import {
-  BasicBar,
-  HorizontalBar,
-  MultipleBar,
-  NegativeBar,
-  StackedBar,
-} from "./BarChartDemos";
+  BasicRadar,
+  DotsRadar,
+  GridCircleRadar,
+  MultipleRadar,
+} from "./RadarChartDemos";
 
 export const metadata: Metadata = {
-  title: "Bar Chart",
+  title: "Radar Chart",
   description:
-    "Bar Chart — a Recharts bar chart wrapped in the Cognition Chart primitives, with token-driven series colors, tooltips, and legends.",
+    "Radar Chart — a Recharts radar chart wrapped in the Cognition Chart primitives, with token-driven series colors and tooltips.",
 };
 
 const parts = [
@@ -21,7 +20,7 @@ const parts = [
   },
   {
     name: "ChartConfig",
-    desc: "Per-series label, optional icon, and color. Use a Cognition token var for color (e.g. var(--color-feedback-success)).",
+    desc: "Per-series label and color. Use a Cognition token var for color (e.g. var(--color-feedback-success)).",
   },
   {
     name: "ChartTooltip / ChartTooltipContent",
@@ -34,44 +33,35 @@ const parts = [
 ] as const;
 
 const setupCode = `const chartConfig = {
-  desktop: { label: "Desktop", color: "var(--color-feedback-success)" },
-  mobile: { label: "Mobile", color: "var(--color-feedback-warning)" },
+  a: { label: "Model A", color: "var(--color-feedback-success)" },
+  b: { label: "Model B", color: "var(--color-feedback-warning)" },
 } satisfies ChartConfig;`;
 
-const basicCode = `<ChartContainer config={chartConfig} className="h-[240px] w-full">
-  <BarChart data={data}>
-    <CartesianGrid vertical={false} />
-    <XAxis dataKey="month" tickLine={false} axisLine={false} />
-    <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
-    <Bar dataKey="desktop" fill="var(--color-desktop)" radius={6} />
-  </BarChart>
+const basicCode = `<ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[260px]">
+  <RadarChart data={data}>
+    <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+    <PolarAngleAxis dataKey="metric" />
+    <PolarGrid />
+    <Radar dataKey="a" stroke="var(--color-a)" fill="var(--color-a)" fillOpacity={0.6} />
+  </RadarChart>
 </ChartContainer>`;
 
-const horizontalCode = `<BarChart data={data} layout="vertical">
-  <YAxis dataKey="month" type="category" tickLine={false} axisLine={false} />
-  <XAxis type="number" hide />
-  <Bar dataKey="desktop" fill="var(--color-desktop)" radius={5} />
-</BarChart>`;
+const multipleCode = `<Radar dataKey="a" stroke="var(--color-a)" fill="var(--color-a)" fillOpacity={0.5} />
+<Radar dataKey="b" stroke="var(--color-b)" fill="var(--color-b)" fillOpacity={0.5} />
+<ChartLegend content={<ChartLegendContent />} />`;
 
-const multipleCode = `<BarChart data={data}>
-  <ChartLegend content={<ChartLegendContent />} />
-  <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
-  <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
-</BarChart>`;
+const dotsCode = `<Radar
+  dataKey="a"
+  stroke="var(--color-a)"
+  fill="var(--color-a)"
+  fillOpacity={0.6}
+  dot={{ r: 4, fillOpacity: 1 }}
+/>`;
 
-const stackedCode = `<Bar dataKey="desktop" stackId="a" fill="var(--color-desktop)" radius={[0, 0, 4, 4]} />
-<Bar dataKey="mobile" stackId="a" fill="var(--color-mobile)" radius={[4, 4, 0, 0]} />`;
+const gridCircleCode = `<PolarGrid gridType="circle" />
+<PolarAngleAxis dataKey="metric" />`;
 
-const negativeCode = `<Bar dataKey="net" radius={4}>
-  {data.map((d) => (
-    <Cell
-      key={d.month}
-      fill={d.net >= 0 ? "var(--color-feedback-success)" : "var(--color-feedback-danger)"}
-    />
-  ))}
-</Bar>`;
-
-const installCode = `import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
+const installCode = `import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts";
 import {
   ChartContainer,
   type ChartConfig,
@@ -80,18 +70,18 @@ import {
 } from "@/components/ui/chart";
 
 const chartConfig = {
-  desktop: { label: "Desktop", color: "var(--color-feedback-success)" },
+  a: { label: "Model A", color: "var(--color-feedback-success)" },
 } satisfies ChartConfig;
 
-export function VisitorsChart({ data }) {
+export function ProfileRadar({ data }) {
   return (
-    <ChartContainer config={chartConfig} className="h-[240px] w-full">
-      <BarChart data={data}>
-        <CartesianGrid vertical={false} />
-        <XAxis dataKey="month" tickLine={false} axisLine={false} />
-        <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
-        <Bar dataKey="desktop" fill="var(--color-desktop)" radius={6} />
-      </BarChart>
+    <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[260px]">
+      <RadarChart data={data}>
+        <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+        <PolarAngleAxis dataKey="metric" />
+        <PolarGrid />
+        <Radar dataKey="a" stroke="var(--color-a)" fill="var(--color-a)" fillOpacity={0.6} />
+      </RadarChart>
     </ChartContainer>
   );
 }`;
@@ -105,7 +95,9 @@ function Cell({
 }) {
   return (
     <div className="overflow-hidden rounded-lg border border-border-default">
-      <div className="bg-background-subtle p-6">{children}</div>
+      <div className="flex justify-center bg-background-subtle p-6">
+        {children}
+      </div>
       <div className="border-t border-border-default p-3">
         <CodeBlock
           code={code}
@@ -117,40 +109,39 @@ function Cell({
   );
 }
 
-export default function BarChartDocsPage() {
+export default function RadarChartDocsPage() {
   return (
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
-      <h1 className="text-h1 text-text-default">Bar Chart</h1>
+      <h1 className="text-h1 text-text-default">Radar Chart</h1>
       <p className="mt-3 max-w-2xl text-body text-text-subtle">
-        A bar chart built on Recharts and wrapped in the Cognition Chart
-        primitives. A <code className="font-mono">ChartConfig</code> maps each
-        series to a label and a token color; the container, tooltip, and legend
-        handle the rest.
+        A radar chart built on Recharts and wrapped in the Cognition Chart
+        primitives. Good for comparing a handful of metrics across one or two
+        series; colors come from the config.
       </p>
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
         <h3 className="mt-12 mb-4 text-h3 text-text-default">Preview</h3>
-        <div className="rounded-lg border border-border-default bg-background-subtle p-6">
-          <BasicBar />
+        <div className="flex justify-center rounded-lg border border-border-default bg-background-subtle p-6">
+          <BasicRadar />
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens — bars, axes, grid, and tooltip all
-          remap on theme change, no <code className="font-mono">dark:</code>{" "}
-          classes. Series colors are injected from the config as{" "}
+          Rendered with live Cognition tokens — the web, grid, and fill remap on
+          theme change, no <code className="font-mono">dark:</code> classes.
+          Series colors are injected from the config as{" "}
           <code className="font-mono">--color-*</code> CSS vars.
         </p>
       </section>
 
-      {/* Setup */}
+      {/* Config */}
       <section id="config" className="scroll-mt-8">
         <h3 className="mt-12 mb-4 text-h3 text-text-default">Config</h3>
         <p className="mb-4 text-small">
           Every chart starts with a <code className="font-mono">ChartConfig</code>{" "}
           — one entry per series, each pointing at a Cognition token. The
           container turns those into <code className="font-mono">--color-*</code>{" "}
-          variables the bars reference.
+          variables the radars reference.
         </p>
         <CodeBlock
           code={setupCode}
@@ -163,27 +154,23 @@ export default function BarChartDocsPage() {
         <h3 className="mt-12 mb-4 text-h3 text-text-default">Variants</h3>
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
           <Cell code={basicCode}>
-            <BasicBar />
-          </Cell>
-          <Cell code={horizontalCode}>
-            <HorizontalBar />
+            <BasicRadar />
           </Cell>
           <Cell code={multipleCode}>
-            <MultipleBar />
+            <MultipleRadar />
           </Cell>
-          <Cell code={stackedCode}>
-            <StackedBar />
+          <Cell code={dotsCode}>
+            <DotsRadar />
           </Cell>
-          <Cell code={negativeCode}>
-            <NegativeBar />
+          <Cell code={gridCircleCode}>
+            <GridCircleRadar />
           </Cell>
         </div>
         <p className="mt-2 text-small">
-          The same primitives cover vertical and horizontal layouts (
-          <code className="font-mono">layout=&quot;vertical&quot;</code>), grouped
-          and stacked series (<code className="font-mono">stackId</code>), and
-          per-bar colors via <code className="font-mono">Cell</code> — e.g.
-          success/danger for positive and negative values.
+          One series or two, with optional dots, and a polygon or circular grid
+          via <code className="font-mono">gridType</code>. Keep{" "}
+          <code className="font-mono">fillOpacity</code> low enough that
+          overlapping series stay legible.
         </p>
       </section>
 
@@ -212,11 +199,11 @@ export default function BarChartDocsPage() {
           </div>
         </div>
         <p className="mt-2 text-small">
-          The Recharts pieces — <code className="font-mono">BarChart</code>,{" "}
-          <code className="font-mono">Bar</code>,{" "}
-          <code className="font-mono">XAxis</code>,{" "}
-          <code className="font-mono">CartesianGrid</code> — are used directly
-          inside <code className="font-mono">ChartContainer</code>.
+          The Recharts pieces — <code className="font-mono">RadarChart</code>,{" "}
+          <code className="font-mono">Radar</code>,{" "}
+          <code className="font-mono">PolarAngleAxis</code>,{" "}
+          <code className="font-mono">PolarGrid</code> — are used directly inside{" "}
+          <code className="font-mono">ChartContainer</code>.
         </p>
       </section>
 
@@ -229,13 +216,13 @@ export default function BarChartDocsPage() {
               Don&apos;t
             </div>
             <p className="text-small text-text-default">
-              Don&apos;t hardcode bar colors with a hex or raw palette utility —
+              Don&apos;t hardcode radar colors with a hex or raw palette utility —
               drive them from the config with token vars so they theme. Don&apos;t
               use the brand primary (purple) for a data series — it&apos;s
               reserved for brand and interactive actions; reach for{" "}
               <code className="font-mono">feedback-*</code> or other semantic
-              tokens. And don&apos;t stack more than three or four series; past
-              that, bars get hard to read.
+              tokens. And don&apos;t plot more than two or three series; the web
+              gets unreadable.
             </p>
           </div>
           <div className="rounded-lg border border-border-success bg-background-success p-5">
@@ -243,13 +230,13 @@ export default function BarChartDocsPage() {
             <pre className="overflow-x-auto">
               <code className="font-mono text-xs leading-6 text-text-default">
                 {`const config = {
-  desktop: {
-    label: "Desktop",
+  a: {
+    label: "Model A",
     color: "var(--color-feedback-success)",
   },
 } satisfies ChartConfig;
 
-<Bar dataKey="desktop" fill="var(--color-desktop)" />`}
+<Radar dataKey="a" stroke="var(--color-a)" fill="var(--color-a)" />`}
               </code>
             </pre>
           </div>
@@ -274,8 +261,7 @@ export default function BarChartDocsPage() {
         <code className="font-mono text-text-default">Content</code>,{" "}
         <code className="font-mono text-text-default">ChartLegend</code>/
         <code className="font-mono text-text-default">Content</code> on Recharts.
-        The muted / border / background colors are replaced with Cognition
-        tokens, and series colors are token vars from the config.
+        Series colors are feedback-token vars from the config.
       </footer>
     </div>
   );
