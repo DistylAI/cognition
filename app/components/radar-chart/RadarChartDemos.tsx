@@ -28,7 +28,7 @@ const config = {
 
 export function BasicRadar() {
   return (
-    <ChartContainer config={config} className="mx-auto aspect-square max-h-[260px]">
+    <ChartContainer config={config} className="mx-auto aspect-square w-full max-w-[260px]">
       <RadarChart data={data}>
         <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
         <PolarAngleAxis dataKey="metric" />
@@ -46,7 +46,7 @@ export function BasicRadar() {
 
 export function MultipleRadar() {
   return (
-    <ChartContainer config={config} className="mx-auto aspect-square max-h-[280px]">
+    <ChartContainer config={config} className="mx-auto aspect-square w-full max-w-[280px]">
       <RadarChart data={data}>
         <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="line" />} />
         <PolarAngleAxis dataKey="metric" />
@@ -61,7 +61,7 @@ export function MultipleRadar() {
 
 export function DotsRadar() {
   return (
-    <ChartContainer config={config} className="mx-auto aspect-square max-h-[260px]">
+    <ChartContainer config={config} className="mx-auto aspect-square w-full max-w-[260px]">
       <RadarChart data={data}>
         <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
         <PolarAngleAxis dataKey="metric" />
@@ -80,7 +80,7 @@ export function DotsRadar() {
 
 export function GridCircleRadar() {
   return (
-    <ChartContainer config={config} className="mx-auto aspect-square max-h-[260px]">
+    <ChartContainer config={config} className="mx-auto aspect-square w-full max-w-[260px]">
       <RadarChart data={data}>
         <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
         <PolarGrid gridType="circle" />

@@ -44,7 +44,7 @@ const stackTotal = stackData[0].desktop + stackData[0].mobile;
 
 export function BasicRadial() {
   return (
-    <ChartContainer config={catConfig} className="mx-auto aspect-square max-h-[260px]">
+    <ChartContainer config={catConfig} className="mx-auto aspect-square w-full max-w-[260px]">
       <RadialBarChart data={catData} innerRadius={30} outerRadius={110}>
         <ChartTooltip
           cursor={false}
@@ -58,7 +58,7 @@ export function BasicRadial() {
 
 export function LabelRadial() {
   return (
-    <ChartContainer config={catConfig} className="mx-auto aspect-square max-h-[260px]">
+    <ChartContainer config={catConfig} className="mx-auto aspect-square w-full max-w-[260px]">
       <RadialBarChart
         data={catData}
         startAngle={-90}
@@ -85,7 +85,7 @@ export function LabelRadial() {
 
 export function GridRadial() {
   return (
-    <ChartContainer config={catConfig} className="mx-auto aspect-square max-h-[260px]">
+    <ChartContainer config={catConfig} className="mx-auto aspect-square w-full max-w-[260px]">
       <RadialBarChart data={catData} innerRadius={30} outerRadius={110}>
         <ChartTooltip
           cursor={false}
@@ -100,7 +100,7 @@ export function GridRadial() {
 
 export function StackedRadial() {
   return (
-    <ChartContainer config={stackConfig} className="mx-auto aspect-square max-h-[260px]">
+    <ChartContainer config={stackConfig} className="mx-auto aspect-square w-full max-w-[260px]">
       <RadialBarChart
         data={stackData}
         endAngle={180}

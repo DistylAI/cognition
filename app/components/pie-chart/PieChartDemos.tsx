@@ -34,7 +34,7 @@ const total = pieData.reduce((sum, d) => sum + d.visitors, 0);
 
 export function BasicPie() {
   return (
-    <ChartContainer config={config} className="mx-auto aspect-square max-h-[260px]">
+    <ChartContainer config={config} className="mx-auto aspect-square w-full max-w-[260px]">
       <PieChart>
         <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
         <Pie data={pieData} dataKey="visitors" nameKey="source" />
@@ -45,7 +45,7 @@ export function BasicPie() {
 
 export function DonutPie() {
   return (
-    <ChartContainer config={config} className="mx-auto aspect-square max-h-[260px]">
+    <ChartContainer config={config} className="mx-auto aspect-square w-full max-w-[260px]">
       <PieChart>
         <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
         <Pie data={pieData} dataKey="visitors" nameKey="source" innerRadius={52} />
@@ -56,7 +56,7 @@ export function DonutPie() {
 
 export function DonutTextPie() {
   return (
-    <ChartContainer config={config} className="mx-auto aspect-square max-h-[260px]">
+    <ChartContainer config={config} className="mx-auto aspect-square w-full max-w-[260px]">
       <PieChart>
         <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
         <Pie
@@ -106,7 +106,7 @@ export function LegendPie() {
   return (
     <ChartContainer
       config={config}
-      className="mx-auto aspect-square max-h-[280px]"
+      className="mx-auto aspect-square w-full max-w-[280px]"
     >
       <PieChart>
         <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />

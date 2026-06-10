@@ -37,7 +37,7 @@ const setupCode = `const chartConfig = {
   b: { label: "Model B", color: "var(--color-feedback-warning)" },
 } satisfies ChartConfig;`;
 
-const basicCode = `<ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[260px]">
+const basicCode = `<ChartContainer config={chartConfig} className="mx-auto aspect-square w-full max-w-[260px]">
   <RadarChart data={data}>
     <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
     <PolarAngleAxis dataKey="metric" />
@@ -75,7 +75,7 @@ const chartConfig = {
 
 export function ProfileRadar({ data }) {
   return (
-    <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[260px]">
+    <ChartContainer config={chartConfig} className="mx-auto aspect-square w-full max-w-[260px]">
       <RadarChart data={data}>
         <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
         <PolarAngleAxis dataKey="metric" />

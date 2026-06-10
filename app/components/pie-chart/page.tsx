@@ -39,7 +39,7 @@ const chartConfig = {
   referral: { label: "Referral", color: "var(--color-feedback-warning)" },
 } satisfies ChartConfig;`;
 
-const basicCode = `<ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[260px]">
+const basicCode = `<ChartContainer config={chartConfig} className="mx-auto aspect-square w-full max-w-[260px]">
   <PieChart>
     <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
     <Pie data={chartData} dataKey="visitors" nameKey="source" />
@@ -74,7 +74,7 @@ const chartConfig = {
 
 export function SourcePie({ data }) {
   return (
-    <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[260px]">
+    <ChartContainer config={chartConfig} className="mx-auto aspect-square w-full max-w-[260px]">
       <PieChart>
         <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
         <Pie data={data} dataKey="visitors" nameKey="source" />

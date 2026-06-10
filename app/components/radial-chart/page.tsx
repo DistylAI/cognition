@@ -42,7 +42,7 @@ const chartConfig = {
   organic: { label: "Organic", color: "var(--color-feedback-success)" },
 } satisfies ChartConfig;`;
 
-const basicCode = `<ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[260px]">
+const basicCode = `<ChartContainer config={chartConfig} className="mx-auto aspect-square w-full max-w-[260px]">
   <RadialBarChart data={chartData} innerRadius={30} outerRadius={110}>
     <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel nameKey="source" />} />
     <RadialBar dataKey="visitors" background />
@@ -81,7 +81,7 @@ const chartConfig = {
 
 export function SourceRadial({ data }) {
   return (
-    <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[260px]">
+    <ChartContainer config={chartConfig} className="mx-auto aspect-square w-full max-w-[260px]">
       <RadialBarChart data={data} innerRadius={30} outerRadius={110}>
         <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel nameKey="source" />} />
         <RadialBar dataKey="visitors" background />
