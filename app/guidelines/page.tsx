@@ -117,7 +117,7 @@ export default async function GuidelinesPage() {
       </h3>
       <div className="mb-6">
         <Button asChild variant="outline">
-          <a href="#" download>
+          <a href="/CLAUDE.md" download>
             <Download size={14} aria-hidden />
             Download CLAUDE.md
           </a>

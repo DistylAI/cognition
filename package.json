@@ -5,7 +5,7 @@
   "description": "Cognition design system documentation — Distyl AI",
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/check-tokens.mjs && next build",
+    "build": "node scripts/check-tokens.mjs && cp CLAUDE.md public/CLAUDE.md && next build",
     "start": "next start",
     "lint": "next lint",
     "check:tokens": "node scripts/check-tokens.mjs"
