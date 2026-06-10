@@ -71,7 +71,7 @@ export default function AspectRatioDocsPage() {
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
       <h1 className="text-h1 text-text-default">Aspect Ratio</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+      <p className="mt-3 max-w-2xl text-body text-text-default">
         Constrains its content to a desired width-to-height ratio. Wrap an image,
         video, or any block so it holds a consistent shape as the layout resizes.
       </p>

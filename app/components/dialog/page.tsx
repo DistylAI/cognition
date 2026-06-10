@@ -77,7 +77,7 @@ export default function DialogPage() {
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
       <h1 className="text-h1 text-text-default">Dialog</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+      <p className="mt-3 max-w-2xl text-body text-text-default">
         A window overlaid on the primary window or another dialog, rendering the
         content underneath inert. Use it for focused tasks and confirmations.
       </p>

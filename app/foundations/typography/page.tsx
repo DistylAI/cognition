@@ -31,7 +31,7 @@ export default function TypographyPage() {
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Foundations</p>
       <h1 className="text-h1 text-text-default">Typography</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+      <p className="mt-3 max-w-2xl text-body text-text-default">
         <strong className="font-bold text-text-default">Geist</strong> for all UI
         and body copy.{" "}
         <strong className="font-bold text-text-default">Geist Mono</strong> for

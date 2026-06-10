@@ -27,7 +27,7 @@ export default function SkeletonPage() {
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
       <h1 className="text-h1 text-text-default">Skeleton</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+      <p className="mt-3 max-w-2xl text-body text-text-default">
         Use to show a placeholder while content is loading. Match its shape to
         the content it stands in for, so the layout doesn&apos;t jump on load.
       </p>

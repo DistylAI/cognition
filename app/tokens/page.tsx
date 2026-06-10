@@ -23,7 +23,7 @@ export default function TokensPage() {
       <h1 className="text-h1 text-text-default">
         Tokens
       </h1>
-      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+      <p className="mt-3 max-w-2xl text-body text-text-default">
         The canonical Cognition v1.2 token set. Swatches below render from the
         live CSS variables — toggle the theme and they remap automatically.
         Never hardcode a hex value; always reference the token utility.

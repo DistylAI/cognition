@@ -111,7 +111,7 @@ export default function PieChartDocsPage() {
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
       <h1 className="text-h1 text-text-default">Pie Chart</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+      <p className="mt-3 max-w-2xl text-body text-text-default">
         A pie or donut chart built on Recharts and wrapped in the Cognition Chart
         primitives. Each slice draws its color from the config; the container and
         tooltip handle the rest.

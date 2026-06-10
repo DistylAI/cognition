@@ -34,7 +34,7 @@ export default function SelectPage() {
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
       <h1 className="text-h1 text-text-default">Select</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+      <p className="mt-3 max-w-2xl text-body text-text-default">
         Displays a control for choosing a single option from a list. Use it when
         options exceed a handful and a Radio Group would be too tall.
       </p>

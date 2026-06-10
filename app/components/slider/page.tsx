@@ -105,7 +105,7 @@ export default function SliderDocsPage() {
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
       <h1 className="text-h1 text-text-default">Slider</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+      <p className="mt-3 max-w-2xl text-body text-text-default">
         An input where the user selects a value from within a given range. Drag a
         thumb along the track — use one thumb for a single value or two for a
         range, on either axis.

@@ -118,7 +118,7 @@ export default function RadialChartDocsPage() {
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
       <h1 className="text-h1 text-text-default">Radial Chart</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+      <p className="mt-3 max-w-2xl text-body text-text-default">
         A radial bar chart built on Recharts and wrapped in the Cognition Chart
         primitives — bars drawn around a center rather than along an axis. Colors
         come from the config.

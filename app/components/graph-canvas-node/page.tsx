@@ -168,7 +168,7 @@ export default function GraphCanvasNodePage() {
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
       <h1 className="text-h1 text-text-default">Graph Canvas Node</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+      <p className="mt-3 max-w-2xl text-body text-text-default">
         A compact card representing a graph entity — a colored domain header over
         an entity name with attribute and edge metadata. Used in canvas and
         explorer views to display categorized nodes.

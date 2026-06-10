@@ -95,7 +95,7 @@ export default function ChartTooltipDocsPage() {
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
       <h1 className="text-h1 text-text-default">Chart Tooltip</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+      <p className="mt-3 max-w-2xl text-body text-text-default">
         The styled tooltip for Cognition charts. Drop{" "}
         <code className="font-mono">ChartTooltip</code> with a{" "}
         <code className="font-mono">ChartTooltipContent</code> into any chart;

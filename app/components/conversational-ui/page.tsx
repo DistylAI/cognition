@@ -212,7 +212,7 @@ export default function ConversationalUIPage() {
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
       <h1 className="text-h1 text-text-default">Conversational UI</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+      <p className="mt-3 max-w-2xl text-body text-text-default">
         The canonical AI conversation surface for Distyl products. Composed from
         ChatShell, MessageBubble, ChatInput, and LoadingBubble — each
         independently usable. Not a modal or a drawer. A panel or inline surface

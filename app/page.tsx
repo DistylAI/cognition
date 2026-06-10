@@ -12,7 +12,7 @@ export default function HomePage() {
         The design system that makes everything <span className="text-text-primary">look and behave like Distyl</span>.
       </h1>
 
-      <p className="mt-4 max-w-2xl text-body text-text-subtle">
+      <p className="mt-4 max-w-2xl text-body text-text-default">
         Cognition is Distyl&apos;s design system — the single set of rules for how every
         frontend surface looks, responds, and adapts. Every color, spacing step,
         radius, and typographic choice is a named token. Components consume

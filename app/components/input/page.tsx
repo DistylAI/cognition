@@ -58,7 +58,7 @@ export default function InputPage() {
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
       <h1 className="text-h1 text-text-default">Input</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+      <p className="mt-3 max-w-2xl text-body text-text-default">
         Displays a form input field or a component that looks like an input
         field. Use it for short, single-line text entry.
       </p>

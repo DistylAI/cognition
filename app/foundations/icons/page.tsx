@@ -59,7 +59,7 @@ export default function IconsPage() {
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Foundations</p>
       <h1 className="text-h1 text-text-default">Icons</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+      <p className="mt-3 max-w-2xl text-body text-text-default">
         Cognition uses one icon library, sized on the 4px scale and colored with
         text tokens. Icons clarify actions and status — they don&apos;t decorate.
       </p>

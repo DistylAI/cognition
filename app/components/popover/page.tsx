@@ -129,7 +129,7 @@ export default function PopoverDocsPage() {
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
       <h1 className="text-h1 text-text-default">Popover</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+      <p className="mt-3 max-w-2xl text-body text-text-default">
         Displays rich content in a portal, triggered by a button. Use it for
         secondary controls — a form, a detail panel, a set of options — that
         should float above the page and dismiss on outside click or Escape.

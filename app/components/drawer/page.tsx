@@ -159,7 +159,7 @@ export default function DrawerDocsPage() {
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
       <h1 className="text-h1 text-text-default">Drawer</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+      <p className="mt-3 max-w-2xl text-body text-text-default">
         A panel that slides up from the bottom of the screen, keeping the page
         behind it in view. Built for focused, touch-friendly tasks — quick edits,
         confirmations, or a short read — and dismissed by dragging the handle or

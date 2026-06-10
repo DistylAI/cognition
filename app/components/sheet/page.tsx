@@ -151,7 +151,7 @@ export default function SheetDocsPage() {
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
       <h1 className="text-h1 text-text-default">Sheet</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+      <p className="mt-3 max-w-2xl text-body text-text-default">
         A panel that slides in from an edge of the screen — built on Dialog, so
         it traps focus and dismisses on overlay click or Escape. Use it for
         secondary tasks like editing a record or filtering a list.

@@ -55,7 +55,7 @@ export default function SidebarPage() {
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
       <h1 className="text-h1 text-text-default">Sidebar</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+      <p className="mt-3 max-w-2xl text-body text-text-default">
         A composable, collapsible application sidebar — header, grouped menu, and
         footer, paired with the main content via{" "}
         <code className="font-mono">SidebarInset</code>.

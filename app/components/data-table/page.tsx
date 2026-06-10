@@ -47,7 +47,7 @@ export default function DataTablePage() {
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
       <h1 className="text-h1 text-text-default">Data Table</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+      <p className="mt-3 max-w-2xl text-body text-text-default">
         Powerful tables and datagrids built using TanStack Table. Use it for
         sortable, filterable, selectable rows of structured data.
       </p>
@@ -71,7 +71,7 @@ export default function DataTablePage() {
       {/* Pattern */}
       <section id="pattern" className="scroll-mt-8">
         <h3 className="mt-12 mb-4 text-h3 text-text-default">Pattern</h3>
-        <p className="mb-4 max-w-2xl text-body text-text-subtle">
+        <p className="mb-4 max-w-2xl text-body text-text-default">
           A Data Table is <code className="font-mono">columns</code> +{" "}
           <code className="font-mono">data</code> fed to{" "}
           <code className="font-mono">useReactTable</code>, rendered through the

@@ -117,7 +117,7 @@ export default function ToggleDocsPage() {
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
       <h1 className="text-h1 text-text-default">Toggle</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+      <p className="mt-3 max-w-2xl text-body text-text-default">
         A two-state button that can be either on or off. Use it for a single
         formatting control — bold, italic, mute — where the pressed state holds
         until the user toggles it back.

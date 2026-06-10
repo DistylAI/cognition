@@ -112,7 +112,7 @@ export default function AreaChartDocsPage() {
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
       <h1 className="text-h1 text-text-default">Area Chart</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+      <p className="mt-3 max-w-2xl text-body text-text-default">
         An area chart built on Recharts and wrapped in the Cognition Chart
         primitives. A <code className="font-mono">ChartConfig</code> maps each
         series to a label and a token color; the container, tooltip, and legend

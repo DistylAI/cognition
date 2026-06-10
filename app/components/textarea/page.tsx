@@ -40,7 +40,7 @@ export default function TextareaPage() {
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
       <h1 className="text-h1 text-text-default">Textarea</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+      <p className="mt-3 max-w-2xl text-body text-text-default">
         Displays a form textarea or a component that looks like a textarea. Use
         it for multi-line text such as messages, comments, and descriptions.
       </p>

@@ -114,7 +114,7 @@ export default function RadarChartDocsPage() {
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
       <h1 className="text-h1 text-text-default">Radar Chart</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+      <p className="mt-3 max-w-2xl text-body text-text-default">
         A radar chart built on Recharts and wrapped in the Cognition Chart
         primitives. Good for comparing a handful of metrics across one or two
         series; colors come from the config.

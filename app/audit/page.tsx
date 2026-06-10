@@ -63,7 +63,7 @@ export default async function AuditPage() {
       <h1 className="text-h1 text-text-default">
         Codebase Audit
       </h1>
-      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+      <p className="mt-3 max-w-2xl text-body text-text-default">
         Where the three Distyl repos stand against Cognition v1.2 today. Run as a
         three-subagent parallel sweep against the canonical token set and
         hard-rule checklist.

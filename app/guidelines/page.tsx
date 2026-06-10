@@ -34,7 +34,7 @@ export default async function GuidelinesPage() {
       <h1 className="text-h1 text-text-default">
         Guidelines
       </h1>
-      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+      <p className="mt-3 max-w-2xl text-body text-text-default">
         The rules every Distyl frontend follows. Use the semantic token for
         intent, the correct component for the job, and let the token layer handle
         dark mode.

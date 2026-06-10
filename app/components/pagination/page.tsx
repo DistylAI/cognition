@@ -143,7 +143,7 @@ export default function PaginationDocsPage() {
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
       <h1 className="text-h1 text-text-default">Pagination</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+      <p className="mt-3 max-w-2xl text-body text-text-default">
         Page navigation with next and previous links. Use it to split long lists
         or results into pages — the current page is marked active, and an
         ellipsis stands in for skipped ranges.

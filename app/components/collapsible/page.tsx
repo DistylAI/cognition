@@ -169,7 +169,7 @@ export default function CollapsibleDocsPage() {
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
       <h1 className="text-h1 text-text-default">Collapsible</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+      <p className="mt-3 max-w-2xl text-body text-text-default">
         An interactive element that expands and collapses a panel. Use it to hide
         secondary detail behind a trigger — order status, advanced options, a
         longer description — without leaving the page.

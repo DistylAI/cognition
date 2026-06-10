@@ -72,7 +72,7 @@ export default function EmptyStatePage() {
     <div>
       <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
       <h1 className="text-h1 text-text-default">Empty State</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-subtle">
+      <p className="mt-3 max-w-2xl text-body text-text-default">
         A centered placeholder for empty lists, searches, and first-run screens.
         Use it to explain why there&apos;s nothing here and offer the next
         action.
