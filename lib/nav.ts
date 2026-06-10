@@ -101,9 +101,9 @@ export const nav: NavGroup[] = [
         href: "/foundations/typography",
         label: "Typography",
         sections: [
-          { id: "variants", label: "Elements" },
-          { id: "states", label: "In context" },
-          { id: "api", label: "API" },
+          { id: "scale", label: "Type scale" },
+          { id: "weights", label: "Weights" },
+          { id: "mono", label: "Monospace" },
         ],
       },
       {
