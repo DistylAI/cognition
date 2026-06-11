@@ -17,6 +17,12 @@ export const metadata: Metadata = {
     "Combobox component — a searchable select that combines a text input with a filterable dropdown list. A higher-order component built from Command and Popover.",
 };
 
+// cmdk auto-selects its first item on mount and scrolls it into view. With
+// several inline Command demos sitting below the fold, that scroll jumps the
+// page on load, so these static demos pass a sentinel value that matches no
+// item to suppress the auto-selection. The live Combobox keeps the default.
+const NO_AUTOSELECT = "__no_selection__";
+
 const regions = [
   { value: "us-east", label: "US East (Virginia)" },
   { value: "us-west", label: "US West (Oregon)" },
@@ -235,7 +241,7 @@ export default function ComboboxPage() {
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="flex items-start justify-center bg-background-subtle p-8">
               <div className="w-full max-w-[220px] rounded-md border border-border-default bg-background-default">
-                <Command>
+                <Command defaultValue={NO_AUTOSELECT}>
                   <CommandInput placeholder="Search regions..." />
                   <CommandList>
                     <CommandEmpty>No results found.</CommandEmpty>
@@ -260,7 +266,7 @@ export default function ComboboxPage() {
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="flex items-start justify-center bg-background-subtle p-8">
               <div className="w-full max-w-[220px] rounded-md border border-border-default bg-background-default">
-                <Command>
+                <Command defaultValue={NO_AUTOSELECT}>
                   <CommandInput placeholder="eu" />
                   <CommandList>
                     <CommandEmpty>No results found.</CommandEmpty>
@@ -287,7 +293,7 @@ export default function ComboboxPage() {
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="flex items-start justify-center bg-background-subtle p-8">
               <div className="w-full max-w-[220px] rounded-md border border-border-default bg-background-default">
-                <Command>
+                <Command defaultValue={NO_AUTOSELECT}>
                   <CommandInput placeholder="xyz" />
                   <CommandList>
                     <CommandEmpty>No results found.</CommandEmpty>

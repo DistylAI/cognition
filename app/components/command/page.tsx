@@ -26,6 +26,12 @@ export const metadata: Metadata = {
     "Command component — a keyboard-first command palette with search, grouped results, icons, keyboard navigation, and empty states.",
 };
 
+// cmdk auto-selects its first item on mount and scrolls it into view. With
+// several inline Command demos sitting below the fold, that scroll jumps the
+// page on load, so these static demos pass a sentinel value that matches no
+// item to suppress the auto-selection.
+const NO_AUTOSELECT = "__no_selection__";
+
 const props = [
   {
     name: "value",
@@ -109,7 +115,10 @@ export default function CommandPage() {
       <section id="preview" className="scroll-mt-8">
         <h3 className="mt-12 mb-4 text-h3 text-text-default">Preview</h3>
         <div className="flex items-center justify-center rounded-lg border border-border-default bg-background-subtle p-10">
-          <Command className="w-full max-w-md rounded-lg border border-border-default shadow-md">
+          <Command
+            defaultValue={NO_AUTOSELECT}
+            className="w-full max-w-md rounded-lg border border-border-default shadow-md"
+          >
             <CommandInput placeholder="Type a command or search..." />
             <CommandList>
               <CommandEmpty>No results found.</CommandEmpty>
@@ -161,7 +170,7 @@ export default function CommandPage() {
           {/* Default */}
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="bg-background-subtle p-8">
-              <Command className="rounded-md border border-border-default">
+              <Command defaultValue={NO_AUTOSELECT} className="rounded-md border border-border-default">
                 <CommandInput placeholder="Search..." />
                 <CommandList>
                   <CommandEmpty>No results found.</CommandEmpty>
@@ -186,7 +195,7 @@ export default function CommandPage() {
           {/* With groups */}
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="bg-background-subtle p-8">
-              <Command className="rounded-md border border-border-default">
+              <Command defaultValue={NO_AUTOSELECT} className="rounded-md border border-border-default">
                 <CommandInput placeholder="Search..." />
                 <CommandList>
                   <CommandEmpty>No results found.</CommandEmpty>
@@ -215,7 +224,7 @@ export default function CommandPage() {
           {/* With icons */}
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="bg-background-subtle p-8">
-              <Command className="rounded-md border border-border-default">
+              <Command defaultValue={NO_AUTOSELECT} className="rounded-md border border-border-default">
                 <CommandInput placeholder="Search..." />
                 <CommandList>
                   <CommandEmpty>No results found.</CommandEmpty>
@@ -250,7 +259,7 @@ export default function CommandPage() {
           {/* Inline */}
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="bg-background-subtle p-8">
-              <Command className="rounded-md border border-border-default">
+              <Command defaultValue={NO_AUTOSELECT} className="rounded-md border border-border-default">
                 <CommandInput placeholder="Filter results..." />
                 <CommandList>
                   <CommandEmpty>No results found.</CommandEmpty>
@@ -290,7 +299,7 @@ export default function CommandPage() {
           {/* Default */}
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="bg-background-subtle p-8">
-              <Command className="rounded-md border border-border-default">
+              <Command defaultValue={NO_AUTOSELECT} className="rounded-md border border-border-default">
                 <CommandInput placeholder="Search..." />
                 <CommandList>
                   <CommandEmpty>No results found.</CommandEmpty>
@@ -311,7 +320,7 @@ export default function CommandPage() {
           {/* Searching */}
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="bg-background-subtle p-8">
-              <Command className="rounded-md border border-border-default">
+              <Command defaultValue={NO_AUTOSELECT} className="rounded-md border border-border-default">
                 <CommandInput placeholder="deploy" />
                 <CommandList>
                   <CommandEmpty>No results found.</CommandEmpty>
@@ -330,7 +339,7 @@ export default function CommandPage() {
           {/* Empty */}
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="bg-background-subtle p-8">
-              <Command className="rounded-md border border-border-default">
+              <Command defaultValue={NO_AUTOSELECT} className="rounded-md border border-border-default">
                 <CommandInput placeholder="xyz" />
                 <CommandList>
                   <CommandEmpty>No results found.</CommandEmpty>
@@ -346,7 +355,7 @@ export default function CommandPage() {
           {/* Loading */}
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="bg-background-subtle p-8">
-              <Command className="rounded-md border border-border-default">
+              <Command defaultValue={NO_AUTOSELECT} className="rounded-md border border-border-default">
                 <CommandInput placeholder="Search..." />
                 <CommandList>
                   <div className="flex items-center justify-center gap-2 py-6 text-sm text-text-subtle">
