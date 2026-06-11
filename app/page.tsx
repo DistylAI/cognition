@@ -9,7 +9,7 @@ export default function HomePage() {
       </p>
 
       <h1 className="text-h1 tracking-[-0.025em] text-text-default">
-        The design system that makes everything <span className="text-text-primary">look and behave like Distyl</span>.
+        The design system that makes everything <span className="text-text-primary">look and behave like Distyl</span>
       </h1>
 
       <p className="mt-4 max-w-2xl text-body text-text-default">
