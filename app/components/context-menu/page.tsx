@@ -1,0 +1,416 @@
+import type { Metadata } from "next";
+import {
+  ChevronRight,
+  ClipboardPaste,
+  Copy,
+  Scissors,
+  Share2,
+  Star,
+  Trash2,
+} from "lucide-react";
+import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuSeparator,
+  ContextMenuShortcut,
+  ContextMenuSub,
+  ContextMenuSubContent,
+  ContextMenuSubTrigger,
+  ContextMenuTrigger,
+} from "@/components/ui/context-menu";
+import { CodeBlock } from "@/components/CodeBlock";
+
+export const metadata: Metadata = {
+  title: "Context Menu",
+  description:
+    "Context Menu component — a right-click menu surfacing contextual actions relevant to the target element.",
+};
+
+const composition = [
+  { name: "ContextMenu", desc: "Root that wires the trigger to the menu." },
+  { name: "ContextMenuTrigger", desc: "The element that opens the menu on right-click." },
+  { name: "ContextMenuContent", desc: "The floating menu surface." },
+  { name: "ContextMenuItem", desc: "A standard action item." },
+  { name: "ContextMenuCheckboxItem", desc: "An item with a toggle checkmark." },
+  { name: "ContextMenuRadioItem", desc: "A single-select item within a radio group." },
+  { name: "ContextMenuLabel", desc: "A non-interactive section heading." },
+  { name: "ContextMenuSeparator", desc: "A dividing line between groups." },
+  { name: "ContextMenuShortcut", desc: "Right-aligned keyboard hint on an item." },
+  { name: "ContextMenuGroup", desc: "Groups related items together." },
+  { name: "ContextMenuSub", desc: "Root for a nested sub-menu." },
+  { name: "ContextMenuSubTrigger", desc: "Item that opens the sub-menu." },
+  { name: "ContextMenuSubContent", desc: "The nested sub-menu surface." },
+  { name: "ContextMenuRadioGroup", desc: "Wraps radio items to share one value." },
+] as const;
+
+const doCode = `<ContextMenu>
+  <ContextMenuTrigger>{children}</ContextMenuTrigger>
+  <ContextMenuContent>
+    <ContextMenuItem>Copy</ContextMenuItem>
+    <ContextMenuItem>Rename</ContextMenuItem>
+  </ContextMenuContent>
+</ContextMenu>`;
+
+const installCode = `import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuShortcut,
+  ContextMenuTrigger,
+} from "@/components/ui/context-menu";
+
+export function FileTile({ children }) {
+  return (
+    <ContextMenu>
+      <ContextMenuTrigger>{children}</ContextMenuTrigger>
+      <ContextMenuContent className="w-52">
+        <ContextMenuItem>
+          Copy <ContextMenuShortcut>⌘C</ContextMenuShortcut>
+        </ContextMenuItem>
+        <ContextMenuItem>Rename</ContextMenuItem>
+      </ContextMenuContent>
+    </ContextMenu>
+  );
+}`;
+
+const itemBase =
+  "relative flex select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm [&>svg]:size-4 [&>svg]:shrink-0";
+
+function MockMenu({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`w-56 rounded-md border border-border-default bg-background-default p-1 text-text-default shadow-md ${className ?? ""}`}
+    >
+      {children}
+    </div>
+  );
+}
+
+function MockItem({
+  children,
+  icon,
+  shortcut,
+  chevron,
+  highlighted,
+  disabled,
+  destructive,
+}: {
+  children: React.ReactNode;
+  icon?: React.ReactNode;
+  shortcut?: string;
+  chevron?: boolean;
+  highlighted?: boolean;
+  disabled?: boolean;
+  destructive?: boolean;
+}) {
+  const tone = destructive ? "text-text-danger" : "text-text-default";
+  const hl = highlighted
+    ? destructive
+      ? "bg-background-danger"
+      : "bg-background-secondary"
+    : "";
+  const dis = disabled ? "opacity-50" : "";
+  return (
+    <div className={`${itemBase} ${tone} ${hl} ${dis}`}>
+      {icon}
+      <span>{children}</span>
+      {shortcut && (
+        <span className="ml-auto text-xs tracking-widest text-text-subtle">
+          {shortcut}
+        </span>
+      )}
+      {chevron && <ChevronRight className="ml-auto size-4 shrink-0" />}
+    </div>
+  );
+}
+
+function MockSeparator() {
+  return <div className="-mx-1 my-1 h-px bg-border-default" />;
+}
+
+export default function ContextMenuPage() {
+  return (
+    <div>
+      <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
+      <h1 className="text-h1 text-text-default">Context Menu</h1>
+      <p className="mt-3 max-w-2xl text-body text-text-default">
+        A menu opened by right-click, or long-press on touch, that surfaces
+        actions relevant to the element under the pointer.
+      </p>
+
+      {/* Preview */}
+      <section id="preview" className="scroll-mt-8">
+        <h3 className="mt-12 mb-4 text-h3 text-text-default">Preview</h3>
+        <div className="flex items-center justify-center rounded-lg border border-border-default bg-background-subtle p-10">
+          <ContextMenu>
+            <ContextMenuTrigger asChild>
+              <div className="flex h-40 w-full max-w-md items-center justify-center rounded-lg border border-dashed border-border-strong text-sm text-text-subtle">
+                Right-click here
+              </div>
+            </ContextMenuTrigger>
+            <ContextMenuContent className="w-56">
+              <ContextMenuItem>
+                <Copy />
+                Copy
+                <ContextMenuShortcut>⌘C</ContextMenuShortcut>
+              </ContextMenuItem>
+              <ContextMenuItem>
+                <Scissors />
+                Cut
+                <ContextMenuShortcut>⌘X</ContextMenuShortcut>
+              </ContextMenuItem>
+              <ContextMenuItem>
+                <ClipboardPaste />
+                Paste
+                <ContextMenuShortcut>⌘V</ContextMenuShortcut>
+              </ContextMenuItem>
+              <ContextMenuSeparator />
+              <ContextMenuSub>
+                <ContextMenuSubTrigger>
+                  <Share2 />
+                  Share
+                </ContextMenuSubTrigger>
+                <ContextMenuSubContent>
+                  <ContextMenuItem>Copy link</ContextMenuItem>
+                  <ContextMenuItem>Email</ContextMenuItem>
+                </ContextMenuSubContent>
+              </ContextMenuSub>
+              <ContextMenuSeparator />
+              <ContextMenuItem className="text-text-danger focus:bg-background-danger focus:text-text-danger">
+                <Trash2 />
+                Delete
+                <ContextMenuShortcut>⌘⌫</ContextMenuShortcut>
+              </ContextMenuItem>
+            </ContextMenuContent>
+          </ContextMenu>
+        </div>
+        <p className="mt-2 text-small">
+          Rendered with live Cognition tokens. Right-click the area to open the
+          real menu, no <code className="font-mono">dark:</code> classes.
+        </p>
+      </section>
+
+      {/* Variants */}
+      <section id="variants" className="scroll-mt-8">
+        <h3 className="mt-12 mb-4 text-h3 text-text-default">Variants</h3>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
+            <MockMenu>
+              <MockItem>Back</MockItem>
+              <MockItem>Reload</MockItem>
+              <MockItem>Save as</MockItem>
+            </MockMenu>
+            <p className="text-xs text-text-subtle">Default</p>
+          </div>
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
+            <MockMenu>
+              <MockItem icon={<Copy />}>Copy</MockItem>
+              <MockItem icon={<Star />}>Favorite</MockItem>
+              <MockItem icon={<Share2 />}>Share</MockItem>
+            </MockMenu>
+            <p className="text-xs text-text-subtle">With icons</p>
+          </div>
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
+            <MockMenu>
+              <MockItem shortcut="⌘C">Copy</MockItem>
+              <MockItem shortcut="⌘X">Cut</MockItem>
+              <MockItem shortcut="⌘V">Paste</MockItem>
+            </MockMenu>
+            <p className="text-xs text-text-subtle">With keyboard shortcuts</p>
+          </div>
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
+            <MockMenu>
+              <MockItem>Open</MockItem>
+              <MockItem icon={<Share2 />} chevron>
+                Share
+              </MockItem>
+              <MockItem>Rename</MockItem>
+            </MockMenu>
+            <p className="text-xs text-text-subtle">With sub-menu</p>
+          </div>
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
+            <MockMenu>
+              <MockItem>Cut</MockItem>
+              <MockItem>Copy</MockItem>
+              <MockSeparator />
+              <MockItem>Select all</MockItem>
+            </MockMenu>
+            <p className="text-xs text-text-subtle">With separator</p>
+          </div>
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
+            <MockMenu>
+              <MockItem>Rename</MockItem>
+              <MockItem>Duplicate</MockItem>
+              <MockSeparator />
+              <MockItem icon={<Trash2 />} destructive>
+                Delete
+              </MockItem>
+            </MockMenu>
+            <p className="text-xs text-text-subtle">With destructive item</p>
+          </div>
+        </div>
+        <p className="mt-2 text-small">
+          Menus compose icons, shortcuts, sub-menus, separators, and a
+          destructive item. The panels above are shown open for reference.
+        </p>
+      </section>
+
+      {/* States */}
+      <section id="states" className="scroll-mt-8">
+        <h3 className="mt-12 mb-4 text-h3 text-text-default">States</h3>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
+            <div className="flex h-[124px] w-full items-center justify-center rounded-lg border border-dashed border-border-strong text-sm text-text-subtle">
+              Right-click target
+            </div>
+            <p className="text-xs text-text-subtle">Closed. The default state.</p>
+          </div>
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
+            <MockMenu>
+              <MockItem>Copy</MockItem>
+              <MockItem>Rename</MockItem>
+              <MockItem>Duplicate</MockItem>
+            </MockMenu>
+            <p className="text-xs text-text-subtle">Open. The menu is showing.</p>
+          </div>
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
+            <MockMenu>
+              <MockItem>Copy</MockItem>
+              <MockItem highlighted>Rename</MockItem>
+              <MockItem>Duplicate</MockItem>
+            </MockMenu>
+            <p className="text-xs text-text-subtle">Item hover. One item is focused.</p>
+          </div>
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
+            <MockMenu>
+              <MockItem>Copy</MockItem>
+              <MockItem disabled>Rename</MockItem>
+              <MockItem>Duplicate</MockItem>
+            </MockMenu>
+            <p className="text-xs text-text-subtle">Item disabled. Dimmed, inert.</p>
+          </div>
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8 sm:col-span-2 lg:col-span-1">
+            <div className="flex items-start">
+              <MockMenu>
+                <MockItem>Open</MockItem>
+                <MockItem icon={<Share2 />} chevron highlighted>
+                  Share
+                </MockItem>
+                <MockItem>Rename</MockItem>
+              </MockMenu>
+              <MockMenu className="-ml-1 mt-7">
+                <MockItem>Copy link</MockItem>
+                <MockItem>Email</MockItem>
+              </MockMenu>
+            </div>
+            <p className="text-xs text-text-subtle">Sub-menu open.</p>
+          </div>
+        </div>
+        <p className="mt-2 text-small">
+          A context menu opens on right-click, so the open, hover, and sub-menu
+          states are shown statically. The preview opens the real menu.
+        </p>
+      </section>
+
+      {/* API */}
+      <section id="api" className="scroll-mt-8">
+        <h3 className="mt-12 mb-4 text-h3 text-text-default">API</h3>
+        <div className="overflow-x-auto rounded-lg border border-border-default">
+          <div className="min-w-[560px]">
+            <div className="grid grid-cols-[1.8fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-xs font-medium text-text-subtle">
+              <div>Component</div>
+              <div>Description</div>
+            </div>
+            <div className="divide-y divide-border-default">
+              {composition.map((c) => (
+                <div
+                  key={c.name}
+                  className="grid grid-cols-[1.8fr_3fr] gap-4 px-4 py-3"
+                >
+                  <div className="font-mono text-sm text-text-default">
+                    {c.name}
+                  </div>
+                  <div className="text-sm text-text-subtle">{c.desc}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <p className="mt-2 text-small">
+          Compose the parts inside a single{" "}
+          <code className="font-mono">ContextMenu</code>. Items take{" "}
+          <code className="font-mono">disabled</code> and{" "}
+          <code className="font-mono">onSelect</code>; nest a{" "}
+          <code className="font-mono">ContextMenuSub</code> for sub-menus.
+        </p>
+      </section>
+
+      {/* Don't and Do */}
+      <section id="do-dont" className="scroll-mt-8">
+        <h3 className="mt-12 mb-4 text-h3 text-text-default">
+          Don&apos;t and Do
+        </h3>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="rounded-lg border border-border-danger bg-background-danger p-5">
+            <div className="mb-2 text-sm font-bold text-text-danger">
+              Don&apos;t
+            </div>
+            <p className="text-small text-text-default">
+              Don&apos;t make a context menu the only path to a critical action.
+              Right-click is hidden by nature, so many people never discover it,
+              and touch users have no equivalent for some gestures. Always offer
+              those actions somewhere visible as well.
+            </p>
+          </div>
+          <div className="rounded-lg border border-border-success bg-background-success p-5">
+            <div className="mb-2 text-sm font-bold text-text-success">Do</div>
+            <pre className="overflow-x-auto">
+              <code className="font-mono text-xs leading-6 text-text-default">
+                {doCode}
+              </code>
+            </pre>
+          </div>
+        </div>
+        <p className="mt-2 text-small">
+          Use it to augment the primary UI with contextual shortcuts for power
+          users.
+        </p>
+      </section>
+
+      {/* Copy-paste */}
+      <section id="copy-paste" className="mt-12 scroll-mt-8">
+        <CodeBlock
+          code={installCode}
+          className="rounded-lg border border-border-default bg-background-subtle"
+        />
+      </section>
+
+      <footer className="mt-16 border-t border-border-default pt-6 text-small">
+        Cognition v1.2 · June 2026 · Questions? Ask{" "}
+        <a
+          href="https://distylai.slack.com/team/U07KY4SEFH7"
+          target="_blank"
+          rel="noreferrer"
+          className="font-medium text-text-primary underline-offset-4 hover:underline"
+        >
+          Tony Yates
+        </a>{" "}
+        <a
+          href="https://distylai.slack.com/archives/C0A22RR2N6P"
+          target="_blank"
+          rel="noreferrer"
+          className="font-medium text-text-primary underline-offset-4 hover:underline"
+        >
+          #research-and-design
+        </a>
+      </footer>
+    </div>
+  );
+}
