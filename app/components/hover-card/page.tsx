@@ -93,7 +93,7 @@ function MockCard({
           </span>
           <span className="flex items-center gap-1 whitespace-nowrap">
             <CalendarDays className="size-3.5" />
-            Joined 2024
+            Joined 2022
           </span>
         </div>
       )}
@@ -137,7 +137,7 @@ export default function HoverCardPage() {
                   </p>
                   <div className="flex items-center gap-1 pt-1 text-xs text-text-subtle">
                     <CalendarDays className="size-3.5" />
-                    Joined 2024
+                    Joined 2022
                   </div>
                 </div>
               </div>
