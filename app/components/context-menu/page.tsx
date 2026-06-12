@@ -200,8 +200,8 @@ export default function ContextMenuPage() {
       {/* Variants */}
       <section id="variants" className="scroll-mt-8">
         <h3 className="mt-12 mb-4 text-h3 text-text-default">Variants</h3>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <MockMenu>
               <MockItem>Back</MockItem>
               <MockItem>Reload</MockItem>
@@ -209,7 +209,7 @@ export default function ContextMenuPage() {
             </MockMenu>
             <p className="text-xs text-text-subtle">Default</p>
           </div>
-          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <MockMenu>
               <MockItem icon={<Copy />}>Copy</MockItem>
               <MockItem icon={<Star />}>Favorite</MockItem>
@@ -217,7 +217,7 @@ export default function ContextMenuPage() {
             </MockMenu>
             <p className="text-xs text-text-subtle">With icons</p>
           </div>
-          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <MockMenu>
               <MockItem shortcut="⌘C">Copy</MockItem>
               <MockItem shortcut="⌘X">Cut</MockItem>
@@ -225,7 +225,7 @@ export default function ContextMenuPage() {
             </MockMenu>
             <p className="text-xs text-text-subtle">With keyboard shortcuts</p>
           </div>
-          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <MockMenu>
               <MockItem>Open</MockItem>
               <MockItem icon={<Share2 />} chevron>
@@ -235,7 +235,7 @@ export default function ContextMenuPage() {
             </MockMenu>
             <p className="text-xs text-text-subtle">With sub-menu</p>
           </div>
-          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <MockMenu>
               <MockItem>Cut</MockItem>
               <MockItem>Copy</MockItem>
@@ -244,7 +244,7 @@ export default function ContextMenuPage() {
             </MockMenu>
             <p className="text-xs text-text-subtle">With separator</p>
           </div>
-          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <MockMenu>
               <MockItem>Rename</MockItem>
               <MockItem>Duplicate</MockItem>
@@ -265,14 +265,14 @@ export default function ContextMenuPage() {
       {/* States */}
       <section id="states" className="scroll-mt-8">
         <h3 className="mt-12 mb-4 text-h3 text-text-default">States</h3>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <div className="flex h-[124px] w-full items-center justify-center rounded-lg border border-dashed border-border-strong text-sm text-text-subtle">
               Right-click target
             </div>
             <p className="text-xs text-text-subtle">Closed. The default state.</p>
           </div>
-          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <MockMenu>
               <MockItem>Copy</MockItem>
               <MockItem>Rename</MockItem>
@@ -280,7 +280,7 @@ export default function ContextMenuPage() {
             </MockMenu>
             <p className="text-xs text-text-subtle">Open. The menu is showing.</p>
           </div>
-          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <MockMenu>
               <MockItem>Copy</MockItem>
               <MockItem highlighted>Rename</MockItem>
@@ -288,7 +288,7 @@ export default function ContextMenuPage() {
             </MockMenu>
             <p className="text-xs text-text-subtle">Item hover. One item is focused.</p>
           </div>
-          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <MockMenu>
               <MockItem>Copy</MockItem>
               <MockItem disabled>Rename</MockItem>
@@ -296,7 +296,7 @@ export default function ContextMenuPage() {
             </MockMenu>
             <p className="text-xs text-text-subtle">Item disabled. Dimmed, inert.</p>
           </div>
-          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8 sm:col-span-2 lg:col-span-1">
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6 sm:col-span-2">
             <div className="flex items-start">
               <MockMenu>
                 <MockItem>Open</MockItem>

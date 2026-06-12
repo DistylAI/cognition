@@ -151,16 +151,16 @@ export default function HoverCardPage() {
       {/* Variants */}
       <section id="variants" className="scroll-mt-8">
         <h3 className="mt-12 mb-4 text-h3 text-text-default">Variants</h3>
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <MockCard />
             <p className="text-xs text-text-subtle">Default</p>
           </div>
-          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <MockCard avatar />
             <p className="text-xs text-text-subtle">With avatar</p>
           </div>
-          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <MockCard avatar metadata />
             <p className="text-xs text-text-subtle">With metadata</p>
           </div>
@@ -174,8 +174,8 @@ export default function HoverCardPage() {
       {/* States */}
       <section id="states" className="scroll-mt-8">
         <h3 className="mt-12 mb-4 text-h3 text-text-default">States</h3>
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <span className="text-sm font-medium text-text-primary underline-offset-4">
               @cognition
             </span>
@@ -183,13 +183,13 @@ export default function HoverCardPage() {
               Closed. Only the trigger shows.
             </p>
           </div>
-          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <MockCard avatar />
             <p className="text-xs text-text-subtle">
               Open. Appears after the hover delay.
             </p>
           </div>
-          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
+          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <MockCard avatar metadata />
             <p className="text-xs text-text-subtle">
               Open with delay. Tune via openDelay.
