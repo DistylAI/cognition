@@ -72,7 +72,7 @@ function MockCard({
   metadata?: boolean;
 }) {
   return (
-    <div className="w-64 rounded-md border border-border-default bg-background-default p-4 text-text-default shadow-md">
+    <div className="w-full max-w-72 rounded-md border border-border-default bg-background-default p-4 text-text-default shadow-md">
       <div className="flex gap-3">
         {avatar && <Avatar />}
         <div className="space-y-1">
@@ -81,20 +81,20 @@ function MockCard({
             The Distyl design system. Tokens, components, and guidelines in one
             place.
           </p>
-          {metadata && (
-            <div className="flex items-center gap-4 pt-1 text-xs text-text-subtle">
-              <span className="flex items-center gap-1">
-                <CalendarDays className="size-3.5" />
-                Shipped June 2026
-              </span>
-              <span className="flex items-center gap-1">
-                <Users className="size-3.5" />
-                240 components
-              </span>
-            </div>
-          )}
         </div>
       </div>
+      {metadata && (
+        <div className="mt-3 flex items-center gap-4 text-xs text-text-subtle">
+          <span className="flex items-center gap-1 whitespace-nowrap">
+            <CalendarDays className="size-3.5" />
+            Shipped June 2026
+          </span>
+          <span className="flex items-center gap-1 whitespace-nowrap">
+            <Users className="size-3.5" />
+            240 components
+          </span>
+        </div>
+      )}
     </div>
   );
 }
