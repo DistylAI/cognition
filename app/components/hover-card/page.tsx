@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { CalendarDays, Users } from "lucide-react";
+import { Briefcase, CalendarDays } from "lucide-react";
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
@@ -25,7 +26,7 @@ const api = [
 
 const doCode = `<HoverCard>
   <HoverCardTrigger asChild>
-    <a href="/team/cognition">@cognition</a>
+    <a href="/team/derek-ho">@derekho</a>
   </HoverCardTrigger>
   <HoverCardContent>Profile preview...</HoverCardContent>
 </HoverCard>`;
@@ -41,24 +42,25 @@ export function HandlePreview() {
     <HoverCard>
       <HoverCardTrigger asChild>
         <button className="text-text-primary hover:underline">
-          @cognition
+          @derekho
         </button>
       </HoverCardTrigger>
       <HoverCardContent className="w-72">
-        <p className="text-sm font-semibold">Cognition</p>
+        <p className="text-sm font-semibold">Derek Ho</p>
         <p className="text-sm text-text-subtle">
-          The Distyl design system.
+          Co-founder at Distyl.
         </p>
       </HoverCardContent>
     </HoverCard>
   );
 }`;
 
-function Avatar() {
+function ProfileAvatar() {
   return (
-    <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-background-accent text-sm font-semibold text-text-primary">
-      Co
-    </span>
+    <Avatar className="size-10">
+      <AvatarImage src="/avatar-sample.jpg" alt="Derek Ho" />
+      <AvatarFallback>DH</AvatarFallback>
+    </Avatar>
   );
 }
 
@@ -74,24 +76,24 @@ function MockCard({
   return (
     <div className="w-full max-w-72 rounded-md border border-border-default bg-background-default p-4 text-text-default shadow-md">
       <div className="flex gap-3">
-        {avatar && <Avatar />}
+        {avatar && <ProfileAvatar />}
         <div className="space-y-1">
-          <p className="text-sm font-semibold text-text-default">Cognition</p>
+          <p className="text-sm font-semibold text-text-default">Derek Ho</p>
           <p className="text-sm text-text-subtle">
-            The Distyl design system. Tokens, components, and guidelines in one
-            place.
+            Co-founder at Distyl. Building the team behind the Cognition design
+            system.
           </p>
         </div>
       </div>
       {metadata && (
         <div className="mt-3 flex items-center gap-4 text-xs text-text-subtle">
           <span className="flex items-center gap-1 whitespace-nowrap">
-            <CalendarDays className="size-3.5" />
-            Shipped June 2026
+            <Briefcase className="size-3.5" />
+            Co-founder
           </span>
           <span className="flex items-center gap-1 whitespace-nowrap">
-            <Users className="size-3.5" />
-            240 components
+            <CalendarDays className="size-3.5" />
+            Joined 2024
           </span>
         </div>
       )}
@@ -119,23 +121,23 @@ export default function HoverCardPage() {
                 type="button"
                 className="rounded-sm text-sm font-medium text-text-primary underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-border-primary"
               >
-                @cognition
+                @derekho
               </button>
             </HoverCardTrigger>
             <HoverCardContent className="w-72">
               <div className="flex gap-3">
-                <Avatar />
+                <ProfileAvatar />
                 <div className="space-y-1">
                   <p className="text-sm font-semibold text-text-default">
-                    Cognition
+                    Derek Ho
                   </p>
                   <p className="text-sm text-text-subtle">
-                    The Distyl design system. Tokens, components, and guidelines
-                    in one place.
+                    Co-founder at Distyl. Building the team behind the Cognition
+                    design system.
                   </p>
                   <div className="flex items-center gap-1 pt-1 text-xs text-text-subtle">
                     <CalendarDays className="size-3.5" />
-                    Shipped June 2026
+                    Joined 2024
                   </div>
                 </div>
               </div>
@@ -177,7 +179,7 @@ export default function HoverCardPage() {
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <span className="text-sm font-medium text-text-primary underline-offset-4">
-              @cognition
+              @derekho
             </span>
             <p className="text-xs text-text-subtle">
               Closed. Only the trigger shows.
