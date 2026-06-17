@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import { Download } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Markdown } from "@/components/Markdown";
 import { loadContent } from "@/lib/content";
 
@@ -115,14 +113,6 @@ export default async function GuidelinesPage() {
       >
         Full specification
       </h3>
-      <div className="mb-6">
-        <Button asChild variant="outline">
-          <a href="/CLAUDE.md" download>
-            <Download size={14} aria-hidden />
-            Download CLAUDE.md
-          </a>
-        </Button>
-      </div>
       <Markdown content={spec} />
     </div>
   );
