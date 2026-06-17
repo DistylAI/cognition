@@ -12,7 +12,7 @@ import {
 export const metadata: Metadata = {
   title: "Roadmap",
   description:
-    "The work required to move fe-distillery from the current legacy token system to full Cognition v1.2 compliance.",
+    "The work required to move fe-distillery from the current legacy token system to full Cognition v1.3 compliance.",
 };
 
 type Status = "blocker" | "queue" | "planned";
@@ -114,14 +114,14 @@ export default function RoadmapPage() {
       <h1 className="text-h1 text-text-default">Roadmap</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
         The work required to move fe-distillery from the current legacy token
-        system to full Cognition v1.2 compliance.
+        system to full Cognition v1.3 compliance.
       </p>
 
       <div className="mt-4 rounded-lg border border-border-default bg-background-accent p-4">
         <p className="text-small text-text-default">
-          Epics 1 and 2 are rebrand blockers. Everything after is rolling
-          cleanup. A brand color swap becomes a single CSS file change once these
-          land.
+          Epics 1 and 2 are rebrand blockers. Epics 7 through 10 are Cognition
+          v1.3 additions. A brand color swap becomes a single CSS file change
+          once Epics 1 and 2 land.
         </p>
       </div>
 
