@@ -425,7 +425,7 @@ export default function ConversationalUIPage() {
         <code className="font-mono text-text-default">ANTHROPIC_API_KEY</code> in
         the environment. Model is{" "}
         <code className="font-mono text-text-default">
-          claude-sonnet-4-20250514
+          claude-sonnet-4-6
         </code>{" "}
         with a 1000-token max. Override the API call entirely via the{" "}
         <code className="font-mono text-text-default">onSend</code> prop.
