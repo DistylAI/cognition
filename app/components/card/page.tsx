@@ -102,7 +102,7 @@ export default function CardPage() {
               </Button>
             </CardHeader>
             <CardContent className="gap-6">
-              <FieldShell label="Email" value="m@example.com" />
+              <FieldShell label="Email" value="derek.ho@distyl.ai" />
               <FieldShell label="Password" value="••••••••" />
             </CardContent>
             <CardFooter className="flex-col items-stretch gap-2">

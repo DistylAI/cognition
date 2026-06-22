@@ -166,7 +166,7 @@ export default function FieldPage() {
             <div className="flex items-center justify-center bg-background-subtle p-8">
               <div className="w-full max-w-xs">
                 <Field label="Workspace name" required>
-                  <Input placeholder="Acme HQ" />
+                  <Input placeholder="Distyl HQ" />
                 </Field>
               </div>
             </div>

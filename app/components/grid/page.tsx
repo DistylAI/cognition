@@ -20,13 +20,6 @@ export function Example() {
   );
 }`;
 
-const dontCode = `// Raw grid with hardcoded utilities
-<div className="grid grid-cols-3 gap-6">
-  <div>Cell one</div>
-  <div>Cell two</div>
-  <div>Cell three</div>
-</div>`;
-
 const doCode = `// Grid with Cognition tokens
 <Grid cols={3} gap="lg">
   <div>Cell one</div>
@@ -85,33 +78,6 @@ export default function GridPage() {
         </div>
       </section>
 
-      {/* Don't / Do */}
-      <section className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Don&apos;t / Do</h3>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div className="overflow-hidden rounded-lg border border-border-default">
-            <div className="border-b border-border-default bg-background-subtle px-4 py-2">
-              <span className="text-small font-medium text-text-subtle">Don&apos;t</span>
-            </div>
-            <div className="p-4">
-              <p className="mb-3 text-small text-text-default">
-                Raw grid utilities written inline. Column counts and gap values
-                are invisible to the token system and accumulate as drift.
-              </p>
-              <CodeBlock code={dontCode} size="sm" className="rounded-md border border-border-subtle bg-background-subtle" />
-            </div>
-          </div>
-          <div className="overflow-hidden rounded-lg border border-border-default">
-            <div className="border-b border-border-default bg-background-subtle px-4 py-2">
-              <span className="text-small font-medium text-text-subtle">Do</span>
-            </div>
-            <div className="p-4">
-              <CodeBlock code={doCode} size="sm" className="rounded-md border border-border-subtle bg-background-subtle" />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* API */}
       <section className="scroll-mt-8">
         <h3 className="mt-12 mb-4 text-h3 text-text-default">API</h3>
@@ -133,6 +99,33 @@ export default function GridPage() {
                 <span className="text-text-default">{row.desc}</span>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Don't and Do */}
+      <section id="do-dont" className="scroll-mt-8">
+        <h3 className="mt-12 mb-4 text-h3 text-text-default">
+          Don&apos;t and Do
+        </h3>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="rounded-lg border border-border-danger bg-background-danger p-5">
+            <div className="mb-2 text-sm font-bold text-text-danger">
+              Don&apos;t
+            </div>
+            <p className="text-small text-text-default">
+              Don&apos;t hand-write grid utilities inline. Column counts and gap
+              values set that way sit outside the token system and accumulate as
+              drift across the codebase.
+            </p>
+          </div>
+          <div className="rounded-lg border border-border-success bg-background-success p-5">
+            <div className="mb-2 text-sm font-bold text-text-success">Do</div>
+            <pre className="overflow-x-auto">
+              <code className="font-mono text-xs leading-6 text-text-default">
+                {doCode}
+              </code>
+            </pre>
           </div>
         </div>
       </section>

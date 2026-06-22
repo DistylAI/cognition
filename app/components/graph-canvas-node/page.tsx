@@ -14,7 +14,7 @@ const variants = [
   {
     domainLabel: "Party",
     domainColor: exampleDomains.party,
-    name: "Acme Corporation",
+    name: "Distyl",
     attributes: 12,
     nodes: 184200,
     edges: 6,
@@ -236,7 +236,7 @@ export default function GraphCanvasNodePage() {
                   <GraphCanvasNode
                     domainLabel="Party"
                     domainColor={exampleDomains.party}
-                    name="Acme Corporation"
+                    name="Distyl"
                     attributes={12}
                     nodes={184200}
                     edges={6}

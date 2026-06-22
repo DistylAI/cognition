@@ -31,7 +31,21 @@ const InputGroup = React.forwardRef<HTMLInputElement, InputGroupProps>(
       ...props
     },
     ref,
-  ) => (
+  ) => {
+    // Enforce flush, concentric nesting for the trailing action regardless of
+    // its content (icon or text): the button fills a consistent 4px inset on the
+    // top, right, and bottom (h-7 centered in the h-9 group plus pr-1), and a 4px
+    // radius nests inside the group's rounded-lg corner. twMerge lets these win
+    // over the Button size variant's h-8 / rounded-md.
+    const renderedTrailingAction = React.isValidElement<{ className?: string }>(
+      trailingAction,
+    )
+      ? React.cloneElement(trailingAction, {
+          className: cn(trailingAction.props.className, "h-7 rounded"),
+        })
+      : trailingAction;
+
+    return (
     <div
       data-slot="input-group"
       aria-disabled={disabled || undefined}
@@ -69,10 +83,13 @@ const InputGroup = React.forwardRef<HTMLInputElement, InputGroupProps>(
         </span>
       )}
       {trailingAction && (
-        <span className="flex shrink-0 items-center">{trailingAction}</span>
+        <span className="flex shrink-0 items-center">
+          {renderedTrailingAction}
+        </span>
       )}
     </div>
-  ),
+    );
+  },
 );
 InputGroup.displayName = "InputGroup";
 

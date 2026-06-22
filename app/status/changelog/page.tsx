@@ -148,7 +148,7 @@ export default function ChangelogPage() {
                       key={i}
                       className="flex gap-2 text-small text-text-default"
                     >
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-background-primary" />
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-text-subtle" />
                       {change}
                     </li>
                   ))}

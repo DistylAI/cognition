@@ -37,7 +37,7 @@ export function BasicRadar() {
           dataKey="a"
           stroke="var(--color-a)"
           fill="var(--color-a)"
-          fillOpacity={0.6}
+          fillOpacity={0.4}
         />
       </RadarChart>
     </ChartContainer>
@@ -51,8 +51,8 @@ export function MultipleRadar() {
         <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="line" />} />
         <PolarAngleAxis dataKey="metric" />
         <PolarGrid />
-        <Radar dataKey="a" stroke="var(--color-a)" fill="var(--color-a)" fillOpacity={0.5} />
-        <Radar dataKey="b" stroke="var(--color-b)" fill="var(--color-b)" fillOpacity={0.5} />
+        <Radar dataKey="a" stroke="var(--color-a)" fill="var(--color-a)" fillOpacity={0.4} />
+        <Radar dataKey="b" stroke="var(--color-b)" fill="var(--color-b)" fillOpacity={0.4} />
         <ChartLegend content={<ChartLegendContent />} />
       </RadarChart>
     </ChartContainer>
@@ -70,7 +70,7 @@ export function DotsRadar() {
           dataKey="a"
           stroke="var(--color-a)"
           fill="var(--color-a)"
-          fillOpacity={0.6}
+          fillOpacity={0.4}
           dot={{ r: 4, fillOpacity: 1 }}
         />
       </RadarChart>
@@ -89,7 +89,7 @@ export function GridCircleRadar() {
           dataKey="a"
           stroke="var(--color-a)"
           fill="var(--color-a)"
-          fillOpacity={0.6}
+          fillOpacity={0.4}
         />
       </RadarChart>
     </ChartContainer>

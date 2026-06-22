@@ -12,12 +12,12 @@ export function GraphCanvasNodeInteractive() {
         <GraphCanvasNode
           domainLabel="Party"
           domainColor={exampleDomains.party}
-          name="Acme Corporation"
+          name="Distyl"
           attributes={12}
           nodes={184200}
           edges={6}
           status="active"
-          onClick={() => setClicked("Acme Corporation")}
+          onClick={() => setClicked("Distyl")}
         />
       </div>
       <p className="text-small">

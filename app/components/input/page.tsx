@@ -39,18 +39,18 @@ const labelCode = `<div className="flex flex-col gap-2">
   <label htmlFor="email" className="text-sm font-medium text-text-default">
     Email
   </label>
-  <Input id="email" type="email" placeholder="m@example.com" />
+  <Input id="email" type="email" placeholder="derek.ho@distyl.ai" />
   <p className="text-sm text-text-subtle">We'll never share your email.</p>
 </div>`;
 
 const doCode = `// Pair the Input with a <label> tied via htmlFor/id
 <label htmlFor="name">Name</label>
-<Input id="name" placeholder="Jane Doe" />`;
+<Input id="name" placeholder="Derek Ho" />`;
 
 const installCode = `import { Input } from "@/components/ui/input";
 
 export function EmailField() {
-  return <Input type="email" placeholder="m@example.com" />;
+  return <Input type="email" placeholder="derek.ho@distyl.ai" />;
 }`;
 
 export default function InputPage() {
@@ -117,7 +117,7 @@ export default function InputPage() {
               >
                 Email
               </label>
-              <Input id="email" type="email" placeholder="m@example.com" />
+              <Input id="email" type="email" placeholder="derek.ho@distyl.ai" />
               <p className="text-sm text-text-subtle">
                 We&apos;ll never share your email.
               </p>

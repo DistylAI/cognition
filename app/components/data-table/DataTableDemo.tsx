@@ -33,11 +33,11 @@ type Payment = {
 };
 
 const data: Payment[] = [
-  { id: "1", status: "Success", email: "michael.mitc@example.com", amount: 630.44 },
-  { id: "2", status: "Success", email: "felicia.reid@example.com", amount: 767.5 },
-  { id: "3", status: "Processing", email: "georgia.young@example.com", amount: 396.84 },
-  { id: "4", status: "Success", email: "alma.lawson@example.com", amount: 475.22 },
-  { id: "5", status: "Failed", email: "dolores.chambers@example.com", amount: 275.43 },
+  { id: "1", status: "Success", email: "derek.ho@distyl.ai", amount: 630.44 },
+  { id: "2", status: "Success", email: "arjun.prakash@distyl.ai", amount: 767.5 },
+  { id: "3", status: "Processing", email: "d.ho@distyl.ai", amount: 396.84 },
+  { id: "4", status: "Success", email: "a.prakash@distyl.ai", amount: 475.22 },
+  { id: "5", status: "Failed", email: "derek.ho@distyl.ai", amount: 275.43 },
 ];
 
 const checkboxClass =

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Plus } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ChatInput } from "./ChatInput";
 import { MessageBubble } from "./MessageBubble";
@@ -86,11 +87,21 @@ export function ChatShell({
     }
   };
 
+  const hasContent = messages.length > 0 || loading;
+
   return (
     <div
-      className="flex h-[560px] flex-col overflow-hidden rounded-xl border border-border-default bg-background-default"
+      className={cn(
+        "flex h-[560px] flex-col overflow-hidden rounded-xl bg-background-default",
+        hasContent && "border border-border-default",
+      )}
     >
-      <header className="flex shrink-0 items-center justify-between border-b border-border-default px-4 py-3">
+      <header
+        className={cn(
+          "flex shrink-0 items-center justify-between px-4 py-3",
+          hasContent && "border-b border-border-default",
+        )}
+      >
         <div className="flex items-center gap-2">
           <div className="h-2 w-2 rounded-full bg-background-primary" />
           <span className="text-sm font-medium text-text-default">

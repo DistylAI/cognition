@@ -42,19 +42,19 @@ const basicCode = `<ChartContainer config={chartConfig} className="mx-auto aspec
     <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
     <PolarAngleAxis dataKey="metric" />
     <PolarGrid />
-    <Radar dataKey="a" stroke="var(--color-a)" fill="var(--color-a)" fillOpacity={0.6} />
+    <Radar dataKey="a" stroke="var(--color-a)" fill="var(--color-a)" fillOpacity={0.4} />
   </RadarChart>
 </ChartContainer>`;
 
-const multipleCode = `<Radar dataKey="a" stroke="var(--color-a)" fill="var(--color-a)" fillOpacity={0.5} />
-<Radar dataKey="b" stroke="var(--color-b)" fill="var(--color-b)" fillOpacity={0.5} />
+const multipleCode = `<Radar dataKey="a" stroke="var(--color-a)" fill="var(--color-a)" fillOpacity={0.4} />
+<Radar dataKey="b" stroke="var(--color-b)" fill="var(--color-b)" fillOpacity={0.4} />
 <ChartLegend content={<ChartLegendContent />} />`;
 
 const dotsCode = `<Radar
   dataKey="a"
   stroke="var(--color-a)"
   fill="var(--color-a)"
-  fillOpacity={0.6}
+  fillOpacity={0.4}
   dot={{ r: 4, fillOpacity: 1 }}
 />`;
 
@@ -80,7 +80,7 @@ export function ProfileRadar({ data }) {
         <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
         <PolarAngleAxis dataKey="metric" />
         <PolarGrid />
-        <Radar dataKey="a" stroke="var(--color-a)" fill="var(--color-a)" fillOpacity={0.6} />
+        <Radar dataKey="a" stroke="var(--color-a)" fill="var(--color-a)" fillOpacity={0.4} />
       </RadarChart>
     </ChartContainer>
   );
