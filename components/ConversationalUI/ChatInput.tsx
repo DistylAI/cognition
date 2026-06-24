@@ -2,7 +2,9 @@
 
 import { useRef, useState } from "react";
 import { ArrowUp, Mic, Plus } from "lucide-react";
+import { Box } from "@/components/ui/box";
 import { Button } from "@/components/ui/button";
+import { Stack } from "@/components/ui/stack";
 import { Textarea } from "@/components/ui/textarea";
 
 interface ChatInputProps {
@@ -32,8 +34,13 @@ export function ChatInput({
   };
 
   return (
-    <div>
-      <div className="flex items-end gap-2 rounded-xl border border-border-default bg-background-subtle px-2 py-2 transition-colors focus-within:border-border-primary">
+    <Box>
+      <Stack
+        direction="row"
+        align="end"
+        gap="sm"
+        className="rounded-xl border border-border-default bg-background-subtle px-2 py-2 transition-colors focus-within:border-border-primary"
+      >
         <Button
           type="button"
           variant="ghost"
@@ -85,10 +92,10 @@ export function ChatInput({
           <ArrowUp aria-hidden />
           <span className="sr-only">Send message</span>
         </Button>
-      </div>
+      </Stack>
       <p className="mt-2 text-center text-xs text-text-subtle">
         Enter to send · Shift+Enter for newline
       </p>
-    </div>
+    </Box>
   );
 }
