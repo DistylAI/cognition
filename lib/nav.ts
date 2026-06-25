@@ -58,6 +58,7 @@ export const nav: NavGroup[] = [
       { href: "/components/dropdown-menu", label: "Dropdown Menu" },
       { href: "/components/empty-state", label: "Empty State" },
       { href: "/components/field", label: "Field" },
+      { href: "/components/file-tree", label: "File Tree" },
       { href: "/components/graph-canvas-node", label: "Graph Canvas Node" },
       { href: "/components/grid", label: "Grid" },
       { href: "/components/hover-card", label: "Hover Card" },
