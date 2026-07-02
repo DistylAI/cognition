@@ -193,7 +193,7 @@ const SidebarMenuButton = React.forwardRef<
       data-active={isActive}
       className={cn(
         "flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left text-sm outline-none transition-[width,height,padding] hover:bg-background-secondary hover:text-text-default focus-visible:ring-2 focus-visible:ring-border-primary disabled:pointer-events-none disabled:opacity-50",
-        "data-[active=true]:bg-background-secondary data-[active=true]:font-medium data-[active=true]:text-text-default",
+        "data-[active=true]:bg-background-secondary data-[active=true]:text-text-default",
         "group-data-[state=collapsed]:size-8 group-data-[state=collapsed]:justify-center group-data-[state=collapsed]:p-2 group-data-[state=collapsed]:[&>span]:hidden",
         "[&>svg]:size-4 [&>svg]:shrink-0 [&>span:last-child]:truncate",
         className,
@@ -241,7 +241,7 @@ const SidebarMenuSubButton = React.forwardRef<
       data-active={isActive}
       className={cn(
         "flex h-7 min-w-0 cursor-pointer items-center gap-2 rounded-md px-2 text-sm text-text-default outline-none hover:bg-background-secondary focus-visible:ring-2 focus-visible:ring-border-primary",
-        "data-[active=true]:bg-background-secondary data-[active=true]:font-medium",
+        "data-[active=true]:bg-background-secondary",
         "[&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0",
         className,
       )}
