@@ -64,7 +64,7 @@ export default function FileTreePage() {
               With icons (default)
             </p>
             <div className="flex justify-center rounded-lg border border-border-default bg-background-subtle p-6">
-              <FileTreeDemo />
+              <FileTreeDemo variant="default" />
             </div>
           </div>
           <div>
@@ -72,14 +72,24 @@ export default function FileTreePage() {
               Without icons
             </p>
             <div className="flex justify-center rounded-lg border border-border-default bg-background-subtle p-6">
-              <FileTreeDemo showIcons={false} />
+              <FileTreeDemo variant="no-icons" />
             </div>
+          </div>
+          <div>
+            <p className="mb-2 text-xs font-medium text-text-subtle">Checkbox</p>
+            <div className="flex justify-center rounded-lg border border-border-default bg-background-subtle p-6">
+              <FileTreeDemo variant="checkbox" />
+            </div>
+            <p className="mt-2 text-xs text-text-subtle">
+              Multi-select mode with per-row checkboxes.
+            </p>
           </div>
         </div>
         <p className="mt-2 text-small">
-          Set <code className="font-mono">showIcons={"{false}"}</code> to drop the
-          chevron, folder, and file glyphs. Indentation and the guide rail alone
-          carry the hierarchy.
+          <code className="font-mono">{'variant="no-icons"'}</code> drops the
+          chevron, folder, and file glyphs so indentation and the guide rail carry
+          the hierarchy; <code className="font-mono">{'variant="checkbox"'}</code>{" "}
+          adds per-row multi-select with tri-state folders.
         </p>
       </section>
 
@@ -168,10 +178,10 @@ export default function FileTreePage() {
             </div>
             {[
               {
-                prop: "showIcons",
-                type: "boolean",
-                def: "true",
-                desc: "Show the leading chevron, folder, and file icons. When false, indentation alone conveys the hierarchy.",
+                prop: "variant",
+                type: `"default" | "no-icons" | "checkbox"`,
+                def: `"default"`,
+                desc: "Display mode. default shows icons; no-icons drops all glyphs; checkbox adds per-row multi-select with tri-state folders.",
               },
               {
                 prop: "name",
@@ -217,7 +227,7 @@ export default function FileTreePage() {
           </div>
         </div>
         <p className="mt-2 text-small">
-          <code className="font-mono">showIcons</code> is the only component prop;
+          <code className="font-mono">variant</code> is the only component prop;
           the remaining fields describe the <code className="font-mono">FileNode</code>{" "}
           data shape the tree renders.
         </p>
