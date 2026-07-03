@@ -28,7 +28,7 @@ export default function HomePage() {
         products and customer implementations.
       </p>
 
-      <p className="mt-6 max-w-2xl text-lead italic text-text-default">
+      <p className="mt-6 max-w-2xl text-lead text-text-default">
         The result is coherence.
       </p>
 
@@ -54,27 +54,30 @@ export default function HomePage() {
         </Link>
       </div>
 
-      {/* Principles & phases */}
+      {/* Design principles */}
       <h2 className="mt-16 text-h3 text-text-default">
         Momentum. Durability. Elevation.
       </h2>
       <p className="mt-2 max-w-2xl text-body text-text-default">
-        Three principles. Three phases.
+        Distyl&apos;s three design principles.
       </p>
 
       <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
         {[
           {
-            title: "Belief",
-            body: "Every improvement begins as a hypothesis.",
+            title: "Momentum",
+            body: "Ideas and inspiration turn vision into reality. Powered by creativity and curiosity, we push boundaries, adapt, and evolve.",
+            note: "Move quickly with intention.",
           },
           {
-            title: "Truth",
-            body: "Ideas are validated through implementation, customer feedback, and real-world use.",
+            title: "Durability",
+            body: "Building a practice of craft for a future that endures. Each choice reflects a commitment to lasting quality, sustainability, and purpose.",
+            note: "Design for interoperability.",
           },
           {
-            title: "Coherence",
-            body: "Validated decisions become part of the shared system, strengthening every future product and implementation.",
+            title: "Elevation",
+            body: "Relentlessly pursue optimal solutions and outcomes. By learning, adapting, and fine-tuning, we expand the limits of functionality and usability.",
+            note: "Pursue delightful solutions.",
           },
         ].map((p) => (
           <div
@@ -82,7 +85,45 @@ export default function HomePage() {
             className="rounded-lg border border-border-default bg-background-subtle p-5"
           >
             <h3 className="text-h4 text-text-default">{p.title}</h3>
-            <p className="mt-2 text-small font-medium text-text-default">{p.body}</p>
+            <p className="mt-2 text-small text-text-default">{p.body}</p>
+            <p className="mt-3 text-small font-medium text-text-subtle">{p.note}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Stages of Cognition */}
+      <h2 className="mt-16 text-h3 text-text-default">
+        Belief. Truth. Coherence.
+      </h2>
+      <p className="mt-2 max-w-2xl text-body text-text-default">
+        Three phases carry every decision from hypothesis to shared system.
+      </p>
+
+      <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+        {[
+          {
+            title: "Belief",
+            body: "Inspiration and ideation: concepts, sketches, and early briefs. Individual-level work, generally not yet seen by users.",
+            note: "Something I understand.",
+          },
+          {
+            title: "Truth",
+            body: "Validation through prototypes, requirements, scoping, and specification, tested with research and QA. Team-level work, generally seen by pre- or alpha users.",
+            note: "Something we understand.",
+          },
+          {
+            title: "Coherence",
+            body: "Versioning and publishing with polish, quality, and accessibility, verified by testing and research. Org-level, repeatable, and generally publicly available.",
+            note: "Something they understand.",
+          },
+        ].map((p) => (
+          <div
+            key={p.title}
+            className="rounded-lg border border-border-default bg-background-subtle p-5"
+          >
+            <h3 className="text-h4 text-text-default">{p.title}</h3>
+            <p className="mt-2 text-small text-text-default">{p.body}</p>
+            <p className="mt-3 text-small font-medium text-text-subtle">{p.note}</p>
           </div>
         ))}
       </div>
