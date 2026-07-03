@@ -12,19 +12,31 @@ export default function HomePage() {
         Distyl&apos;s design <span className="text-text-primary">foundation</span>.
       </h1>
 
-      <p className="mt-4 max-w-2xl text-body text-text-default">
-        Cognition is Distyl&apos;s design system, the single source of rules for how every
-        frontend surface looks, responds, and adapts. Every color, spacing step,
-        radius, and typographic choice is a named token. Components consume
-        tokens, not raw values. Brand and dark mode come for free.
+      <p className="mt-4 max-w-2xl text-lead text-text-default">
+        Cognition is Distyl&apos;s Product Experience Platform. It captures the
+        reusable decisions that define how every product surface looks, behaves,
+        and evolves.
       </p>
 
       <p className="mt-4 max-w-2xl text-body text-text-default">
-        Momentum. Durability. Elevation.
+        Product Experience is built on systems, not one-off decisions. Cognition
+        transforms validated design and engineering decisions into shared
+        infrastructure that every product, implementation, and team can build
+        upon. Every token, component, pattern, and interaction exists for one
+        reason: to make good decisions reusable. As the platform evolves,
+        improvements become part of the system instead of being rebuilt across
+        products and customer implementations.
+      </p>
+
+      <p className="mt-6 max-w-2xl text-lead text-text-default">
+        The result is coherence.
       </p>
 
       <p className="mt-4 max-w-2xl text-body text-text-default">
-        Three principles. Three phases: Belief, Truth, Coherence.
+        A coherent product is easier to build, easier to learn, and easier to
+        trust. Engineering spends less time rebuilding. Designers spend less time
+        redefining patterns. Customers spend less time learning new behaviors.
+        Create systems that scale by making good decisions reusable.
       </p>
 
       <div className="mt-8 flex flex-wrap gap-3">
@@ -42,20 +54,30 @@ export default function HomePage() {
         </Link>
       </div>
 
-      {/* Principles */}
-      <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-3">
+      {/* Design principles */}
+      <h2 className="mt-16 text-h3 text-text-default">
+        Momentum. Durability. Elevation.
+      </h2>
+      <p className="mt-2 max-w-2xl text-body text-text-default">
+        Distyl&apos;s three design principles.
+      </p>
+
+      <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
         {[
           {
-            title: "Semantic, not literal values",
-            body: "Use bg-background-subtle, not bg-gray-100. Names describe intent, so values can change underneath without touching components.",
+            title: "Momentum",
+            body: "Ideas and inspiration turn vision into reality. Powered by creativity and curiosity, we push boundaries, adapt, and evolve.",
+            note: "Move quickly with intention.",
           },
           {
-            title: "Token layer, not dark classes",
-            body: "Themes remap [data-theme=\"dark\"] on <html>. No dark: classes anywhere -- the token layer does all the work.",
+            title: "Durability",
+            body: "Building a practice of craft for a future that endures. Each choice reflects a commitment to lasting quality, sustainability, and purpose.",
+            note: "Design for interoperability.",
           },
           {
-            title: "Right component, every time",
-            body: "Button, Tag, Badge, Chip, and Link each have one job. Using the wrong element is a bug, not a style choice.",
+            title: "Elevation",
+            body: "Relentlessly pursue optimal solutions and outcomes. By learning, adapting, and fine-tuning, we expand the limits of functionality and usability.",
+            note: "Pursue delightful solutions.",
           },
         ].map((p) => (
           <div
@@ -63,27 +85,45 @@ export default function HomePage() {
             className="rounded-lg border border-border-default bg-background-subtle p-5"
           >
             <h3 className="text-h4 text-text-default">{p.title}</h3>
-            <p className="mt-2 text-small">{p.body}</p>
+            <p className="mt-2 text-small text-text-default">{p.body}</p>
+            <p className="mt-3 text-small font-medium text-text-subtle">{p.note}</p>
           </div>
         ))}
       </div>
 
-      {/* Key facts */}
-      <div className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-4">
+      {/* Stages of Cognition */}
+      <h2 className="mt-16 text-h3 text-text-default">
+        Belief. Truth. Coherence.
+      </h2>
+      <p className="mt-2 max-w-2xl text-body text-text-default">
+        Three phases carry every decision from hypothesis to shared system.
+      </p>
+
+      <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
         {[
-          { stat: "32", label: "Canonical tokens" },
-          { stat: "#5D4EE7", label: "Brand purple" },
-          { stat: "Geist", label: "UI typeface" },
-          { stat: "4px", label: "Spacing base unit" },
-        ].map((s) => (
+          {
+            title: "Belief",
+            body: "Inspiration and ideation: concepts, sketches, and early briefs. Individual-level work, generally not yet seen by users.",
+            note: "Something I understand.",
+          },
+          {
+            title: "Truth",
+            body: "Validation through prototypes, requirements, scoping, and specification, tested with research and QA. Team-level work, generally seen by pre- or alpha users.",
+            note: "Something we understand.",
+          },
+          {
+            title: "Coherence",
+            body: "Versioning and publishing with polish, quality, and accessibility, verified by testing and research. Org-level, repeatable, and generally publicly available.",
+            note: "Something they understand.",
+          },
+        ].map((p) => (
           <div
-            key={s.label}
+            key={p.title}
             className="rounded-lg border border-border-default bg-background-subtle p-5"
           >
-            <div className="font-mono text-xl font-bold text-text-default">
-              {s.stat}
-            </div>
-            <div className="mt-1 text-xs font-normal text-text-subtle">{s.label}</div>
+            <h3 className="text-h4 text-text-default">{p.title}</h3>
+            <p className="mt-2 text-small text-text-default">{p.body}</p>
+            <p className="mt-3 text-small font-medium text-text-subtle">{p.note}</p>
           </div>
         ))}
       </div>
