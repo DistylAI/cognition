@@ -12,19 +12,31 @@ export default function HomePage() {
         Distyl&apos;s design <span className="text-text-primary">foundation</span>.
       </h1>
 
-      <p className="mt-4 max-w-2xl text-body text-text-default">
-        Cognition is Distyl&apos;s design system, the single source of rules for how every
-        frontend surface looks, responds, and adapts. Every color, spacing step,
-        radius, and typographic choice is a named token. Components consume
-        tokens, not raw values. Brand and dark mode come for free.
+      <p className="mt-4 max-w-2xl text-lead text-text-default">
+        Cognition is Distyl&apos;s Product Experience Platform. It captures the
+        reusable decisions that define how every product surface looks, behaves,
+        and evolves.
       </p>
 
       <p className="mt-4 max-w-2xl text-body text-text-default">
-        Momentum. Durability. Elevation.
+        Product Experience is built on systems, not one-off decisions. Cognition
+        transforms validated design and engineering decisions into shared
+        infrastructure that every product, implementation, and team can build
+        upon. Every token, component, pattern, and interaction exists for one
+        reason: to make good decisions reusable. As the platform evolves,
+        improvements become part of the system instead of being rebuilt across
+        products and customer implementations.
+      </p>
+
+      <p className="mt-6 max-w-2xl text-lead italic text-text-default">
+        The result is coherence.
       </p>
 
       <p className="mt-4 max-w-2xl text-body text-text-default">
-        Three principles. Three phases: Belief, Truth, Coherence.
+        A coherent product is easier to build, easier to learn, and easier to
+        trust. Engineering spends less time rebuilding. Designers spend less time
+        redefining patterns. Customers spend less time learning new behaviors.
+        Create systems that scale by making good decisions reusable.
       </p>
 
       <div className="mt-8 flex flex-wrap gap-3">
@@ -42,20 +54,27 @@ export default function HomePage() {
         </Link>
       </div>
 
-      {/* Principles */}
-      <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-3">
+      {/* Principles & phases */}
+      <h2 className="mt-16 text-h3 text-text-default">
+        Momentum. Durability. Elevation.
+      </h2>
+      <p className="mt-2 max-w-2xl text-body text-text-default">
+        Three principles. Three phases.
+      </p>
+
+      <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
         {[
           {
-            title: "Semantic, not literal values",
-            body: "Use bg-background-subtle, not bg-gray-100. Names describe intent, so values can change underneath without touching components.",
+            title: "Belief",
+            body: "Every improvement begins as a hypothesis.",
           },
           {
-            title: "Token layer, not dark classes",
-            body: "Themes remap [data-theme=\"dark\"] on <html>. No dark: classes anywhere -- the token layer does all the work.",
+            title: "Truth",
+            body: "Ideas are validated through implementation, customer feedback, and real-world use.",
           },
           {
-            title: "Right component, every time",
-            body: "Button, Tag, Badge, Chip, and Link each have one job. Using the wrong element is a bug, not a style choice.",
+            title: "Coherence",
+            body: "Validated decisions become part of the shared system, strengthening every future product and implementation.",
           },
         ].map((p) => (
           <div
@@ -63,27 +82,7 @@ export default function HomePage() {
             className="rounded-lg border border-border-default bg-background-subtle p-5"
           >
             <h3 className="text-h4 text-text-default">{p.title}</h3>
-            <p className="mt-2 text-small">{p.body}</p>
-          </div>
-        ))}
-      </div>
-
-      {/* Key facts */}
-      <div className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-4">
-        {[
-          { stat: "32", label: "Canonical tokens" },
-          { stat: "#5D4EE7", label: "Brand purple" },
-          { stat: "Geist", label: "UI typeface" },
-          { stat: "4px", label: "Spacing base unit" },
-        ].map((s) => (
-          <div
-            key={s.label}
-            className="rounded-lg border border-border-default bg-background-subtle p-5"
-          >
-            <div className="font-mono text-xl font-bold text-text-default">
-              {s.stat}
-            </div>
-            <div className="mt-1 text-xs font-normal text-text-subtle">{s.label}</div>
+            <p className="mt-2 text-small font-medium text-text-default">{p.body}</p>
           </div>
         ))}
       </div>
