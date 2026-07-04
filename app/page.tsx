@@ -85,8 +85,8 @@ export default function HomePage() {
             className="rounded-lg border border-border-default bg-background-subtle p-5"
           >
             <h3 className="text-h4 text-text-default">{p.title}</h3>
-            <p className="mt-2 text-small text-text-default">{p.body}</p>
-            <p className="mt-3 text-small font-medium text-text-subtle">{p.note}</p>
+            <p className="mt-1 text-small font-medium text-text-subtle">{p.note}</p>
+            <p className="mt-3 text-small text-text-default">{p.body}</p>
           </div>
         ))}
       </div>
@@ -122,8 +122,8 @@ export default function HomePage() {
             className="rounded-lg border border-border-default bg-background-subtle p-5"
           >
             <h3 className="text-h4 text-text-default">{p.title}</h3>
-            <p className="mt-2 text-small text-text-default">{p.body}</p>
-            <p className="mt-3 text-small font-medium text-text-subtle">{p.note}</p>
+            <p className="mt-1 text-small font-medium text-text-subtle">{p.note}</p>
+            <p className="mt-3 text-small text-text-default">{p.body}</p>
           </div>
         ))}
       </div>
