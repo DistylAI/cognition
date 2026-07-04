@@ -24,7 +24,7 @@ const tabsListVariants = cva(
       variant: {
         default: "gap-1",
         underline: "gap-1",
-        secondary: "h-9 w-fit gap-1 bg-background-secondary p-[3px]",
+        secondary: "h-9 w-fit gap-1 bg-background-secondary p-1",
       },
     },
     defaultVariants: {
@@ -59,7 +59,7 @@ const tabsTriggerVariants = cva(
         underline:
           "rounded-none border-b-2 border-transparent bg-transparent data-[state=active]:border-text-default data-[state=active]:bg-transparent data-[state=active]:text-text-default",
         secondary:
-          "h-[calc(100%-1px)] flex-1 gap-1.5 rounded-md border border-transparent px-2 py-1 data-[state=active]:bg-background-default data-[state=active]:text-text-default data-[state=active]:shadow-sm",
+          "h-full flex-1 gap-1.5 rounded-md border border-transparent px-2 py-1 data-[state=active]:bg-background-default data-[state=active]:text-text-default data-[state=active]:shadow-sm",
       },
     },
     defaultVariants: {

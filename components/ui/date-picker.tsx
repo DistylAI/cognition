@@ -59,7 +59,7 @@ function DatePicker({
           type="button"
           onClick={() => setDate(undefined)}
           aria-label="Clear date"
-          className="absolute right-2 top-1/2 -translate-y-1/2 rounded-sm p-1 text-text-subtle transition-colors hover:text-text-default"
+          className="absolute right-2 top-1/2 -translate-y-1/2 rounded-sm p-1 text-text-subtle transition-colors hover:text-text-default focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-primary"
         >
           <X className="size-4" />
         </button>

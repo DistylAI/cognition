@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { ChevronDown } from "lucide-react";
 import { Markdown, slug } from "./Markdown";
 
 export type AuditSection = { title: string; body: string };
@@ -64,21 +65,13 @@ export function AuditSections({ sections }: { sections: AuditSection[] }) {
                   <span className="text-h3 text-text-default">
                     {s.title}
                   </span>
-                  <svg
+                  <ChevronDown
                     aria-hidden
-                    viewBox="0 0 16 16"
                     className={[
                       "h-4 w-4 shrink-0 text-text-subtle transition-transform",
                       isOpen ? "rotate-180" : "",
                     ].join(" ")}
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M4 6l4 4 4-4" />
-                  </svg>
+                  />
                 </button>
               </h2>
               {isOpen && (
