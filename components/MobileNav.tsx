@@ -83,7 +83,7 @@ export function MobileNav() {
             type="button"
             aria-label="Close menu"
             onClick={() => setOpen(false)}
-            className="absolute inset-0 bg-black/50"
+            className="absolute inset-0 bg-background-inverse/50"
           />
           {/* Drawer */}
           <div className="absolute inset-y-0 left-0 flex w-72 max-w-[85%] flex-col border-r border-border-default bg-background-subtle">

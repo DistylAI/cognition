@@ -28,7 +28,7 @@ const SheetOverlay = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SheetPrimitive.Overlay
     className={cn(
-      "fixed inset-0 z-50 bg-black/50 backdrop-blur-[2px]",
+      "fixed inset-0 z-50 bg-background-inverse/50 backdrop-blur-sm",
       className,
     )}
     {...props}
