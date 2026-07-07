@@ -57,8 +57,8 @@ const colorSwatches = [
 export default function IconsPage() {
   return (
     <div>
-      <p className="mb-2 text-xs font-normal text-text-subtle">Foundations</p>
-      <h1 className="text-h1 text-text-default">Icons</h1>
+      <p className="mb-2 text-caption">Foundations</p>
+      <h1 className="text-lead text-text-default">Icons</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
         Cognition uses one icon library, sized on the 4px scale and colored with
         text tokens. Icons clarify actions and status -- they don&apos;t decorate.
@@ -66,7 +66,7 @@ export default function IconsPage() {
 
       {/* Library */}
       <section id="library" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Library</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Library</h3>
         <div className="rounded-lg border border-border-default bg-background-accent p-4">
           <p className="text-small text-text-default">
             <span className="font-semibold">Lucide is the only icon set.</span>{" "}
@@ -87,7 +87,7 @@ export default function IconsPage() {
 
       {/* Sizing */}
       <section id="sizing" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Sizing</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Sizing</h3>
         <div className="overflow-hidden rounded-lg border border-border-default">
           <div className="flex items-end justify-center gap-10 bg-background-subtle p-10">
             {[
@@ -97,7 +97,7 @@ export default function IconsPage() {
             ].map((s) => (
               <div key={s.cls} className="flex flex-col items-center gap-3">
                 <Bell className={`${s.cls} text-text-default`} aria-hidden />
-                <span className="text-xs tabular-nums text-text-subtle">
+                <span className="text-caption tabular-nums">
                   {s.label}
                 </span>
               </div>
@@ -122,13 +122,13 @@ export default function IconsPage() {
 
       {/* Color */}
       <section id="color" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Color</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Color</h3>
         <div className="overflow-hidden rounded-lg border border-border-default">
           <div className="flex flex-wrap items-end justify-center gap-8 bg-background-subtle p-10">
             {colorSwatches.map((c) => (
               <div key={c.cls} className="flex flex-col items-center gap-3">
                 <Heart className={`size-6 ${c.cls}`} aria-hidden />
-                <span className="font-mono text-xs text-text-subtle">
+                <span className="font-mono text-caption">
                   {c.label}
                 </span>
               </div>
@@ -152,7 +152,7 @@ export default function IconsPage() {
 
       {/* Usage */}
       <section id="usage" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Usage</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Usage</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="flex items-center justify-center bg-background-subtle p-8">
@@ -209,7 +209,7 @@ export default function IconsPage() {
 
       {/* Browse */}
       <section id="browse" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Browse</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Browse</h3>
         <p className="mb-4 text-small">
           A selection of commonly used icons, rendered live from{" "}
           <code className="font-mono">lucide-react</code> at{" "}
@@ -222,7 +222,7 @@ export default function IconsPage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Don&apos;t and Do</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Don&apos;t and Do</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="rounded-lg border border-border-danger bg-background-danger p-5">
             <div className="mb-2 text-sm font-bold text-text-danger">
@@ -239,7 +239,7 @@ export default function IconsPage() {
           <div className="rounded-lg border border-border-success bg-background-success p-5">
             <div className="mb-2 text-sm font-bold text-text-success">Do</div>
             <pre className="overflow-x-auto">
-              <code className="font-mono text-xs leading-6 text-text-default">
+              <code className="font-mono text-caption leading-6 text-text-default">
                 {`import { Bell } from "lucide-react";
 
 <Bell className="size-4 text-text-subtle" />`}

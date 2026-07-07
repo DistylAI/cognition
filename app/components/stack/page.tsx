@@ -29,8 +29,8 @@ const doCode = `// Stack with Cognition tokens
 export default function StackPage() {
   return (
     <div>
-      <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
-      <h1 className="text-h1 text-text-default">Stack</h1>
+      <p className="mb-2 text-caption">Components</p>
+      <h1 className="text-lead text-text-default">Stack</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
         A flexbox layout primitive for row and column composition. Replaces
         inline flex utilities with named spacing tokens.
@@ -38,7 +38,7 @@ export default function StackPage() {
 
       {/* Preview */}
       <section className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Preview</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Preview</h3>
         <div className="flex items-center justify-center rounded-lg border border-border-default bg-background-subtle p-10">
           <Stack direction="row" gap="md" align="center">
             {["Item one", "Item two", "Item three"].map((label) => (
@@ -52,7 +52,7 @@ export default function StackPage() {
 
       {/* Direction */}
       <section className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Direction</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Direction</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {(["column", "row"] as const).map((dir) => (
             <div key={dir} className="overflow-hidden rounded-lg border border-border-default">
@@ -79,10 +79,10 @@ export default function StackPage() {
 
       {/* API */}
       <section className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">API</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">API</h3>
         <div className="overflow-x-auto rounded-lg border border-border-default">
           <div className="min-w-[640px]">
-            <div className="grid grid-cols-[1.4fr_1.8fr_1fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-xs font-medium text-text-subtle">
+            <div className="grid grid-cols-[1.4fr_1.8fr_1fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-caption font-medium">
               <div>Prop</div><div>Type</div><div>Default</div><div>Description</div>
             </div>
             {[
@@ -105,7 +105,7 @@ export default function StackPage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">
+        <h3 className="mt-12 mb-4 text-title text-text-default">
           Don&apos;t and Do
         </h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -122,7 +122,7 @@ export default function StackPage() {
           <div className="rounded-lg border border-border-success bg-background-success p-5">
             <div className="mb-2 text-sm font-bold text-text-success">Do</div>
             <pre className="overflow-x-auto">
-              <code className="font-mono text-xs leading-6 text-text-default">
+              <code className="font-mono text-caption leading-6 text-text-default">
                 {doCode}
               </code>
             </pre>
@@ -132,7 +132,7 @@ export default function StackPage() {
 
       {/* Code */}
       <section className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Usage</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Usage</h3>
         <CodeBlock code={installCode} />
       </section>
 

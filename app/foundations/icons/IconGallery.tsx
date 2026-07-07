@@ -57,7 +57,7 @@ export function IconGallery() {
               className="flex flex-col items-center gap-2 rounded-lg border border-border-default bg-background-default p-3 text-center transition-colors hover:border-border-primary hover:bg-background-subtle focus:outline-none focus-visible:border-border-primary"
             >
               <Icon className="size-6 text-text-subtle" aria-hidden />
-              <span className="w-full truncate text-xs text-text-subtle">
+              <span className="w-full truncate text-caption">
                 {copied === name ? "Copied!" : name}
               </span>
             </button>

@@ -54,7 +54,7 @@ function Item({
           {label}
         </span>
         {secondaryLabel && (
-          <span className="block truncate text-xs text-text-subtle">
+          <span className="block truncate text-caption">
             {secondaryLabel}
           </span>
         )}

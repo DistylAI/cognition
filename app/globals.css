@@ -111,29 +111,19 @@
      Format: text-{size}/leading-{height}/{weight}
   */
 
-  /* H1 — text-4xl/leading-normal/bold */
-  --text-h1-size:        var(--font-size-4xl);
-  --text-h1-weight:      var(--font-weight-bold);
-  --text-h1-line-height: var(--line-height-normal);
-  --text-h1-font:        var(--font-sans);
+  /* Caption — text-xs/leading-normal/normal, subtle */
+  --text-caption-size:        var(--font-size-xs);
+  --text-caption-weight:      var(--font-weight-normal);
+  --text-caption-line-height: var(--line-height-normal);
+  --text-caption-font:        var(--font-sans);
+  --text-caption-color:       var(--color-text-subtle);
 
-  /* H2 — text-3xl/leading-normal/semibold */
-  --text-h2-size:        var(--font-size-3xl);
-  --text-h2-weight:      var(--font-weight-semibold);
-  --text-h2-line-height: var(--line-height-normal);
-  --text-h2-font:        var(--font-sans);
-
-  /* H3 — text-2xl/leading-normal/semibold */
-  --text-h3-size:        var(--font-size-2xl);
-  --text-h3-weight:      var(--font-weight-semibold);
-  --text-h3-line-height: var(--line-height-normal);
-  --text-h3-font:        var(--font-sans);
-
-  /* H4 — text-xl/leading-normal/semibold */
-  --text-h4-size:        var(--font-size-xl);
-  --text-h4-weight:      var(--font-weight-semibold);
-  --text-h4-line-height: var(--line-height-normal);
-  --text-h4-font:        var(--font-sans);
+  /* Title — text-base/leading-normal/medium, default (component & section titles) */
+  --text-title-size:        var(--font-size-base);
+  --text-title-weight:      var(--font-weight-medium);
+  --text-title-line-height: var(--line-height-normal);
+  --text-title-font:        var(--font-sans);
+  --text-title-color:       var(--color-text-default);
 
   /* P (Body) — text-base/leading-normal/normal */
   --text-body-size:        var(--font-size-base);
@@ -258,31 +248,19 @@ body {
    Layout/color utilities (mt-*, border-b, text-text-danger, …) still compose.
    ────────────────────────────────────────────────────────────────────────── */
 @layer components {
-  /* H1–H4 keep a tightened 1.2 line-height for the docs layout; sizes and
-     weights are the canonical token values (H1 36px bold, H2 30px, H4 20px). */
-  .text-h1 {
-    font-family: var(--text-h1-font);
-    font-size: var(--text-h1-size);
-    font-weight: var(--text-h1-weight);
-    line-height: 1.2;
+  .text-caption {
+    font-family: var(--text-caption-font);
+    font-size: var(--text-caption-size);
+    font-weight: var(--text-caption-weight);
+    line-height: var(--text-caption-line-height);
+    color: var(--text-caption-color);
   }
-  .text-h2 {
-    font-family: var(--text-h2-font);
-    font-size: var(--text-h2-size);
-    font-weight: var(--text-h2-weight);
-    line-height: 1.2;
-  }
-  .text-h3 {
-    font-family: var(--text-h3-font);
-    font-size: var(--text-h3-size);
-    font-weight: var(--text-h3-weight);
-    line-height: 1.2;
-  }
-  .text-h4 {
-    font-family: var(--text-h4-font);
-    font-size: var(--text-h4-size);
-    font-weight: var(--text-h4-weight);
-    line-height: 1.2;
+  .text-title {
+    font-family: var(--text-title-font);
+    font-size: var(--text-title-size);
+    font-weight: var(--text-title-weight);
+    line-height: var(--text-title-line-height);
+    color: var(--text-title-color);
   }
   .text-lead {
     font-family: var(--text-lead-font);
@@ -342,16 +320,14 @@ body {
 
   /* Headings balance their line lengths; prose uses pretty to curb widows
      and orphans on longer blocks (no line-count cap). Sitewide. */
-  .text-h1,
-  .text-h2,
-  .text-h3,
-  .text-h4 {
-    text-wrap: balance;
-  }
   .text-lead,
   .text-large,
+  .text-title {
+    text-wrap: balance;
+  }
   .text-body,
-  .text-small {
+  .text-small,
+  .text-caption {
     text-wrap: pretty;
   }
 

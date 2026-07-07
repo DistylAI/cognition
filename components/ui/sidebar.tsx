@@ -155,7 +155,7 @@ const SidebarGroupLabel = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "flex h-8 shrink-0 items-center px-2 text-xs font-medium text-text-subtle transition-opacity group-data-[state=collapsed]:opacity-0",
+      "flex h-8 shrink-0 items-center px-2 text-caption font-medium transition-opacity group-data-[state=collapsed]:opacity-0",
       className,
     )}
     {...props}

@@ -37,8 +37,8 @@ const installCode = `import {
 export default function DropdownMenuPage() {
   return (
     <div>
-      <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
-      <h1 className="text-h1 text-text-default">Dropdown Menu</h1>
+      <p className="mb-2 text-caption">Components</p>
+      <h1 className="text-lead text-text-default">Dropdown Menu</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
         Displays a menu of actions or options triggered by a button. Use it for
         contextual actions, account menus, and view toggles.
@@ -46,7 +46,7 @@ export default function DropdownMenuPage() {
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Preview</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Preview</h3>
         <div className="flex min-h-[20rem] items-start justify-center rounded-lg border border-border-default bg-background-subtle p-10">
           <AccountMenu />
         </div>
@@ -60,7 +60,7 @@ export default function DropdownMenuPage() {
 
       {/* API */}
       <section id="anatomy" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">API</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">API</h3>
         <CodeBlock
           code={anatomyCode}
           className="rounded-lg border border-border-default bg-background-subtle"
@@ -76,7 +76,7 @@ export default function DropdownMenuPage() {
 
       {/* Examples */}
       <section id="examples" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">
+        <h3 className="mt-12 mb-4 text-title text-text-default">
           Checkbox &amp; radio items
         </h3>
         <div className="flex min-h-[20rem] items-start justify-center rounded-lg border border-border-default bg-background-subtle p-10">
@@ -92,7 +92,7 @@ export default function DropdownMenuPage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Don&apos;t and Do</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Don&apos;t and Do</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="rounded-lg border border-border-danger bg-background-danger p-5">
             <div className="mb-2 text-sm font-bold text-text-danger">
@@ -110,7 +110,7 @@ export default function DropdownMenuPage() {
           <div className="rounded-lg border border-border-success bg-background-success p-5">
             <div className="mb-2 text-sm font-bold text-text-success">Do</div>
             <pre className="overflow-x-auto">
-              <code className="font-mono text-xs leading-6 text-text-default">
+              <code className="font-mono text-caption leading-6 text-text-default">
                 {`// Import the Cognition wrapper, not the Radix primitive
 import { DropdownMenu } from "@/components/ui/dropdown-menu";`}
               </code>

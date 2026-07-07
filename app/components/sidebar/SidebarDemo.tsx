@@ -37,7 +37,7 @@ export function SidebarDemo() {
             </div>
             <span className="flex min-w-0 flex-col leading-tight">
               <span className="truncate font-semibold">Documentation</span>
-              <span className="truncate text-xs text-text-subtle">v1.2.0</span>
+              <span className="truncate text-caption">v1.2.0</span>
             </span>
           </SidebarMenuButton>
         </SidebarHeader>

@@ -85,7 +85,7 @@ export function GraphCanvasNode({
         <p className="text-base font-medium leading-tight text-text-default">
           {name}
         </p>
-        <p className="text-xs text-text-subtle">
+        <p className="text-caption">
           {attributes} attributes · {formatCount(nodes)} nodes
         </p>
       </div>

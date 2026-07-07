@@ -4,11 +4,11 @@ export default function HomePage() {
   return (
     <div>
       {/* Hero */}
-      <p className="mb-2 text-xs font-normal text-text-subtle">
+      <p className="mb-2 text-caption">
         Cognition v1.2 · Distyl AI
       </p>
 
-      <h1 className="text-h1 tracking-[-0.025em] text-text-default">
+      <h1 className="text-lead tracking-[-0.025em] text-text-default">
         Distyl&apos;s design <span className="text-text-primary">foundation</span>.
       </h1>
 
@@ -55,7 +55,7 @@ export default function HomePage() {
       </div>
 
       {/* Design principles */}
-      <h2 className="mt-16 text-h3 text-text-default">
+      <h2 className="mt-16 text-title text-text-default">
         Momentum. Durability. Elevation.
       </h2>
       <p className="mt-2 max-w-2xl text-body text-text-default">
@@ -84,7 +84,7 @@ export default function HomePage() {
             key={p.title}
             className="rounded-lg border border-border-default bg-background-subtle p-5"
           >
-            <h3 className="text-h4 text-text-default">{p.title}</h3>
+            <h3 className="text-title text-text-default">{p.title}</h3>
             <p className="mt-1 text-small font-medium text-text-subtle">{p.note}</p>
             <p className="mt-3 text-small text-text-default">{p.body}</p>
           </div>
@@ -92,7 +92,7 @@ export default function HomePage() {
       </div>
 
       {/* Stages of Cognition */}
-      <h2 className="mt-16 text-h3 text-text-default">
+      <h2 className="mt-16 text-title text-text-default">
         Belief. Truth. Coherence.
       </h2>
       <p className="mt-2 max-w-2xl text-body text-text-default">
@@ -121,7 +121,7 @@ export default function HomePage() {
             key={p.title}
             className="rounded-lg border border-border-default bg-background-subtle p-5"
           >
-            <h3 className="text-h4 text-text-default">{p.title}</h3>
+            <h3 className="text-title text-text-default">{p.title}</h3>
             <p className="mt-1 text-small font-medium text-text-subtle">{p.note}</p>
             <p className="mt-3 text-small text-text-default">{p.body}</p>
           </div>
@@ -153,7 +153,7 @@ export default function HomePage() {
             className="flex items-start justify-between gap-4 p-5 transition-colors hover:bg-background-subtle"
           >
             <div>
-              <div className="text-h4 text-text-default">{item.title}</div>
+              <div className="text-title text-text-default">{item.title}</div>
               <p className="mt-1 text-small">{item.body}</p>
             </div>
             <span aria-hidden className="mt-1 text-text-subtle">

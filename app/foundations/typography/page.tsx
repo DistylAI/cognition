@@ -29,8 +29,8 @@ const weights = [
 export default function TypographyPage() {
   return (
     <div>
-      <p className="mb-2 text-xs font-normal text-text-subtle">Foundations</p>
-      <h1 className="text-h1 text-text-default">Typography</h1>
+      <p className="mb-2 text-caption">Foundations</p>
+      <h1 className="text-lead text-text-default">Typography</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
         <strong className="font-bold text-text-default">Geist</strong> for all UI
         and body copy.{" "}
@@ -58,7 +58,7 @@ export default function TypographyPage() {
 
       {/* Type scale */}
       <section id="scale" className="scroll-mt-8">
-        <h3 className="mt-14 mb-1 border-b border-border-default pb-2 text-h3 text-text-default">
+        <h3 className="mt-14 mb-1 border-b border-border-default pb-2 text-title text-text-default">
           Type scale
         </h3>
         <p className="mb-6 text-small">
@@ -82,7 +82,7 @@ export default function TypographyPage() {
               >
                 {t.sample}
               </span>
-              <span className="shrink-0 font-mono text-xs text-text-subtle">
+              <span className="shrink-0 font-mono text-caption">
                 {t.label} · {t.px}px · {t.weightLabel}
               </span>
             </div>
@@ -106,7 +106,7 @@ export default function TypographyPage() {
               >
                 {t.prose}
               </span>
-              <span className="shrink-0 font-mono text-xs text-text-subtle">
+              <span className="shrink-0 font-mono text-caption">
                 {t.label} · {t.px}px · {t.weightLabel}
               </span>
             </div>
@@ -116,7 +116,7 @@ export default function TypographyPage() {
 
       {/* Weights */}
       <section id="weights" className="scroll-mt-8">
-        <h3 className="mt-14 mb-1 border-b border-border-default pb-2 text-h3 text-text-default">
+        <h3 className="mt-14 mb-1 border-b border-border-default pb-2 text-title text-text-default">
           Weights
         </h3>
         <p className="mb-6 text-small">
@@ -138,7 +138,7 @@ export default function TypographyPage() {
               >
                 The quick brown fox jumps over the lazy dog.
               </span>
-              <span className="shrink-0 font-mono text-xs text-text-subtle">
+              <span className="shrink-0 font-mono text-caption">
                 {w.weight} · {w.label}
               </span>
             </div>
@@ -148,14 +148,14 @@ export default function TypographyPage() {
 
       {/* In context */}
       <section id="context" className="scroll-mt-8">
-        <h3 className="mt-14 mb-1 border-b border-border-default pb-2 text-h3 text-text-default">
+        <h3 className="mt-14 mb-1 border-b border-border-default pb-2 text-title text-text-default">
           In context
         </h3>
         <p className="mb-6 text-small">The styles working together as a document.</p>
 
         <div className="rounded-lg border border-border-default bg-background-subtle p-8">
           <article className="mx-auto max-w-2xl">
-            <h1 className="text-h1 text-text-default">Building Cognition</h1>
+            <h1 className="text-lead text-text-default">Building Cognition</h1>
             <p className="text-body mt-4">
               Cognition is Distyl AI&apos;s design system -- the shared foundation
               every product implementation sits on. It exists so engineers ship
@@ -163,7 +163,7 @@ export default function TypographyPage() {
               token file, not a codebase.
             </p>
 
-            <h2 className="text-h2 mt-10 text-text-default">Why a system</h2>
+            <h2 className="text-title mt-10 text-text-default">Why a system</h2>
             <p className="text-body mt-4">
               Ad hoc UI compounds. Every hardcoded hex value, every one-off
               spacing decision, every parallel component is debt that slows the
@@ -175,7 +175,7 @@ export default function TypographyPage() {
               on top of it faster and more reliable.
             </blockquote>
 
-            <h2 className="text-h2 mt-10 text-text-default">Three layers</h2>
+            <h2 className="text-title mt-10 text-text-default">Three layers</h2>
             <ol className="text-list mt-4 list-decimal pl-6 text-text-default">
               <li>Primitives -- raw values, never used directly</li>
               <li>Semantic -- purpose-named aliases, where dark mode lives</li>
@@ -184,7 +184,7 @@ export default function TypographyPage() {
               </li>
             </ol>
 
-            <h2 className="text-h2 mt-10 text-text-default">
+            <h2 className="text-title mt-10 text-text-default">
               Token swap, skin swap
             </h2>
             <div className="mt-4 overflow-x-auto">
@@ -234,7 +234,7 @@ export default function TypographyPage() {
               .
             </p>
 
-            <h2 className="text-h2 mt-10 text-text-default">The moral</h2>
+            <h2 className="text-title mt-10 text-text-default">The moral</h2>
             <blockquote className="text-blockquote mt-4 border-l-2 border-border-default pl-4 text-text-subtle">
               Never underestimate the cost of building the same thing twice.
             </blockquote>
@@ -244,7 +244,7 @@ export default function TypographyPage() {
 
       {/* Monospace */}
       <section id="mono" className="scroll-mt-8">
-        <h3 className="mt-14 mb-1 border-b border-border-default pb-2 text-h3 text-text-default">
+        <h3 className="mt-14 mb-1 border-b border-border-default pb-2 text-title text-text-default">
           Monospace
         </h3>
         <p className="mb-6 text-small">

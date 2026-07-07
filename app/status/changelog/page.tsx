@@ -105,8 +105,8 @@ const releases: Release[] = [
 export default function ChangelogPage() {
   return (
     <div>
-      <p className="mb-2 text-xs font-normal text-text-subtle">Status</p>
-      <h1 className="text-h1 text-text-default">Changelog</h1>
+      <p className="mb-2 text-caption">Status</p>
+      <h1 className="text-lead text-text-default">Changelog</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
         Cognition version history. What shipped, what changed, and what the
         system has become.
@@ -128,7 +128,7 @@ export default function ChangelogPage() {
               <CardHeader>
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex flex-col gap-1">
-                    <span className="text-xs font-medium uppercase tracking-wide text-text-subtle">
+                    <span className="text-caption font-medium uppercase tracking-wide">
                       v{release.version} · {release.date}
                     </span>
                     <CardTitle className="text-lg">

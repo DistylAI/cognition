@@ -78,8 +78,8 @@ export function EventCard() {
 export default function CardPage() {
   return (
     <div>
-      <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
-      <h1 className="text-h1 text-text-default">Card</h1>
+      <p className="mb-2 text-caption">Components</p>
+      <h1 className="text-lead text-text-default">Card</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
         Displays a card with header, content, and footer. Use it to group
         related content and actions on a single bordered surface.
@@ -87,7 +87,7 @@ export default function CardPage() {
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Preview</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Preview</h3>
         <div className="flex items-center justify-center rounded-lg border border-border-default bg-background-subtle p-10">
           <Card className="w-full max-w-sm">
             <CardHeader className="flex-row items-start justify-between space-y-0">
@@ -122,7 +122,7 @@ export default function CardPage() {
 
       {/* API */}
       <section id="anatomy" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">API</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">API</h3>
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           <div className="flex items-start justify-center rounded-lg border border-border-default bg-background-subtle p-8">
             <Card className="w-full max-w-sm">
@@ -154,7 +154,7 @@ export default function CardPage() {
 
       {/* Examples */}
       <section id="examples" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Examples</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Examples</h3>
         <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-2">
           {/* Featured event card with media + badge */}
           <Card className="w-full">
@@ -207,7 +207,7 @@ export default function CardPage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">
+        <h3 className="mt-12 mb-4 text-title text-text-default">
           Don&apos;t and Do
         </h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -226,7 +226,7 @@ export default function CardPage() {
           <div className="rounded-lg border border-border-success bg-background-success p-5">
             <div className="mb-2 text-sm font-bold text-text-success">Do</div>
             <pre className="overflow-x-auto">
-              <code className="font-mono text-xs leading-6 text-text-default">
+              <code className="font-mono text-caption leading-6 text-text-default">
                 {doCode}
               </code>
             </pre>

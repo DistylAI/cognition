@@ -123,7 +123,7 @@ function collectLeafPaths(node: FileNode, path: string): string[] {
 
 function StatusBadge({ children }: { children: ReactNode }) {
   return (
-    <span className="ml-auto shrink-0 text-xs text-text-subtle">{children}</span>
+    <span className="ml-auto shrink-0 text-caption">{children}</span>
   );
 }
 

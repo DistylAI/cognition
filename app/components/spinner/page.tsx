@@ -48,8 +48,8 @@ export function SavingState() {
 export default function SpinnerPage() {
   return (
     <div>
-      <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
-      <h1 className="text-h1 text-text-default">Spinner</h1>
+      <p className="mb-2 text-caption">Components</p>
+      <h1 className="text-lead text-text-default">Spinner</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
         An indeterminate loading indicator for waits of unknown length. A brand
         arc rotates on a neutral track, spinning continuously until the wait
@@ -69,7 +69,7 @@ export default function SpinnerPage() {
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Preview</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Preview</h3>
         <div className="flex items-center justify-center gap-3 rounded-lg border border-border-default bg-background-subtle p-10">
           <Spinner />
           <span className="text-sm text-text-subtle">Processing payment...</span>
@@ -82,7 +82,7 @@ export default function SpinnerPage() {
 
       {/* Variants */}
       <section id="variants" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Variants</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Variants</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="flex h-auto items-center justify-center bg-background-subtle p-8">
@@ -129,14 +129,14 @@ export default function SpinnerPage() {
 
       {/* States */}
       <section id="states" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">States</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">States</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="flex h-auto items-center justify-center bg-background-subtle p-8">
               <Spinner />
             </div>
             <div className="border-t border-border-default p-3">
-              <p className="text-xs text-text-subtle">
+              <p className="text-caption">
                 Spinning. The single, perpetual state until the wait resolves.
               </p>
             </div>
@@ -149,7 +149,7 @@ export default function SpinnerPage() {
               </span>
             </div>
             <div className="border-t border-border-default p-3">
-              <p className="text-xs text-text-subtle">Inline beside a label.</p>
+              <p className="text-caption">Inline beside a label.</p>
             </div>
           </div>
           <div className="overflow-hidden rounded-lg border border-border-default">
@@ -160,7 +160,7 @@ export default function SpinnerPage() {
               </Button>
             </div>
             <div className="border-t border-border-default p-3">
-              <p className="text-xs text-text-subtle">Inside a disabled button.</p>
+              <p className="text-caption">Inside a disabled button.</p>
             </div>
           </div>
         </div>
@@ -172,10 +172,10 @@ export default function SpinnerPage() {
 
       {/* API */}
       <section id="api" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">API</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">API</h3>
         <div className="overflow-x-auto rounded-lg border border-border-default">
           <div className="min-w-[640px]">
-            <div className="grid grid-cols-[1.4fr_1.8fr_1fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-xs font-medium text-text-subtle">
+            <div className="grid grid-cols-[1.4fr_1.8fr_1fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-caption font-medium">
               <div>Prop</div>
               <div>Type</div>
               <div>Default</div>
@@ -190,10 +190,10 @@ export default function SpinnerPage() {
                   <div className="font-mono text-sm text-text-default">
                     {p.name}
                   </div>
-                  <div className="font-mono text-xs text-text-subtle">
+                  <div className="font-mono text-caption">
                     {p.type}
                   </div>
-                  <div className="font-mono text-xs text-text-subtle">
+                  <div className="font-mono text-caption">
                     {p.def}
                   </div>
                   <div className="text-sm text-text-subtle">{p.desc}</div>
@@ -210,7 +210,7 @@ export default function SpinnerPage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">
+        <h3 className="mt-12 mb-4 text-title text-text-default">
           Don&apos;t and Do
         </h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -228,7 +228,7 @@ export default function SpinnerPage() {
           <div className="rounded-lg border border-border-success bg-background-success p-5">
             <div className="mb-2 text-sm font-bold text-text-success">Do</div>
             <pre className="overflow-x-auto">
-              <code className="font-mono text-xs leading-6 text-text-default">
+              <code className="font-mono text-caption leading-6 text-text-default">
                 {doCode}
               </code>
             </pre>

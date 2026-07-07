@@ -53,8 +53,8 @@ const installCode = `import {
 export default function SidebarPage() {
   return (
     <div>
-      <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
-      <h1 className="text-h1 text-text-default">Sidebar</h1>
+      <p className="mb-2 text-caption">Components</p>
+      <h1 className="text-lead text-text-default">Sidebar</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
         A composable, collapsible application sidebar -- header, grouped menu, and
         footer, paired with the main content via{" "}
@@ -73,7 +73,7 @@ export default function SidebarPage() {
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Preview</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Preview</h3>
         <div className="rounded-lg border border-border-default bg-background-subtle p-6">
           <SidebarDemo />
         </div>
@@ -87,7 +87,7 @@ export default function SidebarPage() {
 
       {/* API */}
       <section id="anatomy" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">API</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">API</h3>
         <CodeBlock
           code={anatomyCode}
           className="rounded-lg border border-border-default bg-background-subtle"
@@ -106,7 +106,7 @@ export default function SidebarPage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Don&apos;t and Do</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Don&apos;t and Do</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="rounded-lg border border-border-danger bg-background-danger p-5">
             <div className="mb-2 text-sm font-bold text-text-danger">
@@ -123,7 +123,7 @@ export default function SidebarPage() {
           <div className="rounded-lg border border-border-success bg-background-success p-5">
             <div className="mb-2 text-sm font-bold text-text-success">Do</div>
             <pre className="overflow-x-auto">
-              <code className="font-mono text-xs leading-6 text-text-default">
+              <code className="font-mono text-caption leading-6 text-text-default">
                 {`<SidebarMenuButton asChild isActive={pathname === "/"}>
   <Link href="/"><LayoutDashboard /><span>Overview</span></Link>
 </SidebarMenuButton>`}

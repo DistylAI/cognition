@@ -159,7 +159,7 @@ export function Sidebar() {
         ) : (
           filteredNav.map((group) => (
             <div key={group.section}>
-              <p className="mb-2 text-xs font-normal text-text-subtle">
+              <p className="mb-2 text-caption">
                 {group.section}
               </p>
               <ul className="space-y-0.5">
@@ -266,7 +266,7 @@ export function Sidebar() {
       </nav>
 
       <div className="mt-8 border-t border-border-default px-6 pb-8 pt-6">
-        <div className="flex flex-col gap-1 text-xs text-text-subtle">
+        <div className="flex flex-col gap-1 text-caption">
           <span>Cognition v1.2</span>
           <a
             href="https://distylai.slack.com/archives/C0A22RR2N6P"
