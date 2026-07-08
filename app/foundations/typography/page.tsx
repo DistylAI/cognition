@@ -278,7 +278,7 @@ export default { system, tokens, theme };`}
         </p>
       </section>
 
-      <footer className="mt-16 border-t border-border-default pt-6 text-sm text-text-subtle">
+      <footer className="mt-16 border-t border-border-default pt-6 text-description">
         Type styles are the Cognition v1.2 named text styles in{" "}
         <code className="font-mono text-text-default">globals.css</code> -- set the
         type with the <code className="font-mono text-text-default">text-*</code>{" "}

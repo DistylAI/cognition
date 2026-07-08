@@ -120,7 +120,7 @@ function ProfileSheet() {
           <div className="grid gap-2">
             <label
               htmlFor="sheet-name"
-              className="text-sm font-medium text-text-default"
+              className="text-label"
             >
               Name
             </label>
@@ -129,7 +129,7 @@ function ProfileSheet() {
           <div className="grid gap-2">
             <label
               htmlFor="sheet-username"
-              className="text-sm font-medium text-text-default"
+              className="text-label"
             >
               Username
             </label>
@@ -235,7 +235,7 @@ export default function SheetDocsPage() {
                   <div className="font-mono text-sm text-text-default">
                     {p.name}
                   </div>
-                  <div className="text-sm text-text-subtle">{p.desc}</div>
+                  <div className="text-description">{p.desc}</div>
                 </div>
               ))}
             </div>

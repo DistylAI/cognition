@@ -38,7 +38,7 @@ const installCode = `import { Spinner } from "@/components/ui/spinner";
 
 export function SavingState() {
   return (
-    <div className="flex items-center gap-2 text-sm text-text-subtle">
+    <div className="flex items-center gap-2 text-description">
       <Spinner size="sm" />
       Saving changes...
     </div>
@@ -72,7 +72,7 @@ export default function SpinnerPage() {
         <h3 className="mt-12 mb-4 text-title text-text-default">Preview</h3>
         <div className="flex items-center justify-center gap-3 rounded-lg border border-border-default bg-background-subtle p-10">
           <Spinner />
-          <span className="text-sm text-text-subtle">Processing payment...</span>
+          <span className="text-description">Processing payment...</span>
         </div>
         <p className="mt-2 text-small">
           Rendered with live Cognition tokens. Toggle the theme and the arc and
@@ -143,7 +143,7 @@ export default function SpinnerPage() {
           </div>
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="flex h-auto items-center justify-center bg-background-subtle p-8">
-              <span className="flex items-center gap-2 text-sm text-text-subtle">
+              <span className="flex items-center gap-2 text-description">
                 <Spinner size="sm" />
                 Saving changes...
               </span>
@@ -196,7 +196,7 @@ export default function SpinnerPage() {
                   <div className="font-mono text-caption">
                     {p.def}
                   </div>
-                  <div className="text-sm text-text-subtle">{p.desc}</div>
+                  <div className="text-description">{p.desc}</div>
                 </div>
               ))}
             </div>

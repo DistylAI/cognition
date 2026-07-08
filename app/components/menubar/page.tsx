@@ -85,7 +85,7 @@ function MenuBarMock({ open }: { open?: string }) {
       {["File", "Edit", "View"].map((label) => (
         <span
           key={label}
-          className={`rounded-sm px-3 py-1 text-sm font-medium text-text-default ${open === label ? "bg-background-secondary" : ""}`}
+          className={`rounded-sm px-3 py-1 text-label ${open === label ? "bg-background-secondary" : ""}`}
         >
           {label}
         </span>
@@ -374,7 +374,7 @@ export default function MenubarPage() {
                   <div className="font-mono text-sm text-text-default">
                     {c.name}
                   </div>
-                  <div className="text-sm text-text-subtle">{c.desc}</div>
+                  <div className="text-description">{c.desc}</div>
                 </div>
               ))}
             </div>

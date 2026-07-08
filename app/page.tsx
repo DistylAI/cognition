@@ -48,7 +48,7 @@ export default function HomePage() {
         </Link>
         <Link
           href="/audit"
-          className="rounded-md border border-border-default bg-background-default px-5 py-2.5 text-sm font-medium text-text-default transition-colors hover:border-border-strong"
+          className="rounded-md border border-border-default bg-background-default px-5 py-2.5 text-label transition-colors hover:border-border-strong"
         >
           Read the codebase audit
         </Link>

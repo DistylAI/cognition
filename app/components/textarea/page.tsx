@@ -52,7 +52,7 @@ export default function TextareaPage() {
           <div className="flex w-full max-w-sm flex-col gap-2">
             <label
               htmlFor="message"
-              className="text-sm font-medium text-text-default"
+              className="text-label"
             >
               Your message
             </label>
@@ -119,7 +119,7 @@ export default function TextareaPage() {
                   <div className="font-mono text-sm text-text-default">{p.name}</div>
                   <div className="font-mono text-caption">{p.type}</div>
                   <div className="font-mono text-caption">{p.def}</div>
-                  <div className="text-sm text-text-subtle">{p.desc}</div>
+                  <div className="text-description">{p.desc}</div>
                 </div>
               ))}
             </div>

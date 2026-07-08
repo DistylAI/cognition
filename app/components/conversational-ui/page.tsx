@@ -197,7 +197,7 @@ function PropsTable({
               </div>
               <div className="font-mono text-caption">{r.type}</div>
               <div className="font-mono text-caption">{r.def}</div>
-              <div className="text-sm text-text-subtle">{r.desc}</div>
+              <div className="text-description">{r.desc}</div>
             </div>
           ))}
         </div>
@@ -290,7 +290,7 @@ export default function ConversationalUIPage() {
                   <div className="font-mono text-caption">
                     {p.def}
                   </div>
-                  <div className="text-sm text-text-subtle">{p.desc}</div>
+                  <div className="text-description">{p.desc}</div>
                 </div>
               ))}
             </div>
@@ -303,7 +303,7 @@ export default function ConversationalUIPage() {
               <span className="font-mono text-sm text-text-default">
                 {p.name}
               </span>
-              <span className="ml-2 text-sm text-text-subtle">-- {p.desc}</span>
+              <span className="ml-2 text-description">-- {p.desc}</span>
             </div>
           ))}
         </div>
@@ -316,7 +316,7 @@ export default function ConversationalUIPage() {
         <h4 className="mt-10 mb-1 font-mono text-base font-semibold text-text-default">
           ChatInput
         </h4>
-        <p className="mb-4 text-sm text-text-subtle">
+        <p className="mb-4 text-description">
           Auto-resizing message input with keyboard shortcuts. Composes Textarea
           and Button.
         </p>
@@ -332,7 +332,7 @@ export default function ConversationalUIPage() {
         <h4 className="mt-10 mb-1 font-mono text-base font-semibold text-text-default">
           MessageBubble
         </h4>
-        <p className="mb-4 text-sm text-text-subtle">
+        <p className="mb-4 text-description">
           Renders a single conversation turn. User turns are plain text.
           Assistant turns parse markdown and fenced code blocks.
         </p>
@@ -348,7 +348,7 @@ export default function ConversationalUIPage() {
         <h4 className="mt-10 mb-1 font-mono text-base font-semibold text-text-default">
           LoadingBubble
         </h4>
-        <p className="mb-4 text-sm text-text-subtle">
+        <p className="mb-4 text-description">
           Assistant thinking state. Uses the Distyl Spinner. No props -- render it
           while awaiting a response.
         </p>
@@ -368,7 +368,7 @@ export default function ConversationalUIPage() {
         <h4 className="mt-10 mb-1 font-mono text-base font-semibold text-text-default">
           EmptyState
         </h4>
-        <p className="mb-4 text-sm text-text-subtle">
+        <p className="mb-4 text-description">
           Zero-message state with prompt chips. Shown when the message list is
           empty. Chips call onChipClick with the chip text.
         </p>

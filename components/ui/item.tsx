@@ -50,7 +50,7 @@ function Item({
         </span>
       )}
       <span className="min-w-0 flex-1">
-        <span className="block truncate text-sm font-medium text-text-default">
+        <span className="block truncate text-label">
           {label}
         </span>
         {secondaryLabel && (

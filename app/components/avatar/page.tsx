@@ -248,7 +248,7 @@ export default function AvatarPage() {
                   <div className="font-mono text-caption">
                     {p.props}
                   </div>
-                  <div className="text-sm text-text-subtle">{p.desc}</div>
+                  <div className="text-description">{p.desc}</div>
                 </div>
               ))}
             </div>

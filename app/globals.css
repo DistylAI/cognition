@@ -125,6 +125,20 @@
   --text-title-font:        var(--font-sans);
   --text-title-color:       var(--color-text-default);
 
+  /* Description — text-sm/leading-normal/normal, subtle (helper & description copy) */
+  --text-description-size:        var(--font-size-sm);
+  --text-description-weight:      var(--font-weight-normal);
+  --text-description-line-height: var(--line-height-normal);
+  --text-description-font:        var(--font-sans);
+  --text-description-color:       var(--color-text-subtle);
+
+  /* Label — text-sm/leading-normal/medium, default (form labels & compact titles) */
+  --text-label-size:        var(--font-size-sm);
+  --text-label-weight:      var(--font-weight-medium);
+  --text-label-line-height: var(--line-height-normal);
+  --text-label-font:        var(--font-sans);
+  --text-label-color:       var(--color-text-default);
+
   /* P (Body) — text-base/leading-normal/normal */
   --text-body-size:        var(--font-size-base);
   --text-body-weight:      var(--font-weight-normal);
@@ -262,6 +276,20 @@ body {
     line-height: var(--text-title-line-height);
     color: var(--text-title-color);
   }
+  .text-description {
+    font-family: var(--text-description-font);
+    font-size: var(--text-description-size);
+    font-weight: var(--text-description-weight);
+    line-height: var(--text-description-line-height);
+    color: var(--text-description-color);
+  }
+  .text-label {
+    font-family: var(--text-label-font);
+    font-size: var(--text-label-size);
+    font-weight: var(--text-label-weight);
+    line-height: var(--text-label-line-height);
+    color: var(--text-label-color);
+  }
   .text-lead {
     font-family: var(--text-lead-font);
     font-size: var(--text-lead-size);
@@ -327,7 +355,9 @@ body {
   }
   .text-body,
   .text-small,
-  .text-caption {
+  .text-caption,
+  .text-description,
+  .text-label {
     text-wrap: pretty;
   }
 

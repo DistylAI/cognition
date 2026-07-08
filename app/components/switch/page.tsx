@@ -48,7 +48,7 @@ export default function SwitchPage() {
       <section id="preview" className="scroll-mt-8">
         <h3 className="mt-12 mb-4 text-title text-text-default">Preview</h3>
         <div className="flex items-center justify-center rounded-lg border border-border-default bg-background-subtle p-10">
-          <label className="flex items-center gap-2 text-sm font-medium text-text-default">
+          <label className="flex items-center gap-2 text-label">
             <Switch defaultChecked />
             Airplane Mode
           </label>
@@ -109,7 +109,7 @@ export default function SwitchPage() {
                   <div className="font-mono text-sm text-text-default">{p.name}</div>
                   <div className="font-mono text-caption">{p.type}</div>
                   <div className="font-mono text-caption">{p.def}</div>
-                  <div className="text-sm text-text-subtle">{p.desc}</div>
+                  <div className="text-description">{p.desc}</div>
                 </div>
               ))}
             </div>

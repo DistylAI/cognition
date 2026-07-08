@@ -106,7 +106,7 @@ function MockAlert({
         <p className="text-lg font-semibold text-text-default">
           {destructive ? "Delete chat?" : "Discard changes?"}
         </p>
-        <p className="text-sm text-text-subtle">
+        <p className="text-description">
           {destructive
             ? "This permanently deletes the conversation and its history. This cannot be undone."
             : "Your edits will be lost if you leave without saving."}
@@ -272,7 +272,7 @@ export default function AlertDialogPage() {
                   <div className="font-mono text-sm text-text-default">
                     {c.name}
                   </div>
-                  <div className="text-sm text-text-subtle">{c.desc}</div>
+                  <div className="text-description">{c.desc}</div>
                 </div>
               ))}
             </div>

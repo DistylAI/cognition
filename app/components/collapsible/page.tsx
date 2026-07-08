@@ -133,7 +133,7 @@ function LabeledCollapsible() {
         </Button>
       </CollapsibleTrigger>
       <CollapsibleContent>
-        <div className="rounded-md border border-border-default px-4 py-3 text-sm text-text-subtle">
+        <div className="rounded-md border border-border-default px-4 py-3 text-description">
           Ships in 2–3 business days. Free returns within 30 days.
         </div>
       </CollapsibleContent>
@@ -248,7 +248,7 @@ export default function CollapsibleDocsPage() {
                   <div className="font-mono text-sm text-text-default">
                     {p.name}
                   </div>
-                  <div className="text-sm text-text-subtle">{p.desc}</div>
+                  <div className="text-description">{p.desc}</div>
                 </div>
               ))}
             </div>

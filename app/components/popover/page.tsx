@@ -59,7 +59,7 @@ const dimensionsCode = `<Popover>
     <div className="grid gap-4">
       <div className="space-y-1">
         <h4 className="font-medium leading-none">Dimensions</h4>
-        <p className="text-sm text-text-subtle">Set the dimensions for the layer.</p>
+        <p className="text-description">Set the dimensions for the layer.</p>
       </div>
       <div className="grid grid-cols-3 items-center gap-4">
         <label htmlFor="width">Width</label>
@@ -73,7 +73,7 @@ const dimensionsCode = `<Popover>
 const simpleCode = `<PopoverContent>
   <div className="space-y-1">
     <h4 className="font-medium leading-none">Activity log</h4>
-    <p className="text-sm text-text-subtle">Rich content lives in a portal…</p>
+    <p className="text-description">Rich content lives in a portal…</p>
   </div>
 </PopoverContent>`;
 
@@ -95,7 +95,7 @@ export function DimensionsPopover() {
       </PopoverTrigger>
       <PopoverContent className="w-80">
         <h4 className="font-medium leading-none">Dimensions</h4>
-        <p className="text-sm text-text-subtle">Set the dimensions for the layer.</p>
+        <p className="text-description">Set the dimensions for the layer.</p>
       </PopoverContent>
     </Popover>
   );
@@ -214,7 +214,7 @@ export default function PopoverDocsPage() {
                   <div className="font-mono text-caption">
                     {p.def}
                   </div>
-                  <div className="text-sm text-text-subtle">{p.desc}</div>
+                  <div className="text-description">{p.desc}</div>
                 </div>
               ))}
             </div>

@@ -86,7 +86,7 @@ const textCode = `<DrawerContent>
       <DrawerTitle>Title Text</DrawerTitle>
       <DrawerDescription>This is a drawer description.</DrawerDescription>
     </DrawerHeader>
-    <div className="max-h-[50vh] overflow-y-auto px-4 text-sm text-text-subtle">
+    <div className="max-h-[50vh] overflow-y-auto px-4 text-description">
       <p>…</p>
     </div>
     <DrawerFooter>…</DrawerFooter>
@@ -238,7 +238,7 @@ export default function DrawerDocsPage() {
                   <div className="font-mono text-sm text-text-default">
                     {p.name}
                   </div>
-                  <div className="text-sm text-text-subtle">{p.desc}</div>
+                  <div className="text-description">{p.desc}</div>
                 </div>
               ))}
             </div>

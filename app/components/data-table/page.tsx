@@ -110,7 +110,7 @@ export default function DataTablePage() {
                   className="grid grid-cols-[1.6fr_3fr] gap-4 px-4 py-3"
                 >
                   <div className="font-mono text-sm text-text-default">{p.name}</div>
-                  <div className="text-sm text-text-subtle">{p.desc}</div>
+                  <div className="text-description">{p.desc}</div>
                 </div>
               ))}
             </div>

@@ -36,11 +36,11 @@ const states = [
 ] as const;
 
 const labelCode = `<div className="flex flex-col gap-2">
-  <label htmlFor="email" className="text-sm font-medium text-text-default">
+  <label htmlFor="email" className="text-label">
     Email
   </label>
   <Input id="email" type="email" placeholder="derek.ho@distyl.ai" />
-  <p className="text-sm text-text-subtle">We'll never share your email.</p>
+  <p className="text-description">We'll never share your email.</p>
 </div>`;
 
 const doCode = `// Pair the Input with a <label> tied via htmlFor/id
@@ -113,12 +113,12 @@ export default function InputPage() {
             <div className="flex w-full max-w-xs flex-col gap-2">
               <label
                 htmlFor="email"
-                className="text-sm font-medium text-text-default"
+                className="text-label"
               >
                 Email
               </label>
               <Input id="email" type="email" placeholder="derek.ho@distyl.ai" />
-              <p className="text-sm text-text-subtle">
+              <p className="text-description">
                 We&apos;ll never share your email.
               </p>
             </div>
@@ -162,7 +162,7 @@ export default function InputPage() {
                   <div className="font-mono text-sm text-text-default">{p.name}</div>
                   <div className="font-mono text-caption">{p.type}</div>
                   <div className="font-mono text-caption">{p.def}</div>
-                  <div className="text-sm text-text-subtle">{p.desc}</div>
+                  <div className="text-description">{p.desc}</div>
                 </div>
               ))}
             </div>

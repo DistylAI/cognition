@@ -245,7 +245,7 @@ export default function TokensPage() {
         </p>
       </section>
 
-      <footer className="mt-16 border-t border-border-default pt-6 text-sm text-text-subtle">
+      <footer className="mt-16 border-t border-border-default pt-6 text-description">
         Values mirror{" "}
         <code className="font-mono text-text-default">cognition-tokens.css</code>
         . Adding a token is a MINOR bump; changing a value is a PATCH or MINOR.

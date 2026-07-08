@@ -297,7 +297,7 @@ export default function TablePage() {
                   <div className="font-mono text-caption">
                     {c.element}
                   </div>
-                  <div className="text-sm text-text-subtle">{c.desc}</div>
+                  <div className="text-description">{c.desc}</div>
                 </div>
               ))}
             </div>

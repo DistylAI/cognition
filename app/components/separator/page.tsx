@@ -62,14 +62,14 @@ export default function SeparatorPage() {
         <h3 className="mt-12 mb-4 text-title text-text-default">Preview</h3>
         <div className="rounded-lg border border-border-default bg-background-subtle p-10">
           <div className="mx-auto max-w-xs">
-            <p className="text-sm font-medium text-text-default">
+            <p className="text-label">
               Cognition
             </p>
-            <p className="text-sm text-text-subtle">
+            <p className="text-description">
               The foundation every product sits on.
             </p>
             <Separator className="my-4" />
-            <div className="flex h-5 items-center gap-3 text-sm text-text-subtle">
+            <div className="flex h-5 items-center gap-3 text-description">
               <span>Blog</span>
               <Separator orientation="vertical" />
               <span>Docs</span>
@@ -90,7 +90,7 @@ export default function SeparatorPage() {
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="flex items-center justify-center bg-background-subtle p-8">
-              <div className="w-full max-w-[200px] text-center text-sm text-text-subtle">
+              <div className="w-full max-w-[200px] text-center text-description">
                 <span>Above</span>
                 <Separator className="my-3" />
                 <span>Below</span>
@@ -106,7 +106,7 @@ export default function SeparatorPage() {
           </div>
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="flex items-center justify-center bg-background-subtle p-8">
-              <div className="flex h-5 items-center gap-3 text-sm text-text-subtle">
+              <div className="flex h-5 items-center gap-3 text-description">
                 <span>Left</span>
                 <Separator orientation="vertical" />
                 <span>Right</span>
@@ -177,7 +177,7 @@ export default function SeparatorPage() {
                   <div className="font-mono text-caption">
                     {p.def}
                   </div>
-                  <div className="text-sm text-text-subtle">{p.desc}</div>
+                  <div className="text-description">{p.desc}</div>
                 </div>
               ))}
             </div>

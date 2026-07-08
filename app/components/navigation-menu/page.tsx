@@ -13,7 +13,7 @@ import { CodeBlock } from "@/components/CodeBlock";
 // Inlined here rather than calling navigationMenuTriggerStyle(): that cva lives
 // in a "use client" module and cannot be invoked from this server component.
 const navLinkClass =
-  "group inline-flex h-9 w-max items-center justify-center rounded-md bg-background-default px-4 py-2 text-sm font-medium text-text-default transition-colors hover:bg-background-secondary hover:text-text-default focus:bg-background-secondary focus:text-text-default focus:outline-none";
+  "group inline-flex h-9 w-max items-center justify-center rounded-md bg-background-default px-4 py-2 text-label transition-colors hover:bg-background-secondary hover:text-text-default focus:bg-background-secondary focus:text-text-default focus:outline-none";
 
 export const metadata: Metadata = {
   title: "Navigation Menu",
@@ -72,7 +72,7 @@ export function PrimaryNav() {
 }`;
 
 const triggerClass =
-  "inline-flex h-9 items-center justify-center rounded-md px-4 text-sm font-medium text-text-default";
+  "inline-flex h-9 items-center justify-center rounded-md px-4 text-label";
 
 function MockBar({
   state,
@@ -122,11 +122,11 @@ function MockPanel({
                 </span>
               )}
               <div>
-                <p className="text-sm font-medium text-text-default">
+                <p className="text-label">
                   {item.title}
                 </p>
                 {variant === "descriptions" && (
-                  <p className="text-sm text-text-subtle">{item.desc}</p>
+                  <p className="text-description">{item.desc}</p>
                 )}
               </div>
             </div>
@@ -170,10 +170,10 @@ export default function NavigationMenuPage() {
                         href="#"
                         className="block rounded-md p-3 transition-colors hover:bg-background-secondary"
                       >
-                        <p className="text-sm font-medium text-text-default">
+                        <p className="text-label">
                           Components
                         </p>
-                        <p className="text-sm text-text-subtle">
+                        <p className="text-description">
                           Buttons, inputs, and the full library.
                         </p>
                       </NavigationMenuLink>
@@ -183,10 +183,10 @@ export default function NavigationMenuPage() {
                         href="#"
                         className="block rounded-md p-3 transition-colors hover:bg-background-secondary"
                       >
-                        <p className="text-sm font-medium text-text-default">
+                        <p className="text-label">
                           Tokens
                         </p>
-                        <p className="text-sm text-text-subtle">
+                        <p className="text-description">
                           Color, type, spacing, and radius.
                         </p>
                       </NavigationMenuLink>
@@ -196,10 +196,10 @@ export default function NavigationMenuPage() {
                         href="#"
                         className="block rounded-md p-3 transition-colors hover:bg-background-secondary"
                       >
-                        <p className="text-sm font-medium text-text-default">
+                        <p className="text-label">
                           Icons
                         </p>
-                        <p className="text-sm text-text-subtle">
+                        <p className="text-description">
                           The lucide set, sized and tinted.
                         </p>
                       </NavigationMenuLink>
@@ -209,10 +209,10 @@ export default function NavigationMenuPage() {
                         href="#"
                         className="block rounded-md p-3 transition-colors hover:bg-background-secondary"
                       >
-                        <p className="text-sm font-medium text-text-default">
+                        <p className="text-label">
                           Guidelines
                         </p>
-                        <p className="text-sm text-text-subtle">
+                        <p className="text-description">
                           How and when to use each piece.
                         </p>
                       </NavigationMenuLink>
@@ -317,7 +317,7 @@ export default function NavigationMenuPage() {
                   <div className="font-mono text-sm text-text-default">
                     {c.name}
                   </div>
-                  <div className="text-sm text-text-subtle">{c.desc}</div>
+                  <div className="text-description">{c.desc}</div>
                 </div>
               ))}
             </div>

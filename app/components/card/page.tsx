@@ -22,8 +22,8 @@ export const metadata: Metadata = {
 function FieldShell({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex flex-col gap-2">
-      <span className="text-sm font-medium text-text-default">{label}</span>
-      <div className="flex h-9 items-center rounded-lg border border-border-default bg-background-default px-3 text-sm text-text-subtle">
+      <span className="text-label">{label}</span>
+      <div className="flex h-9 items-center rounded-lg border border-border-default bg-background-default px-3 text-description">
         {value}
       </div>
     </div>

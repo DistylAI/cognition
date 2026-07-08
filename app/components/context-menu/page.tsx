@@ -151,7 +151,7 @@ export default function ContextMenuPage() {
         <div className="flex items-center justify-center rounded-lg border border-border-default bg-background-subtle p-10">
           <ContextMenu>
             <ContextMenuTrigger asChild>
-              <div className="flex h-40 w-full max-w-md items-center justify-center rounded-lg border border-dashed border-border-strong text-sm text-text-subtle">
+              <div className="flex h-40 w-full max-w-md items-center justify-center rounded-lg border border-dashed border-border-strong text-description">
                 Right-click here
               </div>
             </ContextMenuTrigger>
@@ -267,7 +267,7 @@ export default function ContextMenuPage() {
         <h3 className="mt-12 mb-4 text-title text-text-default">States</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
-            <div className="flex h-[124px] w-full items-center justify-center rounded-lg border border-dashed border-border-strong text-sm text-text-subtle">
+            <div className="flex h-[124px] w-full items-center justify-center rounded-lg border border-dashed border-border-strong text-description">
               Right-click target
             </div>
             <p className="text-caption">Closed. The default state.</p>
@@ -337,7 +337,7 @@ export default function ContextMenuPage() {
                   <div className="font-mono text-sm text-text-default">
                     {c.name}
                   </div>
-                  <div className="text-sm text-text-subtle">{c.desc}</div>
+                  <div className="text-description">{c.desc}</div>
                 </div>
               ))}
             </div>

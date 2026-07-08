@@ -154,7 +154,7 @@ function PropsTable({
               </div>
               <div className="font-mono text-caption">{r.type}</div>
               <div className="font-mono text-caption">{r.def}</div>
-              <div className="text-sm text-text-subtle">{r.desc}</div>
+              <div className="text-description">{r.desc}</div>
             </div>
           ))}
         </div>

@@ -358,7 +358,7 @@ export default function CommandPage() {
               <Command defaultValue={NO_AUTOSELECT} className="rounded-md border border-border-default">
                 <CommandInput placeholder="Search..." />
                 <CommandList>
-                  <div className="flex items-center justify-center gap-2 py-6 text-sm text-text-subtle">
+                  <div className="flex items-center justify-center gap-2 py-6 text-description">
                     <Loader2 className="size-4 animate-spin" />
                     <span>Loading results...</span>
                   </div>
@@ -406,7 +406,7 @@ export default function CommandPage() {
                   <div className="font-mono text-caption">
                     {p.def}
                   </div>
-                  <div className="text-sm text-text-subtle">{p.desc}</div>
+                  <div className="text-description">{p.desc}</div>
                 </div>
               ))}
             </div>

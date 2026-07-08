@@ -47,7 +47,7 @@ export function HandlePreview() {
       </HoverCardTrigger>
       <HoverCardContent className="w-72">
         <p className="text-sm font-semibold">Derek Ho</p>
-        <p className="text-sm text-text-subtle">
+        <p className="text-description">
           Co-founder at Distyl.
         </p>
       </HoverCardContent>
@@ -79,7 +79,7 @@ function MockCard({
         {avatar && <ProfileAvatar />}
         <div className="space-y-1">
           <p className="text-sm font-semibold text-text-default">Derek Ho</p>
-          <p className="text-sm text-text-subtle">
+          <p className="text-description">
             Co-founder at Distyl. Building the team behind the Cognition design
             system.
           </p>
@@ -131,7 +131,7 @@ export default function HoverCardPage() {
                   <p className="text-sm font-semibold text-text-default">
                     Derek Ho
                   </p>
-                  <p className="text-sm text-text-subtle">
+                  <p className="text-description">
                     Co-founder at Distyl. Building the team behind the Cognition
                     design system.
                   </p>
@@ -230,7 +230,7 @@ export default function HoverCardPage() {
                   <div className="font-mono text-caption">
                     {p.def}
                   </div>
-                  <div className="text-sm text-text-subtle">{p.desc}</div>
+                  <div className="text-description">{p.desc}</div>
                 </div>
               ))}
             </div>

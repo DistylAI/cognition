@@ -104,7 +104,7 @@ function ToastMock({
       >
         <CircleCheck className="mt-0.5 size-5 shrink-0 text-text-success" />
         <div className="flex-1">
-          <p className="text-sm font-medium text-text-default">Changes saved</p>
+          <p className="text-label">Changes saved</p>
           <p className="text-caption">Your workspace is up to date.</p>
         </div>
       </div>
@@ -369,7 +369,7 @@ export default function ToastPage() {
                   <div className="font-mono text-caption">
                     {p.def}
                   </div>
-                  <div className="text-sm text-text-subtle">{p.desc}</div>
+                  <div className="text-description">{p.desc}</div>
                 </div>
               ))}
             </div>

@@ -54,7 +54,7 @@ export function SplitView() {
 
 function Pane({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex h-full items-center justify-center p-6 text-sm font-medium text-text-default">
+    <div className="flex h-full items-center justify-center p-6 text-label">
       {children}
     </div>
   );
@@ -283,7 +283,7 @@ export default function ResizablePage() {
                   <div className="font-mono text-caption">
                     {p.def}
                   </div>
-                  <div className="text-sm text-text-subtle">{p.desc}</div>
+                  <div className="text-description">{p.desc}</div>
                 </div>
               ))}
             </div>
