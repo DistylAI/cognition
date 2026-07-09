@@ -230,7 +230,7 @@ export default function ConversationalUIPage() {
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Preview</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Preview</h3>
         <p className="mb-3 text-small">
           This preview is live -- it&apos;s running Meno, Cognition&apos;s
           built-in assistant. Ask it anything about tokens, components, or system
@@ -246,13 +246,13 @@ export default function ConversationalUIPage() {
 
       {/* Variants */}
       <section id="variants" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Variants</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Variants</h3>
         <VariantShell />
       </section>
 
       {/* States */}
       <section id="states" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">States</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">States</h3>
         <StatesDemo />
         <p className="mt-3 text-small">
           The error state is a danger-styled{" "}
@@ -265,7 +265,7 @@ export default function ConversationalUIPage() {
 
       {/* API */}
       <section id="anatomy" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">API</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">API</h3>
 
         <div className="overflow-x-auto rounded-lg border border-border-default">
           <div className="min-w-[640px]">
@@ -311,7 +311,7 @@ export default function ConversationalUIPage() {
 
       {/* Sub-components */}
       <section id="sub-components" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Sub-components</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Sub-components</h3>
 
         <h4 className="mt-10 mb-1 font-mono text-base font-semibold text-text-default">
           ChatInput
@@ -382,7 +382,7 @@ export default function ConversationalUIPage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">
+        <h3 className="mt-12 mb-4 text-lead text-text-default">
           Don&apos;t and Do
         </h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">

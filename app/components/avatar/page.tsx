@@ -110,7 +110,7 @@ export default function AvatarPage() {
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Preview</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Preview</h3>
         <div className="flex items-center justify-center gap-4 rounded-lg border border-border-default bg-background-subtle p-10">
           <Avatar>
             <AvatarImage src={IMG} alt="Derek Ho" />
@@ -130,7 +130,7 @@ export default function AvatarPage() {
 
       {/* Variants */}
       <section id="variants" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Sizes</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Sizes</h3>
         <div className="overflow-hidden rounded-lg border border-border-default">
           <div className="flex items-center justify-center gap-6 bg-background-subtle p-8">
             <Avatar className="size-6">
@@ -161,7 +161,7 @@ export default function AvatarPage() {
 
       {/* States */}
       <section id="states" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">States</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">States</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="flex items-center justify-center bg-background-subtle p-8">
@@ -228,7 +228,7 @@ export default function AvatarPage() {
 
       {/* API */}
       <section id="api" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">API</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">API</h3>
         <div className="overflow-x-auto rounded-lg border border-border-default">
           <div className="min-w-[560px]">
             <div className="grid grid-cols-[1.4fr_1.4fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-caption font-medium">
@@ -258,7 +258,7 @@ export default function AvatarPage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Don&apos;t and Do</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Don&apos;t and Do</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="rounded-lg border border-border-danger bg-background-danger p-5">
             <div className="mb-2 text-sm font-bold text-text-danger">

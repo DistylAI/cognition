@@ -89,7 +89,7 @@ export default function EmptyStatePage() {
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Preview</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Preview</h3>
         <div className="flex items-center justify-center rounded-lg border border-border-default bg-background-subtle p-10">
           <Empty className="max-w-sm">
             <EmptyHeader>
@@ -120,7 +120,7 @@ export default function EmptyStatePage() {
 
       {/* API */}
       <section id="anatomy" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">API</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">API</h3>
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           <div className="flex items-start justify-center rounded-lg border border-border-default bg-background-subtle p-8">
             <Empty className="max-w-sm">
@@ -155,7 +155,7 @@ export default function EmptyStatePage() {
 
       {/* Examples */}
       <section id="examples" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Examples</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Examples</h3>
         <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-2">
           {/* Search: no results, with input action */}
           <div className="flex items-center justify-center rounded-lg border border-border-default bg-background-subtle p-8">
@@ -200,7 +200,7 @@ export default function EmptyStatePage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Don&apos;t and Do</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Don&apos;t and Do</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="rounded-lg border border-border-danger bg-background-danger p-5">
             <div className="mb-2 text-sm font-bold text-text-danger">

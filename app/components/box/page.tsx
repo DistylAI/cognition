@@ -35,7 +35,7 @@ export default function BoxPage() {
 
       {/* Preview */}
       <section className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Preview</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Preview</h3>
         <div className="flex items-center justify-center rounded-lg border border-border-default bg-background-subtle p-10">
           <Box p="md" bg="default" border radius="md">
             <p className="text-body text-text-default">Box with p="md" bg="default" border radius="md"</p>
@@ -45,7 +45,7 @@ export default function BoxPage() {
 
       {/* Variants */}
       <section className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Backgrounds</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Backgrounds</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {(["default", "subtle", "secondary", "accent", "danger", "success", "warning"] as const).map((bg) => (
             <div key={bg} className="overflow-hidden rounded-lg border border-border-default">
@@ -68,7 +68,7 @@ export default function BoxPage() {
 
       {/* Padding scale */}
       <section className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Padding scale</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Padding scale</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {(["xs", "sm", "md", "lg", "xl", "2xl"] as const).map((p) => (
             <div key={p} className="overflow-hidden rounded-lg border border-border-default">
@@ -84,7 +84,7 @@ export default function BoxPage() {
 
       {/* API */}
       <section className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">API</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">API</h3>
         <div className="overflow-x-auto rounded-lg border border-border-default">
           <div className="min-w-[640px]">
             <div className="grid grid-cols-[1.4fr_1.8fr_1fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-caption font-medium">
@@ -112,7 +112,7 @@ export default function BoxPage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">
+        <h3 className="mt-12 mb-4 text-lead text-text-default">
           Don&apos;t and Do
         </h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -139,7 +139,7 @@ export default function BoxPage() {
 
       {/* Code */}
       <section className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Usage</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Usage</h3>
         <CodeBlock code={installCode} />
       </section>
 

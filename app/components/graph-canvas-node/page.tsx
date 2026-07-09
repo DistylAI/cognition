@@ -187,7 +187,7 @@ export default function GraphCanvasNodePage() {
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Preview</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Preview</h3>
         <div className="flex items-center justify-center rounded-lg border border-border-default bg-background-subtle p-10">
           <GraphCanvasNodeInteractive />
         </div>
@@ -200,7 +200,7 @@ export default function GraphCanvasNodePage() {
 
       {/* Variants */}
       <section id="variants" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Domains</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Domains</h3>
         <div className="grid grid-cols-1 items-start gap-4 sm:grid-cols-3">
           {variants.map((v) => (
             <div
@@ -224,7 +224,7 @@ export default function GraphCanvasNodePage() {
 
       {/* States */}
       <section id="states" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">States</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">States</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           {states.map((s) => (
             <div
@@ -264,13 +264,13 @@ export default function GraphCanvasNodePage() {
 
       {/* API */}
       <section id="api" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">API</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">API</h3>
         <PropsTable rows={props} />
       </section>
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Don&apos;t and Do</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Don&apos;t and Do</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="rounded-lg border border-border-danger bg-background-danger p-5">
             <div className="mb-2 text-sm font-bold text-text-danger">

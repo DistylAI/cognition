@@ -87,7 +87,7 @@ export default function CardPage() {
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Preview</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Preview</h3>
         <div className="flex items-center justify-center rounded-lg border border-border-default bg-background-subtle p-10">
           <Card className="w-full max-w-sm">
             <CardHeader className="flex-row items-start justify-between space-y-0">
@@ -122,7 +122,7 @@ export default function CardPage() {
 
       {/* API */}
       <section id="anatomy" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">API</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">API</h3>
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           <div className="flex items-start justify-center rounded-lg border border-border-default bg-background-subtle p-8">
             <Card className="w-full max-w-sm">
@@ -154,7 +154,7 @@ export default function CardPage() {
 
       {/* Examples */}
       <section id="examples" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Examples</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Examples</h3>
         <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-2">
           {/* Featured event card with media + badge */}
           <Card className="w-full">
@@ -207,7 +207,7 @@ export default function CardPage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">
+        <h3 className="mt-12 mb-4 text-lead text-text-default">
           Don&apos;t and Do
         </h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">

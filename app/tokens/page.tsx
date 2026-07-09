@@ -48,7 +48,7 @@ export default function TokensPage() {
 
       {/* Color -- parent heading over backgrounds, text, borders, feedback, chart */}
       <section id="color" className="scroll-mt-8">
-        <h3 className="mt-14 mb-1 border-b border-border-default pb-2 text-title text-text-default">
+        <h3 className="mt-14 mb-1 border-b border-border-default pb-2 text-lead text-text-default">
           {colorParentTitle}
         </h3>
         <p className="mb-6 text-small">
@@ -109,7 +109,7 @@ export default function TokensPage() {
 
       {/* Radius */}
       <section id="radius" className="scroll-mt-8">
-        <h3 className="mt-14 mb-1 border-b border-border-default pb-2 text-title text-text-default">
+        <h3 className="mt-14 mb-1 border-b border-border-default pb-2 text-lead text-text-default">
           Radius
         </h3>
         <p className="mb-6 text-small">
@@ -142,7 +142,7 @@ export default function TokensPage() {
 
       {/* Spacing */}
       <section id="spacing" className="scroll-mt-8">
-        <h3 className="mt-14 mb-1 border-b border-border-default pb-2 text-title text-text-default">
+        <h3 className="mt-14 mb-1 border-b border-border-default pb-2 text-lead text-text-default">
           Spacing
         </h3>
         <p className="mb-6 text-small">
@@ -169,7 +169,7 @@ export default function TokensPage() {
 
       {/* Type Scale */}
       <section id="typescale" className="scroll-mt-8">
-        <h3 className="mt-14 mb-1 border-b border-border-default pb-2 text-title text-text-default">
+        <h3 className="mt-14 mb-1 border-b border-border-default pb-2 text-lead text-text-default">
           Type Scale
         </h3>
         <p className="mb-6 text-small">

@@ -66,7 +66,7 @@ export default function IconsPage() {
 
       {/* Library */}
       <section id="library" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Library</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Library</h3>
         <div className="rounded-lg border border-border-default bg-background-accent p-4">
           <p className="text-small text-text-default">
             <span className="font-semibold">Lucide is the only icon set.</span>{" "}
@@ -87,7 +87,7 @@ export default function IconsPage() {
 
       {/* Sizing */}
       <section id="sizing" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Sizing</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Sizing</h3>
         <div className="overflow-hidden rounded-lg border border-border-default">
           <div className="flex items-end justify-center gap-10 bg-background-subtle p-10">
             {[
@@ -122,7 +122,7 @@ export default function IconsPage() {
 
       {/* Color */}
       <section id="color" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Color</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Color</h3>
         <div className="overflow-hidden rounded-lg border border-border-default">
           <div className="flex flex-wrap items-end justify-center gap-8 bg-background-subtle p-10">
             {colorSwatches.map((c) => (
@@ -152,7 +152,7 @@ export default function IconsPage() {
 
       {/* Usage */}
       <section id="usage" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Usage</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Usage</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="flex items-center justify-center bg-background-subtle p-8">
@@ -209,7 +209,7 @@ export default function IconsPage() {
 
       {/* Browse */}
       <section id="browse" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Browse</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Browse</h3>
         <p className="mb-4 text-small">
           A selection of commonly used icons, rendered live from{" "}
           <code className="font-mono">lucide-react</code> at{" "}
@@ -222,7 +222,7 @@ export default function IconsPage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Don&apos;t and Do</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Don&apos;t and Do</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="rounded-lg border border-border-danger bg-background-danger p-5">
             <div className="mb-2 text-sm font-bold text-text-danger">

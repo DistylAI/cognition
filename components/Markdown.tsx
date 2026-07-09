@@ -39,7 +39,7 @@ export function Markdown({ content }: { content: string }) {
           h2: ({ children }) => (
             <h2
               id={slug(nodeText(children))}
-              className="mt-12 mb-4 scroll-mt-8 border-b border-border-default pb-2 text-title text-text-default"
+              className="mt-12 mb-4 scroll-mt-8 border-b border-border-default pb-2 text-lead text-text-default"
             >
               {children}
             </h2>

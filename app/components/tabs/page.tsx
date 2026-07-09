@@ -66,7 +66,7 @@ export default function TabsPage() {
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Preview</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Preview</h3>
         <div className="flex items-center justify-center rounded-lg border border-border-default bg-background-subtle p-10">
           <VariantTabs variant="secondary" />
         </div>
@@ -80,7 +80,7 @@ export default function TabsPage() {
 
       {/* Variants */}
       <section id="variants" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Variants</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Variants</h3>
         <div className="space-y-4">
           {variants.map((v) => (
             <div
@@ -112,7 +112,7 @@ export default function TabsPage() {
 
       {/* With icons */}
       <section id="with-icons" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">With icons</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">With icons</h3>
         <div className="flex items-center justify-center rounded-lg border border-border-default bg-background-subtle p-10">
           <IconTabs />
         </div>
@@ -124,7 +124,7 @@ export default function TabsPage() {
 
       {/* API */}
       <section id="api" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">API</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">API</h3>
         <div className="overflow-x-auto rounded-lg border border-border-default">
           <div className="min-w-[560px]">
             <div className="grid grid-cols-[1.6fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-caption font-medium">
@@ -153,7 +153,7 @@ export default function TabsPage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Don&apos;t and Do</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Don&apos;t and Do</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="rounded-lg border border-border-danger bg-background-danger p-5">
             <div className="mb-2 text-sm font-bold text-text-danger">
