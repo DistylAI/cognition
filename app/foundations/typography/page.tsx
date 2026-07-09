@@ -6,17 +6,19 @@ export const metadata: Metadata = {
     "Geist for all UI and body copy. Geist Mono for code and technical values only -- the Cognition v1.2 type scale and weights.",
 };
 
-// Live specimen rows. `sample` is the scale comparison line (drawn from the
-// Building Cognition write-up); `prose` is a representative line in running copy.
+// The 8 canonical Cognition named text styles, ordered strictly by px descending
+// (by size, not perceived prominence -- text-lead is heavier than text-large but
+// sorts below it). Each row renders live via its own text-* class, so size /
+// weight / color are the real token, never an inline override.
 const scale = [
-  { label: "H1", px: 36, weight: 700, weightLabel: "Bold", sample: "Building Cognition", prose: "Cognition" },
-  { label: "H2", px: 30, weight: 600, weightLabel: "Semibold", sample: "Why a system", prose: "Design system" },
-  { label: "H3", px: 24, weight: 600, weightLabel: "Semibold", sample: "Three layers", prose: "Tokens and components" },
-  { label: "H4", px: 20, weight: 600, weightLabel: "Semibold", sample: "Token swap, skin swap", prose: "Semantic colors" },
-  { label: "Lead", px: 18, weight: 600, weightLabel: "Semibold", sample: "The shared foundation every product sits on", prose: "One source of truth." },
-  { label: "Body", px: 16, weight: 400, weightLabel: "Regular", sample: "A design system is not a deliverable. It is infrastructure.", prose: "The quick brown fox jumps over the lazy dog." },
-  { label: "Small", px: 14, weight: 500, weightLabel: "Medium", sample: "Primitives, semantic, component -- never crossed.", prose: "Secondary copy and helper text." },
-  { label: "Caption", px: 12, weight: 400, weightLabel: "Regular", sample: "Cognition v1.2 · maintained by Research & Design", prose: "Captions, labels, metadata." },
+  { token: "text-large", px: 20, weight: "Regular" },
+  { token: "text-lead", px: 18, weight: "Semibold" },
+  { token: "text-title", px: 16, weight: "Medium" },
+  { token: "text-body", px: 16, weight: "Regular" },
+  { token: "text-small", px: 14, weight: "Medium" },
+  { token: "text-label", px: 14, weight: "Medium" },
+  { token: "text-description", px: 14, weight: "Regular" },
+  { token: "text-caption", px: 12, weight: "Regular" },
 ];
 
 const weights = [
@@ -62,52 +64,22 @@ export default function TypographyPage() {
           Type scale
         </h3>
         <p className="mb-6 text-small">
-          Eight steps, Geist throughout. Each row renders at its live size and
-          weight.
+          Eight named styles, Geist throughout, nothing above 20px. Each row
+          renders live via its own <code className="font-mono">text-*</code>{" "}
+          class -- size, weight, and color are the real token.
         </p>
 
-        <div className="space-y-4 rounded-lg border border-border-default bg-background-subtle p-6">
+        <div className="rounded-lg border border-border-default bg-background-subtle">
           {scale.map((t) => (
             <div
-              key={t.label}
-              className="flex items-baseline justify-between gap-4 border-b border-border-subtle pb-3 last:border-0 last:pb-0"
+              key={t.token}
+              className="flex items-baseline justify-between gap-4 border-b border-border-subtle px-6 py-4 last:border-0"
             >
-              <span
-                className="truncate text-text-default"
-                style={{
-                  fontSize: `${t.px}px`,
-                  fontWeight: t.weight,
-                  fontVariationSettings: `"wght" ${t.weight}`,
-                }}
-              >
-                {t.sample}
+              <span className={`min-w-0 truncate ${t.token}`}>
+                Good decisions, made reusable.
               </span>
               <span className="shrink-0 font-mono text-caption">
-                {t.label} · {t.px}px · {t.weightLabel}
-              </span>
-            </div>
-          ))}
-        </div>
-
-        <p className="mt-8 mb-3 text-small">Each style set in running copy:</p>
-        <div className="space-y-4 rounded-lg border border-border-default bg-background-subtle p-6">
-          {scale.map((t) => (
-            <div
-              key={t.label}
-              className="flex items-baseline justify-between gap-4 border-b border-border-subtle pb-3 last:border-0 last:pb-0"
-            >
-              <span
-                className="min-w-0 text-text-default"
-                style={{
-                  fontSize: `${t.px}px`,
-                  fontWeight: t.weight,
-                  fontVariationSettings: `"wght" ${t.weight}`,
-                }}
-              >
-                {t.prose}
-              </span>
-              <span className="shrink-0 font-mono text-caption">
-                {t.label} · {t.px}px · {t.weightLabel}
+                {t.token} · {t.px}px · {t.weight}
               </span>
             </div>
           ))}
@@ -155,7 +127,7 @@ export default function TypographyPage() {
 
         <div className="rounded-lg border border-border-default bg-background-subtle p-8">
           <article className="mx-auto max-w-2xl">
-            <h1 className="text-lead text-text-default">Building Cognition</h1>
+            <p className="text-lead text-text-default">Building Cognition</p>
             <p className="text-body mt-4">
               Cognition is Distyl AI&apos;s design system -- the shared foundation
               every product implementation sits on. It exists so engineers ship

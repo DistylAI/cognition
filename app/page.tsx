@@ -28,7 +28,7 @@ export default function HomePage() {
         products and customer implementations.
       </p>
 
-      <p className="mt-6 max-w-2xl text-lead text-text-default">
+      <p className="mt-6 max-w-2xl text-title font-semibold text-text-default">
         The result is coherence.
       </p>
 
