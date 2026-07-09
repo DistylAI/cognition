@@ -57,8 +57,8 @@ const JUNE_12 = new Date(2026, 5, 12);
 export default function DatePickerPage() {
   return (
     <div>
-      <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
-      <h1 className="text-h1 text-text-default">Date Picker</h1>
+      <p className="mb-2 text-caption">Components</p>
+      <h1 className="text-lead text-text-default">Date Picker</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
         A compact date input that opens a calendar in a popover on click. It fits
         forms and toolbars where a full inline grid would take too much room.
@@ -74,7 +74,7 @@ export default function DatePickerPage() {
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Preview</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Preview</h3>
         <div className="flex items-center justify-center rounded-lg border border-border-default bg-background-subtle p-10">
           <DatePicker />
         </div>
@@ -86,7 +86,7 @@ export default function DatePickerPage() {
 
       {/* Variants */}
       <section id="variants" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Variants</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Variants</h3>
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="flex items-center justify-center bg-background-subtle p-8">
@@ -145,11 +145,11 @@ export default function DatePickerPage() {
 
       {/* States */}
       <section id="states" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">States</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">States</h3>
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
           <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <DatePicker />
-            <p className="text-xs text-text-subtle">Closed. Just the trigger.</p>
+            <p className="text-caption">Closed. Just the trigger.</p>
           </div>
           <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <Button
@@ -159,7 +159,7 @@ export default function DatePickerPage() {
               <CalendarIcon className="mr-2 size-4 shrink-0" />
               June 12, 2026
             </Button>
-            <p className="text-xs text-text-subtle">
+            <p className="text-caption">
               Date selected. The trigger shows the value.
             </p>
           </div>
@@ -171,13 +171,13 @@ export default function DatePickerPage() {
               <CalendarIcon className="mr-2 size-4 shrink-0" />
               Jun 09, 2026 - Jun 16, 2026
             </Button>
-            <p className="text-xs text-text-subtle">
+            <p className="text-caption">
               Range selected. Both ends are shown.
             </p>
           </div>
           <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <DatePicker disabled placeholder="Pick a date" />
-            <p className="text-xs text-text-subtle">
+            <p className="text-caption">
               Disabled. The calendar cannot open.
             </p>
           </div>
@@ -194,7 +194,7 @@ export default function DatePickerPage() {
                 <Calendar mode="single" selected={JUNE_12} defaultMonth={JUNE_12} />
               </div>
             </div>
-            <p className="text-xs text-text-subtle">
+            <p className="text-caption">
               Open. The calendar drops in a popover under the trigger (shown
               statically).
             </p>
@@ -208,10 +208,10 @@ export default function DatePickerPage() {
 
       {/* API */}
       <section id="api" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">API</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">API</h3>
         <div className="overflow-x-auto rounded-lg border border-border-default">
           <div className="min-w-[640px]">
-            <div className="grid grid-cols-[1.4fr_1.8fr_1fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-xs font-medium text-text-subtle">
+            <div className="grid grid-cols-[1.4fr_1.8fr_1fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-caption font-medium">
               <div>Prop</div>
               <div>Type</div>
               <div>Default</div>
@@ -226,13 +226,13 @@ export default function DatePickerPage() {
                   <div className="font-mono text-sm text-text-default">
                     {p.name}
                   </div>
-                  <div className="font-mono text-xs text-text-subtle">
+                  <div className="font-mono text-caption">
                     {p.type}
                   </div>
-                  <div className="font-mono text-xs text-text-subtle">
+                  <div className="font-mono text-caption">
                     {p.def}
                   </div>
-                  <div className="text-sm text-text-subtle">{p.desc}</div>
+                  <div className="text-description">{p.desc}</div>
                 </div>
               ))}
             </div>
@@ -246,7 +246,7 @@ export default function DatePickerPage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">
+        <h3 className="mt-12 mb-4 text-title text-text-default">
           Don&apos;t and Do
         </h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -264,7 +264,7 @@ export default function DatePickerPage() {
           <div className="rounded-lg border border-border-success bg-background-success p-5">
             <div className="mb-2 text-sm font-bold text-text-success">Do</div>
             <pre className="overflow-x-auto">
-              <code className="font-mono text-xs leading-6 text-text-default">
+              <code className="font-mono text-caption leading-6 text-text-default">
                 {doCode}
               </code>
             </pre>

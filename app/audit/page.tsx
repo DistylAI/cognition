@@ -57,10 +57,10 @@ export default async function AuditPage() {
 
   return (
     <div>
-      <p className="mb-2 text-xs font-normal text-text-subtle">
+      <p className="mb-2 text-caption">
         Status
       </p>
-      <h1 className="text-h1 text-text-default">
+      <h1 className="text-lead text-text-default">
         Codebase Audit
       </h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
@@ -96,7 +96,7 @@ export default async function AuditPage() {
             <div className="font-mono text-2xl font-bold text-text-danger">
               {h.stat}
             </div>
-            <div className="mt-1 text-xs font-normal leading-4 text-text-subtle">
+            <div className="mt-1 text-caption leading-4">
               {h.label}
             </div>
           </div>
@@ -115,7 +115,7 @@ export default async function AuditPage() {
       </div>
 
       {/* Detailed findings -- collapsed by default */}
-      <h3 className="mt-12 mb-4 text-h3 text-text-default">
+      <h3 className="mt-12 mb-4 text-title text-text-default">
         Detailed findings
       </h3>
       <AuditSections sections={sections} />

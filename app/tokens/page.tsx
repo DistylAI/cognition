@@ -17,10 +17,10 @@ export const metadata: Metadata = {
 export default function TokensPage() {
   return (
     <div>
-      <p className="mb-2 text-xs font-normal text-text-subtle">
+      <p className="mb-2 text-caption">
         Foundations
       </p>
-      <h1 className="text-h1 text-text-default">
+      <h1 className="text-lead text-text-default">
         Tokens
       </h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
@@ -48,7 +48,7 @@ export default function TokensPage() {
 
       {/* Color -- parent heading over backgrounds, text, borders, feedback, chart */}
       <section id="color" className="scroll-mt-8">
-        <h3 className="mt-14 mb-1 border-b border-border-default pb-2 text-h3 text-text-default">
+        <h3 className="mt-14 mb-1 border-b border-border-default pb-2 text-title text-text-default">
           {colorParentTitle}
         </h3>
         <p className="mb-6 text-small">
@@ -60,7 +60,7 @@ export default function TokensPage() {
       {/* Color sub-groups */}
       {colorGroups.map((group) => (
         <section key={group.id} id={group.id} className="scroll-mt-8">
-          <h4 className="mt-10 mb-1 text-h4 text-text-default">{group.title}</h4>
+          <h4 className="mt-10 mb-1 text-title text-text-default">{group.title}</h4>
           <p className="mb-6 text-small">{group.description}</p>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -75,23 +75,23 @@ export default function TokensPage() {
                   aria-hidden
                 />
                 <div className="min-w-0">
-                  <div className="truncate font-mono text-xs font-semibold text-text-default">
+                  <div className="truncate font-mono text-caption font-semibold text-text-default">
                     {t.name}
                   </div>
                   <div className="mt-0.5 space-y-0.5">
                     {(t.utilities ?? [t.utility]).map((u) => (
                       <div
                         key={u}
-                        className="truncate font-mono text-xs font-normal text-text-subtle"
+                        className="truncate font-mono text-caption"
                       >
                         {u}
                       </div>
                     ))}
                   </div>
-                  <p className="mt-1 text-xs font-normal leading-5 text-text-subtle">
+                  <p className="mt-1 text-caption leading-5">
                     {t.usage}
                   </p>
-                  <div className="mt-2 flex gap-3 font-mono text-xs font-normal text-text-subtle">
+                  <div className="mt-2 flex gap-3 font-mono text-caption">
                     <span>
                       <span className="text-text-disabled">light</span>{" "}
                       {t.light}
@@ -109,7 +109,7 @@ export default function TokensPage() {
 
       {/* Radius */}
       <section id="radius" className="scroll-mt-8">
-        <h3 className="mt-14 mb-1 border-b border-border-default pb-2 text-h3 text-text-default">
+        <h3 className="mt-14 mb-1 border-b border-border-default pb-2 text-title text-text-default">
           Radius
         </h3>
         <p className="mb-6 text-small">
@@ -131,7 +131,7 @@ export default function TokensPage() {
                 <div className="font-mono text-sm font-bold text-text-default">
                   {r.utility}
                 </div>
-                <div className="font-mono text-xs text-text-subtle">
+                <div className="font-mono text-caption">
                   {r.value}
                 </div>
               </div>
@@ -142,7 +142,7 @@ export default function TokensPage() {
 
       {/* Spacing */}
       <section id="spacing" className="scroll-mt-8">
-        <h3 className="mt-14 mb-1 border-b border-border-default pb-2 text-h3 text-text-default">
+        <h3 className="mt-14 mb-1 border-b border-border-default pb-2 text-title text-text-default">
           Spacing
         </h3>
         <p className="mb-6 text-small">
@@ -154,7 +154,7 @@ export default function TokensPage() {
               <div className="w-16 font-mono text-sm font-bold text-text-default">
                 {s.utility}
               </div>
-              <div className="w-12 font-mono text-xs text-text-subtle">
+              <div className="w-12 font-mono text-caption">
                 {s.px}px
               </div>
               <div
@@ -169,7 +169,7 @@ export default function TokensPage() {
 
       {/* Type Scale */}
       <section id="typescale" className="scroll-mt-8">
-        <h3 className="mt-14 mb-1 border-b border-border-default pb-2 text-h3 text-text-default">
+        <h3 className="mt-14 mb-1 border-b border-border-default pb-2 text-title text-text-default">
           Type Scale
         </h3>
         <p className="mb-6 text-small">
@@ -195,7 +195,7 @@ export default function TokensPage() {
               >
                 {t.sample}
               </span>
-              <span className="shrink-0 font-mono text-xs text-text-subtle">
+              <span className="shrink-0 font-mono text-caption">
                 {t.label} · {t.px}px · {t.weightLabel}
               </span>
             </div>
@@ -217,7 +217,7 @@ export default function TokensPage() {
               >
                 Aa
               </div>
-              <div className="mt-1 font-mono text-xs text-text-subtle">
+              <div className="mt-1 font-mono text-caption">
                 {w.weight} · {w.label}
               </div>
             </div>
@@ -245,7 +245,7 @@ export default function TokensPage() {
         </p>
       </section>
 
-      <footer className="mt-16 border-t border-border-default pt-6 text-sm text-text-subtle">
+      <footer className="mt-16 border-t border-border-default pt-6 text-description">
         Values mirror{" "}
         <code className="font-mono text-text-default">cognition-tokens.css</code>
         . Adding a token is a MINOR bump; changing a value is a PATCH or MINOR.

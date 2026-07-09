@@ -133,7 +133,7 @@ export function MobileNav() {
               ) : (
                 filteredNav.map((group) => (
                   <div key={group.section}>
-                    <p className="mb-2 text-xs font-normal text-text-subtle">
+                    <p className="mb-2 text-caption">
                       {group.section}
                     </p>
                     <ul className="space-y-0.5">

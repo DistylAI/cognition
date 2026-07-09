@@ -122,7 +122,7 @@ function MockItem({
       {icon}
       <span>{children}</span>
       {shortcut && (
-        <span className="ml-auto text-xs tracking-widest text-text-subtle">
+        <span className="ml-auto text-caption tracking-widest">
           {shortcut}
         </span>
       )}
@@ -138,8 +138,8 @@ function MockSeparator() {
 export default function ContextMenuPage() {
   return (
     <div>
-      <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
-      <h1 className="text-h1 text-text-default">Context Menu</h1>
+      <p className="mb-2 text-caption">Components</p>
+      <h1 className="text-lead text-text-default">Context Menu</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
         A menu opened by right-click, or long-press on touch, that surfaces
         actions relevant to the element under the pointer.
@@ -147,11 +147,11 @@ export default function ContextMenuPage() {
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Preview</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Preview</h3>
         <div className="flex items-center justify-center rounded-lg border border-border-default bg-background-subtle p-10">
           <ContextMenu>
             <ContextMenuTrigger asChild>
-              <div className="flex h-40 w-full max-w-md items-center justify-center rounded-lg border border-dashed border-border-strong text-sm text-text-subtle">
+              <div className="flex h-40 w-full max-w-md items-center justify-center rounded-lg border border-dashed border-border-strong text-description">
                 Right-click here
               </div>
             </ContextMenuTrigger>
@@ -199,7 +199,7 @@ export default function ContextMenuPage() {
 
       {/* Variants */}
       <section id="variants" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Variants</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Variants</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <MockMenu>
@@ -207,7 +207,7 @@ export default function ContextMenuPage() {
               <MockItem>Reload</MockItem>
               <MockItem>Save as</MockItem>
             </MockMenu>
-            <p className="text-xs text-text-subtle">Default</p>
+            <p className="text-caption">Default</p>
           </div>
           <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <MockMenu>
@@ -215,7 +215,7 @@ export default function ContextMenuPage() {
               <MockItem icon={<Star />}>Favorite</MockItem>
               <MockItem icon={<Share2 />}>Share</MockItem>
             </MockMenu>
-            <p className="text-xs text-text-subtle">With icons</p>
+            <p className="text-caption">With icons</p>
           </div>
           <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <MockMenu>
@@ -223,7 +223,7 @@ export default function ContextMenuPage() {
               <MockItem shortcut="⌘X">Cut</MockItem>
               <MockItem shortcut="⌘V">Paste</MockItem>
             </MockMenu>
-            <p className="text-xs text-text-subtle">With keyboard shortcuts</p>
+            <p className="text-caption">With keyboard shortcuts</p>
           </div>
           <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <MockMenu>
@@ -233,7 +233,7 @@ export default function ContextMenuPage() {
               </MockItem>
               <MockItem>Rename</MockItem>
             </MockMenu>
-            <p className="text-xs text-text-subtle">With sub-menu</p>
+            <p className="text-caption">With sub-menu</p>
           </div>
           <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <MockMenu>
@@ -242,7 +242,7 @@ export default function ContextMenuPage() {
               <MockSeparator />
               <MockItem>Select all</MockItem>
             </MockMenu>
-            <p className="text-xs text-text-subtle">With separator</p>
+            <p className="text-caption">With separator</p>
           </div>
           <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <MockMenu>
@@ -253,7 +253,7 @@ export default function ContextMenuPage() {
                 Delete
               </MockItem>
             </MockMenu>
-            <p className="text-xs text-text-subtle">With destructive item</p>
+            <p className="text-caption">With destructive item</p>
           </div>
         </div>
         <p className="mt-2 text-small">
@@ -264,13 +264,13 @@ export default function ContextMenuPage() {
 
       {/* States */}
       <section id="states" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">States</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">States</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
-            <div className="flex h-[124px] w-full items-center justify-center rounded-lg border border-dashed border-border-strong text-sm text-text-subtle">
+            <div className="flex h-[124px] w-full items-center justify-center rounded-lg border border-dashed border-border-strong text-description">
               Right-click target
             </div>
-            <p className="text-xs text-text-subtle">Closed. The default state.</p>
+            <p className="text-caption">Closed. The default state.</p>
           </div>
           <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <MockMenu>
@@ -278,7 +278,7 @@ export default function ContextMenuPage() {
               <MockItem>Rename</MockItem>
               <MockItem>Duplicate</MockItem>
             </MockMenu>
-            <p className="text-xs text-text-subtle">Open. The menu is showing.</p>
+            <p className="text-caption">Open. The menu is showing.</p>
           </div>
           <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <MockMenu>
@@ -286,7 +286,7 @@ export default function ContextMenuPage() {
               <MockItem highlighted>Rename</MockItem>
               <MockItem>Duplicate</MockItem>
             </MockMenu>
-            <p className="text-xs text-text-subtle">Item hover. One item is focused.</p>
+            <p className="text-caption">Item hover. One item is focused.</p>
           </div>
           <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6">
             <MockMenu>
@@ -294,7 +294,7 @@ export default function ContextMenuPage() {
               <MockItem disabled>Rename</MockItem>
               <MockItem>Duplicate</MockItem>
             </MockMenu>
-            <p className="text-xs text-text-subtle">Item disabled. Dimmed, inert.</p>
+            <p className="text-caption">Item disabled. Dimmed, inert.</p>
           </div>
           <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-6 sm:col-span-2">
             <div className="flex items-start">
@@ -310,7 +310,7 @@ export default function ContextMenuPage() {
                 <MockItem>Email</MockItem>
               </MockMenu>
             </div>
-            <p className="text-xs text-text-subtle">Sub-menu open.</p>
+            <p className="text-caption">Sub-menu open.</p>
           </div>
         </div>
         <p className="mt-2 text-small">
@@ -321,10 +321,10 @@ export default function ContextMenuPage() {
 
       {/* API */}
       <section id="api" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">API</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">API</h3>
         <div className="overflow-x-auto rounded-lg border border-border-default">
           <div className="min-w-[560px]">
-            <div className="grid grid-cols-[1.8fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-xs font-medium text-text-subtle">
+            <div className="grid grid-cols-[1.8fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-caption font-medium">
               <div>Component</div>
               <div>Description</div>
             </div>
@@ -337,7 +337,7 @@ export default function ContextMenuPage() {
                   <div className="font-mono text-sm text-text-default">
                     {c.name}
                   </div>
-                  <div className="text-sm text-text-subtle">{c.desc}</div>
+                  <div className="text-description">{c.desc}</div>
                 </div>
               ))}
             </div>
@@ -354,7 +354,7 @@ export default function ContextMenuPage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">
+        <h3 className="mt-12 mb-4 text-title text-text-default">
           Don&apos;t and Do
         </h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -372,7 +372,7 @@ export default function ContextMenuPage() {
           <div className="rounded-lg border border-border-success bg-background-success p-5">
             <div className="mb-2 text-sm font-bold text-text-success">Do</div>
             <pre className="overflow-x-auto">
-              <code className="font-mono text-xs leading-6 text-text-default">
+              <code className="font-mono text-caption leading-6 text-text-default">
                 {doCode}
               </code>
             </pre>

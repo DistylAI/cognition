@@ -22,8 +22,8 @@ export function CommandHint() {
 export default function KbdPage() {
   return (
     <div>
-      <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
-      <h1 className="text-h1 text-text-default">Keyboard Input</h1>
+      <p className="mb-2 text-caption">Components</p>
+      <h1 className="text-lead text-text-default">Keyboard Input</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
         Used to display textual user input from the keyboard. Use it for
         shortcut hints and key references -- not for general inline code.
@@ -40,7 +40,7 @@ export default function KbdPage() {
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Preview</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Preview</h3>
         <div className="flex items-center justify-center rounded-lg border border-border-default bg-background-subtle p-10">
           <KbdGroup>
             <Kbd>⌘</Kbd>
@@ -55,7 +55,7 @@ export default function KbdPage() {
 
       {/* Examples */}
       <section id="examples" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Examples</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Examples</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
             <div className="flex items-center gap-1">
@@ -68,7 +68,7 @@ export default function KbdPage() {
           <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
             <KbdGroup>
               <Kbd>Ctrl</Kbd>
-              <span className="text-xs text-text-subtle">+</span>
+              <span className="text-caption">+</span>
               <Kbd>B</Kbd>
             </KbdGroup>
             <span className="text-small">Combo</span>
@@ -91,10 +91,10 @@ export default function KbdPage() {
 
       {/* API */}
       <section id="api" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">API</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">API</h3>
         <div className="overflow-x-auto rounded-lg border border-border-default">
           <div className="min-w-[560px]">
-            <div className="grid grid-cols-[1.6fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-xs font-medium text-text-subtle">
+            <div className="grid grid-cols-[1.6fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-caption font-medium">
               <div>Part</div>
               <div>Description</div>
             </div>
@@ -108,7 +108,7 @@ export default function KbdPage() {
                   className="grid grid-cols-[1.6fr_3fr] gap-4 px-4 py-3"
                 >
                   <div className="font-mono text-sm text-text-default">{p.name}</div>
-                  <div className="text-sm text-text-subtle">{p.desc}</div>
+                  <div className="text-description">{p.desc}</div>
                 </div>
               ))}
             </div>
@@ -118,7 +118,7 @@ export default function KbdPage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Don&apos;t and Do</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Don&apos;t and Do</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="rounded-lg border border-border-danger bg-background-danger p-5">
             <div className="mb-2 text-sm font-bold text-text-danger">
@@ -134,7 +134,7 @@ export default function KbdPage() {
           <div className="rounded-lg border border-border-success bg-background-success p-5">
             <div className="mb-2 text-sm font-bold text-text-success">Do</div>
             <pre className="overflow-x-auto">
-              <code className="font-mono text-xs leading-6 text-text-default">
+              <code className="font-mono text-caption leading-6 text-text-default">
                 {`<KbdGroup>
   <Kbd>⌘</Kbd>
   <Kbd>K</Kbd>

@@ -26,10 +26,10 @@ export default async function GuidelinesPage() {
 
   return (
     <div>
-      <p className="mb-2 text-xs font-normal text-text-subtle">
+      <p className="mb-2 text-caption">
         Foundations
       </p>
-      <h1 className="text-h1 text-text-default">
+      <h1 className="text-lead text-text-default">
         Guidelines
       </h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
@@ -41,7 +41,7 @@ export default async function GuidelinesPage() {
       {/* Component quick-reference */}
       <h3
         id="component-semantics"
-        className="mt-12 mb-4 scroll-mt-8 border-b border-border-default pb-2 text-h3 text-text-default"
+        className="mt-12 mb-4 scroll-mt-8 border-b border-border-default pb-2 text-title text-text-default"
       >
         Component semantics
       </h3>
@@ -57,7 +57,7 @@ export default async function GuidelinesPage() {
                 (h) => (
                   <th
                     key={h}
-                    className="border-b border-border-default px-4 py-2.5 text-left text-xs font-semibold text-text-default"
+                    className="border-b border-border-default px-4 py-2.5 text-left text-caption font-semibold text-text-default"
                   >
                     {h}
                   </th>
@@ -69,17 +69,17 @@ export default async function GuidelinesPage() {
             {componentRules.map((r) => (
               <tr key={r.c}>
                 <td className="border-b border-border-subtle px-4 py-2.5 text-xs">
-                  <span className="font-mono text-xs font-semibold text-text-default">
+                  <span className="font-mono text-caption font-semibold text-text-default">
                     {r.c}
                   </span>
                 </td>
-                <td className="border-b border-border-subtle px-4 py-2.5 text-xs font-normal text-text-default">
+                <td className="border-b border-border-subtle px-4 py-2.5 text-caption text-text-default">
                   {r.interactive}
                 </td>
-                <td className="border-b border-border-subtle px-4 py-2.5 text-xs font-normal text-text-default">
+                <td className="border-b border-border-subtle px-4 py-2.5 text-caption text-text-default">
                   {r.action}
                 </td>
-                <td className="border-b border-border-subtle px-4 py-2.5 text-xs font-normal text-text-subtle">
+                <td className="border-b border-border-subtle px-4 py-2.5 text-caption">
                   {r.use}
                 </td>
               </tr>
@@ -100,7 +100,7 @@ export default async function GuidelinesPage() {
         </div>
         <div className="rounded-lg border border-border-success bg-background-success p-5">
           <div className="mb-2 text-sm font-bold text-text-success">Do</div>
-          <pre className="overflow-x-auto font-mono text-xs leading-6 text-text-default">
+          <pre className="overflow-x-auto font-mono text-caption leading-6 text-text-default">
             {semanticsDoCode}
           </pre>
         </div>
@@ -109,7 +109,7 @@ export default async function GuidelinesPage() {
       {/* Full spec */}
       <h3
         id="full-specification"
-        className="mt-14 mb-4 scroll-mt-8 border-b border-border-default pb-2 text-h3 text-text-default"
+        className="mt-14 mb-4 scroll-mt-8 border-b border-border-default pb-2 text-title text-text-default"
       >
         Full specification
       </h3>

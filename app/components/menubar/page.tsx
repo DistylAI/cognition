@@ -85,7 +85,7 @@ function MenuBarMock({ open }: { open?: string }) {
       {["File", "Edit", "View"].map((label) => (
         <span
           key={label}
-          className={`rounded-sm px-3 py-1 text-sm font-medium text-text-default ${open === label ? "bg-background-secondary" : ""}`}
+          className={`rounded-sm px-3 py-1 text-label ${open === label ? "bg-background-secondary" : ""}`}
         >
           {label}
         </span>
@@ -140,7 +140,7 @@ function MItem({
       )}
       <span>{children}</span>
       {shortcut && (
-        <span className="ml-auto text-xs tracking-widest text-text-subtle">
+        <span className="ml-auto text-caption tracking-widest">
           {shortcut}
         </span>
       )}
@@ -156,8 +156,8 @@ function MSeparator() {
 export default function MenubarPage() {
   return (
     <div>
-      <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
-      <h1 className="text-h1 text-text-default">Menubar</h1>
+      <p className="mb-2 text-caption">Components</p>
+      <h1 className="text-lead text-text-default">Menubar</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
         A persistent horizontal command bar, the kind that sits at the top of a
         desktop application. Each item opens a dropdown of grouped commands.
@@ -172,7 +172,7 @@ export default function MenubarPage() {
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Preview</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Preview</h3>
         <div className="flex min-h-[160px] items-start justify-center rounded-lg border border-border-default bg-background-subtle p-10">
           <Menubar>
             <MenubarMenu>
@@ -237,7 +237,7 @@ export default function MenubarPage() {
 
       {/* Variants */}
       <section id="variants" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Variants</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Variants</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="flex h-auto flex-col items-center gap-3 overflow-hidden rounded-lg border border-border-default bg-background-subtle p-6">
             <MenuPanel>
@@ -245,7 +245,7 @@ export default function MenubarPage() {
               <MItem>New Window</MItem>
               <MItem>Open recent</MItem>
             </MenuPanel>
-            <p className="text-xs text-text-subtle">Default</p>
+            <p className="text-caption">Default</p>
           </div>
           <div className="flex h-auto flex-col items-center gap-3 overflow-hidden rounded-lg border border-border-default bg-background-subtle p-6">
             <MenuPanel>
@@ -253,7 +253,7 @@ export default function MenubarPage() {
               <MItem shortcut="⌘N">New Window</MItem>
               <MItem shortcut="⌘P">Print</MItem>
             </MenuPanel>
-            <p className="text-xs text-text-subtle">With keyboard shortcuts</p>
+            <p className="text-caption">With keyboard shortcuts</p>
           </div>
           <div className="flex h-auto flex-col items-center gap-3 overflow-hidden rounded-lg border border-border-default bg-background-subtle p-6">
             <MenuPanel>
@@ -261,7 +261,7 @@ export default function MenubarPage() {
               <MItem chevron>Share</MItem>
               <MItem>Save as</MItem>
             </MenuPanel>
-            <p className="text-xs text-text-subtle">With submenus</p>
+            <p className="text-caption">With submenus</p>
           </div>
           <div className="flex h-auto flex-col items-center gap-3 overflow-hidden rounded-lg border border-border-default bg-background-subtle p-6">
             <MenuPanel>
@@ -270,21 +270,21 @@ export default function MenubarPage() {
               <MSeparator />
               <MItem>Select all</MItem>
             </MenuPanel>
-            <p className="text-xs text-text-subtle">With separators</p>
+            <p className="text-caption">With separators</p>
           </div>
           <div className="flex h-auto flex-col items-center gap-3 overflow-hidden rounded-lg border border-border-default bg-background-subtle p-6">
             <MenuPanel>
               <MItem checked>Always Show Bookmarks</MItem>
               <MItem checked={false}>Always Show Full URLs</MItem>
             </MenuPanel>
-            <p className="text-xs text-text-subtle">With checkboxes</p>
+            <p className="text-caption">With checkboxes</p>
           </div>
           <div className="flex h-auto flex-col items-center gap-3 overflow-hidden rounded-lg border border-border-default bg-background-subtle p-6">
             <MenuPanel>
               <MItem radio>Derek Ho</MItem>
               <MItem radio={false}>Arjun Prakash</MItem>
             </MenuPanel>
-            <p className="text-xs text-text-subtle">With radio groups</p>
+            <p className="text-caption">With radio groups</p>
           </div>
         </div>
         <p className="mt-2 text-small">
@@ -295,11 +295,11 @@ export default function MenubarPage() {
 
       {/* States */}
       <section id="states" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">States</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">States</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="flex h-auto flex-col items-center gap-3 overflow-hidden rounded-lg border border-border-default bg-background-subtle p-6">
             <MenuBarMock />
-            <p className="text-xs text-text-subtle">Closed. The resting bar.</p>
+            <p className="text-caption">Closed. The resting bar.</p>
           </div>
           <div className="flex h-auto flex-col items-center gap-3 overflow-hidden rounded-lg border border-border-default bg-background-subtle p-6">
             <div className="flex flex-col items-center gap-1">
@@ -309,7 +309,7 @@ export default function MenubarPage() {
                 <MItem shortcut="⌘N">New Window</MItem>
               </MenuPanel>
             </div>
-            <p className="text-xs text-text-subtle">Item open.</p>
+            <p className="text-caption">Item open.</p>
           </div>
           <div className="flex h-auto flex-col items-center gap-3 overflow-hidden rounded-lg border border-border-default bg-background-subtle p-6 sm:col-span-2">
             <div className="flex items-start">
@@ -325,7 +325,7 @@ export default function MenubarPage() {
                 <MItem>Messages</MItem>
               </MenuPanel>
             </div>
-            <p className="text-xs text-text-subtle">Nested item hover.</p>
+            <p className="text-caption">Nested item hover.</p>
           </div>
           <div className="flex h-auto flex-col items-center gap-3 overflow-hidden rounded-lg border border-border-default bg-background-subtle p-6">
             <MenuPanel>
@@ -333,21 +333,21 @@ export default function MenubarPage() {
               <MItem disabled>Paste</MItem>
               <MItem>Copy</MItem>
             </MenuPanel>
-            <p className="text-xs text-text-subtle">Item disabled.</p>
+            <p className="text-caption">Item disabled.</p>
           </div>
           <div className="flex h-auto flex-col items-center gap-3 overflow-hidden rounded-lg border border-border-default bg-background-subtle p-6">
             <MenuPanel>
               <MItem checked>Always Show Bookmarks</MItem>
               <MItem checked={false}>Always Show Full URLs</MItem>
             </MenuPanel>
-            <p className="text-xs text-text-subtle">Checkbox checked.</p>
+            <p className="text-caption">Checkbox checked.</p>
           </div>
           <div className="flex h-auto flex-col items-center gap-3 overflow-hidden rounded-lg border border-border-default bg-background-subtle p-6">
             <MenuPanel>
               <MItem radio>Derek Ho</MItem>
               <MItem radio={false}>Arjun Prakash</MItem>
             </MenuPanel>
-            <p className="text-xs text-text-subtle">Radio selected.</p>
+            <p className="text-caption">Radio selected.</p>
           </div>
         </div>
         <p className="mt-2 text-small">
@@ -358,10 +358,10 @@ export default function MenubarPage() {
 
       {/* API */}
       <section id="api" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">API</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">API</h3>
         <div className="overflow-x-auto rounded-lg border border-border-default">
           <div className="min-w-[560px]">
-            <div className="grid grid-cols-[1.8fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-xs font-medium text-text-subtle">
+            <div className="grid grid-cols-[1.8fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-caption font-medium">
               <div>Component</div>
               <div>Description</div>
             </div>
@@ -374,7 +374,7 @@ export default function MenubarPage() {
                   <div className="font-mono text-sm text-text-default">
                     {c.name}
                   </div>
-                  <div className="text-sm text-text-subtle">{c.desc}</div>
+                  <div className="text-description">{c.desc}</div>
                 </div>
               ))}
             </div>
@@ -384,7 +384,7 @@ export default function MenubarPage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">
+        <h3 className="mt-12 mb-4 text-title text-text-default">
           Don&apos;t and Do
         </h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -402,7 +402,7 @@ export default function MenubarPage() {
           <div className="rounded-lg border border-border-success bg-background-success p-5">
             <div className="mb-2 text-sm font-bold text-text-success">Do</div>
             <pre className="overflow-x-auto">
-              <code className="font-mono text-xs leading-6 text-text-default">
+              <code className="font-mono text-caption leading-6 text-text-default">
                 {doCode}
               </code>
             </pre>

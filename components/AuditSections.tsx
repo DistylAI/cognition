@@ -62,7 +62,7 @@ export function AuditSections({ sections }: { sections: AuditSection[] }) {
                   }
                   className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition-colors hover:bg-background-subtle"
                 >
-                  <span className="text-h3 text-text-default">
+                  <span className="text-title text-text-default">
                     {s.title}
                   </span>
                   <ChevronDown

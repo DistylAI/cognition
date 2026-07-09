@@ -36,11 +36,11 @@ const states = [
 ] as const;
 
 const labelCode = `<div className="flex flex-col gap-2">
-  <label htmlFor="email" className="text-sm font-medium text-text-default">
+  <label htmlFor="email" className="text-label">
     Email
   </label>
   <Input id="email" type="email" placeholder="derek.ho@distyl.ai" />
-  <p className="text-sm text-text-subtle">We'll never share your email.</p>
+  <p className="text-description">We'll never share your email.</p>
 </div>`;
 
 const doCode = `// Pair the Input with a <label> tied via htmlFor/id
@@ -56,8 +56,8 @@ export function EmailField() {
 export default function InputPage() {
   return (
     <div>
-      <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
-      <h1 className="text-h1 text-text-default">Input</h1>
+      <p className="mb-2 text-caption">Components</p>
+      <h1 className="text-lead text-text-default">Input</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
         Displays a form input field or a component that looks like an input
         field. Use it for short, single-line text entry.
@@ -65,7 +65,7 @@ export default function InputPage() {
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Preview</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Preview</h3>
         <div className="flex items-center justify-center rounded-lg border border-border-default bg-background-subtle p-10">
           <Input placeholder="Enter text" className="max-w-sm" />
         </div>
@@ -78,7 +78,7 @@ export default function InputPage() {
 
       {/* States */}
       <section id="states" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">States</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">States</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {states.map((s) => (
             <div
@@ -107,18 +107,18 @@ export default function InputPage() {
 
       {/* With a label */}
       <section id="with-label" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">With a label</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">With a label</h3>
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           <div className="flex items-start justify-center rounded-lg border border-border-default bg-background-subtle p-8">
             <div className="flex w-full max-w-xs flex-col gap-2">
               <label
                 htmlFor="email"
-                className="text-sm font-medium text-text-default"
+                className="text-label"
               >
                 Email
               </label>
               <Input id="email" type="email" placeholder="derek.ho@distyl.ai" />
-              <p className="text-sm text-text-subtle">
+              <p className="text-description">
                 We&apos;ll never share your email.
               </p>
             </div>
@@ -138,10 +138,10 @@ export default function InputPage() {
 
       {/* API */}
       <section id="api" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">API</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">API</h3>
         <div className="overflow-x-auto rounded-lg border border-border-default">
           <div className="min-w-[640px]">
-            <div className="grid grid-cols-[1.4fr_1.8fr_1fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-xs font-medium text-text-subtle">
+            <div className="grid grid-cols-[1.4fr_1.8fr_1fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-caption font-medium">
               <div>Prop</div>
               <div>Type</div>
               <div>Default</div>
@@ -160,9 +160,9 @@ export default function InputPage() {
                   className="grid grid-cols-[1.4fr_1.8fr_1fr_3fr] gap-4 px-4 py-3"
                 >
                   <div className="font-mono text-sm text-text-default">{p.name}</div>
-                  <div className="font-mono text-xs text-text-subtle">{p.type}</div>
-                  <div className="font-mono text-xs text-text-subtle">{p.def}</div>
-                  <div className="text-sm text-text-subtle">{p.desc}</div>
+                  <div className="font-mono text-caption">{p.type}</div>
+                  <div className="font-mono text-caption">{p.def}</div>
+                  <div className="text-description">{p.desc}</div>
                 </div>
               ))}
             </div>
@@ -172,7 +172,7 @@ export default function InputPage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Don&apos;t and Do</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Don&apos;t and Do</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="rounded-lg border border-border-danger bg-background-danger p-5">
             <div className="mb-2 text-sm font-bold text-text-danger">
@@ -188,7 +188,7 @@ export default function InputPage() {
           <div className="rounded-lg border border-border-success bg-background-success p-5">
             <div className="mb-2 text-sm font-bold text-text-success">Do</div>
             <pre className="overflow-x-auto">
-              <code className="font-mono text-xs leading-6 text-text-default">
+              <code className="font-mono text-caption leading-6 text-text-default">
                 {doCode}
               </code>
             </pre>

@@ -38,8 +38,7 @@ function Calendar({
         caption_label: "select-none text-sm font-medium text-text-default",
         month_grid: "w-full border-collapse",
         weekdays: "flex",
-        weekday:
-          "w-8 select-none text-[0.8rem] font-normal text-text-subtle",
+        weekday: "w-8 select-none text-caption",
         week: "mt-2 flex w-full",
         day: "relative aspect-square size-8 select-none p-0 text-center",
         disabled: "text-text-disabled",

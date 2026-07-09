@@ -110,8 +110,8 @@ const epics: Epic[] = [
 export default function RoadmapPage() {
   return (
     <div>
-      <p className="mb-2 text-xs font-normal text-text-subtle">Status</p>
-      <h1 className="text-h1 text-text-default">Roadmap</h1>
+      <p className="mb-2 text-caption">Status</p>
+      <h1 className="text-lead text-text-default">Roadmap</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
         The work required to move fe-distillery from the current legacy token
         system to full Cognition v1.3 compliance.
@@ -133,7 +133,7 @@ export default function RoadmapPage() {
               <CardHeader>
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex flex-col gap-1">
-                    <span className="text-xs font-medium uppercase tracking-wide text-text-subtle">
+                    <span className="text-caption font-medium uppercase tracking-wide">
                       Epic {epic.number}
                     </span>
                     <CardTitle className="text-lg">{epic.title}</CardTitle>

@@ -33,8 +33,8 @@ const doCode = `<SidebarMenu>
 export default function FileTreePage() {
   return (
     <div>
-      <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
-      <h1 className="text-h1 text-text-default">File Tree</h1>
+      <p className="mb-2 text-caption">Components</p>
+      <h1 className="text-lead text-text-default">File Tree</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
         A file tree presents nested folders and files as an interactive,
         collapsible hierarchy -- the pattern behind source-control panels and
@@ -44,7 +44,7 @@ export default function FileTreePage() {
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Preview</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Preview</h3>
         <div className="flex justify-center rounded-lg border border-border-default bg-background-subtle p-6">
           <FileTreeDemo />
         </div>
@@ -57,10 +57,10 @@ export default function FileTreePage() {
 
       {/* Variants */}
       <section id="variants" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Variants</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Variants</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
-            <p className="mb-2 text-xs font-medium text-text-subtle">
+            <p className="mb-2 text-caption font-medium">
               With icons (default)
             </p>
             <div className="flex justify-center rounded-lg border border-border-default bg-background-subtle p-6">
@@ -68,7 +68,7 @@ export default function FileTreePage() {
             </div>
           </div>
           <div>
-            <p className="mb-2 text-xs font-medium text-text-subtle">
+            <p className="mb-2 text-caption font-medium">
               Without icons
             </p>
             <div className="flex justify-center rounded-lg border border-border-default bg-background-subtle p-6">
@@ -76,11 +76,11 @@ export default function FileTreePage() {
             </div>
           </div>
           <div>
-            <p className="mb-2 text-xs font-medium text-text-subtle">Checkbox</p>
+            <p className="mb-2 text-caption font-medium">Checkbox</p>
             <div className="flex justify-center rounded-lg border border-border-default bg-background-subtle p-6">
               <FileTreeDemo variant="checkbox" />
             </div>
-            <p className="mt-2 text-xs text-text-subtle">
+            <p className="mt-2 text-caption">
               Multi-select mode with per-row checkboxes.
             </p>
           </div>
@@ -95,10 +95,10 @@ export default function FileTreePage() {
 
       {/* States */}
       <section id="states" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">States</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">States</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
-            <p className="mb-2 text-xs font-medium text-text-subtle">Default</p>
+            <p className="mb-2 text-caption font-medium">Default</p>
             <div className="rounded-lg border border-border-default bg-background-subtle p-2">
               <SidebarMenu>
                 <SidebarMenuItem>
@@ -111,7 +111,7 @@ export default function FileTreePage() {
             </div>
           </div>
           <div>
-            <p className="mb-2 text-xs font-medium text-text-subtle">Selected</p>
+            <p className="mb-2 text-caption font-medium">Selected</p>
             <div className="rounded-lg border border-border-default bg-background-subtle p-2">
               <SidebarMenu>
                 <SidebarMenuItem>
@@ -124,7 +124,7 @@ export default function FileTreePage() {
             </div>
           </div>
           <div>
-            <p className="mb-2 text-xs font-medium text-text-subtle">
+            <p className="mb-2 text-caption font-medium">
               Folder -- collapsed
             </p>
             <div className="rounded-lg border border-border-default bg-background-subtle p-2">
@@ -140,7 +140,7 @@ export default function FileTreePage() {
             </div>
           </div>
           <div>
-            <p className="mb-2 text-xs font-medium text-text-subtle">
+            <p className="mb-2 text-caption font-medium">
               Folder -- expanded
             </p>
             <div className="rounded-lg border border-border-default bg-background-subtle p-2">
@@ -167,10 +167,10 @@ export default function FileTreePage() {
 
       {/* Props */}
       <section id="props" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Props</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Props</h3>
         <div className="overflow-x-auto rounded-lg border border-border-default">
           <div className="min-w-[640px]">
-            <div className="grid grid-cols-[1.4fr_1.8fr_1fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-xs font-medium text-text-subtle">
+            <div className="grid grid-cols-[1.4fr_1.8fr_1fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-caption font-medium">
               <div>Prop</div>
               <div>Type</div>
               <div>Default</div>
@@ -235,7 +235,7 @@ export default function FileTreePage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Don&apos;t and Do</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Don&apos;t and Do</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="rounded-lg border border-border-danger bg-background-danger p-5">
             <div className="mb-2 text-sm font-bold text-text-danger">
@@ -251,7 +251,7 @@ export default function FileTreePage() {
           <div className="rounded-lg border border-border-success bg-background-success p-5">
             <div className="mb-2 text-sm font-bold text-text-success">Do</div>
             <pre className="overflow-x-auto">
-              <code className="font-mono text-xs leading-6 text-text-default">
+              <code className="font-mono text-caption leading-6 text-text-default">
                 {doCode}
               </code>
             </pre>

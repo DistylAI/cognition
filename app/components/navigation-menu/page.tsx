@@ -13,7 +13,7 @@ import { CodeBlock } from "@/components/CodeBlock";
 // Inlined here rather than calling navigationMenuTriggerStyle(): that cva lives
 // in a "use client" module and cannot be invoked from this server component.
 const navLinkClass =
-  "group inline-flex h-9 w-max items-center justify-center rounded-md bg-background-default px-4 py-2 text-sm font-medium text-text-default transition-colors hover:bg-background-secondary hover:text-text-default focus:bg-background-secondary focus:text-text-default focus:outline-none";
+  "group inline-flex h-9 w-max items-center justify-center rounded-md bg-background-default px-4 py-2 text-label transition-colors hover:bg-background-secondary hover:text-text-default focus:bg-background-secondary focus:text-text-default focus:outline-none";
 
 export const metadata: Metadata = {
   title: "Navigation Menu",
@@ -72,7 +72,7 @@ export function PrimaryNav() {
 }`;
 
 const triggerClass =
-  "inline-flex h-9 items-center justify-center rounded-md px-4 text-sm font-medium text-text-default";
+  "inline-flex h-9 items-center justify-center rounded-md px-4 text-label";
 
 function MockBar({
   state,
@@ -122,11 +122,11 @@ function MockPanel({
                 </span>
               )}
               <div>
-                <p className="text-sm font-medium text-text-default">
+                <p className="text-label">
                   {item.title}
                 </p>
                 {variant === "descriptions" && (
-                  <p className="text-sm text-text-subtle">{item.desc}</p>
+                  <p className="text-description">{item.desc}</p>
                 )}
               </div>
             </div>
@@ -140,8 +140,8 @@ function MockPanel({
 export default function NavigationMenuPage() {
   return (
     <div>
-      <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
-      <h1 className="text-h1 text-text-default">Navigation Menu</h1>
+      <p className="mb-2 text-caption">Components</p>
+      <h1 className="text-lead text-text-default">Navigation Menu</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
         A horizontal menu for top-level navigation. Items can open rich dropdown
         panels on hover or keyboard focus.
@@ -157,7 +157,7 @@ export default function NavigationMenuPage() {
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Preview</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Preview</h3>
         <div className="flex min-h-[220px] items-start justify-center rounded-lg border border-border-default bg-background-subtle p-10">
           <NavigationMenu>
             <NavigationMenuList>
@@ -170,10 +170,10 @@ export default function NavigationMenuPage() {
                         href="#"
                         className="block rounded-md p-3 transition-colors hover:bg-background-secondary"
                       >
-                        <p className="text-sm font-medium text-text-default">
+                        <p className="text-label">
                           Components
                         </p>
-                        <p className="text-sm text-text-subtle">
+                        <p className="text-description">
                           Buttons, inputs, and the full library.
                         </p>
                       </NavigationMenuLink>
@@ -183,10 +183,10 @@ export default function NavigationMenuPage() {
                         href="#"
                         className="block rounded-md p-3 transition-colors hover:bg-background-secondary"
                       >
-                        <p className="text-sm font-medium text-text-default">
+                        <p className="text-label">
                           Tokens
                         </p>
-                        <p className="text-sm text-text-subtle">
+                        <p className="text-description">
                           Color, type, spacing, and radius.
                         </p>
                       </NavigationMenuLink>
@@ -196,10 +196,10 @@ export default function NavigationMenuPage() {
                         href="#"
                         className="block rounded-md p-3 transition-colors hover:bg-background-secondary"
                       >
-                        <p className="text-sm font-medium text-text-default">
+                        <p className="text-label">
                           Icons
                         </p>
-                        <p className="text-sm text-text-subtle">
+                        <p className="text-description">
                           The lucide set, sized and tinted.
                         </p>
                       </NavigationMenuLink>
@@ -209,10 +209,10 @@ export default function NavigationMenuPage() {
                         href="#"
                         className="block rounded-md p-3 transition-colors hover:bg-background-secondary"
                       >
-                        <p className="text-sm font-medium text-text-default">
+                        <p className="text-label">
                           Guidelines
                         </p>
-                        <p className="text-sm text-text-subtle">
+                        <p className="text-description">
                           How and when to use each piece.
                         </p>
                       </NavigationMenuLink>
@@ -241,23 +241,23 @@ export default function NavigationMenuPage() {
 
       {/* Variants */}
       <section id="variants" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Variants</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Variants</h3>
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
           <div className="flex h-auto flex-col items-center gap-3 overflow-hidden rounded-lg border border-border-default bg-background-subtle p-6">
             <MockBar />
-            <p className="text-xs text-text-subtle">Default (links only)</p>
+            <p className="text-caption">Default (links only)</p>
           </div>
           <div className="flex h-auto flex-col items-center gap-3 overflow-hidden rounded-lg border border-border-default bg-background-subtle p-6">
             <MockPanel variant="links" />
-            <p className="text-xs text-text-subtle">With dropdowns</p>
+            <p className="text-caption">With dropdowns</p>
           </div>
           <div className="flex h-auto flex-col items-center gap-3 overflow-hidden rounded-lg border border-border-default bg-background-subtle p-6">
             <MockPanel variant="icons" />
-            <p className="text-xs text-text-subtle">With icons</p>
+            <p className="text-caption">With icons</p>
           </div>
           <div className="flex h-auto flex-col items-center gap-3 overflow-hidden rounded-lg border border-border-default bg-background-subtle p-6">
             <MockPanel variant="descriptions" />
-            <p className="text-xs text-text-subtle">With descriptions</p>
+            <p className="text-caption">With descriptions</p>
           </div>
         </div>
         <p className="mt-2 text-small">
@@ -268,27 +268,27 @@ export default function NavigationMenuPage() {
 
       {/* States */}
       <section id="states" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">States</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">States</h3>
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
           <div className="flex h-auto flex-col items-center gap-3 overflow-hidden rounded-lg border border-border-default bg-background-subtle p-6">
             <MockBar />
-            <p className="text-xs text-text-subtle">Default. Resting items.</p>
+            <p className="text-caption">Default. Resting items.</p>
           </div>
           <div className="flex h-auto flex-col items-center gap-3 overflow-hidden rounded-lg border border-border-default bg-background-subtle p-6">
             <MockBar state="hover" />
-            <p className="text-xs text-text-subtle">Item hover.</p>
+            <p className="text-caption">Item hover.</p>
           </div>
           <div className="flex h-auto flex-col items-center gap-3 overflow-hidden rounded-lg border border-border-default bg-background-subtle p-6">
             <MockBar state="active" />
-            <p className="text-xs text-text-subtle">Item active (current page).</p>
+            <p className="text-caption">Item active (current page).</p>
           </div>
           <div className="flex h-auto flex-col items-center gap-3 overflow-hidden rounded-lg border border-border-default bg-background-subtle p-6">
             <MockBar state="focus" />
-            <p className="text-xs text-text-subtle">Keyboard focused.</p>
+            <p className="text-caption">Keyboard focused.</p>
           </div>
           <div className="flex h-auto flex-col items-center gap-3 overflow-hidden rounded-lg border border-border-default bg-background-subtle p-6 lg:col-span-2">
             <MockPanel variant="descriptions" />
-            <p className="text-xs text-text-subtle">
+            <p className="text-caption">
               Dropdown open, with the first item hovered.
             </p>
           </div>
@@ -301,10 +301,10 @@ export default function NavigationMenuPage() {
 
       {/* API */}
       <section id="api" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">API</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">API</h3>
         <div className="overflow-x-auto rounded-lg border border-border-default">
           <div className="min-w-[560px]">
-            <div className="grid grid-cols-[1.8fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-xs font-medium text-text-subtle">
+            <div className="grid grid-cols-[1.8fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-caption font-medium">
               <div>Component</div>
               <div>Description</div>
             </div>
@@ -317,7 +317,7 @@ export default function NavigationMenuPage() {
                   <div className="font-mono text-sm text-text-default">
                     {c.name}
                   </div>
-                  <div className="text-sm text-text-subtle">{c.desc}</div>
+                  <div className="text-description">{c.desc}</div>
                 </div>
               ))}
             </div>
@@ -327,7 +327,7 @@ export default function NavigationMenuPage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">
+        <h3 className="mt-12 mb-4 text-title text-text-default">
           Don&apos;t and Do
         </h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -345,7 +345,7 @@ export default function NavigationMenuPage() {
           <div className="rounded-lg border border-border-success bg-background-success p-5">
             <div className="mb-2 text-sm font-bold text-text-success">Do</div>
             <pre className="overflow-x-auto">
-              <code className="font-mono text-xs leading-6 text-text-default">
+              <code className="font-mono text-caption leading-6 text-text-default">
                 {doCode}
               </code>
             </pre>

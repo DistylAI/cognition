@@ -20,7 +20,7 @@ function renderInline(text: string, keyPrefix: string): ReactNode[] {
         return (
           <code
             key={key}
-            className="rounded-sm bg-background-secondary px-1 py-0.5 font-mono text-xs text-text-default"
+            className="rounded-sm bg-background-secondary px-1 py-0.5 font-mono text-caption text-text-default"
           >
             {part.slice(1, -1)}
           </code>
@@ -93,7 +93,7 @@ export function MessageBubble({ role, content, error }: MessageBubbleProps) {
   if (role === "user") {
     return (
       <div className="flex flex-col items-end gap-1">
-        <p className="px-0.5 text-xs text-text-subtle">You</p>
+        <p className="px-0.5 text-caption">You</p>
         <div className="max-w-[75%] whitespace-pre-wrap rounded-xl rounded-br-sm bg-background-accent px-4 py-2.5 text-sm leading-relaxed text-text-primary">
           {content}
         </div>
@@ -104,7 +104,7 @@ export function MessageBubble({ role, content, error }: MessageBubbleProps) {
   if (error) {
     return (
       <div className="flex flex-col items-start gap-1">
-        <p className="px-0.5 text-xs text-text-subtle">Meno</p>
+        <p className="px-0.5 text-caption">Meno</p>
         <div className="flex max-w-[90%] items-start gap-2 rounded-xl rounded-bl-sm border border-border-danger bg-background-danger px-4 py-2.5 text-sm leading-relaxed text-text-danger">
           <CircleAlert className="mt-0.5 size-4 shrink-0" aria-hidden />
           <span>{content}</span>
@@ -115,7 +115,7 @@ export function MessageBubble({ role, content, error }: MessageBubbleProps) {
 
   return (
     <div className="flex flex-col items-start gap-1">
-      <p className="px-0.5 text-xs text-text-subtle">Meno</p>
+      <p className="px-0.5 text-caption">Meno</p>
       <div className="max-w-[90%] rounded-xl rounded-bl-sm border border-border-default bg-background-subtle px-4 py-2.5 text-sm leading-relaxed text-text-default">
         {renderAssistant(content)}
       </div>

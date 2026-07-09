@@ -104,11 +104,11 @@ function ToastMock({
       >
         <CircleCheck className="mt-0.5 size-5 shrink-0 text-text-success" />
         <div className="flex-1">
-          <p className="text-sm font-medium text-text-default">Changes saved</p>
-          <p className="text-xs text-text-subtle">Your workspace is up to date.</p>
+          <p className="text-label">Changes saved</p>
+          <p className="text-caption">Your workspace is up to date.</p>
         </div>
       </div>
-      <p className="text-xs text-text-subtle">{caption}</p>
+      <p className="text-caption">{caption}</p>
     </div>
   );
 }
@@ -168,7 +168,7 @@ function VariantToast({ kind }: { kind: ToastKind }) {
     return (
       <div className={`${base} border-border-default bg-background-default`}>
         <p className="flex-1 font-medium text-text-default">Workspace archived</p>
-        <span className="shrink-0 rounded-md bg-background-secondary px-2 py-1 text-xs font-medium text-text-default">
+        <span className="shrink-0 rounded-md bg-background-secondary px-2 py-1 text-caption font-medium text-text-default">
           Undo
         </span>
       </div>
@@ -180,7 +180,7 @@ function VariantToast({ kind }: { kind: ToastKind }) {
       <div className={`${base} border-border-default bg-background-default`}>
         <div className="flex-1">
           <p className="font-medium text-text-default">Changes saved</p>
-          <p className="mt-1 text-xs text-text-subtle">
+          <p className="mt-1 text-caption">
             Your workspace is up to date as of a moment ago.
           </p>
         </div>
@@ -201,8 +201,8 @@ function VariantToast({ kind }: { kind: ToastKind }) {
 export default function ToastPage() {
   return (
     <div>
-      <p className="mb-2 text-xs font-normal text-text-subtle">Components</p>
-      <h1 className="text-h1 text-text-default">Toast</h1>
+      <p className="mb-2 text-caption">Components</p>
+      <h1 className="text-lead text-text-default">Toast</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
         A transient notification that appears briefly and dismisses on its own.
         Use it for confirmations, errors, and status feedback that does not block
@@ -211,7 +211,7 @@ export default function ToastPage() {
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Preview</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Preview</h3>
         <div className="flex items-center justify-center rounded-lg border border-border-default bg-background-subtle p-10">
           <ToastButton kind="description" variant="default" size="default">
             Show toast
@@ -225,7 +225,7 @@ export default function ToastPage() {
 
       {/* Variants */}
       <section id="variants" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">Variants</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">Variants</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="flex items-center justify-center bg-background-subtle p-8">
@@ -323,7 +323,7 @@ export default function ToastPage() {
 
       {/* States */}
       <section id="states" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">States</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">States</h3>
         <div className="rounded-lg border border-border-default bg-background-subtle p-8">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
             <ToastMock
@@ -345,10 +345,10 @@ export default function ToastPage() {
 
       {/* API */}
       <section id="api" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">API</h3>
+        <h3 className="mt-12 mb-4 text-title text-text-default">API</h3>
         <div className="overflow-x-auto rounded-lg border border-border-default">
           <div className="min-w-[640px]">
-            <div className="grid grid-cols-[1.6fr_1.6fr_1fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-xs font-medium text-text-subtle">
+            <div className="grid grid-cols-[1.6fr_1.6fr_1fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-caption font-medium">
               <div>Call</div>
               <div>Signature</div>
               <div>Default</div>
@@ -363,13 +363,13 @@ export default function ToastPage() {
                   <div className="font-mono text-sm text-text-default">
                     {p.name}
                   </div>
-                  <div className="font-mono text-xs text-text-subtle">
+                  <div className="font-mono text-caption">
                     {p.type}
                   </div>
-                  <div className="font-mono text-xs text-text-subtle">
+                  <div className="font-mono text-caption">
                     {p.def}
                   </div>
-                  <div className="text-sm text-text-subtle">{p.desc}</div>
+                  <div className="text-description">{p.desc}</div>
                 </div>
               ))}
             </div>
@@ -385,7 +385,7 @@ export default function ToastPage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-h3 text-text-default">
+        <h3 className="mt-12 mb-4 text-title text-text-default">
           Don&apos;t and Do
         </h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -403,7 +403,7 @@ export default function ToastPage() {
           <div className="rounded-lg border border-border-success bg-background-success p-5">
             <div className="mb-2 text-sm font-bold text-text-success">Do</div>
             <pre className="overflow-x-auto">
-              <code className="font-mono text-xs leading-6 text-text-default">
+              <code className="font-mono text-caption leading-6 text-text-default">
                 {doCode}
               </code>
             </pre>

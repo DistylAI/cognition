@@ -69,12 +69,12 @@ const RadioGroupLabeledOption = React.forwardRef<
     >
       <RadioGroupItem ref={ref} {...props} id={id} />
       <div className="flex items-center">
-        <Label htmlFor={id} className="text-sm font-medium leading-none">
+        <Label htmlFor={id} className="text-label leading-none">
           {label}
         </Label>
       </div>
       <div />
-      <p className="text-sm text-text-subtle">{description}</p>
+      <p className="text-description">{description}</p>
     </div>
   );
 });

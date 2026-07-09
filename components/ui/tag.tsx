@@ -18,7 +18,7 @@ function Tag({ className, asChild = false, ...props }: TagProps) {
   return (
     <Comp
       className={cn(
-        "inline-flex items-center gap-1 rounded-md border border-border-default bg-background-secondary px-2 py-0.5 text-xs font-medium text-text-default [&_svg]:pointer-events-none [&_svg]:size-3 [&_svg]:shrink-0",
+        "inline-flex items-center gap-1 rounded-md border border-border-default bg-background-secondary px-2 py-0.5 text-caption font-medium text-text-default [&_svg]:pointer-events-none [&_svg]:size-3 [&_svg]:shrink-0",
         className,
       )}
       {...props}

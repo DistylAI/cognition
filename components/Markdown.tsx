@@ -32,14 +32,14 @@ export function Markdown({ content }: { content: string }) {
         remarkPlugins={[remarkGfm]}
         components={{
           h1: ({ children }) => (
-            <h1 className="mt-0 mb-3 text-h2 text-text-default">
+            <h1 className="mt-0 mb-3 text-lead text-text-default">
               {children}
             </h1>
           ),
           h2: ({ children }) => (
             <h2
               id={slug(nodeText(children))}
-              className="mt-12 mb-4 scroll-mt-8 border-b border-border-default pb-2 text-h3 text-text-default"
+              className="mt-12 mb-4 scroll-mt-8 border-b border-border-default pb-2 text-title text-text-default"
             >
               {children}
             </h2>
@@ -47,7 +47,7 @@ export function Markdown({ content }: { content: string }) {
           h3: ({ children }) => (
             <h3
               id={slug(nodeText(children))}
-              className="mt-8 mb-3 scroll-mt-8 text-h4 text-text-default"
+              className="mt-8 mb-3 scroll-mt-8 text-title text-text-default"
             >
               {children}
             </h3>
@@ -113,12 +113,12 @@ export function Markdown({ content }: { content: string }) {
             <thead className="bg-background-secondary">{children}</thead>
           ),
           th: ({ children }) => (
-            <th className="border-b border-border-default px-4 py-2.5 text-left text-xs font-semibold text-text-default">
+            <th className="border-b border-border-default px-4 py-2.5 text-left text-caption font-semibold text-text-default">
               {children}
             </th>
           ),
           td: ({ children }) => (
-            <td className="border-b border-border-subtle px-4 py-2.5 align-top text-xs font-normal text-text-default">
+            <td className="border-b border-border-subtle px-4 py-2.5 align-top text-caption text-text-default">
               {children}
             </td>
           ),
