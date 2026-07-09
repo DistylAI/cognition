@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 // text, matching fe-distillery's purple-tinted intent -- so it themes via
 // [data-theme="dark"] with no dark: classes.
 const toggleVariants = cva(
-  "inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-colors hover:bg-background-secondary hover:text-text-default focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-border-primary disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-background-accent data-[state=on]:text-text-primary [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-colors hover:bg-background-secondary hover:text-text-default focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-border-primary disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-background-secondary data-[state=on]:text-text-default [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {

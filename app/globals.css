@@ -44,20 +44,20 @@
   --color-border-strong: #9CA3AF;
   --color-border-primary: #5D4EE7;
   --color-border-danger: #EF4444;
-  --color-border-success: #16A34A;
+  --color-border-success: #15803D;
 
   /* Feedback */
   --color-feedback-danger: #EF4444;
   --color-feedback-success: #15803D;
-  --color-feedback-warning: #F59E0B;
-  --color-feedback-info: #5D4EE7;
+  --color-feedback-warning: #B45309;
+  --color-feedback-info: #3B82F6;
 
   /* Chart */
   --color-chart-1: #7C6FF7;
   --color-chart-2: #38BDF8;
   --color-chart-3: #34D399;
   --color-chart-4: #FB923C;
-  --color-chart-5: #A78BFA;
+  --color-chart-5: #EC4899;
 
   /* Radius */
   --radius-none: 0px;
@@ -227,14 +227,14 @@
   --color-feedback-danger: #F87171;
   --color-feedback-success: #4ADE80;
   --color-feedback-warning: #FBBF24;
-  --color-feedback-info: #7C6FF7;
+  --color-feedback-info: #60A5FA;
 
   /* Chart */
   --color-chart-1: #9089F9;
   --color-chart-2: #7DD3FC;
   --color-chart-3: #6EE7B7;
   --color-chart-4: #FDBA74;
-  --color-chart-5: #C4B5FD;
+  --color-chart-5: #F9A8D4;
 }
 
 /* Base element styling (the spec drop-in assumes the app provides this). */

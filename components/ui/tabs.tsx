@@ -55,7 +55,7 @@ const tabsTriggerVariants = cva(
     variants: {
       variant: {
         default:
-          "rounded-md hover:bg-background-accent hover:text-text-default data-[state=active]:bg-background-accent data-[state=active]:text-text-default",
+          "rounded-md hover:bg-background-secondary hover:text-text-default data-[state=active]:bg-background-secondary data-[state=active]:text-text-default",
         underline:
           "rounded-none border-b-2 border-transparent bg-transparent data-[state=active]:border-text-default data-[state=active]:bg-transparent data-[state=active]:text-text-default",
         secondary:
