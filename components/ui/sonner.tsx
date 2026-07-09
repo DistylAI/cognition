@@ -33,18 +33,18 @@ const Toaster = ({ ...props }: ToasterProps) => {
         classNames: {
           toast:
             "group toast group-[.toaster]:rounded-lg group-[.toaster]:border group-[.toaster]:border-border-default group-[.toaster]:bg-background-default group-[.toaster]:text-text-default group-[.toaster]:shadow-lg",
-          description: "group-[.toast]:text-text-subtle",
+          description: "group-[.toast]:!text-text-subtle",
           actionButton:
             "group-[.toast]:bg-background-primary group-[.toast]:text-text-inverse",
           cancelButton:
             "group-[.toast]:bg-background-secondary group-[.toast]:text-text-subtle",
           success:
-            "group-[.toaster]:!border-border-success group-[.toaster]:!bg-background-success group-[.toaster]:!text-text-success",
+            "group-[.toaster]:!border-feedback-success group-[.toaster]:!text-feedback-success",
           error:
-            "group-[.toaster]:!border-border-danger group-[.toaster]:!bg-background-danger group-[.toaster]:!text-text-danger",
+            "group-[.toaster]:!border-feedback-danger group-[.toaster]:!text-feedback-danger",
           warning:
-            "group-[.toaster]:!border-feedback-warning group-[.toaster]:!bg-background-warning group-[.toaster]:!text-text-warning",
-          info: "group-[.toaster]:!border-feedback-info group-[.toaster]:!bg-background-subtle group-[.toaster]:!text-feedback-info",
+            "group-[.toaster]:!border-feedback-warning group-[.toaster]:!text-feedback-warning",
+          info: "group-[.toaster]:!border-feedback-info group-[.toaster]:!text-feedback-info",
         },
       }}
       {...props}

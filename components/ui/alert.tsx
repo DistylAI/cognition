@@ -4,21 +4,27 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 // API mirrors fe-distillery/components/ui/alert.tsx (Alert / AlertTitle /
-// AlertDescription, variant axis default|destructive|warning). The fix: the
-// source file ships dark: class violations (border-destructive
-// dark:border-destructive, etc.) -- here every color is a Cognition v1.2
-// semantic token, so the alert themes via [data-theme="dark"] with NO dark:
-// classes. Destructive recolors title + description; warning tints the surface.
+// AlertDescription). Every color is a Cognition v1.2 semantic token, so the
+// alert themes via [data-theme="dark"] with NO dark: classes.
+//
+// One color recipe across every feedback variant (danger/warning/success/info):
+// icon + title + border take the variant's feedback color; body copy stays
+// neutral subtle (via AlertDescription); background stays neutral. Body is never
+// recolored, so the feedback color only has to work as icon/title/border.
 const alertVariants = cva(
-  "relative w-full rounded-lg border bg-background-default px-4 py-3 text-sm [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:size-4 [&>svg]:text-text-default [&>svg+div]:translate-y-[-3px] [&>svg~*]:pl-7",
+  "relative w-full rounded-lg border bg-background-default px-4 py-3 text-sm [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:size-4 [&>svg+div]:translate-y-[-3px] [&>svg~*]:pl-7",
   {
     variants: {
       variant: {
-        default: "border-border-default text-text-default",
+        default: "border-border-default text-text-default [&>svg]:text-text-default",
         destructive:
-          "border-border-danger text-text-danger [&>svg]:text-text-danger [&_[data-slot=alert-description]]:text-text-danger",
+          "border-feedback-danger text-feedback-danger [&>svg]:text-feedback-danger",
         warning:
-          "border-border-default bg-background-warning text-text-warning [&>svg]:text-text-warning",
+          "border-feedback-warning text-feedback-warning [&>svg]:text-feedback-warning",
+        success:
+          "border-feedback-success text-feedback-success [&>svg]:text-feedback-success",
+        info:
+          "border-feedback-info text-feedback-info [&>svg]:text-feedback-info",
       },
     },
     defaultVariants: {
