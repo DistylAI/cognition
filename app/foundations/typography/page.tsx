@@ -16,9 +16,9 @@ const scale = [
   { token: "text-title", px: 16, weight: "Medium" },
   { token: "text-body", px: 16, weight: "Regular" },
   { token: "text-small", px: 14, weight: "Medium" },
-  { token: "text-label", px: 14, weight: "Medium" },
   { token: "text-description", px: 14, weight: "Regular" },
   { token: "text-caption", px: 12, weight: "Regular" },
+  { token: "text-label", px: 12, weight: "Medium" },
 ];
 
 const weights = [

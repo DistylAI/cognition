@@ -62,16 +62,10 @@ const CardTitle = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => {
-  const size = React.useContext(CardSizeContext);
   return (
     <div
       ref={ref}
-      className={cn(
-        size === "sm"
-          ? "text-label leading-normal"
-          : "text-title leading-normal",
-        className,
-      )}
+      className={cn("text-title leading-normal", className)}
       {...props}
     />
   );
