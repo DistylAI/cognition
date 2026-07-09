@@ -1,6 +1,6 @@
-# design.distyl
+# Cognition: Distyl's design foundation.
 
-Documentation site for **Cognition**, the Distyl AI design system.
+Cognition is Distyl's Product Experience Platform. It captures the reusable decisions that define how every product surface looks, behaves, and evolves.
 Built with Next.js (App Router) and Tailwind CSS v4. The site dogfoods the Cognition token system itself: every surface is styled with semantic tokens, and dark mode is driven entirely by `[data-theme="dark"]` on `<html>`. No `dark:` classes anywhere.
 
 ## Dark mode as compliance test
@@ -40,6 +40,8 @@ npm run build                # production build
 
 Deployed on Vercel from `tonydistyl/design-dot-distyl`. Pushes to main ship to
 production; pull requests get preview URLs.
+
+Public url: https://cognition.distyl.net/
 
 ---
 
