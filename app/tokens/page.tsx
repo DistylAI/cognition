@@ -182,7 +182,7 @@ export default function TokensPage() {
         <div className="space-y-4 rounded-lg border border-border-default bg-background-subtle p-6">
           {typeScale.map((t) => (
             <div
-              key={t.label}
+              key={t.token}
               className="flex items-baseline justify-between gap-4 border-b border-border-subtle pb-3 last:border-0 last:pb-0"
             >
               <span
@@ -196,7 +196,7 @@ export default function TokensPage() {
                 {t.sample}
               </span>
               <span className="shrink-0 font-mono text-caption">
-                {t.label} · {t.px}px · {t.weightLabel}
+                {t.token} · {t.px}px · {t.weightLabel}
               </span>
             </div>
           ))}

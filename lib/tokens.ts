@@ -121,23 +121,23 @@ export const spacingTokens: SpacingToken[] = [
 
 export type TypeScaleToken = {
   px: number;
-  label: string;
+  token: string;
   weight: number;
   weightLabel: string;
   sample: string;
 };
 
-// Cognition has no "Display" style — the scale starts at H1. Each row renders
-// at its real weight (driven via font-variation-settings on the specimen).
+// The 8 canonical Cognition named text styles, ordered strictly px-descending
+// (nothing above 20px). Each row renders at the token's real size/weight.
 export const typeScale: TypeScaleToken[] = [
-  { px: 36, label: "H1", weight: 700, weightLabel: "Bold", sample: "Cognition" },
-  { px: 30, label: "H2", weight: 600, weightLabel: "Semibold", sample: "Design system" },
-  { px: 24, label: "H3", weight: 600, weightLabel: "Semibold", sample: "Tokens & components" },
-  { px: 20, label: "H4", weight: 600, weightLabel: "Semibold", sample: "Semantic colors" },
-  { px: 18, label: "Lead", weight: 600, weightLabel: "Semibold", sample: "One source of truth." },
-  { px: 16, label: "Body", weight: 400, weightLabel: "Regular", sample: "The quick brown fox jumps over the lazy dog." },
-  { px: 14, label: "Small", weight: 500, weightLabel: "Medium", sample: "Secondary copy and helper text." },
-  { px: 12, label: "Caption", weight: 400, weightLabel: "Regular", sample: "Captions, labels, metadata." },
+  { px: 20, token: "text-large", weight: 400, weightLabel: "Regular", sample: "Largest display text" },
+  { px: 18, token: "text-lead", weight: 600, weightLabel: "Semibold", sample: "Section headers and leads" },
+  { px: 16, token: "text-title", weight: 500, weightLabel: "Medium", sample: "Card and component titles" },
+  { px: 16, token: "text-body", weight: 400, weightLabel: "Regular", sample: "Body and paragraph copy" },
+  { px: 14, token: "text-small", weight: 500, weightLabel: "Medium", sample: "Secondary and muted copy" },
+  { px: 14, token: "text-description", weight: 400, weightLabel: "Regular", sample: "Helper and description copy" },
+  { px: 12, token: "text-caption", weight: 400, weightLabel: "Regular", sample: "Captions, labels, metadata" },
+  { px: 12, token: "text-label", weight: 500, weightLabel: "Medium", sample: "Compact form labels" },
 ];
 
 export const fontWeights = [
