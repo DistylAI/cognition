@@ -113,7 +113,7 @@ export default function CarouselDocsPage() {
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Preview</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Preview</h3>
         <div className="flex items-center justify-center rounded-lg border border-border-default bg-background-subtle p-14">
           <BasicCarousel />
         </div>
@@ -127,7 +127,7 @@ export default function CarouselDocsPage() {
 
       {/* Variants */}
       <section id="variants" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Items per view</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Items per view</h3>
         <div className="grid grid-cols-1 gap-4">
           <Cell code={perViewCode}>
             <MultiCarousel per={2} />
@@ -148,7 +148,7 @@ export default function CarouselDocsPage() {
 
       {/* Orientation */}
       <section id="orientation" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Orientation</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Orientation</h3>
         <div className="grid grid-cols-1 gap-4">
           <Cell code={verticalCode}>
             <VerticalCarousel />
@@ -164,7 +164,7 @@ export default function CarouselDocsPage() {
 
       {/* API */}
       <section id="api" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">API</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">API</h3>
         <div className="overflow-x-auto rounded-lg border border-border-default">
           <div className="min-w-[560px]">
             <div className="grid grid-cols-[1.8fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-caption font-medium">
@@ -190,7 +190,7 @@ export default function CarouselDocsPage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Don&apos;t and Do</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Don&apos;t and Do</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="rounded-lg border border-border-danger bg-background-danger p-5">
             <div className="mb-2 text-sm font-bold text-text-danger">

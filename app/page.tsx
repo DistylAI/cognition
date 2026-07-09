@@ -28,7 +28,7 @@ export default function HomePage() {
         products and customer implementations.
       </p>
 
-      <p className="mt-6 max-w-2xl text-title font-semibold text-text-default">
+      <p className="mt-6 max-w-2xl text-lead text-text-default">
         The result is coherence.
       </p>
 
@@ -55,7 +55,7 @@ export default function HomePage() {
       </div>
 
       {/* Design principles */}
-      <h2 className="mt-16 text-title text-text-default">
+      <h2 className="mt-16 text-lead text-text-default">
         Momentum. Durability. Elevation.
       </h2>
       <p className="mt-2 max-w-2xl text-body text-text-default">
@@ -92,7 +92,7 @@ export default function HomePage() {
       </div>
 
       {/* Stages of Cognition */}
-      <h2 className="mt-16 text-title text-text-default">
+      <h2 className="mt-16 text-lead text-text-default">
         Belief. Truth. Coherence.
       </h2>
       <p className="mt-2 max-w-2xl text-body text-text-default">

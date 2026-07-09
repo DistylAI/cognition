@@ -44,7 +44,7 @@ export default function FileTreePage() {
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Preview</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Preview</h3>
         <div className="flex justify-center rounded-lg border border-border-default bg-background-subtle p-6">
           <FileTreeDemo />
         </div>
@@ -57,7 +57,7 @@ export default function FileTreePage() {
 
       {/* Variants */}
       <section id="variants" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Variants</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Variants</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <p className="mb-2 text-caption font-medium">
@@ -95,7 +95,7 @@ export default function FileTreePage() {
 
       {/* States */}
       <section id="states" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">States</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">States</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <p className="mb-2 text-caption font-medium">Default</p>
@@ -167,7 +167,7 @@ export default function FileTreePage() {
 
       {/* Props */}
       <section id="props" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Props</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Props</h3>
         <div className="overflow-x-auto rounded-lg border border-border-default">
           <div className="min-w-[640px]">
             <div className="grid grid-cols-[1.4fr_1.8fr_1fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-caption font-medium">
@@ -235,7 +235,7 @@ export default function FileTreePage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Don&apos;t and Do</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Don&apos;t and Do</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="rounded-lg border border-border-danger bg-background-danger p-5">
             <div className="mb-2 text-sm font-bold text-text-danger">

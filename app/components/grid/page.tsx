@@ -39,7 +39,7 @@ export default function GridPage() {
 
       {/* Preview */}
       <section className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Preview</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Preview</h3>
         <div className="rounded-lg border border-border-default bg-background-subtle p-10">
           <Grid cols={3} gap="md">
             {["Cell one", "Cell two", "Cell three", "Cell four", "Cell five", "Cell six"].map((label) => (
@@ -53,7 +53,7 @@ export default function GridPage() {
 
       {/* Column variants */}
       <section className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Column counts</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Column counts</h3>
         <div className="space-y-4">
           {([1, 2, 3, 4] as const).map((cols) => (
             <div key={cols} className="overflow-hidden rounded-lg border border-border-default">
@@ -80,7 +80,7 @@ export default function GridPage() {
 
       {/* API */}
       <section className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">API</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">API</h3>
         <div className="overflow-x-auto rounded-lg border border-border-default">
           <div className="min-w-[640px]">
             <div className="grid grid-cols-[1.4fr_1.8fr_1fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-caption font-medium">
@@ -105,7 +105,7 @@ export default function GridPage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">
+        <h3 className="mt-12 mb-4 text-lead text-text-default">
           Don&apos;t and Do
         </h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -132,7 +132,7 @@ export default function GridPage() {
 
       {/* Code */}
       <section className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Usage</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Usage</h3>
         <CodeBlock code={installCode} />
       </section>
 

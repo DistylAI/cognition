@@ -73,7 +73,7 @@ export default function SidebarPage() {
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Preview</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Preview</h3>
         <div className="rounded-lg border border-border-default bg-background-subtle p-6">
           <SidebarDemo />
         </div>
@@ -87,7 +87,7 @@ export default function SidebarPage() {
 
       {/* API */}
       <section id="anatomy" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">API</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">API</h3>
         <CodeBlock
           code={anatomyCode}
           className="rounded-lg border border-border-default bg-background-subtle"
@@ -106,7 +106,7 @@ export default function SidebarPage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-title text-text-default">Don&apos;t and Do</h3>
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Don&apos;t and Do</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="rounded-lg border border-border-danger bg-background-danger p-5">
             <div className="mb-2 text-sm font-bold text-text-danger">

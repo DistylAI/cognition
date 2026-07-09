@@ -132,8 +132,8 @@
   --text-description-font:        var(--font-sans);
   --text-description-color:       var(--color-text-subtle);
 
-  /* Label — text-sm/leading-normal/medium, default (form labels & compact titles) */
-  --text-label-size:        var(--font-size-sm);
+  /* Label — text-xs/leading-normal/medium, default (compact form labels) */
+  --text-label-size:        var(--font-size-xs);
   --text-label-weight:      var(--font-weight-medium);
   --text-label-line-height: var(--line-height-normal);
   --text-label-font:        var(--font-sans);
