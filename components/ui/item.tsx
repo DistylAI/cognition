@@ -34,7 +34,7 @@ function Item({
 
   const classes = cn(
     "flex w-full items-center gap-3 rounded-md px-3 py-2 text-left",
-    selected && "bg-background-accent",
+    selected && "bg-background-secondary",
     disabled
       ? "opacity-50"
       : interactive &&

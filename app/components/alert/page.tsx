@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { CircleAlert, CircleCheck, TriangleAlert } from "lucide-react";
+import { CircleAlert, CircleCheck, Info, TriangleAlert } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { CodeBlock } from "@/components/CodeBlock";
 
@@ -32,6 +32,22 @@ const variants = [
   <TriangleAlert />
   <AlertTitle>Subscription expiring</AlertTitle>
   <AlertDescription>Renew within 3 days.</AlertDescription>
+</Alert>`,
+  },
+  {
+    key: "success",
+    code: `<Alert variant="success">
+  <CircleCheck />
+  <AlertTitle>Payment received</AlertTitle>
+  <AlertDescription>Your plan is now active.</AlertDescription>
+</Alert>`,
+  },
+  {
+    key: "info",
+    code: `<Alert variant="info">
+  <Info />
+  <AlertTitle>A new version is available</AlertTitle>
+  <AlertDescription>Refresh to get the latest.</AlertDescription>
 </Alert>`,
   },
 ] as const;
@@ -115,6 +131,24 @@ export default function AlertPage() {
                     </AlertDescription>
                   </Alert>
                 )}
+                {v.key === "success" && (
+                  <Alert variant="success">
+                    <CircleCheck />
+                    <AlertTitle>Payment received</AlertTitle>
+                    <AlertDescription>
+                      Your Pro plan is now active. Enjoy the new features.
+                    </AlertDescription>
+                  </Alert>
+                )}
+                {v.key === "info" && (
+                  <Alert variant="info">
+                    <Info />
+                    <AlertTitle>A new version is available</AlertTitle>
+                    <AlertDescription>
+                      Refresh the page to get the latest updates.
+                    </AlertDescription>
+                  </Alert>
+                )}
               </div>
               <div className="border-t border-border-default p-3">
                 <CodeBlock
@@ -127,10 +161,10 @@ export default function AlertPage() {
           ))}
         </div>
         <p className="mt-2 text-small">
-          <code className="font-mono">destructive</code> recolors the title,
-          description, and icon to the danger token;{" "}
-          <code className="font-mono">warning</code> tints the surface amber --
-          both via tokens, so dark mode is automatic.
+          Every status variant tints its surface, softens the border to the
+          feedback color, and colors the icon and title to match -- the body
+          stays default for readability. The same recipe drives the Toast, so
+          the two read as one system. All via tokens, so dark mode is automatic.
         </p>
       </section>
 
@@ -175,7 +209,7 @@ export default function AlertPage() {
             </div>
             <div className="divide-y divide-border-default">
               {[
-                { name: "Alert", desc: "Root container. The variant prop (\"default\" | \"destructive\") sets the color." },
+                { name: "Alert", desc: "Root container. The variant prop (\"default\" | \"destructive\" | \"warning\" | \"success\" | \"info\") sets the color." },
                 { name: "AlertTitle", desc: "The bold heading line." },
                 { name: "AlertDescription", desc: "Supporting body text beneath the title." },
               ].map((p) => (

@@ -39,6 +39,7 @@ export const colorGroups: ColorGroup[] = [
       { name: "background.danger", cssVar: "--color-background-danger", utility: "bg-background-danger", light: "#FEF2F2", dark: "#450A0A", usage: "Error background tints" },
       { name: "background.success", cssVar: "--color-background-success", utility: "bg-background-success", light: "#F0FDF4", dark: "#052E16", usage: "Success background tints" },
       { name: "background.warning", cssVar: "--color-background-warning", utility: "bg-background-warning", light: "#FFFBEB", dark: "#431407", usage: "Warning background tints" },
+      { name: "background.info", cssVar: "--color-background-info", utility: "bg-background-info", light: "#EFF6FF", dark: "#172554", usage: "Info background tints" },
     ],
   },
   {
@@ -51,9 +52,10 @@ export const colorGroups: ColorGroup[] = [
       { name: "text.primary", cssVar: "--color-text-primary", utility: "text-text-primary", light: "#5D4EE7", dark: "#7C6FF7", usage: "Brand text, links, active labels" },
       { name: "text.inverse", cssVar: "--color-text-inverse", utility: "text-text-inverse", light: "#FFFFFF", dark: "#0F1117", usage: "Text on dark / filled backgrounds" },
       { name: "text.disabled", cssVar: "--color-text-disabled", utility: "text-text-disabled", light: "#D1D5DB", dark: "#4B5563", usage: "Disabled text only" },
-      { name: "text.danger", cssVar: "--color-text-danger", utility: "text-text-danger", light: "#DC2626", dark: "#F87171", usage: "Error messages" },
+      { name: "text.danger", cssVar: "--color-text-danger", utility: "text-text-danger", light: "#B91C1C", dark: "#F87171", usage: "Error messages" },
       { name: "text.success", cssVar: "--color-text-success", utility: "text-text-success", light: "#15803D", dark: "#4ADE80", usage: "Success messages" },
       { name: "text.warning", cssVar: "--color-text-warning", utility: "text-text-warning", light: "#B45309", dark: "#FBBF24", usage: "Warning messages" },
+      { name: "text.info", cssVar: "--color-text-info", utility: "text-text-info", light: "#1D4ED8", dark: "#60A5FA", usage: "Info messages" },
     ],
   },
   {
@@ -66,7 +68,7 @@ export const colorGroups: ColorGroup[] = [
       { name: "border.strong", cssVar: "--color-border-strong", utility: "border-border-strong", light: "#9CA3AF", dark: "#6B7280", usage: "Emphasized borders" },
       { name: "border.primary", cssVar: "--color-border-primary", utility: "border-border-primary", light: "#5D4EE7", dark: "#7C6FF7", usage: "Focused / active inputs" },
       { name: "border.danger", cssVar: "--color-border-danger", utility: "border-border-danger", light: "#EF4444", dark: "#F87171", usage: "Error state borders" },
-      { name: "border.success", cssVar: "--color-border-success", utility: "border-border-success", light: "#16A34A", dark: "#4ADE80", usage: "Valid / success borders" },
+      { name: "border.success", cssVar: "--color-border-success", utility: "border-border-success", light: "#15803D", dark: "#4ADE80", usage: "Valid / success borders" },
     ],
   },
   {
@@ -74,9 +76,9 @@ export const colorGroups: ColorGroup[] = [
     title: "Feedback",
     description: "Canonical status colors — use these for every status state.",
     tokens: [
-      { name: "feedback.info", cssVar: "--color-feedback-info", utility: "bg-feedback-info", utilities: ["bg-feedback-info", "text-feedback-info", "border-feedback-info"], light: "#5D4EE7", dark: "#7C6FF7", usage: "All info states" },
+      { name: "feedback.info", cssVar: "--color-feedback-info", utility: "bg-feedback-info", utilities: ["bg-feedback-info", "text-feedback-info", "border-feedback-info"], light: "#3B82F6", dark: "#60A5FA", usage: "All info states" },
       { name: "feedback.success", cssVar: "--color-feedback-success", utility: "bg-feedback-success", utilities: ["bg-feedback-success", "text-feedback-success", "border-feedback-success"], light: "#15803D", dark: "#4ADE80", usage: "All success states" },
-      { name: "feedback.warning", cssVar: "--color-feedback-warning", utility: "bg-feedback-warning", utilities: ["bg-feedback-warning", "text-feedback-warning", "border-feedback-warning"], light: "#F59E0B", dark: "#FBBF24", usage: "All warning states" },
+      { name: "feedback.warning", cssVar: "--color-feedback-warning", utility: "bg-feedback-warning", utilities: ["bg-feedback-warning", "text-feedback-warning", "border-feedback-warning"], light: "#B45309", dark: "#FBBF24", usage: "All warning states" },
       { name: "feedback.danger", cssVar: "--color-feedback-danger", utility: "bg-feedback-danger", utilities: ["bg-feedback-danger", "text-feedback-danger", "border-feedback-danger"], light: "#EF4444", dark: "#F87171", usage: "All error / destructive states" },
     ],
   },
@@ -90,7 +92,7 @@ export const colorGroups: ColorGroup[] = [
       { name: "chart.2", cssVar: "--color-chart-2", utility: "var(--color-chart-2)", light: "#38BDF8", dark: "#7DD3FC", usage: "Second data series" },
       { name: "chart.3", cssVar: "--color-chart-3", utility: "var(--color-chart-3)", light: "#34D399", dark: "#6EE7B7", usage: "Third data series" },
       { name: "chart.4", cssVar: "--color-chart-4", utility: "var(--color-chart-4)", light: "#FB923C", dark: "#FDBA74", usage: "Fourth data series" },
-      { name: "chart.5", cssVar: "--color-chart-5", utility: "var(--color-chart-5)", light: "#A78BFA", dark: "#C4B5FD", usage: "Fifth data series" },
+      { name: "chart.5", cssVar: "--color-chart-5", utility: "var(--color-chart-5)", light: "#EC4899", dark: "#F9A8D4", usage: "Fifth data series" },
     ],
   },
 ];

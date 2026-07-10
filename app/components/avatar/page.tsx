@@ -48,9 +48,9 @@ const statusCode = `<div className="relative inline-flex">
 </div>`;
 
 const groupCode = `<div className="flex -space-x-2">
-  <Avatar className="size-8 border-2 border-background-default">…</Avatar>
-  <Avatar className="size-8 border-2 border-background-default">…</Avatar>
-  <Avatar className="size-8 border-2 border-background-default">
+  <Avatar className="size-8 border-2 border-background-subtle">…</Avatar>
+  <Avatar className="size-8 border-2 border-background-subtle">…</Avatar>
+  <Avatar className="size-8 border-2 border-background-subtle">
     <AvatarFallback>+3</AvatarFallback>
   </Avatar>
 </div>`;
@@ -81,16 +81,16 @@ function StatusAvatar() {
 function AvatarGroup() {
   return (
     <div className="flex -space-x-2">
-      <Avatar className="size-8 border-2 border-background-default">
+      <Avatar className="size-8 border-2 border-background-subtle">
         <AvatarFallback>CN</AvatarFallback>
       </Avatar>
-      <Avatar className="size-8 border-2 border-background-default">
+      <Avatar className="size-8 border-2 border-background-subtle">
         <AvatarFallback>AB</AvatarFallback>
       </Avatar>
-      <Avatar className="size-8 border-2 border-background-default">
+      <Avatar className="size-8 border-2 border-background-subtle">
         <AvatarFallback>JL</AvatarFallback>
       </Avatar>
-      <Avatar className="size-8 border-2 border-background-default">
+      <Avatar className="size-8 border-2 border-background-subtle">
         <AvatarFallback>+3</AvatarFallback>
       </Avatar>
     </div>

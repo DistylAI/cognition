@@ -3,6 +3,8 @@
 import * as React from "react";
 import { Toaster as Sonner, type ToasterProps } from "sonner";
 
+import { Spinner } from "@/components/ui/spinner";
+
 // API mirrors fe-distillery/components/ui/sonner.tsx (the Sonner Toaster). This
 // project has no next-themes, so the toaster syncs to the [data-theme] attribute
 // on <html> via a MutationObserver. Every toast surface is styled with Cognition
@@ -27,24 +29,32 @@ const Toaster = ({ ...props }: ToasterProps) => {
   return (
     <Sonner
       theme={theme}
-      position="top-right"
+      position="bottom-right"
       className="toaster group"
+      // Loading is a neutral, indeterminate state -- no feedback color. It uses
+      // the neutral base toast surface plus the canonical Cognition Spinner
+      // (purple arc / neutral track), not Sonner's default loader.
+      icons={{ loading: <Spinner size="sm" /> }}
       toastOptions={{
         classNames: {
           toast:
             "group toast group-[.toaster]:rounded-lg group-[.toaster]:border group-[.toaster]:border-border-default group-[.toaster]:bg-background-default group-[.toaster]:text-text-default group-[.toaster]:shadow-lg",
-          description: "group-[.toast]:text-text-subtle",
+          description: "group-[.toast]:!text-text-default",
           actionButton:
             "group-[.toast]:bg-background-primary group-[.toast]:text-text-inverse",
           cancelButton:
             "group-[.toast]:bg-background-secondary group-[.toast]:text-text-subtle",
+          // Per-type surface: shared verbatim with the Alert recipe -- tinted
+          // background + SOFT in-hue stroke (feedback color at 30%) + icon/title
+          // in the contrast-tuned text-<type> token (every title clears 4.5:1 on
+          // its tint). The stroke stays feedback-<type> (status hue) at low alpha.
           success:
-            "group-[.toaster]:!border-border-success group-[.toaster]:!bg-background-success group-[.toaster]:!text-text-success",
+            "group-[.toaster]:!border-feedback-success/30 group-[.toaster]:!bg-background-success group-[.toaster]:!text-text-success",
           error:
-            "group-[.toaster]:!border-border-danger group-[.toaster]:!bg-background-danger group-[.toaster]:!text-text-danger",
+            "group-[.toaster]:!border-feedback-danger/30 group-[.toaster]:!bg-background-danger group-[.toaster]:!text-text-danger",
           warning:
-            "group-[.toaster]:!border-feedback-warning group-[.toaster]:!bg-background-warning group-[.toaster]:!text-text-warning",
-          info: "group-[.toaster]:!border-border-primary group-[.toaster]:!bg-background-accent group-[.toaster]:!text-text-primary",
+            "group-[.toaster]:!border-feedback-warning/30 group-[.toaster]:!bg-background-warning group-[.toaster]:!text-text-warning",
+          info: "group-[.toaster]:!border-feedback-info/30 group-[.toaster]:!bg-background-info group-[.toaster]:!text-text-info",
         },
       }}
       {...props}
