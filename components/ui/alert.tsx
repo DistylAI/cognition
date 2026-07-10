@@ -11,9 +11,9 @@ import { cn } from "@/lib/utils";
 // shared verbatim with the Toast/Sonner surface so the two read as one system:
 // tinted surface (bg-background-<type>) + a SOFT in-hue stroke (feedback color at
 // 30% — quiet, like the neutral default's gray border but hued) + icon and title
-// in the contrast-tuned text-<type> token. Body copy stays default (via
-// AlertDescription) for readability on the tint. info has no text-/background-
-// token, so it derives both from feedback-info via opacity.
+// in the contrast-tuned text-<type> token (every title clears 4.5:1 on its own
+// tint). Body copy stays default (via AlertDescription) for readability on the
+// tint. The stroke stays feedback-<type> (canonical status hue) at low alpha.
 const alertVariants = cva(
   "relative w-full rounded-lg border px-4 py-3 text-sm [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:size-4 [&>svg+div]:translate-y-[-3px] [&>svg~*]:pl-7",
   {
@@ -28,7 +28,7 @@ const alertVariants = cva(
         success:
           "border-feedback-success/30 bg-background-success text-text-success [&>svg]:text-text-success",
         info:
-          "border-feedback-info/30 bg-feedback-info/10 text-feedback-info [&>svg]:text-feedback-info",
+          "border-feedback-info/30 bg-background-info text-text-info [&>svg]:text-text-info",
       },
     },
     defaultVariants: {

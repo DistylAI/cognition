@@ -39,6 +39,7 @@ export const colorGroups: ColorGroup[] = [
       { name: "background.danger", cssVar: "--color-background-danger", utility: "bg-background-danger", light: "#FEF2F2", dark: "#450A0A", usage: "Error background tints" },
       { name: "background.success", cssVar: "--color-background-success", utility: "bg-background-success", light: "#F0FDF4", dark: "#052E16", usage: "Success background tints" },
       { name: "background.warning", cssVar: "--color-background-warning", utility: "bg-background-warning", light: "#FFFBEB", dark: "#431407", usage: "Warning background tints" },
+      { name: "background.info", cssVar: "--color-background-info", utility: "bg-background-info", light: "#EFF6FF", dark: "#172554", usage: "Info background tints" },
     ],
   },
   {
@@ -51,9 +52,10 @@ export const colorGroups: ColorGroup[] = [
       { name: "text.primary", cssVar: "--color-text-primary", utility: "text-text-primary", light: "#5D4EE7", dark: "#7C6FF7", usage: "Brand text, links, active labels" },
       { name: "text.inverse", cssVar: "--color-text-inverse", utility: "text-text-inverse", light: "#FFFFFF", dark: "#0F1117", usage: "Text on dark / filled backgrounds" },
       { name: "text.disabled", cssVar: "--color-text-disabled", utility: "text-text-disabled", light: "#D1D5DB", dark: "#4B5563", usage: "Disabled text only" },
-      { name: "text.danger", cssVar: "--color-text-danger", utility: "text-text-danger", light: "#DC2626", dark: "#F87171", usage: "Error messages" },
+      { name: "text.danger", cssVar: "--color-text-danger", utility: "text-text-danger", light: "#B91C1C", dark: "#F87171", usage: "Error messages" },
       { name: "text.success", cssVar: "--color-text-success", utility: "text-text-success", light: "#15803D", dark: "#4ADE80", usage: "Success messages" },
       { name: "text.warning", cssVar: "--color-text-warning", utility: "text-text-warning", light: "#B45309", dark: "#FBBF24", usage: "Warning messages" },
+      { name: "text.info", cssVar: "--color-text-info", utility: "text-text-info", light: "#1D4ED8", dark: "#60A5FA", usage: "Info messages" },
     ],
   },
   {

@@ -40,15 +40,15 @@ const Toaster = ({ ...props }: ToasterProps) => {
             "group-[.toast]:bg-background-secondary group-[.toast]:text-text-subtle",
           // Per-type surface: shared verbatim with the Alert recipe -- tinted
           // background + SOFT in-hue stroke (feedback color at 30%) + icon/title
-          // in the contrast-tuned text-<type> token. info derives its tint and
-          // stroke from feedback-info via opacity (no text-/background-info token).
+          // in the contrast-tuned text-<type> token (every title clears 4.5:1 on
+          // its tint). The stroke stays feedback-<type> (status hue) at low alpha.
           success:
             "group-[.toaster]:!border-feedback-success/30 group-[.toaster]:!bg-background-success group-[.toaster]:!text-text-success",
           error:
             "group-[.toaster]:!border-feedback-danger/30 group-[.toaster]:!bg-background-danger group-[.toaster]:!text-text-danger",
           warning:
             "group-[.toaster]:!border-feedback-warning/30 group-[.toaster]:!bg-background-warning group-[.toaster]:!text-text-warning",
-          info: "group-[.toaster]:!border-feedback-info/30 group-[.toaster]:!bg-feedback-info/10 group-[.toaster]:!text-feedback-info",
+          info: "group-[.toaster]:!border-feedback-info/30 group-[.toaster]:!bg-background-info group-[.toaster]:!text-text-info",
         },
       }}
       {...props}

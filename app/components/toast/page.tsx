@@ -153,8 +153,8 @@ const toastVariants: Record<
     icon: TriangleAlert,
   },
   info: {
-    surface: "border-feedback-info/30 bg-feedback-info/10",
-    tone: "text-feedback-info",
+    surface: "border-feedback-info/30 bg-background-info",
+    tone: "text-text-info",
     title: "A new version is available",
     icon: Info,
   },
