@@ -7,6 +7,7 @@ import {
   TriangleAlert,
 } from "lucide-react";
 import { CodeBlock } from "@/components/CodeBlock";
+import { Spinner } from "@/components/ui/spinner";
 import { ToastButton } from "./toast-demos";
 
 export const metadata: Metadata = {
@@ -45,6 +46,18 @@ const api = [
     type: "(message, options?) => id",
     def: "—",
     desc: "Informational toast with info styling.",
+  },
+  {
+    name: "toast.loading(message)",
+    type: "(message, options?) => id",
+    def: "—",
+    desc: "Neutral, indeterminate in-progress toast with a spinner. Update or dismiss it by id when the work settles.",
+  },
+  {
+    name: "toast.promise(promise)",
+    type: "(promise, { loading, success, error }) => id",
+    def: "—",
+    desc: "Fires a loading toast, then swaps to the success or error toast when the promise resolves or rejects.",
   },
   {
     name: "options.description",
@@ -122,6 +135,7 @@ type ToastKind =
   | "error"
   | "warning"
   | "info"
+  | "loading"
   | "action"
   | "description";
 
@@ -163,6 +177,15 @@ const toastVariants: Record<
 function VariantToast({ kind }: { kind: ToastKind }) {
   const base =
     "flex w-full items-start gap-3 rounded-lg border p-4 text-sm shadow-md";
+
+  if (kind === "loading") {
+    return (
+      <div className={`${base} border-border-default bg-background-default`}>
+        <Spinner size="sm" className="mt-0.5" />
+        <p className="flex-1 font-medium text-text-default">Saving changes…</p>
+      </div>
+    );
+  }
 
   if (kind === "action") {
     return (
@@ -220,6 +243,8 @@ export default function ToastPage() {
               { kind: "error", label: "Error" },
               { kind: "warning", label: "Warning" },
               { kind: "info", label: "Info" },
+              { kind: "loading", label: "Loading" },
+              { kind: "promise", label: "Promise" },
               { kind: "action", label: "With action" },
               { kind: "description", label: "With description" },
             ] as const
@@ -301,6 +326,18 @@ export default function ToastPage() {
           </div>
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="flex items-center justify-center bg-background-subtle p-8">
+              <VariantToast kind="loading" />
+            </div>
+            <div className="border-t border-border-default p-3">
+              <CodeBlock
+                code={`toast.loading("Saving changes…")`}
+                size="sm"
+                className="rounded-md border border-border-subtle bg-background-subtle"
+              />
+            </div>
+          </div>
+          <div className="overflow-hidden rounded-lg border border-border-default">
+            <div className="flex items-center justify-center bg-background-subtle p-8">
               <VariantToast kind="action" />
             </div>
             <div className="border-t border-border-default p-3">
@@ -329,7 +366,7 @@ export default function ToastPage() {
           </div>
         </div>
         <p className="mt-2 text-small">
-          Each type is shown as it appears. Success, error, warning, and info take the matching Cognition feedback tokens. Fire a live one from the preview above.
+          Each type is shown as it appears. Success, error, warning, and info take the matching Cognition feedback tokens; loading is neutral (spinner, no feedback color) since it is an in-progress state, not an outcome. Fire a live one from the preview above.
         </p>
       </section>
 

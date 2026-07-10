@@ -10,6 +10,8 @@ type ToastKind =
   | "error"
   | "warning"
   | "info"
+  | "loading"
+  | "promise"
   | "action"
   | "description";
 
@@ -23,6 +25,18 @@ function fire(kind: ToastKind) {
       return toast.warning("Your trial ends in 3 days");
     case "info":
       return toast.info("A new version is available");
+    case "loading":
+      return toast.loading("Saving changes…");
+    case "promise": {
+      // The canonical lifecycle: a loading toast that swaps to success (or
+      // error) when the work settles. Fake a 1.5s save that resolves.
+      const save = new Promise((resolve) => setTimeout(resolve, 1500));
+      return toast.promise(save, {
+        loading: "Saving changes…",
+        success: "Changes saved",
+        error: "Could not save changes",
+      });
+    }
     case "action":
       return toast("Workspace archived", {
         action: { label: "Undo", onClick: () => toast.success("Restored") },
