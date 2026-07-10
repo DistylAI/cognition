@@ -5,10 +5,11 @@ import { cn } from "@/lib/utils";
 // A Cognition composed pattern built on the Input primitive: a single field with
 // optional leading or trailing affordances (icon, prefix/suffix text, or an
 // action) attached inside one visual boundary. It does not replace Input, it
-// extends it for cases that need attached context. Colors are Cognition tokens;
-// the field shows focus via focus-within, so no dark: classes.
-interface InputGroupProps
-  extends Omit<React.ComponentProps<"input">, "size"> {
+// extends it for cases that need attached context. v4 migration: plain function
+// component, rounded-md to match the migrated Input/Button, the v4 focus ring
+// (ring-[3px]), and shadow-xs. Colors are Cognition tokens; the field shows
+// focus via focus-within, so no dark: classes.
+interface InputGroupProps extends Omit<React.ComponentProps<"input">, "size"> {
   leadingIcon?: React.ReactNode;
   trailingIcon?: React.ReactNode;
   leadingText?: string;
@@ -17,44 +18,41 @@ interface InputGroupProps
   error?: boolean;
 }
 
-const InputGroup = React.forwardRef<HTMLInputElement, InputGroupProps>(
-  (
-    {
-      className,
-      leadingIcon,
-      trailingIcon,
-      leadingText,
-      trailingText,
-      trailingAction,
-      error,
-      disabled,
-      ...props
-    },
-    ref,
-  ) => {
-    // Enforce flush, concentric nesting for the trailing action regardless of
-    // its content (icon or text): the button fills a consistent 4px inset on the
-    // top, right, and bottom (h-7 centered in the h-9 group plus pr-1), and a 4px
-    // radius nests inside the group's rounded-lg corner. twMerge lets these win
-    // over the Button size variant's h-8 / rounded-md.
-    const renderedTrailingAction = React.isValidElement<{ className?: string }>(
-      trailingAction,
-    )
-      ? React.cloneElement(trailingAction, {
-          className: cn(trailingAction.props.className, "h-7 rounded"),
-        })
-      : trailingAction;
+function InputGroup({
+  className,
+  leadingIcon,
+  trailingIcon,
+  leadingText,
+  trailingText,
+  trailingAction,
+  error,
+  disabled,
+  ref,
+  ...props
+}: InputGroupProps) {
+  // Enforce flush, concentric nesting for the trailing action regardless of its
+  // content (icon or text): the button fills a consistent 4px inset on the top,
+  // right, and bottom (h-7 centered in the h-9 group plus pr-1), and a 4px
+  // radius (rounded-sm) nests concentrically inside the group's rounded-md (8px)
+  // corner. twMerge lets these win over the Button size variant's h-8 / rounded.
+  const renderedTrailingAction = React.isValidElement<{ className?: string }>(
+    trailingAction,
+  )
+    ? React.cloneElement(trailingAction, {
+        className: cn(trailingAction.props.className, "h-7 rounded-sm"),
+      })
+    : trailingAction;
 
-    return (
+  return (
     <div
       data-slot="input-group"
       aria-disabled={disabled || undefined}
       className={cn(
-        "flex h-9 w-full items-center gap-2 rounded-lg border border-border-default bg-background-default pl-3 text-sm shadow-sm transition-colors",
-        "focus-within:border-border-primary focus-within:ring-1 focus-within:ring-border-primary",
+        "flex h-9 w-full items-center gap-2 rounded-md border border-border-default bg-background-default pl-3 text-sm shadow-xs transition-[color,box-shadow]",
+        "focus-within:border-border-primary focus-within:ring-border-primary/50 focus-within:ring-[3px]",
         trailingAction ? "pr-1" : "pr-3",
         error &&
-          "border-border-danger focus-within:border-border-danger focus-within:ring-border-danger",
+          "border-border-danger focus-within:border-border-danger focus-within:ring-border-danger/20",
         disabled && "cursor-not-allowed opacity-50",
         className,
       )}
@@ -88,9 +86,8 @@ const InputGroup = React.forwardRef<HTMLInputElement, InputGroupProps>(
         </span>
       )}
     </div>
-    );
-  },
-);
+  );
+}
 InputGroup.displayName = "InputGroup";
 
 export { InputGroup };
