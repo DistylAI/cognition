@@ -27,24 +27,28 @@ const Toaster = ({ ...props }: ToasterProps) => {
   return (
     <Sonner
       theme={theme}
-      position="top-right"
+      position="bottom-right"
       className="toaster group"
       toastOptions={{
         classNames: {
           toast:
             "group toast group-[.toaster]:rounded-lg group-[.toaster]:border group-[.toaster]:border-border-default group-[.toaster]:bg-background-default group-[.toaster]:text-text-default group-[.toaster]:shadow-lg",
-          description: "group-[.toast]:!text-text-subtle",
+          description: "group-[.toast]:!text-text-default",
           actionButton:
             "group-[.toast]:bg-background-primary group-[.toast]:text-text-inverse",
           cancelButton:
             "group-[.toast]:bg-background-secondary group-[.toast]:text-text-subtle",
+          // Per-type surface: shared verbatim with the Alert recipe -- tinted
+          // background + SOFT in-hue stroke (feedback color at 30%) + icon/title
+          // in the contrast-tuned text-<type> token. info derives its tint and
+          // stroke from feedback-info via opacity (no text-/background-info token).
           success:
-            "group-[.toaster]:!border-feedback-success group-[.toaster]:!text-feedback-success",
+            "group-[.toaster]:!border-feedback-success/30 group-[.toaster]:!bg-background-success group-[.toaster]:!text-text-success",
           error:
-            "group-[.toaster]:!border-feedback-danger group-[.toaster]:!text-feedback-danger",
+            "group-[.toaster]:!border-feedback-danger/30 group-[.toaster]:!bg-background-danger group-[.toaster]:!text-text-danger",
           warning:
-            "group-[.toaster]:!border-feedback-warning group-[.toaster]:!text-feedback-warning",
-          info: "group-[.toaster]:!border-feedback-info group-[.toaster]:!text-feedback-info",
+            "group-[.toaster]:!border-feedback-warning/30 group-[.toaster]:!bg-background-warning group-[.toaster]:!text-text-warning",
+          info: "group-[.toaster]:!border-feedback-info/30 group-[.toaster]:!bg-feedback-info/10 group-[.toaster]:!text-feedback-info",
         },
       }}
       {...props}

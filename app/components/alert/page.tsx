@@ -127,10 +127,10 @@ export default function AlertPage() {
           ))}
         </div>
         <p className="mt-2 text-small">
-          <code className="font-mono">destructive</code> recolors the title,
-          description, and icon to the danger token;{" "}
-          <code className="font-mono">warning</code> tints the surface amber --
-          both via tokens, so dark mode is automatic.
+          Every status variant tints its surface, softens the border to the
+          feedback color, and colors the icon and title to match -- the body
+          stays default for readability. The same recipe drives the Toast, so
+          the two read as one system. All via tokens, so dark mode is automatic.
         </p>
       </section>
 

@@ -7,24 +7,28 @@ import { cn } from "@/lib/utils";
 // AlertDescription). Every color is a Cognition v1.2 semantic token, so the
 // alert themes via [data-theme="dark"] with NO dark: classes.
 //
-// One color recipe across every feedback variant (danger/warning/success/info):
-// icon + title + border take the variant's feedback color; body copy stays
-// neutral subtle (via AlertDescription); background stays neutral. Body is never
-// recolored, so the feedback color only has to work as icon/title/border.
+// One color recipe across every feedback variant (danger/warning/success/info),
+// shared verbatim with the Toast/Sonner surface so the two read as one system:
+// tinted surface (bg-background-<type>) + a SOFT in-hue stroke (feedback color at
+// 30% — quiet, like the neutral default's gray border but hued) + icon and title
+// in the contrast-tuned text-<type> token. Body copy stays default (via
+// AlertDescription) for readability on the tint. info has no text-/background-
+// token, so it derives both from feedback-info via opacity.
 const alertVariants = cva(
-  "relative w-full rounded-lg border bg-background-default px-4 py-3 text-sm [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:size-4 [&>svg+div]:translate-y-[-3px] [&>svg~*]:pl-7",
+  "relative w-full rounded-lg border px-4 py-3 text-sm [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:size-4 [&>svg+div]:translate-y-[-3px] [&>svg~*]:pl-7",
   {
     variants: {
       variant: {
-        default: "border-border-default text-text-default [&>svg]:text-text-default",
+        default:
+          "border-border-default bg-background-default text-text-default [&>svg]:text-text-default",
         destructive:
-          "border-feedback-danger text-feedback-danger [&>svg]:text-feedback-danger",
+          "border-feedback-danger/30 bg-background-danger text-text-danger [&>svg]:text-text-danger",
         warning:
-          "border-feedback-warning text-feedback-warning [&>svg]:text-feedback-warning",
+          "border-feedback-warning/30 bg-background-warning text-text-warning [&>svg]:text-text-warning",
         success:
-          "border-feedback-success text-feedback-success [&>svg]:text-feedback-success",
+          "border-feedback-success/30 bg-background-success text-text-success [&>svg]:text-text-success",
         info:
-          "border-feedback-info text-feedback-info [&>svg]:text-feedback-info",
+          "border-feedback-info/30 bg-feedback-info/10 text-feedback-info [&>svg]:text-feedback-info",
       },
     },
     defaultVariants: {
@@ -66,7 +70,7 @@ const AlertDescription = React.forwardRef<
     ref={ref}
     data-slot="alert-description"
     className={cn(
-      "text-sm text-text-subtle [&_p]:leading-relaxed",
+      "text-sm text-text-default [&_p]:leading-relaxed",
       className,
     )}
     {...props}
