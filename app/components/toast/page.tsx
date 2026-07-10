@@ -212,14 +212,26 @@ export default function ToastPage() {
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
         <h3 className="mt-12 mb-4 text-lead text-text-default">Preview</h3>
-        <div className="flex items-center justify-center rounded-lg border border-border-default bg-background-subtle p-10">
-          <ToastButton kind="description" variant="default" size="default">
-            Show toast
-          </ToastButton>
+        <div className="flex flex-wrap items-center justify-center gap-3 rounded-lg border border-border-default bg-background-subtle p-10">
+          {(
+            [
+              { kind: "default", label: "Default" },
+              { kind: "success", label: "Success" },
+              { kind: "error", label: "Error" },
+              { kind: "warning", label: "Warning" },
+              { kind: "info", label: "Info" },
+              { kind: "action", label: "With action" },
+              { kind: "description", label: "With description" },
+            ] as const
+          ).map((t) => (
+            <ToastButton key={t.kind} kind={t.kind}>
+              {t.label}
+            </ToastButton>
+          ))}
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens. Press the button to fire a real
-          toast, no <code className="font-mono">dark:</code> classes.
+          Rendered with live Cognition tokens. Fire any type to see it in the
+          bottom-right, no <code className="font-mono">dark:</code> classes.
         </p>
       </section>
 
