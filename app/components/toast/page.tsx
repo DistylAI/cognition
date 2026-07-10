@@ -139,6 +139,40 @@ type ToastKind =
   | "action"
   | "description";
 
+// What each Variants tile fires vs. what it renders statically. They differ only
+// for promise (a lifecycle): fire the promise, show its initial loading frame.
+type FireKind = ToastKind | "promise";
+
+const variantCells: { fire: FireKind; show: ToastKind; code: string }[] = [
+  { fire: "default", show: "default", code: `toast("Event scheduled")` },
+  { fire: "success", show: "success", code: `toast.success("Changes saved")` },
+  { fire: "error", show: "error", code: `toast.error("Could not save")` },
+  { fire: "warning", show: "warning", code: `toast.warning("Trial ends soon")` },
+  { fire: "info", show: "info", code: `toast.info("Update available")` },
+  { fire: "loading", show: "loading", code: `toast.loading("Saving changes…")` },
+  {
+    fire: "promise",
+    show: "loading",
+    code: `toast.promise(save, {
+  loading, success, error,
+})`,
+  },
+  {
+    fire: "action",
+    show: "action",
+    code: `toast("Archived", {
+  action: { label: "Undo", onClick },
+})`,
+  },
+  {
+    fire: "description",
+    show: "description",
+    code: `toast("Saved", {
+  description: "Up to date.",
+})`,
+  },
+];
+
 const toastVariants: Record<
   string,
   { surface: string; tone: string; title: string; icon?: LucideIcon }
@@ -235,28 +269,16 @@ export default function ToastPage() {
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
         <h3 className="mt-12 mb-4 text-lead text-text-default">Preview</h3>
-        <div className="flex flex-wrap items-center justify-center gap-3 rounded-lg border border-border-default bg-background-subtle p-10">
-          {(
-            [
-              { kind: "default", label: "Default" },
-              { kind: "success", label: "Success" },
-              { kind: "error", label: "Error" },
-              { kind: "warning", label: "Warning" },
-              { kind: "info", label: "Info" },
-              { kind: "loading", label: "Loading" },
-              { kind: "promise", label: "Promise" },
-              { kind: "action", label: "With action" },
-              { kind: "description", label: "With description" },
-            ] as const
-          ).map((t) => (
-            <ToastButton key={t.kind} kind={t.kind}>
-              {t.label}
-            </ToastButton>
-          ))}
+        <div className="flex items-center justify-center rounded-lg border border-border-default bg-background-subtle p-10">
+          <ToastButton kind="default" variant="default" size="default">
+            Show toast
+          </ToastButton>
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens. Fire any type to see it in the
-          bottom-right, no <code className="font-mono">dark:</code> classes.
+          Rendered with live Cognition tokens. Fire a toast bottom-right here, or
+          hit <span className="font-medium text-text-default">Try it</span> on any
+          type in Variants below. No <code className="font-mono">dark:</code>{" "}
+          classes.
         </p>
       </section>
 
@@ -264,109 +286,35 @@ export default function ToastPage() {
       <section id="variants" className="scroll-mt-8">
         <h3 className="mt-12 mb-4 text-lead text-text-default">Variants</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div className="overflow-hidden rounded-lg border border-border-default">
-            <div className="flex items-center justify-center bg-background-subtle p-8">
-              <VariantToast kind="default" />
+          {variantCells.map((c) => (
+            <div
+              key={c.fire}
+              className="overflow-hidden rounded-lg border border-border-default"
+            >
+              <div className="flex items-center justify-center bg-background-subtle p-8">
+                <VariantToast kind={c.show} />
+              </div>
+              <div className="flex items-center gap-3 border-t border-border-default p-3">
+                <div className="min-w-0 flex-1">
+                  <CodeBlock
+                    code={c.code}
+                    size="sm"
+                    className="rounded-md border border-border-subtle bg-background-subtle"
+                  />
+                </div>
+                <ToastButton kind={c.fire} variant="secondary" size="sm">
+                  Try it
+                </ToastButton>
+              </div>
             </div>
-            <div className="border-t border-border-default p-3">
-              <CodeBlock
-                code={`toast("Event scheduled")`}
-                size="sm"
-                className="rounded-md border border-border-subtle bg-background-subtle"
-              />
-            </div>
-          </div>
-          <div className="overflow-hidden rounded-lg border border-border-default">
-            <div className="flex items-center justify-center bg-background-subtle p-8">
-              <VariantToast kind="success" />
-            </div>
-            <div className="border-t border-border-default p-3">
-              <CodeBlock
-                code={`toast.success("Changes saved")`}
-                size="sm"
-                className="rounded-md border border-border-subtle bg-background-subtle"
-              />
-            </div>
-          </div>
-          <div className="overflow-hidden rounded-lg border border-border-default">
-            <div className="flex items-center justify-center bg-background-subtle p-8">
-              <VariantToast kind="error" />
-            </div>
-            <div className="border-t border-border-default p-3">
-              <CodeBlock
-                code={`toast.error("Could not save")`}
-                size="sm"
-                className="rounded-md border border-border-subtle bg-background-subtle"
-              />
-            </div>
-          </div>
-          <div className="overflow-hidden rounded-lg border border-border-default">
-            <div className="flex items-center justify-center bg-background-subtle p-8">
-              <VariantToast kind="warning" />
-            </div>
-            <div className="border-t border-border-default p-3">
-              <CodeBlock
-                code={`toast.warning("Trial ends soon")`}
-                size="sm"
-                className="rounded-md border border-border-subtle bg-background-subtle"
-              />
-            </div>
-          </div>
-          <div className="overflow-hidden rounded-lg border border-border-default">
-            <div className="flex items-center justify-center bg-background-subtle p-8">
-              <VariantToast kind="info" />
-            </div>
-            <div className="border-t border-border-default p-3">
-              <CodeBlock
-                code={`toast.info("Update available")`}
-                size="sm"
-                className="rounded-md border border-border-subtle bg-background-subtle"
-              />
-            </div>
-          </div>
-          <div className="overflow-hidden rounded-lg border border-border-default">
-            <div className="flex items-center justify-center bg-background-subtle p-8">
-              <VariantToast kind="loading" />
-            </div>
-            <div className="border-t border-border-default p-3">
-              <CodeBlock
-                code={`toast.loading("Saving changes…")`}
-                size="sm"
-                className="rounded-md border border-border-subtle bg-background-subtle"
-              />
-            </div>
-          </div>
-          <div className="overflow-hidden rounded-lg border border-border-default">
-            <div className="flex items-center justify-center bg-background-subtle p-8">
-              <VariantToast kind="action" />
-            </div>
-            <div className="border-t border-border-default p-3">
-              <CodeBlock
-                code={`toast("Archived", {
-  action: { label: "Undo", onClick },
-})`}
-                size="sm"
-                className="rounded-md border border-border-subtle bg-background-subtle"
-              />
-            </div>
-          </div>
-          <div className="overflow-hidden rounded-lg border border-border-default">
-            <div className="flex items-center justify-center bg-background-subtle p-8">
-              <VariantToast kind="description" />
-            </div>
-            <div className="border-t border-border-default p-3">
-              <CodeBlock
-                code={`toast("Saved", {
-  description: "Up to date.",
-})`}
-                size="sm"
-                className="rounded-md border border-border-subtle bg-background-subtle"
-              />
-            </div>
-          </div>
+          ))}
         </div>
         <p className="mt-2 text-small">
-          Each type is shown as it appears. Success, error, warning, and info take the matching Cognition feedback tokens; loading is neutral (spinner, no feedback color) since it is an in-progress state, not an outcome. Fire a live one from the preview above.
+          Each type as it appears — hit{" "}
+          <span className="font-medium text-text-default">Try it</span> on any
+          tile to fire it live. Success, error, warning, and info take the
+          matching Cognition feedback tokens; loading is neutral (spinner, no
+          feedback color) since it is an in-progress state, not an outcome.
         </p>
       </section>
 
