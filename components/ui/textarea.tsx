@@ -12,11 +12,12 @@ function Textarea({ className, ...props }: React.ComponentProps<"textarea">) {
     <textarea
       data-slot="textarea"
       className={cn(
-        "flex field-sizing-content min-h-16 w-full rounded-md border border-border-default bg-background-default px-3 py-2 text-sm text-text-default shadow-xs transition-[color,box-shadow] outline-none",
+        "flex field-sizing-content min-h-16 w-full rounded-md border border-border-default bg-background-default px-3 py-2 text-sm text-text-default shadow-xs transition-colors outline-none",
         "placeholder:text-text-subtle",
-        "focus-visible:border-border-primary focus-visible:ring-border-primary/50 focus-visible:ring-[3px]",
+        // Focus is a stroke-color change only -- no ring (matches Input).
+        "focus-visible:border-border-primary",
         "disabled:cursor-not-allowed disabled:opacity-50",
-        "aria-invalid:border-border-danger aria-invalid:ring-border-danger/20",
+        "aria-invalid:border-border-danger",
         className,
       )}
       {...props}

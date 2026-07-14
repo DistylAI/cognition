@@ -48,11 +48,11 @@ function InputGroup({
       data-slot="input-group"
       aria-disabled={disabled || undefined}
       className={cn(
-        "flex h-9 w-full items-center gap-2 rounded-md border border-border-default bg-background-default pl-3 text-sm shadow-xs transition-[color,box-shadow]",
-        "focus-within:border-border-primary focus-within:ring-border-primary/50 focus-within:ring-[3px]",
+        "flex h-9 w-full items-center gap-2 rounded-md border border-border-default bg-background-default pl-3 text-sm shadow-xs transition-colors",
+        // Focus is a stroke-color change only -- no ring (matches Input).
+        "focus-within:border-border-primary",
         trailingAction ? "pr-1" : "pr-3",
-        error &&
-          "border-border-danger focus-within:border-border-danger focus-within:ring-border-danger/20",
+        error && "border-border-danger focus-within:border-border-danger",
         disabled && "cursor-not-allowed opacity-50",
         className,
       )}
