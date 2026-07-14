@@ -7,32 +7,36 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 // API mirrors fe-distillery/components/ui/checkbox.tsx (Radix Checkbox, check +
-// indeterminate indicators). Raw border-primary / bg-primary /
-// text-primary-foreground / ring-ring utilities are mapped to Cognition v1.2
+// indeterminate indicators). v4 migration: plain function component + data-slot,
+// shadow-xs, the v4 focus ring (ring-[3px] + border), aria-invalid handling, and
+// a checked border. Raw primary / ring utilities stay mapped to Cognition v1.2
 // tokens, so it themes via [data-theme="dark"] with no dark: classes.
-const Checkbox = React.forwardRef<
-  React.ElementRef<typeof CheckboxPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>
->(({ className, ...props }, ref) => (
-  <CheckboxPrimitive.Root
-    ref={ref}
-    className={cn(
-      "peer size-4 shrink-0 rounded-sm border border-border-primary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-border-primary disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-background-primary data-[state=checked]:text-text-inverse data-[state=indeterminate]:bg-background-primary data-[state=indeterminate]:text-text-inverse",
-      className,
-    )}
-    {...props}
-  >
-    <CheckboxPrimitive.Indicator
-      className={cn("flex items-center justify-center text-current")}
-    >
-      {props.checked === "indeterminate" ? (
-        <Minus className="size-4 pb-0.5" />
-      ) : (
-        <Check className="size-4" />
+function Checkbox({
+  className,
+  ...props
+}: React.ComponentProps<typeof CheckboxPrimitive.Root>) {
+  return (
+    <CheckboxPrimitive.Root
+      data-slot="checkbox"
+      className={cn(
+        "peer size-4 shrink-0 rounded-sm border border-border-primary shadow-xs transition-shadow outline-none focus-visible:border-border-primary focus-visible:ring-border-primary/50 focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-border-danger aria-invalid:ring-border-danger/20 data-[state=checked]:border-border-primary data-[state=checked]:bg-background-primary data-[state=checked]:text-text-inverse data-[state=indeterminate]:border-border-primary data-[state=indeterminate]:bg-background-primary data-[state=indeterminate]:text-text-inverse",
+        className,
       )}
-    </CheckboxPrimitive.Indicator>
-  </CheckboxPrimitive.Root>
-));
-Checkbox.displayName = CheckboxPrimitive.Root.displayName;
+      {...props}
+    >
+      <CheckboxPrimitive.Indicator
+        data-slot="checkbox-indicator"
+        className={cn("flex items-center justify-center text-current transition-none")}
+      >
+        {props.checked === "indeterminate" ? (
+          <Minus className="size-3.5 pb-0.5" />
+        ) : (
+          <Check className="size-3.5" />
+        )}
+      </CheckboxPrimitive.Indicator>
+    </CheckboxPrimitive.Root>
+  );
+}
+Checkbox.displayName = "Checkbox";
 
 export { Checkbox };
