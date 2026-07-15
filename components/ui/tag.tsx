@@ -1,28 +1,59 @@
-import { Slot } from "@radix-ui/react-slot";
+import { X } from "lucide-react";
 import * as React from "react";
 
+import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
-// NOTE: fe-distillery has no first-class Tag primitive (only a third-party
-// tags multi-select combobox). This is the proposed canonical Tag
-// per the Cognition v1.2 spec -- a non-interactive label/category/keyword,
-// built on the tag.* semantic tokens (background.secondary / text.default /
-// border.default). No variants or sizes exist in any source API, so it ships
-// a single default style.
-export interface TagProps extends React.HTMLAttributes<HTMLElement> {
+// Tag is the label entry point: a wrapper over Badge that locks kind="label"
+// (the neutral taxonomy chip) and is the ONLY place `removable` lives -- a
+// removable Tag is the canonical filter chip. Non-removable Tags stay
+// non-interactive (and support asChild); a removable Tag renders a trailing ✕
+// button and is therefore interactive. Styling comes from Badge's tokens.
+export interface TagProps
+  extends Omit<React.HTMLAttributes<HTMLElement>, "color"> {
+  size?: "default" | "sm";
+  removable?: boolean;
+  onRemove?: () => void;
   asChild?: boolean;
 }
 
-function Tag({ className, asChild = false, ...props }: TagProps) {
-  const Comp = asChild ? Slot : "span";
+function Tag({
+  className,
+  size,
+  removable = false,
+  onRemove,
+  asChild = false,
+  children,
+  ...props
+}: TagProps) {
+  if (removable) {
+    return (
+      <Badge kind="label" size={size} className={cn("pr-1", className)} {...props}>
+        {children}
+        <button
+          type="button"
+          aria-label="Remove"
+          onClick={onRemove}
+          className="-mr-0.5 ml-0.5 inline-flex size-4 shrink-0 items-center justify-center rounded-sm text-text-subtle transition-colors hover:text-text-default focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-border-primary [&_svg]:size-3"
+        >
+          <X />
+        </button>
+      </Badge>
+    );
+  }
+
+  // Non-removable: a plain label. asChild is forwarded to Badge (which owns the
+  // Slot merge), so <Tag asChild><a href>…</a></Tag> works.
   return (
-    <Comp
-      className={cn(
-        "inline-flex items-center gap-1 rounded-md border border-border-default bg-background-secondary px-2 py-0.5 text-caption font-medium text-text-default [&_svg]:pointer-events-none [&_svg]:size-3 [&_svg]:shrink-0",
-        className,
-      )}
+    <Badge
+      kind="label"
+      size={size}
+      asChild={asChild}
+      className={className}
       {...props}
-    />
+    >
+      {children}
+    </Badge>
   );
 }
 
