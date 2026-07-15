@@ -7,15 +7,15 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 // API mirrors fe-distillery/components/ui/tabs.tsx (Tabs / TabsList /
-// TabsTrigger / TabsContent, variant axis default|underline|secondary). The
-// fix: the source ships dark: class violations (dark:data-[state=active]:
-// border-input, dark:data-[state=active]:bg-input/30) and raw palette colors
-// (primary-50, gray-600) -- here every color is a Cognition v1.2 token, so the
-// tabs theme via [data-theme="dark"] with no dark: classes.
+// TabsTrigger / TabsContent, variant axis default|underline|secondary). v4
+// migration: plain function components + data-slot. Every color is a Cognition
+// v1.2 token, so the tabs theme via [data-theme="dark"] with no dark: classes.
 //   secondary = segmented pill
 //   underline = bottom-border line
 
-const Tabs = TabsPrimitive.Root;
+function Tabs(props: React.ComponentProps<typeof TabsPrimitive.Root>) {
+  return <TabsPrimitive.Root data-slot="tabs" {...props} />;
+}
 
 const tabsListVariants = cva(
   "inline-flex items-center justify-center rounded-lg text-text-subtle transition-colors",
@@ -34,20 +34,18 @@ const tabsListVariants = cva(
 );
 
 export interface TabsListProps
-  extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>,
+  extends React.ComponentProps<typeof TabsPrimitive.List>,
     VariantProps<typeof tabsListVariants> {}
 
-const TabsList = React.forwardRef<
-  React.ElementRef<typeof TabsPrimitive.List>,
-  TabsListProps
->(({ className, variant, ...props }, ref) => (
-  <TabsPrimitive.List
-    ref={ref}
-    className={cn(tabsListVariants({ variant }), className)}
-    {...props}
-  />
-));
-TabsList.displayName = TabsPrimitive.List.displayName;
+function TabsList({ className, variant, ...props }: TabsListProps) {
+  return (
+    <TabsPrimitive.List
+      data-slot="tabs-list"
+      className={cn(tabsListVariants({ variant }), className)}
+      {...props}
+    />
+  );
+}
 
 const tabsTriggerVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap px-3 py-1.5 text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background-default disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
@@ -69,34 +67,33 @@ const tabsTriggerVariants = cva(
 );
 
 export interface TabsTriggerProps
-  extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>,
+  extends React.ComponentProps<typeof TabsPrimitive.Trigger>,
     VariantProps<typeof tabsTriggerVariants> {}
 
-const TabsTrigger = React.forwardRef<
-  React.ElementRef<typeof TabsPrimitive.Trigger>,
-  TabsTriggerProps
->(({ className, variant, ...props }, ref) => (
-  <TabsPrimitive.Trigger
-    ref={ref}
-    className={cn(tabsTriggerVariants({ variant }), className)}
-    {...props}
-  />
-));
-TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
+function TabsTrigger({ className, variant, ...props }: TabsTriggerProps) {
+  return (
+    <TabsPrimitive.Trigger
+      data-slot="tabs-trigger"
+      className={cn(tabsTriggerVariants({ variant }), className)}
+      {...props}
+    />
+  );
+}
 
-const TabsContent = React.forwardRef<
-  React.ElementRef<typeof TabsPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>
->(({ className, ...props }, ref) => (
-  <TabsPrimitive.Content
-    ref={ref}
-    className={cn(
-      "mt-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background-default",
-      className,
-    )}
-    {...props}
-  />
-));
-TabsContent.displayName = TabsPrimitive.Content.displayName;
+function TabsContent({
+  className,
+  ...props
+}: React.ComponentProps<typeof TabsPrimitive.Content>) {
+  return (
+    <TabsPrimitive.Content
+      data-slot="tabs-content"
+      className={cn(
+        "mt-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background-default",
+        className,
+      )}
+      {...props}
+    />
+  );
+}
 
 export { Tabs, TabsContent, TabsList, TabsTrigger };
