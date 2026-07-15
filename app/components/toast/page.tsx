@@ -302,7 +302,7 @@ export default function ToastPage() {
                     className="rounded-md border border-border-subtle bg-background-subtle"
                   />
                 </div>
-                <ToastButton kind={c.fire} variant="secondary" size="sm">
+                <ToastButton kind={c.fire} variant="outline" size="sm">
                   Try it
                 </ToastButton>
               </div>

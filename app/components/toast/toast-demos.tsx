@@ -53,7 +53,7 @@ function fire(kind: ToastKind) {
 export function ToastButton({
   kind,
   children,
-  variant = "secondary",
+  variant = "outline",
   size = "sm",
 }: {
   kind: ToastKind;

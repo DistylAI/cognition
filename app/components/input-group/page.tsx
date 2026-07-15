@@ -103,7 +103,7 @@ export default function InputGroupPage() {
               leadingIcon={<Search />}
               placeholder="Search the workspace..."
               trailingAction={
-                <Button size="sm" variant="secondary">
+                <Button size="sm" variant="outline">
                   Search
                 </Button>
               }
@@ -176,7 +176,7 @@ export default function InputGroupPage() {
               <InputGroup
                 placeholder="Invite by email"
                 trailingAction={
-                  <Button size="sm" variant="secondary">
+                  <Button size="sm" variant="outline">
                     <Send />
                   </Button>
                 }
@@ -196,7 +196,7 @@ export default function InputGroupPage() {
                 leadingIcon={<AtSign />}
                 placeholder="username"
                 trailingAction={
-                  <Button size="sm" variant="secondary">
+                  <Button size="sm" variant="outline">
                     Add
                   </Button>
                 }

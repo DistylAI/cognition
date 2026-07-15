@@ -114,7 +114,7 @@ function MockAlert({
       </div>
       <div className="flex justify-end gap-2">
         <Button
-          variant="secondary"
+          variant="outline"
           className={hover === "cancel" ? `${ring} ring-border-primary` : ""}
         >
           Cancel

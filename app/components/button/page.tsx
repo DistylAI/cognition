@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Check, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CodeBlock } from "@/components/CodeBlock";
 
@@ -10,11 +11,6 @@ export const metadata: Metadata = {
 
 const variants = [
   { variant: "default", label: "Button", code: `<Button>Button</Button>` },
-  {
-    variant: "secondary",
-    label: "Secondary",
-    code: `<Button variant="secondary">Secondary</Button>`,
-  },
   {
     variant: "outline",
     label: "Outline",
@@ -95,6 +91,79 @@ export default function ButtonPage() {
         </div>
       </section>
 
+      {/* Sizes */}
+      <section id="sizes" className="scroll-mt-8">
+        <h3 className="mt-12 mb-4 text-lead text-text-default">Sizes</h3>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <div className="overflow-hidden rounded-lg border border-border-default">
+            <div className="flex items-center justify-center gap-3 bg-background-subtle p-8">
+              <Button size="default">
+                <Check />
+                Default
+              </Button>
+              <Button size="sm">
+                <Check />
+                Small
+              </Button>
+            </div>
+            <div className="border-t border-border-default p-3">
+              <CodeBlock
+                code={`<Button size="default"><Check />Default</Button>
+<Button size="sm"><Check />Small</Button>`}
+                size="sm"
+                className="rounded-md border border-border-subtle bg-background-subtle"
+              />
+            </div>
+          </div>
+          <div className="overflow-hidden rounded-lg border border-border-default">
+            <div className="flex items-center justify-center gap-3 bg-background-subtle p-8">
+              <Button size="icon" aria-label="Add">
+                <Plus />
+              </Button>
+              <Button size="icon-sm" aria-label="Add">
+                <Plus />
+              </Button>
+              <Button size="icon-xs" aria-label="Add">
+                <Plus />
+              </Button>
+            </div>
+            <div className="border-t border-border-default p-3">
+              <CodeBlock
+                code={`<Button size="icon"><Plus /></Button>
+<Button size="icon-sm"><Plus /></Button>
+<Button size="icon-xs"><Plus /></Button>`}
+                size="sm"
+                className="rounded-md border border-border-subtle bg-background-subtle"
+              />
+            </div>
+          </div>
+          <div className="overflow-hidden rounded-lg border border-border-default">
+            <div className="flex items-center justify-center gap-3 bg-background-subtle p-8">
+              <Button loading loadingText="Saving…">
+                Save
+              </Button>
+              <Button size="sm" loading loadingText="Saving…">
+                Save
+              </Button>
+            </div>
+            <div className="border-t border-border-default p-3">
+              <CodeBlock
+                code={`<Button loading loadingText="Saving…">Save</Button>
+<Button size="sm" loading loadingText="Saving…">Save</Button>`}
+                size="sm"
+                className="rounded-md border border-border-subtle bg-background-subtle"
+              />
+            </div>
+          </div>
+        </div>
+        <p className="mt-2 text-small">
+          Icons and the loading spinner scale with the button size -- no
+          per-instance sizing.{" "}
+          <code className="font-mono">default</code> is the top of the scale;{" "}
+          <code className="font-mono">lg</code> is retired.
+        </p>
+      </section>
+
       {/* States */}
       <section id="states" className="scroll-mt-8">
         <h3 className="mt-12 mb-4 text-lead text-text-default">States</h3>
@@ -146,8 +215,8 @@ export default function ButtonPage() {
             </div>
             <div className="divide-y divide-border-default">
               {[
-                { name: "variant", type: "\"default\" | \"destructive\" | \"outline\" | \"secondary\" | \"ghost\" | \"link\"", def: "\"default\"", desc: "Visual style of the button." },
-                { name: "size", type: "\"default\" | \"sm\" | \"lg\" | \"icon\" | \"icon-sm\" | \"icon-xs\"", def: "\"default\"", desc: "Height and padding; the icon sizes are square." },
+                { name: "variant", type: "\"default\" | \"destructive\" | \"outline\" | \"ghost\" | \"link\"", def: "\"default\"", desc: "Visual style of the button." },
+                { name: "size", type: "\"default\" | \"sm\" | \"icon\" | \"icon-sm\" | \"icon-xs\"", def: "\"default\"", desc: "Height and padding; icons scale with the size. Icon sizes are square." },
                 { name: "asChild", type: "boolean", def: "false", desc: "Render the child element as the button (e.g. a link), keeping the styles." },
                 { name: "disabled", type: "boolean", def: "false", desc: "Dims to 50% and blocks interaction (native button prop)." },
               ].map((p) => (
