@@ -8,33 +8,33 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 // API mirrors fe-distillery/components/ui/radio-group.tsx (Radix RadioGroup +
-// Item + a labeled-option helper) on Radix. The raw primary / ring / muted
-// colors are mapped to Cognition tokens -- the control uses the brand primary
-// (it's an interactive selection) -- so it themes via [data-theme="dark"] with
-// no dark: classes.
-const RadioGroup = React.forwardRef<
-  React.ElementRef<typeof RadioGroupPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root>
->(({ className, ...props }, ref) => {
+// Item + a labeled-option helper). v4 migration: plain function components +
+// data-slot, shadow-xs, and the v4 focus ring (matching Checkbox). The raw
+// primary / ring / muted colors stay mapped to Cognition tokens -- the control
+// uses the brand primary (interactive selection) -- so it themes via
+// [data-theme="dark"] with no dark: classes.
+function RadioGroup({
+  className,
+  ...props
+}: React.ComponentProps<typeof RadioGroupPrimitive.Root>) {
   return (
     <RadioGroupPrimitive.Root
+      data-slot="radio-group"
       className={cn("grid gap-2", className)}
       {...props}
-      ref={ref}
     />
   );
-});
-RadioGroup.displayName = RadioGroupPrimitive.Root.displayName;
+}
 
-const RadioGroupItem = React.forwardRef<
-  React.ElementRef<typeof RadioGroupPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item>
->(({ className, ...props }, ref) => {
+function RadioGroupItem({
+  className,
+  ...props
+}: React.ComponentProps<typeof RadioGroupPrimitive.Item>) {
   return (
     <RadioGroupPrimitive.Item
-      ref={ref}
+      data-slot="radio-group-item"
       className={cn(
-        "aspect-square size-4 rounded-full border border-border-primary text-text-primary shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-border-primary disabled:cursor-not-allowed disabled:opacity-50",
+        "aspect-square size-4 shrink-0 rounded-full border border-border-primary text-text-primary shadow-xs transition-[color,box-shadow] outline-none focus-visible:border-border-primary focus-visible:ring-border-primary/50 focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-border-danger aria-invalid:ring-border-danger/20",
         className,
       )}
       {...props}
@@ -44,21 +44,23 @@ const RadioGroupItem = React.forwardRef<
       </RadioGroupPrimitive.Indicator>
     </RadioGroupPrimitive.Item>
   );
-});
-RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName;
+}
 
 interface RadioOptionProps
-  extends React.ComponentPropsWithoutRef<typeof RadioGroupItem> {
+  extends React.ComponentProps<typeof RadioGroupItem> {
   label: string;
   description?: string;
 }
 
-const RadioGroupLabeledOption = React.forwardRef<
-  React.ElementRef<typeof RadioGroupItem>,
-  RadioOptionProps
->(({ label, description, className, ...props }, ref) => {
+function RadioGroupLabeledOption({
+  label,
+  description,
+  className,
+  id: idProp,
+  ...props
+}: RadioOptionProps) {
   const generatedId = React.useId();
-  const id = props.id ?? generatedId;
+  const id = idProp ?? generatedId;
 
   return (
     <div
@@ -67,7 +69,7 @@ const RadioGroupLabeledOption = React.forwardRef<
         className,
       )}
     >
-      <RadioGroupItem ref={ref} {...props} id={id} />
+      <RadioGroupItem {...props} id={id} />
       <div className="flex items-center">
         <Label htmlFor={id} className="text-label leading-none">
           {label}
@@ -77,7 +79,6 @@ const RadioGroupLabeledOption = React.forwardRef<
       <p className="text-description">{description}</p>
     </div>
   );
-});
-RadioGroupLabeledOption.displayName = "RadioGroupLabeledOption";
+}
 
 export { RadioGroup, RadioGroupItem, RadioGroupLabeledOption };
