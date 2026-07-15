@@ -3,12 +3,11 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-// Canonical Spinner: a brand-purple arc rotating on a neutral track. The whole
-// SVG spins via a single CSS rotate animation (Tailwind's animate-spin is
-// rotate(0deg) -> rotate(360deg), linear, infinite) about its center, so the
-// loop is seamless with no stutter on reset. The arc is a static
-// stroke-dasharray -- the path geometry is never animated. The track maps to the
-// border-default token and the arc to background-primary, so both remap in dark
+// Canonical Spinner: a brand-purple arc rotating on a neutral track. v4
+// migration: plain function component + data-slot. The whole SVG spins via a
+// single CSS rotate animation about its center, so the loop is seamless. The arc
+// is a static stroke-dasharray -- the path geometry is never animated. The track
+// maps to border-default and the arc to background-primary, so both remap in dark
 // mode with no dark: classes.
 const spinnerVariants = cva("inline-block shrink-0", {
   variants: {
@@ -24,15 +23,15 @@ const spinnerVariants = cva("inline-block shrink-0", {
 });
 
 export interface SpinnerProps
-  extends React.HTMLAttributes<HTMLSpanElement>,
+  extends React.ComponentProps<"span">,
     VariantProps<typeof spinnerVariants> {
   label?: string;
 }
 
-const Spinner = React.forwardRef<HTMLSpanElement, SpinnerProps>(
-  ({ className, size, label = "Loading", ...props }, ref) => (
+function Spinner({ className, size, label = "Loading", ...props }: SpinnerProps) {
+  return (
     <span
-      ref={ref}
+      data-slot="spinner"
       role="status"
       aria-label={label}
       className={cn(spinnerVariants({ size }), className)}
@@ -64,8 +63,8 @@ const Spinner = React.forwardRef<HTMLSpanElement, SpinnerProps>(
         />
       </svg>
     </span>
-  ),
-);
+  );
+}
 Spinner.displayName = "Spinner";
 
 export { Spinner };

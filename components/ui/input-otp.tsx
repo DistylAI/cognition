@@ -7,48 +7,54 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 // API mirrors fe-distillery/components/ui/input-otp.tsx (input-otp's OTPInput +
-// Group/Slot/Separator). The raw border-input / ring-ring / bg-foreground are
-// mapped to Cognition tokens so it themes via [data-theme="dark"] with no dark:
-// classes. The active-slot caret uses Tailwind's built-in animate-pulse instead
-// of fe-distillery's animate-caret-blink, since that keyframe is not defined in
-// this project's globals.css.
-const InputOTP = React.forwardRef<
-  React.ElementRef<typeof OTPInput>,
-  React.ComponentPropsWithoutRef<typeof OTPInput>
->(({ className, containerClassName, ...props }, ref) => (
-  <OTPInput
-    ref={ref}
-    containerClassName={cn(
-      "flex items-center gap-2 has-[:disabled]:opacity-50",
-      containerClassName,
-    )}
-    className={cn("disabled:cursor-not-allowed", className)}
-    {...props}
-  />
-));
-InputOTP.displayName = "InputOTP";
+// Group/Slot/Separator). v4 migration: plain function components + data-slot;
+// the active slot follows the migrated field-focus decision (stroke-color
+// change, no ring). The raw border-input / ring-ring / bg-foreground stay mapped
+// to Cognition tokens so it themes via [data-theme="dark"] with no dark: classes.
+// The active-slot caret uses Tailwind's built-in animate-pulse.
+function InputOTP({
+  className,
+  containerClassName,
+  ...props
+}: React.ComponentProps<typeof OTPInput>) {
+  return (
+    <OTPInput
+      data-slot="input-otp"
+      containerClassName={cn(
+        "flex items-center gap-2 has-[:disabled]:opacity-50",
+        containerClassName,
+      )}
+      className={cn("disabled:cursor-not-allowed", className)}
+      {...props}
+    />
+  );
+}
 
-const InputOTPGroup = React.forwardRef<
-  React.ElementRef<"div">,
-  React.ComponentPropsWithoutRef<"div">
->(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("flex items-center", className)} {...props} />
-));
-InputOTPGroup.displayName = "InputOTPGroup";
+function InputOTPGroup({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="input-otp-group"
+      className={cn("flex items-center", className)}
+      {...props}
+    />
+  );
+}
 
-const InputOTPSlot = React.forwardRef<
-  React.ElementRef<"div">,
-  React.ComponentPropsWithoutRef<"div"> & { index: number }
->(({ index, className, ...props }, ref) => {
+function InputOTPSlot({
+  index,
+  className,
+  ...props
+}: React.ComponentProps<"div"> & { index: number }) {
   const inputOTPContext = React.useContext(OTPInputContext);
   const { char, hasFakeCaret, isActive } = inputOTPContext.slots[index];
 
   return (
     <div
-      ref={ref}
+      data-slot="input-otp-slot"
+      data-active={isActive}
       className={cn(
-        "relative flex size-9 items-center justify-center border-y border-r border-border-default text-sm text-text-default shadow-sm transition-all first:rounded-l-md first:border-l last:rounded-r-md",
-        isActive && "z-10 border-border-primary ring-1 ring-border-primary",
+        "relative flex size-9 items-center justify-center border-y border-r border-border-default text-sm text-text-default shadow-xs transition-all first:rounded-l-md first:border-l last:rounded-r-md",
+        isActive && "z-10 border-border-primary",
         className,
       )}
       {...props}
@@ -61,17 +67,14 @@ const InputOTPSlot = React.forwardRef<
       )}
     </div>
   );
-});
-InputOTPSlot.displayName = "InputOTPSlot";
+}
 
-const InputOTPSeparator = React.forwardRef<
-  React.ElementRef<"div">,
-  React.ComponentPropsWithoutRef<"div">
->(({ ...props }, ref) => (
-  <div ref={ref} role="separator" className="text-text-subtle" {...props}>
-    <Minus />
-  </div>
-));
-InputOTPSeparator.displayName = "InputOTPSeparator";
+function InputOTPSeparator({ ...props }: React.ComponentProps<"div">) {
+  return (
+    <div data-slot="input-otp-separator" role="separator" className="text-text-subtle" {...props}>
+      <Minus />
+    </div>
+  );
+}
 
 export { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot };
