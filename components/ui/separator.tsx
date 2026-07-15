@@ -3,19 +3,19 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-// API mirrors fe-distillery/components/ui/separator.tsx (Radix Separator). The
-// raw bg-border is mapped to the Cognition border-default token, so it themes
-// via [data-theme="dark"] with no dark: classes.
-const Separator = React.forwardRef<
-  React.ElementRef<typeof SeparatorPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root>
->(
-  (
-    { className, orientation = "horizontal", decorative = true, ...props },
-    ref,
-  ) => (
+// API mirrors fe-distillery/components/ui/separator.tsx (Radix Separator). v4
+// migration: plain function component + data-slot. The raw bg-border stays
+// mapped to the Cognition border-default token, so it themes via
+// [data-theme="dark"] with no dark: classes.
+function Separator({
+  className,
+  orientation = "horizontal",
+  decorative = true,
+  ...props
+}: React.ComponentProps<typeof SeparatorPrimitive.Root>) {
+  return (
     <SeparatorPrimitive.Root
-      ref={ref}
+      data-slot="separator"
       decorative={decorative}
       orientation={orientation}
       className={cn(
@@ -25,8 +25,8 @@ const Separator = React.forwardRef<
       )}
       {...props}
     />
-  ),
-);
-Separator.displayName = SeparatorPrimitive.Root.displayName;
+  );
+}
+Separator.displayName = "Separator";
 
 export { Separator };

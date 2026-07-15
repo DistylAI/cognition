@@ -5,28 +5,28 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 // API mirrors fe-distillery/components/ui/card.tsx -- the Card + CardHeader /
-// CardTitle / CardDescription / CardContent / CardFooter compound parts. Visual
-// classes are mapped to Cognition v1.2 semantic tokens so the card themes via
-// [data-theme="dark"] with no dark: classes (the fix for card.tsx's raw
-// bg-card / text-card-foreground / text-muted-foreground utilities).
+// CardTitle / CardDescription / CardContent / CardFooter compound parts. v4
+// migration: plain function components + data-slot. Visual classes stay mapped
+// to Cognition v1.2 semantic tokens so the card themes via [data-theme="dark"]
+// with no dark: classes.
 //
-// `size` ("default" | "sm") is a Cognition addition that tightens padding and the title size. It is propagated to the
-// sub-parts through context so the header/content/footer stay padding-aware
-// without each call site having to repeat it.
+// `size` ("default" | "sm") is a Cognition addition that tightens padding and
+// the title size. It is propagated to the sub-parts through context so the
+// header/content/footer stay padding-aware without each call site repeating it.
 
 type CardSize = "default" | "sm";
 
 const CardSizeContext = React.createContext<CardSize>("default");
 
-export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface CardProps extends React.ComponentProps<"div"> {
   size?: CardSize;
 }
 
-const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className, size = "default", ...props }, ref) => (
+function Card({ className, size = "default", ...props }: CardProps) {
+  return (
     <CardSizeContext.Provider value={size}>
       <div
-        ref={ref}
+        data-slot="card"
         data-size={size}
         className={cn(
           "flex flex-col overflow-hidden rounded-xl border border-border-default bg-background-default text-text-default shadow-sm",
@@ -35,18 +35,14 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         {...props}
       />
     </CardSizeContext.Provider>
-  ),
-);
-Card.displayName = "Card";
+  );
+}
 
-const CardHeader = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => {
+function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
   const size = React.useContext(CardSizeContext);
   return (
     <div
-      ref={ref}
+      data-slot="card-header"
       className={cn(
         "flex flex-col space-y-1",
         size === "sm" ? "p-3" : "p-4",
@@ -55,43 +51,33 @@ const CardHeader = React.forwardRef<
       {...props}
     />
   );
-});
-CardHeader.displayName = "CardHeader";
+}
 
-const CardTitle = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => {
+function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
-      ref={ref}
+      data-slot="card-title"
       className={cn("text-title leading-normal", className)}
       {...props}
     />
   );
-});
-CardTitle.displayName = "CardTitle";
+}
 
-const CardDescription = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("text-description leading-normal", className)}
-    {...props}
-  />
-));
-CardDescription.displayName = "CardDescription";
+function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="card-description"
+      className={cn("text-description leading-normal", className)}
+      {...props}
+    />
+  );
+}
 
-const CardContent = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => {
+function CardContent({ className, ...props }: React.ComponentProps<"div">) {
   const size = React.useContext(CardSizeContext);
   return (
     <div
-      ref={ref}
+      data-slot="card-content"
       className={cn(
         "flex flex-col",
         size === "sm" ? "px-3 pb-3" : "px-4 pb-4",
@@ -100,17 +86,13 @@ const CardContent = React.forwardRef<
       {...props}
     />
   );
-});
-CardContent.displayName = "CardContent";
+}
 
-const CardFooter = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => {
+function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
   const size = React.useContext(CardSizeContext);
   return (
     <div
-      ref={ref}
+      data-slot="card-footer"
       className={cn(
         "flex items-center border-t border-border-default bg-background-subtle",
         size === "sm" ? "p-3" : "p-4",
@@ -119,8 +101,7 @@ const CardFooter = React.forwardRef<
       {...props}
     />
   );
-});
-CardFooter.displayName = "CardFooter";
+}
 
 export {
   Card,
