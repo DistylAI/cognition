@@ -64,6 +64,16 @@ export default function TabsPage() {
         one at a time. Use for switching views within a single context.
       </p>
 
+      <div className="mt-4 rounded-lg border border-border-default bg-background-accent p-4">
+        <p className="text-small text-text-default">
+          Tabs swap <em>panels of content</em>. For a compact one-of control
+          that doesn&apos;t swap a panel (a mode or filter), reach for a
+          single-select <strong className="font-semibold">Toggle Group</strong>;
+          for independent actions that just sit together, use a{" "}
+          <strong className="font-semibold">Button Group</strong>.
+        </p>
+      </div>
+
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
         <h3 className="mt-12 mb-4 text-lead text-text-default">Preview</h3>

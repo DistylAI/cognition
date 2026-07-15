@@ -166,6 +166,17 @@ export default function DrawerDocsPage() {
         tapping outside.
       </p>
 
+      <div className="mt-4 rounded-lg border border-border-default bg-background-accent p-4">
+        <p className="text-small text-text-default">
+          <span className="font-bold">Drawer vs Sheet.</span> Drawer is reserved
+          for touch-first, bottom-anchored surfaces (its drag handle and
+          background-scaling are mobile affordances). For a standard side panel
+          on desktop -- settings, filters, record details -- use{" "}
+          <strong className="font-semibold">Sheet</strong>. Same anatomy; pick
+          Drawer only when the interaction is genuinely touch-driven.
+        </p>
+      </div>
+
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
         <h3 className="mt-12 mb-4 text-lead text-text-default">Preview</h3>
