@@ -12,8 +12,13 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "./tooltip";
 // API mirrors fe-distillery/components/ui/button.tsx exactly (variants, sizes,
 // props, behavior). Visual classes are mapped to Cognition v1.2 semantic tokens
 // so the component themes via [data-theme="dark"] with no dark: classes.
+// Pass 2 (Cognition opinions): `secondary` is retired -- `outline` is the one
+// canonical bordered button. The size scale is shifted down a notch (default is
+// now 32px, was 36px; `lg` retired) and each size owns its icon size, so icons
+// (and the loading spinner) scale with the button. Consumers can still override
+// a glyph with an explicit `size-*` class (the :not([class*='size-']) guard).
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all outline-none focus-visible:border-border-primary focus-visible:ring-border-primary/50 focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-border-danger aria-invalid:ring-border-danger/20 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all outline-none focus-visible:border-border-primary focus-visible:ring-border-primary/50 focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-border-danger aria-invalid:ring-border-danger/20 [&_svg]:pointer-events-none [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -23,18 +28,15 @@ const buttonVariants = cva(
           "bg-feedback-danger text-text-inverse shadow-sm hover:opacity-90",
         outline:
           "border border-border-default bg-background-default text-text-default shadow-sm hover:bg-background-secondary",
-        secondary:
-          "bg-background-secondary text-text-default shadow-sm hover:bg-background-accent",
         ghost: "text-text-default hover:bg-background-secondary",
         link: "text-text-primary underline-offset-4 hover:underline",
       },
       size: {
-        default: "h-9 px-4 py-2",
-        sm: "h-8 rounded-md px-3 text-xs",
-        lg: "h-10 rounded-md px-8",
-        icon: "h-9 w-9",
-        "icon-sm": "size-8 [&_svg]:size-3.5",
-        "icon-xs": "size-7 [&_svg]:size-3.5",
+        default: "h-8 px-3 [&_svg:not([class*='size-'])]:size-4",
+        sm: "h-7 rounded-md px-2.5 text-xs [&_svg:not([class*='size-'])]:size-3.5",
+        icon: "size-8 [&_svg:not([class*='size-'])]:size-4",
+        "icon-sm": "size-7 [&_svg:not([class*='size-'])]:size-3.5",
+        "icon-xs": "size-6 [&_svg:not([class*='size-'])]:size-3",
       },
     },
     defaultVariants: {

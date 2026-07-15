@@ -154,7 +154,7 @@ export default function SpinnerPage() {
           </div>
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="flex h-auto items-center justify-center bg-background-subtle p-8">
-              <Button variant="secondary" disabled>
+              <Button variant="outline" disabled>
                 <Spinner size="sm" />
                 Loading
               </Button>
