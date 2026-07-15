@@ -1,11 +1,5 @@
 import type { Metadata } from "next";
-import {
-  Bold,
-  ChevronLeft,
-  ChevronRight,
-  Italic,
-  Underline,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, Redo2, Undo2 } from "lucide-react";
 import { ButtonGroup } from "@/components/ui/button-group";
 import { Button } from "@/components/ui/button";
 import { CodeBlock } from "@/components/CodeBlock";
@@ -13,15 +7,15 @@ import { CodeBlock } from "@/components/CodeBlock";
 export const metadata: Metadata = {
   title: "Button Group",
   description:
-    "Button Group component -- related buttons joined into one control, with a shared edge and radius only on the outermost corners.",
+    "Button Group -- independent actions joined into one control. For choosing one option use Tabs or a single-select Toggle Group; for on/off toggles use Toggle Group.",
 };
 
 const props = [
   {
     name: "size",
-    type: '"sm" | "default" | "lg"',
+    type: '"default" | "sm" | "icon" | "icon-sm" | "icon-xs"',
     def: '"default"',
-    desc: "Applied to every button in the group. default is the medium size.",
+    desc: "Applied to every button in the group (mirrors Button's size scale). Item-level size wins.",
   },
   {
     name: "orientation",
@@ -37,20 +31,22 @@ const props = [
   },
 ] as const;
 
-const doCode = `<ButtonGroup>
+const doCode = `// Independent actions that belong together
+<ButtonGroup>
   <Button variant="outline"><ChevronLeft /> Previous</Button>
   <Button variant="outline">Next <ChevronRight /></Button>
 </ButtonGroup>`;
 
 const installCode = `import { ButtonGroup } from "@/components/ui/button-group";
 import { Button } from "@/components/ui/button";
+import { Undo2, Redo2 } from "lucide-react";
 
-export function ViewSwitcher() {
+// A toolbar of independent actions -- each fires on its own, no selected state.
+export function HistoryControls() {
   return (
     <ButtonGroup>
-      <Button variant="outline">Day</Button>
-      <Button variant="outline">Week</Button>
-      <Button variant="outline">Month</Button>
+      <Button variant="outline" aria-label="Undo"><Undo2 /></Button>
+      <Button variant="outline" aria-label="Redo"><Redo2 /></Button>
     </ButtonGroup>
   );
 }`;
@@ -61,14 +57,20 @@ export default function ButtonGroupPage() {
       <p className="mb-2 text-caption">Components</p>
       <h1 className="text-lead text-text-default">Button Group</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
-        A set of related buttons rendered as one joined unit, with a shared edge
-        and the radius applied only to the outermost corners.
+        Joins a set of <strong className="font-semibold">independent
+        actions</strong> into one control -- a shared edge, with the radius on
+        the outermost corners only. Each button fires its own action; the group
+        holds no selected state.
       </p>
 
       <div className="mt-4 rounded-lg border border-border-default bg-background-accent p-4">
         <p className="text-small text-text-default">
-          Button Group is a layout and style wrapper. It does not replace Button.
-          It composes multiple Button instances into a joined control.
+          Choosing <em>one</em> option (a view or filter switch) is not this --
+          use <strong className="font-semibold">Tabs</strong> or a single-select{" "}
+          <strong className="font-semibold">Toggle Group</strong>. On/off
+          formatting (bold, italic) is a{" "}
+          <strong className="font-semibold">Toggle Group</strong>. Button Group
+          is only for actions that sit together but act independently.
         </p>
       </div>
 
@@ -100,15 +102,21 @@ export default function ButtonGroupPage() {
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="flex items-center justify-center bg-background-subtle p-8">
               <ButtonGroup>
-                <Button variant="outline">Day</Button>
-                <Button variant="outline">Week</Button>
-                <Button variant="outline">Month</Button>
+                <Button variant="outline">
+                  <ChevronLeft />
+                  Previous
+                </Button>
+                <Button variant="outline">
+                  Next
+                  <ChevronRight />
+                </Button>
               </ButtonGroup>
             </div>
             <div className="border-t border-border-default p-3">
               <CodeBlock
                 code={`<ButtonGroup>
-  <Button variant="outline">…</Button>
+  <Button variant="outline"><ChevronLeft /> Previous</Button>
+  <Button variant="outline">Next <ChevronRight /></Button>
 </ButtonGroup>`}
                 size="sm"
                 className="rounded-md border border-border-subtle bg-background-subtle"
@@ -118,21 +126,19 @@ export default function ButtonGroupPage() {
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="flex items-center justify-center bg-background-subtle p-8">
               <ButtonGroup>
-                <Button aria-label="Bold">
-                  <Bold />
+                <Button variant="outline" aria-label="Undo">
+                  <Undo2 />
                 </Button>
-                <Button aria-label="Italic">
-                  <Italic />
-                </Button>
-                <Button aria-label="Underline">
-                  <Underline />
+                <Button variant="outline" aria-label="Redo">
+                  <Redo2 />
                 </Button>
               </ButtonGroup>
             </div>
             <div className="border-t border-border-default p-3">
               <CodeBlock
                 code={`<ButtonGroup>
-  <Button>…</Button>
+  <Button variant="outline"><Undo2 /></Button>
+  <Button variant="outline"><Redo2 /></Button>
 </ButtonGroup>`}
                 size="sm"
                 className="rounded-md border border-border-subtle bg-background-subtle"
@@ -142,14 +148,18 @@ export default function ButtonGroupPage() {
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="flex items-center justify-center bg-background-subtle p-8">
               <ButtonGroup>
-                <Button>Save</Button>
-                <Button variant="outline">Cancel</Button>
+                <Button variant="outline">Cut</Button>
+                <Button variant="outline">Copy</Button>
+                <Button variant="outline">Paste</Button>
               </ButtonGroup>
             </div>
             <div className="border-t border-border-default p-3">
               <CodeBlock
-                code={`<Button>Save</Button>
-<Button variant="outline">Cancel</Button>`}
+                code={`<ButtonGroup>
+  <Button variant="outline">Cut</Button>
+  <Button variant="outline">Copy</Button>
+  <Button variant="outline">Paste</Button>
+</ButtonGroup>`}
                 size="sm"
                 className="rounded-md border border-border-subtle bg-background-subtle"
               />
@@ -158,14 +168,17 @@ export default function ButtonGroupPage() {
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="flex items-center justify-center bg-background-subtle p-8">
               <ButtonGroup orientation="vertical">
-                <Button variant="outline">Top</Button>
-                <Button variant="outline">Middle</Button>
-                <Button variant="outline">Bottom</Button>
+                <Button variant="outline">Duplicate</Button>
+                <Button variant="outline">Move</Button>
+                <Button variant="outline">Archive</Button>
               </ButtonGroup>
             </div>
             <div className="border-t border-border-default p-3">
               <CodeBlock
-                code={`<ButtonGroup orientation="vertical">`}
+                code={`<ButtonGroup orientation="vertical">
+  <Button variant="outline">Duplicate</Button>
+  …
+</ButtonGroup>`}
                 size="sm"
                 className="rounded-md border border-border-subtle bg-background-subtle"
               />
@@ -173,8 +186,9 @@ export default function ButtonGroupPage() {
           </div>
         </div>
         <p className="mt-2 text-small">
-          Default outlined, filled primary, and a mixed set all join the same
-          way. Set <code className="font-mono">orientation</code> to stack them.
+          Text pairs, icon actions, action triads, and vertical stacks all join
+          the same way. Set <code className="font-mono">orientation</code> to
+          stack them.
         </p>
       </section>
 
@@ -185,9 +199,9 @@ export default function ButtonGroupPage() {
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="flex items-center justify-center bg-background-subtle p-8">
               <ButtonGroup>
-                <Button variant="outline">Day</Button>
-                <Button variant="outline">Week</Button>
-                <Button variant="outline">Month</Button>
+                <Button variant="outline">Cut</Button>
+                <Button variant="outline">Copy</Button>
+                <Button variant="outline">Paste</Button>
               </ButtonGroup>
             </div>
             <div className="border-t border-border-default p-3">
@@ -197,11 +211,11 @@ export default function ButtonGroupPage() {
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="flex items-center justify-center bg-background-subtle p-8">
               <ButtonGroup>
-                <Button variant="outline">Day</Button>
+                <Button variant="outline">Cut</Button>
                 <Button variant="outline" className="bg-background-secondary">
-                  Week
+                  Copy
                 </Button>
-                <Button variant="outline">Month</Button>
+                <Button variant="outline">Paste</Button>
               </ButtonGroup>
             </div>
             <div className="border-t border-border-default p-3">
@@ -213,14 +227,14 @@ export default function ButtonGroupPage() {
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="flex items-center justify-center bg-background-subtle p-8">
               <ButtonGroup>
-                <Button variant="outline">Day</Button>
+                <Button variant="outline">Cut</Button>
                 <Button
                   variant="outline"
                   className="bg-background-accent text-text-primary"
                 >
-                  Week
+                  Copy
                 </Button>
-                <Button variant="outline">Month</Button>
+                <Button variant="outline">Paste</Button>
               </ButtonGroup>
             </div>
             <div className="border-t border-border-default p-3">
@@ -232,9 +246,9 @@ export default function ButtonGroupPage() {
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="flex items-center justify-center bg-background-subtle p-8">
               <ButtonGroup disabled>
-                <Button variant="outline">Day</Button>
-                <Button variant="outline">Week</Button>
-                <Button variant="outline">Month</Button>
+                <Button variant="outline">Cut</Button>
+                <Button variant="outline">Copy</Button>
+                <Button variant="outline">Paste</Button>
               </ButtonGroup>
             </div>
             <div className="border-t border-border-default p-3">
@@ -248,11 +262,11 @@ export default function ButtonGroupPage() {
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="flex items-center justify-center bg-background-subtle p-8">
               <ButtonGroup>
-                <Button variant="outline">Day</Button>
+                <Button variant="outline">Cut</Button>
                 <Button variant="outline" disabled>
-                  Week
+                  Copy
                 </Button>
-                <Button variant="outline">Month</Button>
+                <Button variant="outline">Paste</Button>
               </ButtonGroup>
             </div>
             <div className="border-t border-border-default p-3">
@@ -324,10 +338,14 @@ export default function ButtonGroupPage() {
               Don&apos;t
             </div>
             <p className="text-small text-text-default">
-              Don&apos;t join unrelated actions into one group. The shared edge
-              tells the reader these buttons belong together, so grouping a save
-              next to an unrelated export reads as a single set when it is not.
-              Keep separate concerns as separate buttons.
+              Don&apos;t use a Button Group to pick one option -- a Day / Week /
+              Month view switcher is mutually exclusive, so it&apos;s{" "}
+              <strong className="font-semibold">Tabs</strong> or a single-select{" "}
+              <strong className="font-semibold">Toggle Group</strong>. Bold /
+              Italic / Underline hold on/off state, so that&apos;s a{" "}
+              <strong className="font-semibold">Toggle Group</strong>. And
+              don&apos;t join unrelated actions -- the shared edge says they
+              belong together.
             </p>
           </div>
           <div className="rounded-lg border border-border-success bg-background-success p-5">
@@ -340,8 +358,8 @@ export default function ButtonGroupPage() {
           </div>
         </div>
         <p className="mt-2 text-small">
-          Use it for tightly related actions such as Bold, Italic, Underline, or
-          Previous and Next.
+          Use it for independent actions that belong together: Previous / Next,
+          Undo / Redo, or Cut / Copy / Paste.
         </p>
       </section>
 

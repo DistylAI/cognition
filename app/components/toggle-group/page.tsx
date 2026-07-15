@@ -96,7 +96,10 @@ export default function ToggleGroupPage() {
       <div className="mt-4 rounded-lg border border-border-default bg-background-accent p-4">
         <p className="text-small text-text-default">
           Toggle Group is built on the Toggle primitive. Single mode enforces
-          exactly one selection; multiple mode allows zero or more.
+          exactly one selection; multiple mode allows zero or more. If the
+          buttons just fire independent actions (no selected state), use a{" "}
+          <strong className="font-semibold">Button Group</strong>; for switching
+          the main view or panel, use <strong className="font-semibold">Tabs</strong>.
         </p>
       </div>
 
