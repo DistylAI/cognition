@@ -15,6 +15,7 @@ import { cn } from "@/lib/utils";
 // tint). Body copy stays default (via AlertDescription) for readability on the
 // tint. The stroke stays feedback-<type> (canonical status hue) at low alpha.
 const alertVariants = cva(
+  // intentional: 10px optically balances the first line; see changelog 2026-07-21
   "relative w-full rounded-lg border px-4 py-3 text-sm [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-2.5 [&>svg]:size-4 [&>svg+div]:translate-y-[-3px] [&>svg~*]:pl-7",
   {
     variants: {
