@@ -1,6 +1,6 @@
 ---
 date: 2026-07-22
-type: docs
+type: patch
 category: docs
 component: Alert
 summary: "Documented intentional top-2.5 deviation inline in code"
