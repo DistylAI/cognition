@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { getGeneratedVersions } from "@/lib/changelog";
 
 export const metadata: Metadata = {
   title: "Changelog",
@@ -16,12 +17,13 @@ export const metadata: Metadata = {
 
 type ReleaseStatus = "current" | "stable" | "foundation";
 
-type Release = {
+type LegacyRelease = {
   version: string;
   date: string;
   status: ReleaseStatus;
   summary: string;
   changes: string[];
+  source: "legacy";
 };
 
 const STATUS_BADGE: Record<
@@ -33,11 +35,15 @@ const STATUS_BADGE: Record<
   foundation: { label: "Foundation", variant: "secondary" },
 };
 
-const releases: Release[] = [
+// v1.0–v1.3 are hardcoded legacy history — kept verbatim, tagged source: "legacy"
+// so they render distinguishably from generated versions and keep their original
+// status labels regardless of sort position (per the changelog spec).
+const legacyReleases: LegacyRelease[] = [
   {
     version: "1.3",
     date: "June 2026",
     status: "current",
+    source: "legacy",
     summary:
       "Full component coverage. Codebase audit complete. System and Language distinction established. Skill distributed via ai-tools.",
     changes: [
@@ -54,6 +60,7 @@ const releases: Release[] = [
     version: "1.2",
     date: "Early June 2026",
     status: "stable",
+    source: "legacy",
     summary:
       "Conversational UI and Graph Canvas Node shipped. All components verified on production. Token drift guard added.",
     changes: [
@@ -71,6 +78,7 @@ const releases: Release[] = [
     version: "1.1",
     date: "May 2026",
     status: "stable",
+    source: "legacy",
     summary:
       "Core component library complete. Dark mode infrastructure finalized. Docs site live on Vercel.",
     changes: [
@@ -87,6 +95,7 @@ const releases: Release[] = [
     version: "1.0",
     date: "April 2026",
     status: "foundation",
+    source: "legacy",
     summary:
       "Foundation. Built from scratch in two days: token architecture, component library, and docs site scaffold.",
     changes: [
@@ -102,7 +111,30 @@ const releases: Release[] = [
   },
 ];
 
+// "2026-07-24" -> "24 Jul 2026"; anything unparseable passes through unchanged.
+function formatDate(iso: string): string {
+  const [y, m, d] = iso.split("-").map(Number);
+  if (!y || !m || !d) return iso;
+  const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  return `${d} ${MONTHS[m - 1]} ${y}`;
+}
+
+function Bullets({ items }: { items: string[] }) {
+  return (
+    <ul className="space-y-2">
+      {items.map((item, i) => (
+        <li key={i} className="flex gap-2 text-small text-text-default">
+          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-text-subtle" />
+          {item}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export default function ChangelogPage() {
+  const generated = getGeneratedVersions();
+
   return (
     <div>
       <p className="mb-2 text-caption">Status</p>
@@ -121,15 +153,54 @@ export default function ChangelogPage() {
       </div>
 
       <div className="mt-8 space-y-4">
-        {releases.map((release) => {
+        {/* Generated versions (v1.4+): manual blurb + bullets rolled up from entry summaries. */}
+        {generated.map((release) => {
           const badge = STATUS_BADGE[release.status];
           return (
-            <Card key={release.version}>
+            <Card key={release.version} data-source="generated">
               <CardHeader>
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex flex-col gap-1">
                     <span className="text-caption font-medium uppercase tracking-wide">
-                      v{release.version} · {release.date}
+                      {release.version} · {formatDate(release.date)}
+                    </span>
+                    <CardTitle className="text-lg">
+                      Cognition {release.version}
+                    </CardTitle>
+                  </div>
+                  <Badge color={badge.color} variant={badge.variant}>
+                    {badge.label}
+                  </Badge>
+                </div>
+                {release.blurb ? (
+                  <CardDescription>{release.blurb}</CardDescription>
+                ) : null}
+              </CardHeader>
+              {release.bullets.length ? (
+                <CardContent>
+                  <Bullets items={release.bullets} />
+                </CardContent>
+              ) : null}
+            </Card>
+          );
+        })}
+
+        {/* Legacy versions (v1.0–v1.3): hardcoded history, visually marked "Legacy".
+            One exception to "legacy stays as-is": once a generated version exists it
+            becomes Current, so the legacy release that held "current" (v1.3) is
+            downgraded to Stable. Current always reflects the actual newest. */}
+        {legacyReleases.map((release) => {
+          const status =
+            generated.length && release.status === "current" ? "stable" : release.status;
+          const badge = STATUS_BADGE[status];
+          return (
+            <Card key={release.version} data-source="legacy">
+              <CardHeader>
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex flex-col gap-1">
+                    <span className="text-caption font-medium uppercase tracking-wide">
+                      v{release.version} · {release.date} ·{" "}
+                      <span className="text-text-subtle">Legacy</span>
                     </span>
                     <CardTitle className="text-lg">
                       Cognition v{release.version}
@@ -142,17 +213,7 @@ export default function ChangelogPage() {
                 <CardDescription>{release.summary}</CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2">
-                  {release.changes.map((change, i) => (
-                    <li
-                      key={i}
-                      className="flex gap-2 text-small text-text-default"
-                    >
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-text-subtle" />
-                      {change}
-                    </li>
-                  ))}
-                </ul>
+                <Bullets items={release.changes} />
               </CardContent>
             </Card>
           );

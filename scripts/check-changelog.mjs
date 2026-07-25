@@ -1,8 +1,8 @@
 // Manual guard (NOT yet wired into CI): validate that every changelog entry under
-// changelog/entries/ conforms to changelog/CONVENTIONS.md. Checks three things per
-// entry: a valid `type` (patch|minor|major), a valid `category`
-// (component|token|pattern|docs), and a flat single-line `rationale` (folded /
-// multi-line YAML is banned — it's fragile under strict parsing).
+// changelog/entries/ conforms to changelog/CONVENTIONS.md. Checks per entry: a valid
+// `type` (patch|minor|major), a valid `category` (component|token|pattern|docs), a
+// flat single-line `rationale` (folded / multi-line YAML is banned — it's fragile
+// under strict parsing), and — if present — a `version` matching vX.X.X.
 //
 // Run manually: `node scripts/check-changelog.mjs`. The automated CI gate is still
 // deferred; see the "Automated validation" section of changelog/CONVENTIONS.md.
@@ -46,6 +46,12 @@ for (const f of files) {
   if (rationale === null) errors.push(`${f}: missing \`rationale\``);
   else if (!/^".*"$/.test(rationale))
     errors.push(`${f}: rationale must be a flat single-line quoted string (folded/multi-line YAML is banned)`);
+
+  // `version` is optional (added by the cut script, not authored). When present it
+  // must be three-part semver vX.X.X.
+  const version = field(lines, "version");
+  if (version !== null && !/^v\d+\.\d+\.\d+$/.test(version))
+    errors.push(`${f}: invalid version "${version}" (expected vX.X.X)`);
 }
 
 if (errors.length) {
