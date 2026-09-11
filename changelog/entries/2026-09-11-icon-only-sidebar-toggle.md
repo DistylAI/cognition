@@ -5,7 +5,7 @@ category: pattern
 component: Sidebar
 summary: "Document icon-only sidebar visibility controls and accessible integration requirements"
 rationale: "MLR review prototype feedback showed that persistent Show/Hide labels and bordered button chrome competed with the title and asset; reuse the existing sidebar icon control with accessible naming, tooltips, and state instead."
-pr: ""
+pr: "#33"
 ---
 
 Cognition guidance only. Documents reuse of `SidebarTrigger` and the existing
