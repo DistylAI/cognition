@@ -175,6 +175,23 @@ Before building any page-level UI from scratch, check the Cognition Component Li
 
 If a pattern exists in the library, use it. If it needs modification, extend it. Do not replace it.
 
+### Sidebar visibility controls
+
+**Pattern: icon-only sidebar toggle.** Place a persistent `PanelLeft` control beside the page title. Keep its position stable when the sidebar collapses so the same control can reopen it. Use the existing `SidebarTrigger` within a `SidebarProvider`; for an independently controlled panel, compose the existing `Button` with `variant="ghost"`, `size="icon"`, and a `lucide-react` icon.
+
+**Reasoning.** Sidebar visibility is a secondary layout action. A bordered button with persistent “Show inbox” or “Hide inbox” text competes with the page title and the content being reviewed. A familiar sidebar icon keeps that action available while returning visual emphasis and space to the work. This applies to sidebar visibility, not to unfamiliar actions or consequential actions such as submitting a judgment, which need visible labels.
+
+- Keep the resting control free of a border, shadow, or filled background. Preserve the component's semantic hover and keyboard-focus styles.
+- Keep the full button target: the desktop `size="icon"` is 32 × 32 px with a 16 px glyph. Do not shrink the target to the glyph; use a larger target for touch layouts.
+- Supply an action-specific accessible name and matching tooltip on hover and keyboard focus, such as “Collapse review inbox” / “Open review inbox”. The tooltip supplements the accessible name; it does not replace it.
+- Expose `aria-expanded` from the actual panel state and `aria-controls` pointing to the panel's unique ID. Describe the behavior accurately: a sidebar that shrinks to an icon rail expands rather than opens.
+- Keep the toggle reachable with Tab and operable with Enter or Space. If collapse removes the focused content, return focus to the toggle. Hidden panel contents must leave the tab order.
+- Reuse the app shell's state and control when available. Do not add a second toggle or duplicate sidebar state inside a feature.
+
+**Integration check.** The current `SidebarTrigger` supplies the icon, click behavior, and focus styles. Consumers still need to provide the panel-specific accessible name, expanded state, control relationship, and a tooltip using the existing Tooltip wrappers. Verify collapse, reopen, keyboard focus, tooltip, and layout in both themes before adopting the pattern.
+
+**Scope and provenance.** Cognition guidance, prompted by MLR review prototype feedback: the reviewer wanted more room for the asset and less header chrome. Toolkit UI is a separate implementation; this guidance does not change its components or claim a production rollout there.
+
 ---
 
 ## 4. Radix UI / shadcn Rules
