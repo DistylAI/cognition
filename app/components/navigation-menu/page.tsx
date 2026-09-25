@@ -7,7 +7,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
+} from "@/components/shadcn/navigation-menu";
 import { CodeBlock } from "@/components/CodeBlock";
 
 // Inlined here rather than calling navigationMenuTriggerStyle(): that cva lives
@@ -48,7 +48,7 @@ const installCode = `import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
+} from "@/components/shadcn/navigation-menu";
 
 export function PrimaryNav() {
   return (
@@ -79,14 +79,13 @@ function MockBar({
 }: {
   state?: "hover" | "active" | "focus";
 }) {
+  const toneByState = {
+    hover: "bg-secondary",
+    active: "bg-primary-subtle",
+    focus: "ring-1 ring-ring",
+  } as const;
   const tone = (target: string) =>
-    state && target === "Resources"
-      ? state === "hover"
-        ? "bg-secondary"
-        : state === "active"
-          ? "bg-primary-subtle"
-          : "ring-1 ring-ring"
-      : "";
+    state && target === "Resources" ? toneByState[state] : "";
   return (
     <div className="flex items-center gap-1">
       <span className={`${triggerClass} ${tone("Resources")}`}>Resources</span>

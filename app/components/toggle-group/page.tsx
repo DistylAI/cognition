@@ -7,7 +7,7 @@ import {
   Italic,
   Underline,
 } from "lucide-react";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { ToggleGroup, ToggleGroupItem } from "@/components/shadcn/toggle-group";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
@@ -43,15 +43,21 @@ const props = [
   },
   {
     name: "size",
-    type: '"sm" | "default" | "lg"',
+    type: '"default" | "sm" | "xs" | "xxs" | "icon" | "icon-sm" | "icon-xs" | "icon-xxs"',
     def: '"default"',
-    desc: "Item height and padding. default is the medium size.",
+    desc: "Item height and padding, passed to every item. Same scale as Toggle.",
   },
   {
     name: "variant",
-    type: '"default" | "outline"',
+    type: '"default" | "outline" | "secondary"',
     def: '"default"',
-    desc: "default is borderless; outline adds a border to each item.",
+    desc: "default is borderless; outline adds a border to each item; secondary puts the items in a muted segmented track.",
+  },
+  {
+    name: "trackHeight",
+    type: "Same as size",
+    def: "size",
+    desc: "Track height for the secondary variant only. Defaults to the size value.",
   },
 ] as const;
 
@@ -64,7 +70,7 @@ const doCode = `<ToggleGroup type="single" defaultValue="center">
   </ToggleGroupItem>
 </ToggleGroup>`;
 
-const installCode = `import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+const installCode = `import { ToggleGroup, ToggleGroupItem } from "@/components/shadcn/toggle-group";
 import { Bold, Italic, Underline } from "lucide-react";
 
 export function Formatting() {

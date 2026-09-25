@@ -1,12 +1,12 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "@/components/shadcn/button";
+import { Input } from "@/components/shadcn/input";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
+} from "@/components/shadcn/popover";
 
 const dimensions = [
   { id: "width", label: "Width" },

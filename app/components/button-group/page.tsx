@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ChevronLeft, ChevronRight, Redo2, Undo2 } from "lucide-react";
-import { ButtonGroup } from "@/components/ui/button-group";
-import { Button } from "@/components/ui/button";
+import { ButtonGroup } from "@/components/shadcn/button-group";
+import { Button } from "@/components/shadcn/button";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
@@ -12,22 +12,10 @@ export const metadata: Metadata = {
 
 const props = [
   {
-    name: "size",
-    type: '"default" | "sm" | "icon" | "icon-sm" | "icon-xs"',
-    def: '"default"',
-    desc: "Applied to every button in the group (mirrors Button's size scale). Item-level size wins.",
-  },
-  {
     name: "orientation",
     type: '"horizontal" | "vertical"',
     def: '"horizontal"',
     desc: "Joins buttons left to right or stacked top to bottom.",
-  },
-  {
-    name: "disabled",
-    type: "boolean",
-    def: "false",
-    desc: "Disables every button. Single buttons also take their own disabled prop.",
   },
 ] as const;
 
@@ -37,8 +25,8 @@ const doCode = `// Independent actions that belong together
   <Button variant="outline">Next <ChevronRight /></Button>
 </ButtonGroup>`;
 
-const installCode = `import { ButtonGroup } from "@/components/ui/button-group";
-import { Button } from "@/components/ui/button";
+const installCode = `import { ButtonGroup } from "@/components/shadcn/button-group";
+import { Button } from "@/components/shadcn/button";
 import { Undo2, Redo2 } from "lucide-react";
 
 // A toolbar of independent actions -- each fires on its own, no selected state.
@@ -245,15 +233,23 @@ export default function ButtonGroupPage() {
           </div>
           <div className="overflow-hidden rounded-xl border border-border">
             <div className="flex items-center justify-center bg-muted p-8">
-              <ButtonGroup disabled>
-                <Button variant="outline">Cut</Button>
-                <Button variant="outline">Copy</Button>
-                <Button variant="outline">Paste</Button>
+              <ButtonGroup>
+                <Button variant="outline" disabled>
+                  Cut
+                </Button>
+                <Button variant="outline" disabled>
+                  Copy
+                </Button>
+                <Button variant="outline" disabled>
+                  Paste
+                </Button>
               </ButtonGroup>
             </div>
             <div className="border-t border-border p-3">
               <CodeBlock
-                code={`<ButtonGroup disabled>`}
+                code={`<Button variant="outline" disabled>Cut</Button>
+<Button variant="outline" disabled>Copy</Button>
+<Button variant="outline" disabled>Paste</Button>`}
                 size="sm"
                 className="rounded-lg border border-border-subtle bg-muted"
               />
@@ -279,9 +275,10 @@ export default function ButtonGroupPage() {
           </div>
         </div>
         <p className="mt-2 text-small">
-          Hover and active respond per button. Disable the whole set with{" "}
-          <code className="font-mono">disabled</code> on the group, or one button
-          with its own <code className="font-mono">disabled</code>.
+          Hover and active respond per button. The group has no{" "}
+          <code className="font-mono">disabled</code> prop: set{" "}
+          <code className="font-mono">disabled</code> on each button to disable
+          the whole set, or on one button only.
         </p>
       </section>
 
@@ -320,10 +317,13 @@ export default function ButtonGroupPage() {
         <p className="mt-2 text-small">
           Individual buttons accept standard{" "}
           <code className="font-mono">Button</code> props, including{" "}
-          <code className="font-mono">variant</code>; group-level{" "}
-          <code className="font-mono">size</code> and{" "}
-          <code className="font-mono">disabled</code> apply to each unless the
-          button sets its own.
+          <code className="font-mono">variant</code>,{" "}
+          <code className="font-mono">size</code>, and{" "}
+          <code className="font-mono">disabled</code>. Set them on each button;
+          the group does not pass them down. The module also exports{" "}
+          <code className="font-mono">ButtonGroupText</code> (a static label
+          segment) and <code className="font-mono">ButtonGroupSeparator</code>{" "}
+          (a divider between segments).
         </p>
       </section>
 

@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { Minus, Plus } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "@/components/shadcn/button";
+import { Input } from "@/components/shadcn/input";
 import {
   Drawer,
   DrawerClose,
@@ -13,7 +13,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/components/ui/drawer";
+} from "@/components/shadcn/drawer";
 
 // Deterministic bar heights for the statistic chart (no Math.random -- keeps
 // server/client render stable).

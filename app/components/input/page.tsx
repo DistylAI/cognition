@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Input } from "@/components/ui/input";
+import { Input } from "@/components/shadcn/input";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
   title: "Input",
   description:
-    "Input component -- a form input field or a component that looks like an input field. API matches fe-distillery components/ui/input.tsx.",
+    "Input component -- a form input field or a component that looks like an input field. API matches @distylai/toolkit-ui Input.",
 };
 
 const states = [
@@ -47,7 +47,7 @@ const doCode = `// Pair the Input with a <label> tied via htmlFor/id
 <label htmlFor="name">Name</label>
 <Input id="name" placeholder="Derek Ho" />`;
 
-const installCode = `import { Input } from "@/components/ui/input";
+const installCode = `import { Input } from "@/components/shadcn/input";
 
 export function EmailField() {
   return <Input type="email" placeholder="derek.ho@distyl.ai" />;
@@ -149,6 +149,7 @@ export default function InputPage() {
             </div>
             <div className="divide-y divide-border">
               {[
+                { name: "size", type: "\"default\" | \"sm\"", def: "\"default\"", desc: "Height -- default is 36px (h-9), sm is 32px (h-8)." },
                 { name: "type", type: "string", def: "\"text\"", desc: "Native input type -- text, email, password, number." },
                 { name: "placeholder", type: "string", def: "undefined", desc: "Hint shown while the field is empty." },
                 { name: "value / defaultValue", type: "string", def: "undefined", desc: "Controlled / uncontrolled value." },
@@ -215,14 +216,12 @@ export default function InputPage() {
       <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
         <code className="font-mono text-foreground">
-          fe-distillery/components/ui/input.tsx
+          @distylai/toolkit-ui
         </code>{" "}
         -- a single <code className="font-mono text-foreground">Input</code> that
-        forwards its ref and spreads{" "}
-        <code className="font-mono text-foreground">
-          React.ComponentProps&lt;&quot;input&quot;&gt;
-        </code>
-        . The raw Tailwind utilities are replaced with Folio tokens.
+        forwards its ref, takes a{" "}
+        <code className="font-mono text-foreground">size</code> variant, and
+        spreads the native input props. The classes use Folio tokens.
       </footer>
     </div>
   );

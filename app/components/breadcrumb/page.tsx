@@ -7,14 +7,14 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
+} from "@/components/shadcn/breadcrumb";
 import { CodeBlock } from "@/components/CodeBlock";
 import { BreadcrumbCollapsed } from "./BreadcrumbDemos";
 
 export const metadata: Metadata = {
   title: "Breadcrumb",
   description:
-    "Breadcrumb component: displays the path to the current resource using a hierarchy of links. API matches fe-distillery components/ui/breadcrumb.tsx.",
+    "Breadcrumb component: displays the path to the current resource using a hierarchy of links. API matches toolkit-ui components/shadcn/breadcrumb.",
 };
 
 const parts = [
@@ -88,7 +88,7 @@ const installCode = `import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
+} from "@/components/shadcn/breadcrumb";
 
 export function PageBreadcrumb() {
   return (
@@ -344,7 +344,7 @@ export default function BreadcrumbDocsPage() {
       <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
         <code className="font-mono text-foreground">
-          fe-distillery/components/ui/breadcrumb.tsx
+          toolkit-ui/components/shadcn/breadcrumb
         </code>{" "}
         <code className="font-mono text-foreground">Breadcrumb</code>,{" "}
         <code className="font-mono text-foreground">BreadcrumbList</code>,{" "}

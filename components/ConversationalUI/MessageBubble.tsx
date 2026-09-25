@@ -27,8 +27,9 @@ function renderInline(text: string, keyPrefix: string): ReactNode[] {
         );
       }
       const link = LINK_RE.exec(part);
-      if (link) {
-        const [, label, href] = link;
+      const label = link?.[1];
+      const href = link?.[2];
+      if (label && href) {
         const external = /^https?:\/\//.test(href);
         return (
           <a
@@ -73,7 +74,7 @@ function renderAssistant(content: string): ReactNode[] {
 
   while ((match = regex.exec(content)) !== null) {
     renderProse(content.slice(lastIndex, match.index), `t-${block}`, out);
-    const code = match[2].replace(/\n$/, "");
+    const code = (match[2] ?? "").replace(/\n$/, "");
     out.push(
       <div key={`c-${block}`} className="my-2">
         <CodeBlock

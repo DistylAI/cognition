@@ -4,8 +4,8 @@ import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import { Sidebar } from "@/components/Sidebar";
 import { MobileNav } from "@/components/MobileNav";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { Toaster } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/shadcn/tooltip";
+import { FolioToaster } from "@/components/FolioToaster";
 
 export const metadata: Metadata = {
   title: {
@@ -46,7 +46,7 @@ export default function RootLayout({
               </main>
             </div>
           </div>
-          <Toaster />
+          <FolioToaster />
         </TooltipProvider>
       </body>
     </html>

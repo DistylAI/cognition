@@ -31,3 +31,13 @@ pr: "#34"
   same.
 - Personal contact links and "Questions?" lines are removed from the site.
   Demo data no longer uses a real person's name.
+- Component code now matches `@distylai/toolkit-ui` main. Each component in
+  `components/shadcn/<name>/index.tsx` has the toolkit-ui API, parts,
+  `React.forwardRef`, and file layout, and uses the Folio class recipes, so the
+  site looks the same. Folio-only components live in `components/folio/`.
+  `contexts/`, `hooks/`, and `lib/utils.ts` match toolkit-ui's paths.
+- `tsconfig.json` uses the toolkit-ui strictness (`noUncheckedIndexedAccess`,
+  `verbatimModuleSyntax`). `tailwind.config.ts` loads the same plugins as
+  toolkit-ui (`tailwindcss-animate`, `@tailwindcss/container-queries`).
+- Files that use React hooks or context start with `'use client'`, because
+  Next.js needs it. Toolkit-ui can take the same line with no effect on Vite.

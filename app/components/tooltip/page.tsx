@@ -5,7 +5,7 @@ import { BasicTooltip, SidesTooltip } from "./TooltipDemos";
 export const metadata: Metadata = {
   title: "Tooltip",
   description:
-    "Tooltip component: a label shown on hover or focus. API matches fe-distillery components/ui/tooltip.tsx.",
+    "Tooltip component: a label shown on hover or focus. API matches @distylai/toolkit-ui components/shadcn/tooltip.",
 };
 
 const installCode = `import {
@@ -13,7 +13,7 @@ const installCode = `import {
   TooltipTrigger,
   TooltipContent,
   TooltipProvider,
-} from "@/components/ui/tooltip";
+} from "@/components/shadcn/tooltip";
 
 export function SaveButton() {
   return (
@@ -80,9 +80,10 @@ export default function TooltipPage() {
             <div className="divide-y divide-border">
               {[
                 { name: "TooltipProvider", desc: "Wraps the app or a region; sets delayDuration for the tooltips inside." },
-                { name: "Tooltip", desc: "Root for a single tooltip. Holds open / defaultOpen." },
-                { name: "TooltipTrigger", desc: "The element that reveals the tooltip on hover or focus. Use asChild." },
+                { name: "Tooltip", desc: "Root for a single tooltip. Holds open / defaultOpen. disabled keeps it closed and takes precedence over open." },
+                { name: "TooltipTrigger", desc: "The element that reveals the tooltip on hover or keyboard focus. Programmatic focus (for example dialog autofocus) does not open it. Use asChild." },
                 { name: "TooltipContent", desc: "The floating label. side and sideOffset control placement." },
+                { name: "TooltipPortal", desc: "The portal TooltipContent renders into. It uses the PortalContainerProvider element, or document.body without a provider." },
               ].map((p) => (
                 <div
                   key={p.name}
@@ -142,7 +143,7 @@ export default function TooltipPage() {
       <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
         <code className="font-mono text-foreground">
-          fe-distillery/components/ui/tooltip.tsx
+          @distylai/toolkit-ui components/shadcn/tooltip
         </code>
         . The surface is intentionally{" "}
         <code className="font-mono text-foreground">background-inverse</code> /{" "}

@@ -4,20 +4,20 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "@/components/shadcn/accordion";
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
   CardDescription,
-} from "@/components/ui/card";
+} from "@/components/shadcn/card";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
   title: "Accordion",
   description:
-    "Accordion component: a vertically stacked set of interactive headings that each reveal a section of content. API matches fe-distillery components/ui/accordion.tsx.",
+    "Accordion component: a vertically stacked set of interactive headings that each reveal a section of content. API matches toolkit-ui components/shadcn/accordion.",
 };
 
 const faqs = [
@@ -112,7 +112,7 @@ const installCode = `import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "@/components/shadcn/accordion";
 
 export function Faq() {
   return (
@@ -407,7 +407,7 @@ export default function AccordionDocsPage() {
       <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
         <code className="font-mono text-foreground">
-          fe-distillery/components/ui/accordion.tsx
+          toolkit-ui/components/shadcn/accordion
         </code>{" "}
         <code className="font-mono text-foreground">Accordion</code>,{" "}
         <code className="font-mono text-foreground">AccordionItem</code>,{" "}

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Combobox } from "@/components/ui/combobox";
+import { Combobox } from "@/components/combobox";
 import {
   Command,
   CommandEmpty,
@@ -7,9 +7,15 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/components/ui/command";
+} from "@/components/shadcn/command";
 import { CodeBlock } from "@/components/CodeBlock";
-import { IconCombobox } from "./icon-combobox";
+import {
+  GroupedCombobox,
+  IconCombobox,
+  LoadingCombobox,
+  SmallIconCombobox,
+  TagCombobox,
+} from "./combobox-demos";
 
 export const metadata: Metadata = {
   title: "Combobox",
@@ -33,20 +39,13 @@ const regions = [
   { value: "sa-east", label: "South America (Sao Paulo)" },
 ];
 
-const environments = [
-  { value: "prod-us", label: "Production US", group: "Production" },
-  { value: "prod-eu", label: "Production EU", group: "Production" },
-  { value: "staging", label: "Staging", group: "Non-production" },
-  { value: "dev", label: "Development", group: "Non-production" },
-  { value: "sandbox", label: "Sandbox", group: "Non-production" },
-];
 
 const props = [
   {
     name: "options",
-    type: "{ value, label, icon?, group? }[]",
+    type: "ComboboxOption[]",
     def: "required",
-    desc: "The selectable options. Add icon for a leading glyph, group to bucket under a heading.",
+    desc: "The selectable options: { value, label, disabled?, tag? }. A tag renders next to the label. The group field is reserved and not rendered yet.",
   },
   {
     name: "value",
@@ -58,19 +57,109 @@ const props = [
     name: "onValueChange",
     type: "(value: string) => void",
     def: "undefined",
-    desc: "Called with the new value when the selection changes.",
+    desc: "Called with the new value. Picking the selected option again sends an empty string.",
+  },
+  {
+    name: "noopOnReselect",
+    type: "boolean",
+    def: "false",
+    desc: "Keep the value when the selected option is picked again, instead of clearing it.",
   },
   {
     name: "placeholder",
     type: "string",
-    def: '"Select an option..."',
+    def: "\"Select an option\u2026\"",
     desc: "Trigger text shown when nothing is selected.",
+  },
+  {
+    name: "searchPlaceholder",
+    type: "string",
+    def: "\"Search\u2026\"",
+    desc: "Placeholder of the search input.",
+  },
+  {
+    name: "emptyText",
+    type: "string",
+    def: "\"No results found.\"",
+    desc: "Text shown when no option matches the search.",
   },
   {
     name: "disabled",
     type: "boolean",
     def: "false",
     desc: "Disables the trigger and blocks opening the list.",
+  },
+  {
+    name: "size",
+    type: "\"default\" | \"sm\"",
+    def: "\"default\"",
+    desc: "Trigger size. Uses the Button sizes of the same name.",
+  },
+  {
+    name: "className",
+    type: "string",
+    def: "undefined",
+    desc: "Classes for the trigger. triggerClassName is an alias.",
+  },
+  {
+    name: "contentClassName",
+    type: "string",
+    def: "undefined",
+    desc: "Classes for the popover panel.",
+  },
+  {
+    name: "icon",
+    type: "ReactNode",
+    def: "undefined",
+    desc: "Leading element in the trigger, before the label.",
+  },
+  {
+    name: "selectedLabel",
+    type: "string",
+    def: "undefined",
+    desc: "Trigger label for a value that is not in options.",
+  },
+  {
+    name: "onSearchChange",
+    type: "(value: string) => void",
+    def: "undefined",
+    desc: "Called when the search text changes. Use it for server-side search.",
+  },
+  {
+    name: "shouldFilter",
+    type: "boolean",
+    def: "true",
+    desc: "Set false to skip client-side filtering, for example when the server filters.",
+  },
+  {
+    name: "isLoading",
+    type: "boolean",
+    def: "false",
+    desc: "Disables the trigger and shows a loading item while options load.",
+  },
+  {
+    name: "isSearching",
+    type: "boolean",
+    def: "false",
+    desc: "Shows an updating row while a new search runs. The trigger stays enabled.",
+  },
+  {
+    name: "onLoadMore / hasMore",
+    type: "() => void | Promise<void> / boolean",
+    def: "undefined / false",
+    desc: "Infinite scroll: onLoadMore runs when the end of the list scrolls into view and hasMore is true.",
+  },
+  {
+    name: "isLoadingMore",
+    type: "boolean",
+    def: "false",
+    desc: "Shows a spinner at the end of the list while the next page loads.",
+  },
+  {
+    name: "modal",
+    type: "boolean",
+    def: "false",
+    desc: "Set true inside a modal Dialog, so the popover keeps focus and blocks outside scroll.",
   },
 ] as const;
 
@@ -80,7 +169,7 @@ const doCode = `<Combobox
   onValueChange={setZone}
 />`;
 
-const installCode = `import { Combobox } from "@/components/ui/combobox";
+const installCode = `import { Combobox } from "@/components/combobox";
 
 const regions = [
   { value: "us-east", label: "US East (Virginia)" },
@@ -155,13 +244,23 @@ export default function ComboboxPage() {
           <div className="overflow-hidden rounded-xl border border-border">
             <div className="flex items-start justify-center bg-muted p-8">
               <div className="w-full max-w-[220px]">
-                <Combobox options={environments} placeholder="Environment..." />
+                <GroupedCombobox />
               </div>
             </div>
             <div className="border-t border-border p-3">
               <CodeBlock
-                code={`// options have a group field
-<Combobox options={environments} />`}
+                code={`// Combobox renders one flat list.
+// Compose Popover + Command for headings.
+<Command>
+  <CommandInput placeholder="Search..." />
+  <CommandList>
+    <CommandGroup heading="Production">
+      <CommandItem value="prod-us">
+        Production US
+      </CommandItem>
+    </CommandGroup>
+  </CommandList>
+</Command>`}
                 size="sm"
                 className="rounded-lg border border-border-subtle bg-muted"
               />
@@ -175,8 +274,63 @@ export default function ComboboxPage() {
             </div>
             <div className="border-t border-border p-3">
               <CodeBlock
-                code={`// options have an icon field
-<Combobox options={resources} />`}
+                code={`// Options take no icon. Compose
+// Popover + Command for option icons.
+<CommandItem value="datasets">
+  <Database className="text-muted-foreground" />
+  <span className="truncate">Datasets</span>
+</CommandItem>`}
+                size="sm"
+                className="rounded-lg border border-border-subtle bg-muted"
+              />
+            </div>
+          </div>
+          <div className="overflow-hidden rounded-xl border border-border">
+            <div className="flex items-start justify-center bg-muted p-8">
+              <div className="w-full max-w-[220px]">
+                <TagCombobox />
+              </div>
+            </div>
+            <div className="border-t border-border p-3">
+              <CodeBlock
+                code={`const models = [
+  { value: "sol", label: "Sol",
+    tag: <Badge variant="secondary" size="sm">New</Badge> },
+  { value: "lyra", label: "Lyra", disabled: true },
+];
+<Combobox options={models} />`}
+                size="sm"
+                className="rounded-lg border border-border-subtle bg-muted"
+              />
+            </div>
+          </div>
+          <div className="overflow-hidden rounded-xl border border-border">
+            <div className="flex items-start justify-center bg-muted p-8">
+              <div className="w-full max-w-[220px]">
+                <SmallIconCombobox />
+              </div>
+            </div>
+            <div className="border-t border-border p-3">
+              <CodeBlock
+                code={`<Combobox
+  options={regions}
+  size="sm"
+  icon={<Globe className="size-3.5" />}
+/>`}
+                size="sm"
+                className="rounded-lg border border-border-subtle bg-muted"
+              />
+            </div>
+          </div>
+          <div className="overflow-hidden rounded-xl border border-border">
+            <div className="flex items-start justify-center bg-muted p-8">
+              <div className="w-full max-w-[220px]">
+                <LoadingCombobox />
+              </div>
+            </div>
+            <div className="border-t border-border p-3">
+              <CodeBlock
+                code={`<Combobox options={[]} isLoading />`}
                 size="sm"
                 className="rounded-lg border border-border-subtle bg-muted"
               />
@@ -184,9 +338,9 @@ export default function ComboboxPage() {
           </div>
         </div>
         <p className="mt-2 text-small">
-          Default, grouped, and with icons all use one component. Add{" "}
-          <code className="font-mono">group</code> or{" "}
-          <code className="font-mono">icon</code> to the options.
+          Default, with tags, small with a trigger icon, and loading use the
+          Combobox API. Combobox renders one flat list with no option icons, so
+          the grouped and icon examples compose Popover and Command directly.
         </p>
       </section>
 

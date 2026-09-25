@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/shadcn/button";
 import { ChatInput } from "./ChatInput";
 import { MessageBubble } from "./MessageBubble";
 import { LoadingBubble } from "./LoadingBubble";
@@ -103,7 +103,7 @@ export function ChatShell({
         )}
       >
         <div className="flex items-center gap-2">
-          <div className="h-2 w-2 rounded-full bg-primary" />
+          <div className="size-2 rounded-full bg-primary" />
           <span className="text-sm font-medium text-foreground">
             Context view
           </span>

@@ -70,7 +70,7 @@ export default function TokensPage() {
                 className="flex gap-4 rounded-xl border border-border bg-muted p-4"
               >
                 <div
-                  className="h-14 w-14 shrink-0 rounded-lg border border-border"
+                  className="size-14 shrink-0 rounded-lg border border-border"
                   style={{ background: `var(${t.cssVar})` }}
                   aria-hidden
                 />
@@ -123,7 +123,7 @@ export default function TokensPage() {
               className="flex flex-col items-center gap-3 rounded-xl border border-border bg-muted p-5"
             >
               <div
-                className="h-16 w-16 border-2 border-border bg-secondary"
+                className="size-16 border-2 border-border bg-secondary"
                 style={{ borderRadius: r.value }}
                 aria-hidden
               />

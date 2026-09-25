@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
+import { Label } from "@/components/shadcn/label";
+import { Input } from "@/components/shadcn/input";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
@@ -17,22 +17,22 @@ const props = [
     desc: "id of the control this label names. Required to wire label to control.",
   },
   {
-    name: "required",
-    type: "boolean",
-    def: "false",
-    desc: "Appends a danger-colored asterisk to mark the field as required.",
-  },
-  {
-    name: "disabled",
-    type: "boolean",
-    def: "false",
-    desc: "Dims the label and sets cursor-not-allowed, for a disabled control.",
-  },
-  {
     name: "children",
     type: "ReactNode",
     def: "required",
-    desc: "The label text.",
+    desc: "The label text. Add a required asterisk as a child span.",
+  },
+  {
+    name: "className",
+    type: "string",
+    def: "undefined",
+    desc: "Extra classes. Use cursor-not-allowed opacity-50 to dim the label for a disabled control.",
+  },
+  {
+    name: "...props",
+    type: "Radix Label props",
+    def: "—",
+    desc: "All Radix Label and native label attributes pass through.",
   },
 ] as const;
 
@@ -41,13 +41,16 @@ const doCode = `<div className="space-y-1.5">
   <Input id="email" type="email" />
 </div>`;
 
-const installCode = `import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
+const installCode = `import { Label } from "@/components/shadcn/label";
+import { Input } from "@/components/shadcn/input";
 
 export function EmailField() {
   return (
     <div className="space-y-1.5">
-      <Label htmlFor="email" required>Email</Label>
+      <Label htmlFor="email">
+        Email
+        <span aria-hidden className="ml-0.5 text-destructive">*</span>
+      </Label>
       <Input id="email" type="email" />
     </div>
   );
@@ -108,13 +111,19 @@ export default function LabelPage() {
           </div>
           <div className="overflow-hidden rounded-xl border border-border">
             <div className="flex items-center justify-center bg-muted p-8">
-              <Label htmlFor="v-required" required>
+              <Label htmlFor="v-required">
                 Email
+                <span aria-hidden className="ml-0.5 text-destructive">
+                  *
+                </span>
               </Label>
             </div>
             <div className="border-t border-border p-3">
               <CodeBlock
-                code={`<Label htmlFor="email" required>Email</Label>`}
+                code={`<Label htmlFor="email">
+  Email
+  <span aria-hidden className="ml-0.5 text-destructive">*</span>
+</Label>`}
                 size="sm"
                 className="rounded-lg border border-border-subtle bg-muted"
               />
@@ -122,13 +131,18 @@ export default function LabelPage() {
           </div>
           <div className="overflow-hidden rounded-xl border border-border">
             <div className="flex items-center justify-center bg-muted p-8">
-              <Label htmlFor="v-disabled" disabled>
+              <Label
+                htmlFor="v-disabled"
+                className="cursor-not-allowed opacity-50"
+              >
                 Email
               </Label>
             </div>
             <div className="border-t border-border p-3">
               <CodeBlock
-                code={`<Label htmlFor="email" disabled>Email</Label>`}
+                code={`<Label htmlFor="email" className="cursor-not-allowed opacity-50">
+  Email
+</Label>`}
                 size="sm"
                 className="rounded-lg border border-border-subtle bg-muted"
               />
@@ -136,9 +150,12 @@ export default function LabelPage() {
           </div>
         </div>
         <p className="mt-2 text-small">
-          The required variant appends a{" "}
-          <code className="font-mono">text-danger</code> asterisk; disabled dims
-          the label.
+          Label has no variant props. For a required field, add a{" "}
+          <code className="font-mono">text-destructive</code> asterisk as a
+          child. For a disabled control, dim the label with{" "}
+          <code className="font-mono">opacity-50</code>. A label placed after a{" "}
+          <code className="font-mono">peer</code> control dims on its own when
+          the control is disabled.
         </p>
       </section>
 
@@ -165,7 +182,10 @@ export default function LabelPage() {
           <div className="overflow-hidden rounded-xl border border-border">
             <div className="flex items-center justify-center bg-muted p-8">
               <div className="w-full max-w-[220px] space-y-1.5">
-                <Label htmlFor="s-disabled" disabled>
+                <Label
+                  htmlFor="s-disabled"
+                  className="cursor-not-allowed opacity-50"
+                >
                   Username
                 </Label>
                 <Input id="s-disabled" placeholder="distyl" disabled />
@@ -173,7 +193,9 @@ export default function LabelPage() {
             </div>
             <div className="border-t border-border p-3">
               <CodeBlock
-                code={`<Label htmlFor="username" disabled>Username</Label>
+                code={`<Label htmlFor="username" className="cursor-not-allowed opacity-50">
+  Username
+</Label>
 <Input id="username" disabled />`}
                 size="sm"
                 className="rounded-lg border border-border-subtle bg-muted"

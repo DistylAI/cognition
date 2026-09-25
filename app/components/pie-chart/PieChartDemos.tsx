@@ -8,7 +8,7 @@ import {
   ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/ui/chart";
+} from "@/components/shadcn/chart";
 
 // Each slice carries its own fill, pointing at a --color-<name> var that the
 // config defines. Colors are the Folio chart tokens (chart-1 through chart-5) -- never

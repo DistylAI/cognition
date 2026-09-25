@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Kbd, KbdGroup } from "@/components/ui/kbd";
+import { Kbd, KbdGroup } from "@/components/shadcn/kbd";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
   title: "Keyboard Input",
   description:
-    "Keyboard Input (Kbd) -- displays textual user input from the keyboard. Proposed canonical component built on the <kbd> element.",
+    "Keyboard Input (Kbd) -- displays textual user input from the keyboard. Built on the <kbd> element. API matches @distylai/toolkit-ui.",
 };
 
-const installCode = `import { Kbd, KbdGroup } from "@/components/ui/kbd";
+const installCode = `import { Kbd, KbdGroup } from "@/components/shadcn/kbd";
 
 export function CommandHint() {
   return (
@@ -31,10 +31,12 @@ export default function KbdPage() {
 
       <div className="mt-4 rounded-xl border border-border bg-primary-subtle p-4">
         <p className="text-small text-foreground">
-          <span className="font-bold">Proposed.</span> fe-distillery has no{" "}
-          <code className="font-mono">Kbd</code> primitive yet. This documents the
-          canonical one, built on the semantic{" "}
-          <code className="font-mono">&lt;kbd&gt;</code> element.
+          <span className="font-bold">Toolkit API.</span>{" "}
+          <code className="font-mono">Kbd</code> and{" "}
+          <code className="font-mono">KbdGroup</code> match{" "}
+          <code className="font-mono">@distylai/toolkit-ui</code>, built on the
+          semantic <code className="font-mono">&lt;kbd&gt;</code> element. Inside
+          a tooltip, a key cap switches to a translucent surface automatically.
         </p>
       </div>
 
@@ -159,8 +161,8 @@ export default function KbdPage() {
       </section>
 
       <footer className="mt-16 border-t border-border pt-6 text-small">
-        Proposed canonical component -- fe-distillery has no{" "}
-        <code className="font-mono text-foreground">kbd</code> primitive yet.
+        API matches{" "}
+        <code className="font-mono text-foreground">@distylai/toolkit-ui</code>.
         Built on the semantic{" "}
         <code className="font-mono text-foreground">&lt;kbd&gt;</code> element
         with the muted surface mapped to the Folio{" "}

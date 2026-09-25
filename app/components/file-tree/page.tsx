@@ -4,7 +4,8 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar";
+  SidebarProvider,
+} from "@/components/shadcn/sidebar";
 import { FileTreeDemo } from "./FileTreeDemo";
 
 export const metadata: Metadata = {
@@ -100,27 +101,31 @@ export default function FileTreePage() {
           <div>
             <p className="mb-2 text-caption font-medium">Default</p>
             <div className="rounded-xl border border-border bg-muted p-2">
-              <SidebarMenu>
-                <SidebarMenuItem>
-                  <SidebarMenuButton className="h-8">
-                    <File className="size-4 text-muted-foreground" />
-                    <span>page.tsx</span>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              </SidebarMenu>
+              <SidebarProvider className="block min-h-0 w-auto">
+                <SidebarMenu>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton className="h-8">
+                      <File className="size-4 text-muted-foreground" />
+                      <span>page.tsx</span>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                </SidebarMenu>
+              </SidebarProvider>
             </div>
           </div>
           <div>
             <p className="mb-2 text-caption font-medium">Selected</p>
             <div className="rounded-xl border border-border bg-muted p-2">
-              <SidebarMenu>
-                <SidebarMenuItem>
-                  <SidebarMenuButton className="h-8" isActive>
-                    <File className="size-4 text-muted-foreground" />
-                    <span>page.tsx</span>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              </SidebarMenu>
+              <SidebarProvider className="block min-h-0 w-auto">
+                <SidebarMenu>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton className="h-8" isActive>
+                      <File className="size-4 text-muted-foreground" />
+                      <span>page.tsx</span>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                </SidebarMenu>
+              </SidebarProvider>
             </div>
           </div>
           <div>
@@ -128,15 +133,17 @@ export default function FileTreePage() {
               Folder -- collapsed
             </p>
             <div className="rounded-xl border border-border bg-muted p-2">
-              <SidebarMenu>
-                <SidebarMenuItem>
-                  <SidebarMenuButton className="h-8">
-                    <ChevronRight className="size-4 text-muted-foreground" />
-                    <Folder className="size-4 text-muted-foreground" />
-                    <span>app</span>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              </SidebarMenu>
+              <SidebarProvider className="block min-h-0 w-auto">
+                <SidebarMenu>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton className="h-8">
+                      <ChevronRight className="size-4 text-muted-foreground" />
+                      <Folder className="size-4 text-muted-foreground" />
+                      <span>app</span>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                </SidebarMenu>
+              </SidebarProvider>
             </div>
           </div>
           <div>
@@ -144,15 +151,17 @@ export default function FileTreePage() {
               Folder -- expanded
             </p>
             <div className="rounded-xl border border-border bg-muted p-2">
-              <SidebarMenu>
-                <SidebarMenuItem>
-                  <SidebarMenuButton className="h-8">
-                    <ChevronRight className="size-4 rotate-90 text-muted-foreground" />
-                    <Folder className="size-4 text-muted-foreground" />
-                    <span>app</span>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              </SidebarMenu>
+              <SidebarProvider className="block min-h-0 w-auto">
+                <SidebarMenu>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton className="h-8">
+                      <ChevronRight className="size-4 rotate-90 text-muted-foreground" />
+                      <Folder className="size-4 text-muted-foreground" />
+                      <span>app</span>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                </SidebarMenu>
+              </SidebarProvider>
             </div>
           </div>
         </div>

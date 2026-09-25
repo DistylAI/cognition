@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ArrowRight, Bell, Heart, Plus, Settings } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/shadcn/button";
 import { CodeBlock } from "@/components/CodeBlock";
 import { IconGallery } from "./IconGallery";
 

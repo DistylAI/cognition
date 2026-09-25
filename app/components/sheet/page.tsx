@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "@/components/shadcn/button";
+import { Input } from "@/components/shadcn/input";
 import {
   Sheet,
   SheetClose,
@@ -10,13 +10,13 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
+} from "@/components/shadcn/sheet";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
   title: "Sheet",
   description:
-    "Sheet component -- a panel that slides in from an edge of the screen, built on Dialog. API matches fe-distillery components/ui/sheet.tsx.",
+    "Sheet component -- a panel that slides in from an edge of the screen, built on Dialog. API matches @distylai/toolkit-ui components/shadcn/sheet.",
 };
 
 const sides = ["top", "right", "bottom", "left"] as const;
@@ -32,7 +32,7 @@ const parts = [
   },
   {
     name: "SheetContent",
-    desc: "The sliding panel. side picks the edge (top / right / bottom / left); portals over an overlay with a built-in close button.",
+    desc: "The sliding panel. side picks the edge (top / right / bottom / left); portals over an overlay with a built-in close button. hideClose removes the close button. resizable adds a drag handle on the inner edge, clamped by minSize (default 320) and maxSize (default 90% of the viewport).",
   },
   {
     name: "SheetHeader / SheetFooter",
@@ -85,7 +85,7 @@ const installCode = `import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
+} from "@/components/shadcn/sheet";
 
 export function ProfileSheet() {
   return (
@@ -286,7 +286,7 @@ export default function SheetDocsPage() {
       <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
         <code className="font-mono text-foreground">
-          fe-distillery/components/ui/sheet.tsx
+          @distylai/toolkit-ui components/shadcn/sheet
         </code>{" "}
         -- <code className="font-mono text-foreground">Sheet</code> and its
         Trigger / Content / Header / Footer / Title / Description / Close parts,

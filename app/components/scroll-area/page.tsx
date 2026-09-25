@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { ScrollArea, ScrollBar } from "@/components/shadcn/scroll-area";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
@@ -50,7 +50,7 @@ const doCode = `<ScrollArea className="h-72 w-48 rounded-lg border">
   </div>
 </ScrollArea>`;
 
-const installCode = `import { ScrollArea } from "@/components/ui/scroll-area";
+const installCode = `import { ScrollArea } from "@/components/shadcn/scroll-area";
 
 export function TagList({ tags }: { tags: string[] }) {
   return (

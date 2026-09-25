@@ -3,8 +3,8 @@ import {
   RadioGroup,
   RadioGroupItem,
   RadioGroupLabeledOption,
-} from "@/components/ui/radio-group";
-import { Label } from "@/components/ui/label";
+} from "@/components/shadcn/radio-group";
+import { Label } from "@/components/shadcn/label";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
@@ -56,8 +56,8 @@ const doCode = `<RadioGroup defaultValue="weekly">
 const installCode = `import {
   RadioGroup,
   RadioGroupItem,
-} from "@/components/ui/radio-group";
-import { Label } from "@/components/ui/label";
+} from "@/components/shadcn/radio-group";
+import { Label } from "@/components/shadcn/label";
 
 export function Cadence() {
   return (
@@ -217,7 +217,7 @@ export default function RadioGroupPage() {
                 </div>
                 <div className="flex items-center gap-2">
                   <RadioGroupItem value="b" id="di-b" disabled />
-                  <Label htmlFor="di-b" disabled>
+                  <Label htmlFor="di-b" className="cursor-not-allowed opacity-50">
                     Unavailable
                   </Label>
                 </div>
@@ -236,13 +236,13 @@ export default function RadioGroupPage() {
               <RadioGroup defaultValue="a" disabled>
                 <div className="flex items-center gap-2">
                   <RadioGroupItem value="a" id="dg-a" />
-                  <Label htmlFor="dg-a" disabled>
+                  <Label htmlFor="dg-a" className="cursor-not-allowed opacity-50">
                     Option A
                   </Label>
                 </div>
                 <div className="flex items-center gap-2">
                   <RadioGroupItem value="b" id="dg-b" />
-                  <Label htmlFor="dg-b" disabled>
+                  <Label htmlFor="dg-b" className="cursor-not-allowed opacity-50">
                     Option B
                   </Label>
                 </div>

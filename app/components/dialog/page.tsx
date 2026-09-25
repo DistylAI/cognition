@@ -5,7 +5,7 @@ import { FormDialog, ShareLinkDialog, TextDialog } from "./DialogDemos";
 export const metadata: Metadata = {
   title: "Dialog",
   description:
-    "Dialog component: a modal window overlaid on the page, rendering the content underneath inert. API matches fe-distillery components/ui/dialog.tsx.",
+    "Dialog component: a modal window overlaid on the page, rendering the content underneath inert. API matches @distylai/toolkit-ui components/shadcn/dialog.",
 };
 
 const anatomyCode = `<Dialog>
@@ -47,8 +47,8 @@ const installCode = `import {
   DialogDescription,
   DialogFooter,
   DialogClose,
-} from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
+} from "@/components/shadcn/dialog";
+import { Button } from "@/components/shadcn/button";
 
 export function ConfirmDialog() {
   return (
@@ -113,7 +113,10 @@ export default function DialogPage() {
           <code className="font-mono">DialogFooter</code> own their padding: the
           footer is full-bleed with a top border and subtle tint. Body content
           sits between them, wrapped in{" "}
-          <code className="font-mono">px-4 pb-4</code>.
+          <code className="font-mono">px-4 pb-4</code>. Pass{" "}
+          <code className="font-mono">hideCloseButton</code> to{" "}
+          <code className="font-mono">DialogContent</code> to remove the
+          built-in close button.
         </p>
       </section>
 
@@ -177,7 +180,7 @@ export default function DialogPage() {
       <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
         <code className="font-mono text-foreground">
-          fe-distillery/components/ui/dialog.tsx
+          @distylai/toolkit-ui components/shadcn/dialog
         </code>{" "}
         <code className="font-mono text-foreground">Dialog</code>,{" "}
         <code className="font-mono text-foreground">DialogTrigger</code>,{" "}

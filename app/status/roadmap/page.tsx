@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/shadcn/badge";
+import { Button } from "@/components/shadcn/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "@/components/shadcn/card";
 
 export const metadata: Metadata = {
   title: "Roadmap",

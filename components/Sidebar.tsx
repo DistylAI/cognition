@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ChevronRight, Search, X } from "lucide-react";
-import { Kbd } from "@/components/ui/kbd";
+import { Kbd } from "@/components/shadcn/kbd";
 import { nav, type NavSection } from "@/lib/nav";
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -98,7 +98,7 @@ export function Sidebar() {
       <div className="mb-6 flex items-center justify-between gap-2">
         <Link href="/" className="group">
           <div className="flex items-center gap-2">
-            <span className="inline-block h-6 w-6 rounded-full bg-primary" />
+            <span className="inline-block size-6 rounded-full bg-primary" />
             <span className="text-lg font-bold tracking-tight text-foreground">
               Folio
             </span>

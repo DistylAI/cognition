@@ -18,73 +18,93 @@ import { CodeBlock } from "@/components/CodeBlock";
 export const metadata: Metadata = {
   title: "Item",
   description:
-    "Item component -- a single structured row with a leading element, a primary and optional secondary label, and a trailing element.",
+    "Item component -- a single structured row built from parts: ItemMedia, ItemContent with ItemTitle and ItemDescription, and ItemActions.",
 };
 
 const props = [
   {
-    name: "label",
-    type: "string",
-    def: "required",
-    desc: "The primary text of the row.",
+    name: "Item",
+    type: "variant, size, asChild",
+    def: 'variant="default" size="default"',
+    desc: "The row. variant is default, outline, or muted. size is default or sm. Use asChild to render a button or link.",
   },
   {
-    name: "secondaryLabel",
-    type: "string",
-    def: "undefined",
-    desc: "A secondary line below the label.",
+    name: "ItemMedia",
+    type: "variant",
+    def: 'variant="default"',
+    desc: "Leading element: an icon, avatar, or checkbox. variant is default, icon, or image.",
   },
   {
-    name: "leading",
-    type: "ReactNode",
-    def: "undefined",
-    desc: "Leading element: an icon, avatar, or checkbox.",
+    name: "ItemContent",
+    type: "div props",
+    def: "--",
+    desc: "Holds the title and the description in one column.",
   },
   {
-    name: "trailing",
-    type: "ReactNode",
-    def: "undefined",
+    name: "ItemTitle",
+    type: "variant",
+    def: 'variant="default"',
+    desc: "The primary text of the row. variant mono is for identifiers.",
+  },
+  {
+    name: "ItemDescription",
+    type: "size",
+    def: 'size="default"',
+    desc: "A secondary line below the title. size xs gives a one-line meta row.",
+  },
+  {
+    name: "ItemActions",
+    type: "div props",
+    def: "--",
     desc: "Trailing element: an action, badge, or status.",
   },
   {
-    name: "selected",
-    type: "boolean",
-    def: "false",
-    desc: "Marks the row as selected with the accent surface.",
+    name: "ItemHeader / ItemFooter",
+    type: "div props",
+    def: "--",
+    desc: "Full-width rows above or below the main row.",
   },
   {
-    name: "disabled",
-    type: "boolean",
-    def: "false",
-    desc: "Dims the row and blocks interaction.",
-  },
-  {
-    name: "onClick",
-    type: "() => void",
-    def: "undefined",
-    desc: "When set, the row renders as a button with hover and focus.",
+    name: "ItemGroup / ItemSeparator",
+    type: "div props",
+    def: "--",
+    desc: "A list of items, and a line between two items.",
   },
 ] as const;
 
-const doCode = `<Item
-  label="Derek Ho"
-  secondaryLabel="derek@distyl.ai"
-  leading={<Avatar>…</Avatar>}
-  trailing={<Badge>Owner</Badge>}
-  onClick={open}
-/>`;
+const doCode = `<Item asChild>
+  <button type="button" onClick={open}>
+    <ItemMedia><Avatar>…</Avatar></ItemMedia>
+    <ItemContent>
+      <ItemTitle>Derek Ho</ItemTitle>
+      <ItemDescription>derek@distyl.ai</ItemDescription>
+    </ItemContent>
+    <ItemActions><Badge>Owner</Badge></ItemActions>
+  </button>
+</Item>`;
 
-const installCode = `import { Item } from "@/components/ui/item";
+const installCode = `import {
+  Item,
+  ItemContent,
+  ItemDescription,
+  ItemMedia,
+  ItemTitle,
+} from "@/components/shadcn/item";
 import { Folder } from "lucide-react";
 
 export function ProjectRow() {
   return (
-    <Item
-      label="Projects"
-      secondaryLabel="14 active"
-      leading={<Folder />}
-      onClick={openProjects}
-    />
+    <Item asChild>
+      <button type="button" onClick={openProjects}>
+        <ItemMedia>
+          <Folder />
+        </ItemMedia>
+        <ItemContent>
+          <ItemTitle>Projects</ItemTitle>
+          <ItemDescription>14 active</ItemDescription>
+        </ItemContent>
+      </button>
+    </Item>
   );
 }`;
 
@@ -94,9 +114,9 @@ export default function ItemPage() {
       <p className="mb-2 text-caption">Components</p>
       <h1 className="text-lead text-foreground">Item</h1>
       <p className="mt-3 max-w-2xl text-body text-foreground">
-        A single structured row: a leading element, a primary label with an
-        optional secondary line, and a trailing element. It gives lists and rows
-        a consistent shape.
+        A single structured row: a leading ItemMedia, an ItemContent with a
+        title and an optional description, and trailing ItemActions. It gives
+        lists and rows a consistent shape.
       </p>
 
       {/* Preview */}
@@ -121,7 +141,7 @@ export default function ItemPage() {
             </div>
             <div className="border-t border-border p-3">
               <CodeBlock
-                code={`<Item label="Overview" />`}
+                code={`<Item><ItemContent><ItemTitle>Overview</ItemTitle></ItemContent></Item>`}
                 size="sm"
                 className="rounded-lg border border-border-subtle bg-muted"
               />
@@ -133,7 +153,7 @@ export default function ItemPage() {
             </div>
             <div className="border-t border-border p-3">
               <CodeBlock
-                code={`<Item leading={<Folder />} trailing={<ChevronRight />} />`}
+                code={`<ItemMedia><Folder /></ItemMedia> … <ItemActions><ChevronRight /></ItemActions>`}
                 size="sm"
                 className="rounded-lg border border-border-subtle bg-muted"
               />
@@ -145,7 +165,7 @@ export default function ItemPage() {
             </div>
             <div className="border-t border-border p-3">
               <CodeBlock
-                code={`<Item leading={<Avatar />} secondaryLabel="…" />`}
+                code={`<ItemMedia><Avatar /></ItemMedia> … <ItemDescription>…</ItemDescription>`}
                 size="sm"
                 className="rounded-lg border border-border-subtle bg-muted"
               />
@@ -157,7 +177,7 @@ export default function ItemPage() {
             </div>
             <div className="border-t border-border p-3">
               <CodeBlock
-                code={`<Item leading={<Checkbox />} />`}
+                code={`<ItemMedia><Checkbox /></ItemMedia>`}
                 size="sm"
                 className="rounded-lg border border-border-subtle bg-muted"
               />
@@ -169,7 +189,7 @@ export default function ItemPage() {
             </div>
             <div className="border-t border-border p-3">
               <CodeBlock
-                code={`<Item trailing={<Badge>Pro</Badge>} />`}
+                code={`<ItemActions><Badge>Pro</Badge></ItemActions>`}
                 size="sm"
                 className="rounded-lg border border-border-subtle bg-muted"
               />
@@ -181,7 +201,7 @@ export default function ItemPage() {
             </div>
             <div className="border-t border-border p-3">
               <CodeBlock
-                code={`<Item trailing={<Button size="icon-sm">…</Button>} />`}
+                code={`<ItemActions><Button size="icon-sm">…</Button></ItemActions>`}
                 size="sm"
                 className="rounded-lg border border-border-subtle bg-muted"
               />
@@ -193,7 +213,7 @@ export default function ItemPage() {
             </div>
             <div className="border-t border-border p-3">
               <CodeBlock
-                code={`<Item label="Billing" secondaryLabel="Invoices, payment method, and plan" />`}
+                code={`<ItemTitle>Billing</ItemTitle>\n<ItemDescription>Invoices, payment method, and plan</ItemDescription>`}
                 size="sm"
                 className="rounded-lg border border-border-subtle bg-muted"
               />
@@ -201,8 +221,9 @@ export default function ItemPage() {
           </div>
         </div>
         <p className="mt-2 text-small">
-          Leading icons, avatars, or checkboxes; trailing badges or actions; and
-          an optional secondary label all compose into the same row.
+          Leading icons, avatars, or checkboxes in ItemMedia; trailing badges or
+          actions in ItemActions; and an optional ItemDescription all compose
+          into the same row.
         </p>
       </section>
 
@@ -234,7 +255,7 @@ export default function ItemPage() {
             </div>
             <div className="border-t border-border p-3">
               <p className="text-caption">
-                Selected. Accent surface; click to toggle.
+                Selected. Set aria-current on the row; click to toggle.
               </p>
             </div>
           </div>
@@ -248,9 +269,11 @@ export default function ItemPage() {
           </div>
         </div>
         <p className="mt-2 text-small">
-          Hover and focus apply only when the row is interactive (has an{" "}
-          <code className="font-mono">onClick</code>). Selected and disabled read
-          on the row itself.
+          Hover and focus apply only when the row is interactive (rendered as a{" "}
+          <code className="font-mono">button</code> or link with{" "}
+          <code className="font-mono">asChild</code>). Selected (
+          <code className="font-mono">aria-current</code>) and disabled read on
+          the row itself.
         </p>
       </section>
 
@@ -260,8 +283,8 @@ export default function ItemPage() {
         <div className="overflow-x-auto rounded-xl border border-border">
           <div className="min-w-[640px]">
             <div className="grid grid-cols-[1.4fr_1.8fr_1fr_3fr] gap-4 border-b border-border bg-muted px-4 py-2 text-caption font-medium">
-              <div>Prop</div>
-              <div>Type</div>
+              <div>Part</div>
+              <div>Props</div>
               <div>Default</div>
               <div>Description</div>
             </div>

@@ -11,7 +11,7 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/components/ui/tabs";
+} from "@/components/shadcn/tabs";
 
 const panelClass =
   "overflow-hidden rounded-b-xl rounded-tr-xl border border-border";

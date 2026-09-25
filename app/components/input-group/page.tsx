@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import { AtSign, Check, Globe, Search, Send } from "lucide-react";
-import { InputGroup } from "@/components/ui/input-group";
-import { Button } from "@/components/ui/button";
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupButton,
+  InputGroupInput,
+  InputGroupText,
+} from "@/components/shadcn/input-group";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
@@ -10,70 +15,170 @@ export const metadata: Metadata = {
     "Input Group component -- an Input with attached leading or trailing context: icons, prefixes, suffixes, or an action, inside one visual boundary.",
 };
 
-const props = [
+// Gives the attached action the Folio look: a 28px outline button with a 4px
+// radius that nests inside the group's 8px corner.
+const actionClass =
+  "h-7 gap-2 rounded-sm text-xs shadow [&_svg:not([class*='size-'])]:size-3.5";
+
+const parts = [
   {
-    name: "leadingIcon",
-    type: "ReactNode",
-    def: "undefined",
-    desc: "Icon rendered before the field, for context such as search or email.",
+    name: "InputGroup",
+    type: "div props",
+    def: "—",
+    desc: "The single visual boundary. It takes its focus, error, and disabled look from the control inside it.",
   },
   {
-    name: "trailingIcon",
-    type: "ReactNode",
-    def: "undefined",
-    desc: "Icon rendered after the field, for status such as a validation check.",
+    name: "InputGroupAddon",
+    type: '"inline-start" | "inline-end" | "block-start" | "block-end"',
+    def: '"inline-start"',
+    desc: "align -- where the attached context sits. Holds an icon, InputGroupText, or InputGroupButton. A click on it focuses the input.",
   },
   {
-    name: "leadingText",
-    type: "string",
-    def: "undefined",
-    desc: "Static prefix shown before the value, for example a protocol or currency.",
+    name: "InputGroupText",
+    type: "span props",
+    def: "—",
+    desc: "Static prefix or suffix text, for example a protocol, a unit, or a domain.",
   },
   {
-    name: "trailingText",
-    type: "string",
-    def: "undefined",
-    desc: "Static suffix shown after the value, for example a unit or domain.",
+    name: "InputGroupInput",
+    type: "Input props",
+    def: "—",
+    desc: "The field. Set aria-invalid for the error state and disabled to dim the group. All native input props pass through.",
   },
   {
-    name: "trailingAction",
-    type: "ReactNode",
-    def: "undefined",
-    desc: "A single action attached to the trailing edge, usually a small Button.",
+    name: "InputGroupTextarea",
+    type: "textarea props",
+    def: "—",
+    desc: "A multi-line field in place of InputGroupInput. The group grows to fit it.",
   },
   {
-    name: "error",
-    type: "boolean",
-    def: "false",
-    desc: "Applies the danger border and ring to signal an invalid value.",
-  },
-  {
-    name: "disabled",
-    type: "boolean",
-    def: "false",
-    desc: "Dims the group and blocks input.",
+    name: "InputGroupButton",
+    type: '"xs" | "sm" | "icon-xs" | "icon-sm"',
+    def: '"xs"',
+    desc: "size -- an action attached inside the boundary. Takes Button variant (default \"ghost\") and type (default \"button\").",
   },
 ] as const;
 
-const doCode = `<InputGroup
-  leadingIcon={<Search />}
-  placeholder="Search the workspace..."
-  trailingAction={<Button size="sm">Search</Button>}
-/>`;
+const leadingIconCode = `<InputGroup>
+  <InputGroupInput placeholder="Search..." />
+  <InputGroupAddon>
+    <Search />
+  </InputGroupAddon>
+</InputGroup>`;
 
-const installCode = `import { InputGroup } from "@/components/ui/input-group";
+const trailingIconCode = `<InputGroup>
+  <InputGroupInput defaultValue="alex@distyl.ai" />
+  <InputGroupAddon align="inline-end">
+    <Check className="text-success" />
+  </InputGroupAddon>
+</InputGroup>`;
+
+const leadingTextCode = `<InputGroup>
+  <InputGroupInput placeholder="workspace" />
+  <InputGroupAddon>
+    <InputGroupText>https://</InputGroupText>
+  </InputGroupAddon>
+</InputGroup>`;
+
+const trailingTextCode = `<InputGroup>
+  <InputGroupInput placeholder="0.00" />
+  <InputGroupAddon align="inline-end">
+    <InputGroupText>USD</InputGroupText>
+  </InputGroupAddon>
+</InputGroup>`;
+
+const actionCode = `<InputGroup>
+  <InputGroupInput placeholder="Invite by email" />
+  <InputGroupAddon align="inline-end">
+    <InputGroupButton variant="outline" size="sm" className="${actionClass}">
+      <Send />
+    </InputGroupButton>
+  </InputGroupAddon>
+</InputGroup>`;
+
+const iconActionCode = `<InputGroup>
+  <InputGroupInput placeholder="username" />
+  <InputGroupAddon>
+    <AtSign />
+  </InputGroupAddon>
+  <InputGroupAddon align="inline-end">
+    <InputGroupButton variant="outline" size="sm" className="${actionClass}">
+      Add
+    </InputGroupButton>
+  </InputGroupAddon>
+</InputGroup>`;
+
+const errorCode = `<InputGroup>
+  <InputGroupInput aria-invalid defaultValue="not a domain" />
+  <InputGroupAddon>
+    <Globe />
+  </InputGroupAddon>
+</InputGroup>`;
+
+const disabledCode = `<InputGroup>
+  <InputGroupInput disabled defaultValue="folio" />
+  <InputGroupAddon>
+    <Globe />
+  </InputGroupAddon>
+</InputGroup>`;
+
+const doCode = `<InputGroup>
+  <InputGroupInput placeholder="Search the workspace..." />
+  <InputGroupAddon>
+    <Search />
+  </InputGroupAddon>
+  <InputGroupAddon align="inline-end">
+    <InputGroupButton variant="outline" size="sm" className="${actionClass}">
+      Search
+    </InputGroupButton>
+  </InputGroupAddon>
+</InputGroup>`;
+
+const installCode = `import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+  InputGroupText,
+} from "@/components/shadcn/input-group";
 import { Globe } from "lucide-react";
 
 export function SiteField() {
   return (
-    <InputGroup
-      leadingIcon={<Globe />}
-      leadingText="https://"
-      trailingText=".distyl.ai"
-      placeholder="workspace"
-    />
+    <InputGroup>
+      <InputGroupInput placeholder="workspace" />
+      <InputGroupAddon>
+        <Globe />
+        <InputGroupText>https://</InputGroupText>
+      </InputGroupAddon>
+      <InputGroupAddon align="inline-end">
+        <InputGroupText>.distyl.ai</InputGroupText>
+      </InputGroupAddon>
+    </InputGroup>
   );
 }`;
+
+function Cell({
+  children,
+  code,
+}: {
+  children: React.ReactNode;
+  code: string;
+}) {
+  return (
+    <div className="overflow-hidden rounded-xl border border-border">
+      <div className="flex items-center justify-center bg-muted p-8">
+        {children}
+      </div>
+      <div className="border-t border-border p-3">
+        <CodeBlock
+          code={code}
+          size="sm"
+          className="rounded-lg border border-border-subtle bg-muted"
+        />
+      </div>
+    </div>
+  );
+}
 
 export default function InputGroupPage() {
   return (
@@ -99,20 +204,26 @@ export default function InputGroupPage() {
         <h3 className="mt-12 mb-4 text-lead text-foreground">Preview</h3>
         <div className="flex items-center justify-center rounded-xl border border-border bg-muted p-10">
           <div className="w-full max-w-sm">
-            <InputGroup
-              leadingIcon={<Search />}
-              placeholder="Search the workspace..."
-              trailingAction={
-                <Button size="sm" variant="outline">
+            <InputGroup>
+              <InputGroupInput placeholder="Search the workspace..." />
+              <InputGroupAddon>
+                <Search />
+              </InputGroupAddon>
+              <InputGroupAddon align="inline-end">
+                <InputGroupButton
+                  variant="outline"
+                  size="sm"
+                  className={actionClass}
+                >
                   Search
-                </Button>
-              }
-            />
+                </InputGroupButton>
+              </InputGroupAddon>
+            </InputGroup>
           </div>
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Folio tokens. Focus it and the whole group rings,
-          no <code className="font-mono">dark:</code> classes.
+          Rendered with live Folio tokens. Focus it and the whole group border
+          changes color, no <code className="font-mono">dark:</code> classes.
         </p>
       </section>
 
@@ -120,100 +231,77 @@ export default function InputGroupPage() {
       <section id="variants" className="scroll-mt-8">
         <h3 className="mt-12 mb-4 text-lead text-foreground">Variants</h3>
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-          <div className="overflow-hidden rounded-xl border border-border">
-            <div className="flex items-center justify-center bg-muted p-8">
-              <InputGroup leadingIcon={<Search />} placeholder="Search..." />
-            </div>
-            <div className="border-t border-border p-3">
-              <CodeBlock
-                code={`<InputGroup leadingIcon={<Search />} />`}
-                size="sm"
-                className="rounded-lg border border-border-subtle bg-muted"
-              />
-            </div>
-          </div>
-          <div className="overflow-hidden rounded-xl border border-border">
-            <div className="flex items-center justify-center bg-muted p-8">
-              <InputGroup
-                trailingIcon={<Check className="text-success" />}
-                defaultValue="alex@distyl.ai"
-              />
-            </div>
-            <div className="border-t border-border p-3">
-              <CodeBlock
-                code={`<InputGroup trailingIcon={<Check />} />`}
-                size="sm"
-                className="rounded-lg border border-border-subtle bg-muted"
-              />
-            </div>
-          </div>
-          <div className="overflow-hidden rounded-xl border border-border">
-            <div className="flex items-center justify-center bg-muted p-8">
-              <InputGroup leadingText="https://" placeholder="workspace" />
-            </div>
-            <div className="border-t border-border p-3">
-              <CodeBlock
-                code={`<InputGroup leadingText="https://" />`}
-                size="sm"
-                className="rounded-lg border border-border-subtle bg-muted"
-              />
-            </div>
-          </div>
-          <div className="overflow-hidden rounded-xl border border-border">
-            <div className="flex items-center justify-center bg-muted p-8">
-              <InputGroup trailingText="USD" placeholder="0.00" />
-            </div>
-            <div className="border-t border-border p-3">
-              <CodeBlock
-                code={`<InputGroup trailingText="USD" />`}
-                size="sm"
-                className="rounded-lg border border-border-subtle bg-muted"
-              />
-            </div>
-          </div>
-          <div className="overflow-hidden rounded-xl border border-border">
-            <div className="flex items-center justify-center bg-muted p-8">
-              <InputGroup
-                placeholder="Invite by email"
-                trailingAction={
-                  <Button size="sm" variant="outline">
-                    <Send />
-                  </Button>
-                }
-              />
-            </div>
-            <div className="border-t border-border p-3">
-              <CodeBlock
-                code={`<InputGroup trailingAction={<Button size="sm">…</Button>} />`}
-                size="sm"
-                className="rounded-lg border border-border-subtle bg-muted"
-              />
-            </div>
-          </div>
-          <div className="overflow-hidden rounded-xl border border-border">
-            <div className="flex items-center justify-center bg-muted p-8">
-              <InputGroup
-                leadingIcon={<AtSign />}
-                placeholder="username"
-                trailingAction={
-                  <Button size="sm" variant="outline">
-                    Add
-                  </Button>
-                }
-              />
-            </div>
-            <div className="border-t border-border p-3">
-              <CodeBlock
-                code={`<InputGroup leadingIcon={<AtSign />} trailingAction={…} />`}
-                size="sm"
-                className="rounded-lg border border-border-subtle bg-muted"
-              />
-            </div>
-          </div>
+          <Cell code={leadingIconCode}>
+            <InputGroup>
+              <InputGroupInput placeholder="Search..." />
+              <InputGroupAddon>
+                <Search />
+              </InputGroupAddon>
+            </InputGroup>
+          </Cell>
+          <Cell code={trailingIconCode}>
+            <InputGroup>
+              <InputGroupInput defaultValue="alex@distyl.ai" />
+              <InputGroupAddon align="inline-end">
+                <Check className="text-success" />
+              </InputGroupAddon>
+            </InputGroup>
+          </Cell>
+          <Cell code={leadingTextCode}>
+            <InputGroup>
+              <InputGroupInput placeholder="workspace" />
+              <InputGroupAddon>
+                <InputGroupText>https://</InputGroupText>
+              </InputGroupAddon>
+            </InputGroup>
+          </Cell>
+          <Cell code={trailingTextCode}>
+            <InputGroup>
+              <InputGroupInput placeholder="0.00" />
+              <InputGroupAddon align="inline-end">
+                <InputGroupText>USD</InputGroupText>
+              </InputGroupAddon>
+            </InputGroup>
+          </Cell>
+          <Cell code={actionCode}>
+            <InputGroup>
+              <InputGroupInput placeholder="Invite by email" />
+              <InputGroupAddon align="inline-end">
+                <InputGroupButton
+                  variant="outline"
+                  size="sm"
+                  className={actionClass}
+                >
+                  <Send />
+                </InputGroupButton>
+              </InputGroupAddon>
+            </InputGroup>
+          </Cell>
+          <Cell code={iconActionCode}>
+            <InputGroup>
+              <InputGroupInput placeholder="username" />
+              <InputGroupAddon>
+                <AtSign />
+              </InputGroupAddon>
+              <InputGroupAddon align="inline-end">
+                <InputGroupButton
+                  variant="outline"
+                  size="sm"
+                  className={actionClass}
+                >
+                  Add
+                </InputGroupButton>
+              </InputGroupAddon>
+            </InputGroup>
+          </Cell>
         </div>
         <p className="mt-2 text-small">
-          Leading and trailing slots compose: an icon, a prefix or suffix, an
-          action, or an icon paired with an action.
+          Each <code className="font-mono">InputGroupAddon</code> holds one kind
+          of context: an icon, an{" "}
+          <code className="font-mono">InputGroupText</code> prefix or suffix, or
+          an <code className="font-mono">InputGroupButton</code>. Set{" "}
+          <code className="font-mono">align</code> to put it at the start or the
+          end. Use one addon on each side to pair an icon with an action.
         </p>
       </section>
 
@@ -223,7 +311,12 @@ export default function InputGroupPage() {
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
           <div className="overflow-hidden rounded-xl border border-border">
             <div className="flex items-center justify-center bg-muted p-8">
-              <InputGroup leadingIcon={<Globe />} placeholder="workspace" />
+              <InputGroup>
+                <InputGroupInput placeholder="workspace" />
+                <InputGroupAddon>
+                  <Globe />
+                </InputGroupAddon>
+              </InputGroup>
             </div>
             <div className="border-t border-border p-3">
               <p className="text-caption">Default. Empty and at rest.</p>
@@ -231,11 +324,12 @@ export default function InputGroupPage() {
           </div>
           <div className="overflow-hidden rounded-xl border border-border">
             <div className="flex items-center justify-center bg-muted p-8">
-              <InputGroup
-                leadingIcon={<Globe />}
-                placeholder="workspace"
-                className="border-primary ring-1 ring-ring"
-              />
+              <InputGroup className="border-primary ring-1 ring-ring">
+                <InputGroupInput placeholder="workspace" />
+                <InputGroupAddon>
+                  <Globe />
+                </InputGroupAddon>
+              </InputGroup>
             </div>
             <div className="border-t border-border p-3">
               <p className="text-caption">
@@ -245,7 +339,12 @@ export default function InputGroupPage() {
           </div>
           <div className="overflow-hidden rounded-xl border border-border">
             <div className="flex items-center justify-center bg-muted p-8">
-              <InputGroup leadingIcon={<Globe />} defaultValue="folio" />
+              <InputGroup>
+                <InputGroupInput defaultValue="folio" />
+                <InputGroupAddon>
+                  <Globe />
+                </InputGroupAddon>
+              </InputGroup>
             </div>
             <div className="border-t border-border p-3">
               <p className="text-caption">Filled. Holds a value.</p>
@@ -253,15 +352,16 @@ export default function InputGroupPage() {
           </div>
           <div className="overflow-hidden rounded-xl border border-border">
             <div className="flex items-center justify-center bg-muted p-8">
-              <InputGroup
-                leadingIcon={<Globe />}
-                defaultValue="not a domain"
-                error
-              />
+              <InputGroup>
+                <InputGroupInput aria-invalid defaultValue="not a domain" />
+                <InputGroupAddon>
+                  <Globe />
+                </InputGroupAddon>
+              </InputGroup>
             </div>
             <div className="border-t border-border p-3">
               <CodeBlock
-                code={`<InputGroup error />`}
+                code={errorCode}
                 size="sm"
                 className="rounded-lg border border-border-subtle bg-muted"
               />
@@ -269,15 +369,16 @@ export default function InputGroupPage() {
           </div>
           <div className="overflow-hidden rounded-xl border border-border">
             <div className="flex items-center justify-center bg-muted p-8">
-              <InputGroup
-                leadingIcon={<Globe />}
-                defaultValue="folio"
-                disabled
-              />
+              <InputGroup>
+                <InputGroupInput disabled defaultValue="folio" />
+                <InputGroupAddon>
+                  <Globe />
+                </InputGroupAddon>
+              </InputGroup>
             </div>
             <div className="border-t border-border p-3">
               <CodeBlock
-                code={`<InputGroup disabled />`}
+                code={disabledCode}
                 size="sm"
                 className="rounded-lg border border-border-subtle bg-muted"
               />
@@ -285,8 +386,12 @@ export default function InputGroupPage() {
           </div>
         </div>
         <p className="mt-2 text-small">
-          Focus rings the entire boundary, not just the inner field. Error swaps
-          the border and ring to the danger token.
+          The group reads its state from the control. Focus on{" "}
+          <code className="font-mono">InputGroupInput</code> changes the whole
+          boundary, not only the inner field.{" "}
+          <code className="font-mono">aria-invalid</code> swaps the border to the
+          danger token, and <code className="font-mono">disabled</code> dims the
+          whole group.
         </p>
       </section>
 
@@ -296,13 +401,13 @@ export default function InputGroupPage() {
         <div className="overflow-x-auto rounded-xl border border-border">
           <div className="min-w-[640px]">
             <div className="grid grid-cols-[1.4fr_1.8fr_1fr_3fr] gap-4 border-b border-border bg-muted px-4 py-2 text-caption font-medium">
-              <div>Prop</div>
-              <div>Type</div>
+              <div>Part</div>
+              <div>Key prop</div>
               <div>Default</div>
               <div>Description</div>
             </div>
             <div className="divide-y divide-border">
-              {props.map((p) => (
+              {parts.map((p) => (
                 <div
                   key={p.name}
                   className="grid grid-cols-[1.4fr_1.8fr_1fr_3fr] gap-4 px-4 py-3"
@@ -323,8 +428,10 @@ export default function InputGroupPage() {
           </div>
         </div>
         <p className="mt-2 text-small">
-          All standard <code className="font-mono">input</code> props pass
-          through to the inner field.
+          Order the parts in JSX as you like: each addon places itself with{" "}
+          <code className="font-mono">align</code>. Put{" "}
+          <code className="font-mono">InputGroupInput</code> first so the tab
+          order reaches the field before any action.
         </p>
       </section>
 
@@ -369,7 +476,16 @@ export default function InputGroupPage() {
       </section>
 
       <footer className="mt-16 border-t border-border pt-6 text-small">
-        Folio v1.2 · June 2026
+        API matches{" "}
+        <code className="font-mono text-foreground">@distylai/toolkit-ui</code>{" "}
+        -- compound parts{" "}
+        <code className="font-mono text-foreground">InputGroup</code>,{" "}
+        <code className="font-mono text-foreground">InputGroupAddon</code>,{" "}
+        <code className="font-mono text-foreground">InputGroupText</code>,{" "}
+        <code className="font-mono text-foreground">InputGroupInput</code>,{" "}
+        <code className="font-mono text-foreground">InputGroupTextarea</code>,
+        and <code className="font-mono text-foreground">InputGroupButton</code>
+        . The classes use Folio tokens.
       </footer>
     </div>
   );

@@ -4,14 +4,14 @@ import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible";
-import { Button } from "@/components/ui/button";
+} from "@/components/shadcn/collapsible";
+import { Button } from "@/components/shadcn/button";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
   title: "Collapsible",
   description:
-    "Collapsible component -- an interactive element that expands and collapses a panel. API matches fe-distillery components/ui/collapsible.tsx.",
+    "Collapsible component -- an interactive element that expands and collapses a panel. API matches toolkit-ui components/shadcn/collapsible.",
 };
 
 const parts = [
@@ -25,7 +25,7 @@ const parts = [
   },
   {
     name: "CollapsibleContent",
-    desc: "The panel that shows when open and is removed when closed.",
+    desc: "The panel that shows when open and is removed when closed. Its height animates open and closed.",
   },
 ] as const;
 
@@ -64,7 +64,7 @@ const installCode = `import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+} from "@/components/shadcn/collapsible";
 
 export function OrderPanel() {
   return (
@@ -300,7 +300,7 @@ export default function CollapsibleDocsPage() {
       <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
         <code className="font-mono text-foreground">
-          fe-distillery/components/ui/collapsible.tsx
+          toolkit-ui/components/shadcn/collapsible
         </code>{" "}
         -- <code className="font-mono text-foreground">Collapsible</code>,{" "}
         <code className="font-mono text-foreground">CollapsibleTrigger</code>,{" "}

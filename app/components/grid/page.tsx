@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Grid } from "@/components/ui/grid";
+import { Grid } from "@/components/folio/grid";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "Grid component: a CSS grid layout primitive with named column counts and Folio spacing tokens.",
 };
 
-const installCode = `import { Grid } from "@/components/ui/grid";
+const installCode = `import { Grid } from "@/components/folio/grid";
 
 export function Example() {
   return (
@@ -34,7 +34,8 @@ export default function GridPage() {
       <h1 className="text-lead text-foreground">Grid</h1>
       <p className="mt-3 max-w-2xl text-body text-foreground">
         A CSS grid layout primitive with named column counts and Folio
-        spacing tokens. Replaces inline grid utilities across the codebase.
+        spacing tokens. Replaces inline grid utilities across the codebase. Grid
+        is Folio-only: it lives in components/folio, not components/shadcn.
       </p>
 
       {/* Preview */}

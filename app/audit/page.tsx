@@ -25,7 +25,7 @@ function parseAudit(md: string): { meta: string[]; sections: AuditSection[] } {
 
   for (const chunk of chunks) {
     const m = chunk.match(/^## (.+?)\n([\s\S]*)$/);
-    if (!m) continue; // the leading "# Title" block -- skip
+    if (!m?.[1] || m[2] === undefined) continue; // the leading "# Title" block -- skip
     const title = m[1].trim();
     const body = m[2].replace(/\n*---\s*$/g, "").trim();
 

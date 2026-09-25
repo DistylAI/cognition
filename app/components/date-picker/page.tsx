@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Calendar as CalendarIcon } from "lucide-react";
-import { DatePicker, DateRangePicker } from "@/components/ui/date-picker";
-import { Calendar } from "@/components/ui/calendar";
-import { Button } from "@/components/ui/button";
+import { DatePicker, DateRangePicker } from "@/components/folio/date-picker";
+import { Calendar } from "@/components/shadcn/calendar";
+import { Button } from "@/components/shadcn/button";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
@@ -37,16 +37,16 @@ const props = [
     desc: "Shows a clear control on the trigger once a date is chosen.",
   },
   {
-    name: "Calendar props",
-    type: "mode | selected | onSelect | disabled",
+    name: "ref",
+    type: "Ref<HTMLDivElement | HTMLButtonElement>",
     def: "—",
-    desc: "Passed through to the embedded Calendar via composition.",
+    desc: "DatePicker forwards it to its wrapper div, DateRangePicker to its trigger button.",
   },
 ] as const;
 
 const doCode = `<DatePicker placeholder="Due date" />`;
 
-const installCode = `import { DatePicker } from "@/components/ui/date-picker";
+const installCode = `import { DatePicker } from "@/components/folio/date-picker";
 
 export function DueDateField() {
   return <DatePicker placeholder="Due date" clearable />;

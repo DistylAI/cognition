@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { AspectRatio } from "@/components/shadcn/aspect-ratio";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
   title: "Aspect Ratio",
   description:
-    "Aspect Ratio component -- constrains content to a desired width-to-height ratio. API matches fe-distillery components/ui/aspect-ratio.tsx.",
+    "Aspect Ratio component -- constrains content to a desired width-to-height ratio. API matches toolkit-ui components/shadcn/aspect-ratio.",
 };
 
 const ratios = [
@@ -44,7 +44,7 @@ const mediaCode = `<AspectRatio ratio={16 / 9} className="overflow-hidden rounde
   <img src={src} alt="" className="size-full object-cover" />
 </AspectRatio>`;
 
-const installCode = `import { AspectRatio } from "@/components/ui/aspect-ratio";
+const installCode = `import { AspectRatio } from "@/components/shadcn/aspect-ratio";
 
 export function Cover({ src }: { src: string }) {
   return (
@@ -233,7 +233,7 @@ export default function AspectRatioDocsPage() {
       <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
         <code className="font-mono text-foreground">
-          fe-distillery/components/ui/aspect-ratio.tsx
+          toolkit-ui/components/shadcn/aspect-ratio
         </code>{" "}
         -- a re-export of the Radix{" "}
         <code className="font-mono text-foreground">AspectRatio</code> root.

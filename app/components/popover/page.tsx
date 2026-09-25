@@ -9,7 +9,7 @@ import {
 export const metadata: Metadata = {
   title: "Popover",
   description:
-    "Popover component -- displays rich content in a portal, triggered by a button. API matches fe-distillery components/ui/popover.tsx.",
+    "Popover component -- displays rich content in a portal, triggered by a button. API matches @distylai/toolkit-ui components/shadcn/popover.",
 };
 
 const props = [
@@ -85,7 +85,7 @@ const installCode = `import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
+} from "@/components/shadcn/popover";
 
 export function DimensionsPopover() {
   return (
@@ -265,12 +265,13 @@ export default function PopoverDocsPage() {
       <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
         <code className="font-mono text-foreground">
-          fe-distillery/components/ui/popover.tsx
+          @distylai/toolkit-ui components/shadcn/popover
         </code>{" "}
         -- <code className="font-mono text-foreground">Popover</code>,{" "}
         <code className="font-mono text-foreground">PopoverTrigger</code>,{" "}
         <code className="font-mono text-foreground">PopoverAnchor</code>,{" "}
-        <code className="font-mono text-foreground">PopoverContent</code>. The
+        <code className="font-mono text-foreground">PopoverContent</code>,{" "}
+        <code className="font-mono text-foreground">PopoverPortal</code>. The
         raw popover surface and foreground are replaced with Folio tokens,
         matching the Dropdown Menu and Dialog content.
       </footer>

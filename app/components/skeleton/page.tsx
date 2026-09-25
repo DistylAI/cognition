@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from "@/components/shadcn/skeleton";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
   title: "Skeleton",
   description:
-    "Skeleton component -- a placeholder shown while content loads. API matches fe-distillery components/ui/skeleton.tsx.",
+    "Skeleton component -- a placeholder shown while content loads. API matches toolkit-ui components/shadcn/skeleton.",
 };
 
-const installCode = `import { Skeleton } from "@/components/ui/skeleton";
+const installCode = `import { Skeleton } from "@/components/shadcn/skeleton";
 
 export function CardSkeleton() {
   return (
@@ -150,7 +150,7 @@ export default function SkeletonPage() {
       <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
         <code className="font-mono text-foreground">
-          fe-distillery/components/ui/skeleton.tsx
+          toolkit-ui/components/shadcn/skeleton
         </code>
         . The raw <code className="font-mono text-foreground">bg-primary/10</code>{" "}
         fill is replaced with the Folio{" "}

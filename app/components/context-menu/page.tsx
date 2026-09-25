@@ -18,7 +18,7 @@ import {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuTrigger,
-} from "@/components/ui/context-menu";
+} from "@/components/shadcn/context-menu";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
@@ -58,7 +58,7 @@ const installCode = `import {
   ContextMenuItem,
   ContextMenuShortcut,
   ContextMenuTrigger,
-} from "@/components/ui/context-menu";
+} from "@/components/shadcn/context-menu";
 
 export function FileTile({ children }) {
   return (
@@ -111,11 +111,8 @@ function MockItem({
   destructive?: boolean;
 }) {
   const tone = destructive ? "text-destructive" : "text-foreground";
-  const hl = highlighted
-    ? destructive
-      ? "bg-destructive-subtle"
-      : "bg-secondary"
-    : "";
+  const highlightTone = destructive ? "bg-destructive-subtle" : "bg-secondary";
+  const hl = highlighted ? highlightTone : "";
   const dis = disabled ? "opacity-50" : "";
   return (
     <div className={`${itemBase} ${tone} ${hl} ${dis}`}>

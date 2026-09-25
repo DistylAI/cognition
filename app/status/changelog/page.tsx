@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/components/shadcn/badge";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "@/components/shadcn/card";
 import { getGeneratedVersions } from "@/lib/changelog";
 
 export const metadata: Metadata = {
@@ -124,7 +124,7 @@ function Bullets({ items }: { items: string[] }) {
     <ul className="space-y-2">
       {items.map((item, i) => (
         <li key={i} className="flex gap-2 text-small text-foreground">
-          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-muted-foreground" />
+          <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-muted-foreground" />
           {item}
         </li>
       ))}

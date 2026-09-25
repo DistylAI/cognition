@@ -10,8 +10,8 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
-import { Button } from "@/components/ui/button";
+} from "@/components/shadcn/alert-dialog";
+import { Button } from "@/components/shadcn/button";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
@@ -28,8 +28,8 @@ const composition = [
   { name: "AlertDialogFooter", desc: "Wraps the two actions, aligned right." },
   { name: "AlertDialogTitle", desc: "The required heading naming the decision." },
   { name: "AlertDialogDescription", desc: "Explains the consequence of the action." },
-  { name: "AlertDialogAction", desc: "The confirm button. Add the destructive style for danger." },
-  { name: "AlertDialogCancel", desc: "The cancel button. Always present." },
+  { name: "AlertDialogAction", desc: "The confirm button. Takes Button props: set variant=\"destructive\" for danger, loading and loadingText while it works." },
+  { name: "AlertDialogCancel", desc: "The cancel button. Takes Button props, variant defaults to outline. Always present." },
 ] as const;
 
 const doCode = `<AlertDialog>
@@ -45,7 +45,7 @@ const doCode = `<AlertDialog>
     </AlertDialogHeader>
     <AlertDialogFooter>
       <AlertDialogCancel>Cancel</AlertDialogCancel>
-      <AlertDialogAction>Delete</AlertDialogAction>
+      <AlertDialogAction variant="destructive">Delete</AlertDialogAction>
     </AlertDialogFooter>
   </AlertDialogContent>
 </AlertDialog>`;
@@ -60,8 +60,8 @@ const installCode = `import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
-import { Button } from "@/components/ui/button";
+} from "@/components/shadcn/alert-dialog";
+import { Button } from "@/components/shadcn/button";
 
 export function ConfirmDelete() {
   return (
@@ -205,9 +205,7 @@ export default function AlertDialogPage() {
             </div>
             <div className="border-t border-border p-3">
               <CodeBlock
-                code={`<AlertDialogAction
-  className={buttonVariants({ variant: "destructive" })}
->
+                code={`<AlertDialogAction variant="destructive">
   Delete
 </AlertDialogAction>`}
                 size="sm"

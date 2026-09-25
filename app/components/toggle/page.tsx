@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { Bold, Italic, Underline } from "lucide-react";
-import { Toggle } from "@/components/ui/toggle";
+import { Toggle } from "@/components/shadcn/toggle";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
   title: "Toggle",
   description:
-    "Toggle component -- a two-state button that can be either on or off. API matches fe-distillery components/ui/toggle.tsx.",
+    "Toggle component -- a two-state button that can be either on or off. API matches @distylai/toolkit-ui Toggle.",
 };
 
 const props = [
@@ -30,15 +30,21 @@ const props = [
   },
   {
     name: "variant",
-    type: '"default" | "outline"',
+    type: '"default" | "outline" | "secondary"',
     def: '"default"',
-    desc: "default is borderless; outline adds a border for standalone use.",
+    desc: "default is borderless; outline adds a border for standalone use; secondary is a segment inside a secondary ToggleGroup track.",
   },
   {
     name: "size",
-    type: '"sm" | "default" | "lg"',
+    type: '"default" | "sm" | "xs" | "xxs" | "icon" | "icon-sm" | "icon-xs" | "icon-xxs"',
     def: '"default"',
-    desc: "Control height and padding (h-8 / h-9 / h-10).",
+    desc: "Control height and padding (h-9 / h-8 / h-7 / h-6). Icon sizes are square.",
+  },
+  {
+    name: "tooltipText",
+    type: "string",
+    def: "undefined",
+    desc: "Wraps the toggle in a Tooltip that shows on hover.",
   },
   {
     name: "disabled",
@@ -63,7 +69,9 @@ const textCode = `<Toggle aria-label="Toggle bold">
 
 const sizesCode = `<Toggle size="sm" aria-label="Bold"><Bold /></Toggle>
 <Toggle size="default" aria-label="Bold"><Bold /></Toggle>
-<Toggle size="lg" aria-label="Bold"><Bold /></Toggle>`;
+<Toggle className="h-10 min-w-10 px-2.5" aria-label="Bold">
+  <Bold />
+</Toggle>`;
 
 const onCode = `<Toggle defaultPressed aria-label="Toggle bold">
   <Bold />
@@ -73,7 +81,7 @@ const disabledCode = `<Toggle disabled aria-label="Toggle bold">
   <Bold />
 </Toggle>`;
 
-const installCode = `import { Toggle } from "@/components/ui/toggle";
+const installCode = `import { Toggle } from "@/components/shadcn/toggle";
 import { Bold } from "lucide-react";
 
 export function BoldToggle() {
@@ -173,7 +181,7 @@ export default function ToggleDocsPage() {
               <Toggle size="default" aria-label="Bold default">
                 <Bold />
               </Toggle>
-              <Toggle size="lg" aria-label="Bold large">
+              <Toggle className="h-10 min-w-10 px-2.5" aria-label="Bold large">
                 <Bold />
               </Toggle>
             </div>
@@ -185,8 +193,9 @@ export default function ToggleDocsPage() {
           alone. Pair an icon with a label for clarity, and use{" "}
           <code className="font-mono">size</code> for{" "}
           <code className="font-mono">sm</code> /{" "}
-          <code className="font-mono">default</code> /{" "}
-          <code className="font-mono">lg</code>.
+          <code className="font-mono">default</code>. There is no{" "}
+          <code className="font-mono">lg</code> size; set the height with{" "}
+          <code className="font-mono">className</code> when you need one.
         </p>
       </section>
 
@@ -293,7 +302,7 @@ export default function ToggleDocsPage() {
       <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
         <code className="font-mono text-foreground">
-          fe-distillery/components/ui/toggle.tsx
+          @distylai/toolkit-ui
         </code>{" "}
         -- <code className="font-mono text-foreground">Toggle</code> and{" "}
         <code className="font-mono text-foreground">toggleVariants</code> on

@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Switch } from "@/components/ui/switch";
+import { Switch } from "@/components/shadcn/switch";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
   title: "Switch",
   description:
-    "Switch component -- a control that toggles an on/off setting that applies immediately. API matches fe-distillery components/ui/switch.tsx.",
+    "Switch component -- a control that toggles an on/off setting that applies immediately. API matches @distylai/toolkit-ui.",
 };
 
 const states = [
@@ -24,7 +24,7 @@ const states = [
   },
 ] as const;
 
-const installCode = `import { Switch } from "@/components/ui/switch";
+const installCode = `import { Switch } from "@/components/shadcn/switch";
 
 export function AirplaneMode() {
   return (
@@ -159,7 +159,7 @@ export default function SwitchPage() {
       <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
         <code className="font-mono text-foreground">
-          fe-distillery/components/ui/switch.tsx
+          @distylai/toolkit-ui
         </code>
         . The raw <code className="font-mono text-foreground">bg-primary</code>{" "}
         / <code className="font-mono text-foreground">bg-input</code> /{" "}

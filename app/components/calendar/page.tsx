@@ -49,6 +49,24 @@ const props = [
     def: "false",
     desc: "Move focus into the grid on mount. Date Picker sets this when it opens.",
   },
+  {
+    name: "showOutsideDays",
+    type: "boolean",
+    def: "true",
+    desc: "Show the days of the previous and next month that fill the first and last weeks.",
+  },
+  {
+    name: "captionLayout",
+    type: '"label" | "dropdown" | "dropdown-months" | "dropdown-years"',
+    def: '"label"',
+    desc: "Show the month caption as text, or as dropdowns to jump to a month or year.",
+  },
+  {
+    name: "buttonVariant",
+    type: "Button variant",
+    def: '"ghost"',
+    desc: "The Button variant for the previous and next month buttons.",
+  },
 ] as const;
 
 const doCode = `<Calendar
@@ -60,7 +78,7 @@ const doCode = `<Calendar
 const installCode = `"use client";
 
 import * as React from "react";
-import { Calendar } from "@/components/ui/calendar";
+import { Calendar } from "@/components/shadcn/calendar";
 
 export function BookingDate() {
   const [date, setDate] = React.useState<Date>();

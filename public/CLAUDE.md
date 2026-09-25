@@ -34,6 +34,15 @@ Standards for building on the Folio design system. These are non-negotiable.
 
 ## Components
 
-- Use the shadcn wrappers in `components/ui/`; never import Radix directly.
+- Folio is the design lab for `@distylai/toolkit-ui`. Design changes land here
+  first and are then copied to toolkit-ui, so keep implementation parity:
+  - `components/shadcn/<name>/index.tsx` keeps the toolkit-ui API, parts,
+    `React.forwardRef`, and file layout. Change the look (class strings, cva
+    recipes), not the API.
+  - A new component that toolkit-ui does not have goes in
+    `components/folio/<name>/index.tsx`, written to the same conventions.
+  - Keep `contexts/`, `hooks/`, and `lib/utils.ts` at the same paths as
+    toolkit-ui's `src/`, so imports copy unchanged.
+- Use the components in `components/shadcn/`; never import Radix directly.
 - Button, Tag, Badge, Link are semantically distinct — never interchangeable.
 - Icons: `lucide-react` only.

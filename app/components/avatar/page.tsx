@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/shadcn/avatar";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
   title: "Avatar",
   description:
-    "Avatar component: an image element with a fallback for representing the user. API matches fe-distillery components/ui/avatar.tsx.",
+    "Avatar component: an image element with a fallback for representing the user. API matches toolkit-ui components/shadcn/avatar.",
 };
 
 const IMG = "/avatar-sample.jpg";
@@ -55,7 +55,7 @@ const groupCode = `<div className="flex -space-x-2">
   </Avatar>
 </div>`;
 
-const installCode = `import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+const installCode = `import { Avatar, AvatarImage, AvatarFallback } from "@/components/shadcn/avatar";
 
 export function UserAvatar({ user }) {
   return (
@@ -296,7 +296,7 @@ export default function AvatarPage() {
       <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
         <code className="font-mono text-foreground">
-          fe-distillery/components/ui/avatar.tsx
+          toolkit-ui/components/shadcn/avatar
         </code>{" "}
         <code className="font-mono text-foreground">Avatar</code>,{" "}
         <code className="font-mono text-foreground">AvatarImage</code>,{" "}

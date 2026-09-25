@@ -10,7 +10,7 @@ import {
 export const metadata: Metadata = {
   title: "Pagination",
   description:
-    "Pagination component: page navigation with next and previous links. API matches fe-distillery components/ui/pagination.tsx.",
+    "Pagination component: page navigation with next and previous links. API matches toolkit-ui components/shadcn/pagination.",
 };
 
 const parts = [
@@ -95,7 +95,7 @@ const installCode = `import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/components/ui/pagination";
+} from "@/components/shadcn/pagination";
 
 export function Pager() {
   return (
@@ -268,7 +268,7 @@ export default function PaginationDocsPage() {
       <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
         <code className="font-mono text-foreground">
-          fe-distillery/components/ui/pagination.tsx
+          toolkit-ui/components/shadcn/pagination
         </code>{" "}
         <code className="font-mono text-foreground">Pagination</code> and its
         Content / Item / Link / Previous / Next / Ellipsis parts. It composes the

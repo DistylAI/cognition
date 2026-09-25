@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Progress } from "@/components/ui/progress";
+import { Progress } from "@/components/shadcn/progress";
 import { CodeBlock } from "@/components/CodeBlock";
 import { AnimatedProgress, LoadingProgress } from "./ProgressDemos";
 
 export const metadata: Metadata = {
   title: "Progress",
   description:
-    "Progress component -- displays an indicator showing the completion progress of a task, typically as a progress bar. API matches fe-distillery components/ui/progress.tsx.",
+    "Progress component -- displays an indicator showing the completion progress of a task, typically as a progress bar. API matches toolkit-ui components/shadcn/progress.",
 };
 
 const values = [0, 25, 50, 75, 100];
@@ -61,7 +61,7 @@ useEffect(() => {
 
 return <Progress value={value} />;`;
 
-const installCode = `import { Progress } from "@/components/ui/progress";
+const installCode = `import { Progress } from "@/components/shadcn/progress";
 
 export function UploadProgress({ percent }: { percent: number }) {
   return <Progress value={percent} className="w-full" />;
@@ -238,7 +238,7 @@ export default function ProgressDocsPage() {
       <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
         <code className="font-mono text-foreground">
-          fe-distillery/components/ui/progress.tsx
+          toolkit-ui/components/shadcn/progress
         </code>{" "}
         -- a single <code className="font-mono text-foreground">Progress</code>{" "}
         built on Radix. The raw{" "}

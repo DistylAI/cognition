@@ -170,9 +170,9 @@ const table = useReactTable({ data, columns, ... });
         <code className="font-mono text-foreground">@tanstack/react-table</code>{" "}
         with the Folio{" "}
         <code className="font-mono text-foreground">Table</code> primitive
-        (mirrors fe-distillery{" "}
+        (the same code as{" "}
         <code className="font-mono text-foreground">
-          components/ui/table.tsx
+          @distylai/toolkit-ui
         </code>{" "}
         and the platform{" "}
         <code className="font-mono text-foreground">DataTable</code> pattern).

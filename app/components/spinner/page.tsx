@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/button";
-import { Spinner } from "@/components/ui/spinner";
+import { Button } from "@/components/shadcn/button";
+import { Spinner } from "@/components/shadcn/spinner";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
@@ -11,35 +11,35 @@ export const metadata: Metadata = {
 
 const props = [
   {
-    name: "size",
-    type: '"sm" | "default" | "lg"',
-    def: '"default"',
-    desc: "Diameter: 16, 24, or 32 pixels.",
+    name: "className",
+    type: "string",
+    def: '"size-6"',
+    desc: "Size and layout overrides on the svg. Use size-4 inline and size-8 for a large wait.",
   },
   {
-    name: "label",
+    name: "aria-label",
     type: "string",
     def: '"Loading"',
     desc: "Accessible label announced to screen readers via role=status.",
   },
   {
-    name: "className",
-    type: "string",
-    def: "undefined",
-    desc: "Layout or size overrides on the wrapper.",
+    name: "...props",
+    type: 'React.ComponentProps<"svg">',
+    def: "--",
+    desc: "Other svg attributes pass through to the lucide Loader2Icon.",
   },
 ] as const;
 
 const doCode = `<Spinner />
-<Spinner size="sm" />   // inline, e.g. in a button
-<Spinner size="lg" />`;
+<Spinner className="size-4" />   // inline, e.g. in a button
+<Spinner className="size-8" />`;
 
-const installCode = `import { Spinner } from "@/components/ui/spinner";
+const installCode = `import { Spinner } from "@/components/shadcn/spinner";
 
 export function SavingState() {
   return (
     <div className="flex items-center gap-2 text-description">
-      <Spinner size="sm" />
+      <Spinner className="size-4" />
       Saving changes...
     </div>
   );
@@ -86,11 +86,11 @@ export default function SpinnerPage() {
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <div className="overflow-hidden rounded-xl border border-border">
             <div className="flex h-auto items-center justify-center bg-muted p-8">
-              <Spinner size="sm" />
+              <Spinner className="size-4" />
             </div>
             <div className="border-t border-border p-3">
               <CodeBlock
-                code={`<Spinner size="sm" />`}
+                code={`<Spinner className="size-4" />`}
                 size="sm"
                 className="rounded-lg border border-border-subtle bg-muted"
               />
@@ -98,7 +98,7 @@ export default function SpinnerPage() {
           </div>
           <div className="overflow-hidden rounded-xl border border-border">
             <div className="flex h-auto items-center justify-center bg-muted p-8">
-              <Spinner size="default" />
+              <Spinner />
             </div>
             <div className="border-t border-border p-3">
               <CodeBlock
@@ -110,11 +110,11 @@ export default function SpinnerPage() {
           </div>
           <div className="overflow-hidden rounded-xl border border-border">
             <div className="flex h-auto items-center justify-center bg-muted p-8">
-              <Spinner size="lg" />
+              <Spinner className="size-8" />
             </div>
             <div className="border-t border-border p-3">
               <CodeBlock
-                code={`<Spinner size="lg" />`}
+                code={`<Spinner className="size-8" />`}
                 size="sm"
                 className="rounded-lg border border-border-subtle bg-muted"
               />
@@ -122,8 +122,11 @@ export default function SpinnerPage() {
           </div>
         </div>
         <p className="mt-2 text-small">
-          Three sizes at 16, 24, and 32 pixels. Stroke weight scales with the
-          diameter.
+          Three sizes at 16, 24, and 32 pixels. The default is 24; set{" "}
+          <code className="font-mono">size-4</code> or{" "}
+          <code className="font-mono">size-8</code> with{" "}
+          <code className="font-mono">className</code>. Stroke weight scales
+          with the diameter.
         </p>
       </section>
 
@@ -144,7 +147,7 @@ export default function SpinnerPage() {
           <div className="overflow-hidden rounded-xl border border-border">
             <div className="flex h-auto items-center justify-center bg-muted p-8">
               <span className="flex items-center gap-2 text-description">
-                <Spinner size="sm" />
+                <Spinner className="size-4" />
                 Saving changes...
               </span>
             </div>
@@ -155,7 +158,7 @@ export default function SpinnerPage() {
           <div className="overflow-hidden rounded-xl border border-border">
             <div className="flex h-auto items-center justify-center bg-muted p-8">
               <Button variant="outline" disabled>
-                <Spinner size="sm" />
+                <Spinner className="size-4" />
                 Loading
               </Button>
             </div>

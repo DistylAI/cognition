@@ -57,7 +57,7 @@ export function MobileNav() {
     <>
       <header className="sticky top-0 z-20 flex items-center justify-between border-b border-border bg-muted/95 px-4 py-3 backdrop-blur md:hidden">
         <Link href="/" className="flex items-center gap-2">
-          <span className="inline-block h-5 w-5 rounded-full bg-primary" />
+          <span className="inline-block size-5 rounded-full bg-primary" />
           <span className="font-bold tracking-tight text-foreground">
             Folio
           </span>
@@ -93,7 +93,7 @@ export function MobileNav() {
                 onClick={() => setOpen(false)}
                 className="flex items-center gap-2"
               >
-                <span className="inline-block h-5 w-5 rounded-full bg-primary" />
+                <span className="inline-block size-5 rounded-full bg-primary" />
                 <span className="font-bold tracking-tight text-foreground">
                   Folio
                 </span>

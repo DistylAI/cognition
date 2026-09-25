@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "@/components/shadcn/separator";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
@@ -35,7 +35,7 @@ const doCode = `<nav className="flex h-5 items-center gap-3 text-sm">
   <a href="/docs">Docs</a>
 </nav>`;
 
-const installCode = `import { Separator } from "@/components/ui/separator";
+const installCode = `import { Separator } from "@/components/shadcn/separator";
 
 export function Section() {
   return (

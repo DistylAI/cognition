@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Box } from "@/components/ui/box";
+import { Box } from "@/components/folio/box";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "Box component: a layout primitive for controlled padding, background, and border composition using Folio tokens.",
 };
 
-const installCode = `import { Box } from "@/components/ui/box";
+const installCode = `import { Box } from "@/components/folio/box";
 
 export function Example() {
   return (
@@ -30,7 +30,8 @@ export default function BoxPage() {
       <h1 className="text-lead text-foreground">Box</h1>
       <p className="mt-3 max-w-2xl text-body text-foreground">
         A layout primitive for controlled padding, background, and border
-        composition. Replaces raw divs with inconsistent inline utilities.
+        composition. Replaces raw divs with inconsistent inline utilities. Box is
+        Folio-only: it lives in components/folio, not components/shadcn.
       </p>
 
       {/* Preview */}
@@ -94,7 +95,7 @@ export default function BoxPage() {
               { prop: "p", type: `"none" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl"`, def: "—", desc: "Padding on all sides." },
               { prop: "px", type: `"none" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl"`, def: "—", desc: "Horizontal padding. Overrides p on the x axis." },
               { prop: "py", type: `"none" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl"`, def: "—", desc: "Vertical padding. Overrides p on the y axis." },
-              { prop: "bg", type: `"default" | "subtle" | "secondary" | "accent" | "inverse" | "danger" | "success" | "warning"`, def: "—", desc: "Background token. Maps to bg-background-* utilities." },
+              { prop: "bg", type: `"default" | "subtle" | "secondary" | "accent" | "inverse" | "danger" | "success" | "warning"`, def: "—", desc: "Background token. Maps to semantic bg-* utilities (bg-background, bg-muted, bg-primary-subtle, ...)." },
               { prop: "border", type: "boolean", def: "false", desc: "Adds a border using border-border." },
               { prop: "radius", type: `"none" | "sm" | "md" | "lg" | "xl" | "full"`, def: "—", desc: "Border radius. Maps to the Folio radius scale." },
               { prop: "as", type: "React.ElementType", def: `"div"`, desc: "Render as a different HTML element." },

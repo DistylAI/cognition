@@ -61,7 +61,7 @@ const dashedCode = `<ChartTooltipContent indicator="dashed" />`;
 const noIndicatorCode = `<ChartTooltipContent hideIndicator />`;
 const customLabelCode = `<ChartTooltipContent labelFormatter={(value) => \`Month: \${value}\`} />`;
 
-const installCode = `import { ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+const installCode = `import { ChartTooltip, ChartTooltipContent } from "@/components/shadcn/chart";
 
 // Inside any Recharts chart wrapped in <ChartContainer>:
 <ChartTooltip
@@ -242,7 +242,7 @@ export default function ChartTooltipDocsPage() {
       <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
         <code className="font-mono text-foreground">
-          fe-distillery/components/ui/chart.tsx
+          @distylai/toolkit-ui
         </code>{" "}
         -- <code className="font-mono text-foreground">ChartTooltip</code> and{" "}
         <code className="font-mono text-foreground">ChartTooltipContent</code> on

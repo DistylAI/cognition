@@ -2,11 +2,11 @@
 
 import { useRef, useState } from "react";
 import { ArrowUp, Mic, Plus } from "lucide-react";
-import { Box } from "@/components/ui/box";
-import { Button } from "@/components/ui/button";
-import { Stack } from "@/components/ui/stack";
-import { Text } from "@/components/ui/text";
-import { Textarea } from "@/components/ui/textarea";
+import { Box } from "@/components/folio/box";
+import { Button } from "@/components/shadcn/button";
+import { Stack } from "@/components/folio/stack";
+import { Text } from "@/components/folio/text";
+import { Textarea } from "@/components/shadcn/textarea";
 
 interface ChatInputProps {
   onSend: (message: string) => void;

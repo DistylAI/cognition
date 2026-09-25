@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Stack } from "@/components/ui/stack";
+import { Stack } from "@/components/folio/stack";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "Stack component: a flexbox layout primitive for consistent row and column composition using Folio spacing tokens.",
 };
 
-const installCode = `import { Stack } from "@/components/ui/stack";
+const installCode = `import { Stack } from "@/components/folio/stack";
 
 export function Example() {
   return (
@@ -33,7 +33,8 @@ export default function StackPage() {
       <h1 className="text-lead text-foreground">Stack</h1>
       <p className="mt-3 max-w-2xl text-body text-foreground">
         A flexbox layout primitive for row and column composition. Replaces
-        inline flex utilities with named spacing tokens.
+        inline flex utilities with named spacing tokens. Stack is Folio-only: it
+        lives in components/folio, not components/shadcn.
       </p>
 
       {/* Preview */}

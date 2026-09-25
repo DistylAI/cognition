@@ -3,7 +3,7 @@ import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from "@/components/ui/resizable";
+} from "@/components/shadcn/resizable";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
@@ -16,36 +16,39 @@ const api = [
   { name: "ResizablePanelGroup", type: "component", def: "—", desc: "Wraps the panels. Set direction to horizontal or vertical." },
   { name: "ResizablePanelGroup.direction", type: '"horizontal" | "vertical"', def: "required", desc: "Axis the panels are laid out and resized along." },
   { name: "ResizablePanel", type: "component", def: "—", desc: "A single panel within the group." },
-  { name: "ResizablePanel.defaultSize", type: "number", def: "—", desc: "Initial size as a percent of the group." },
-  { name: "ResizablePanel.minSize", type: "number", def: "—", desc: "Smallest size the panel can be dragged to, in percent." },
-  { name: "ResizablePanel.maxSize", type: "number", def: "—", desc: "Largest size the panel can be dragged to, in percent." },
+  { name: "ResizablePanel.defaultSize", type: "number | string", def: "—", desc: "Initial size. A string is a percent of the group (\"50\" or \"50%\"). A number is pixels." },
+  { name: "ResizablePanel.minSize", type: "number | string", def: "—", desc: "Smallest size the panel can be dragged to. Same units as defaultSize." },
+  { name: "ResizablePanel.maxSize", type: "number | string", def: "—", desc: "Largest size the panel can be dragged to. Same units as defaultSize." },
   { name: "ResizablePanel.collapsible", type: "boolean", def: "false", desc: "Allows the panel to collapse past its minSize." },
-  { name: "ResizablePanel.collapsedSize", type: "number", def: "0", desc: "Size the panel snaps to when collapsed, in percent." },
+  { name: "ResizablePanel.collapsedSize", type: "number | string", def: "0", desc: "Size the panel snaps to when collapsed. Same units as defaultSize." },
+  { name: "ResizablePanel.panelRef", type: "Ref", def: "—", desc: "Imperative handle from useResizablePanelRef: collapse(), expand(), resize(), getSize()." },
   { name: "ResizableHandle.withHandle", type: "boolean", def: "false", desc: "Shows a visible grip on the drag handle." },
+  { name: "useResizableLayout", type: "hook", def: "—", desc: "Saves and restores the group layout. Pass { id, storage } and spread the result on ResizablePanelGroup." },
+  { name: "useResizablePanelRef", type: "hook", def: "—", desc: "Returns a ref for ResizablePanel.panelRef, to collapse or resize a panel from code." },
 ] as const;
 
 const doCode = `<ResizablePanelGroup direction="horizontal">
-  <ResizablePanel defaultSize={30} minSize={20}>
+  <ResizablePanel defaultSize="30" minSize="20">
     Sidebar
   </ResizablePanel>
   <ResizableHandle withHandle />
-  <ResizablePanel defaultSize={70}>Editor</ResizablePanel>
+  <ResizablePanel defaultSize="70">Editor</ResizablePanel>
 </ResizablePanelGroup>`;
 
 const installCode = `import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from "@/components/ui/resizable";
+} from "@/components/shadcn/resizable";
 
 export function SplitView() {
   return (
     <ResizablePanelGroup direction="horizontal" className="h-full">
-      <ResizablePanel defaultSize={50}>
+      <ResizablePanel defaultSize="50">
         <div className="flex h-full items-center justify-center p-6">One</div>
       </ResizablePanel>
       <ResizableHandle withHandle />
-      <ResizablePanel defaultSize={50}>
+      <ResizablePanel defaultSize="50">
         <div className="flex h-full items-center justify-center p-6">Two</div>
       </ResizablePanel>
     </ResizablePanelGroup>
@@ -77,11 +80,11 @@ export default function ResizablePage() {
         <div className="rounded-xl border border-border bg-muted p-10">
           <div className="mx-auto h-52 max-w-xl overflow-hidden rounded-xl border border-border bg-background">
             <ResizablePanelGroup direction="horizontal">
-              <ResizablePanel defaultSize={50}>
+              <ResizablePanel defaultSize="50">
                 <Pane>One</Pane>
               </ResizablePanel>
               <ResizableHandle withHandle />
-              <ResizablePanel defaultSize={50}>
+              <ResizablePanel defaultSize="50">
                 <Pane>Two</Pane>
               </ResizablePanel>
             </ResizablePanelGroup>
@@ -101,11 +104,11 @@ export default function ResizablePage() {
             <div className="bg-muted p-8">
               <div className="h-44 overflow-hidden rounded-xl border border-border bg-background">
                 <ResizablePanelGroup direction="horizontal">
-                  <ResizablePanel defaultSize={50}>
+                  <ResizablePanel defaultSize="50">
                     <Pane>One</Pane>
                   </ResizablePanel>
                   <ResizableHandle withHandle />
-                  <ResizablePanel defaultSize={50}>
+                  <ResizablePanel defaultSize="50">
                     <Pane>Two</Pane>
                   </ResizablePanel>
                 </ResizablePanelGroup>
@@ -123,11 +126,11 @@ export default function ResizablePage() {
             <div className="bg-muted p-8">
               <div className="h-44 overflow-hidden rounded-xl border border-border bg-background">
                 <ResizablePanelGroup direction="vertical">
-                  <ResizablePanel defaultSize={50}>
+                  <ResizablePanel defaultSize="50">
                     <Pane>One</Pane>
                   </ResizablePanel>
                   <ResizableHandle withHandle />
-                  <ResizablePanel defaultSize={50}>
+                  <ResizablePanel defaultSize="50">
                     <Pane>Two</Pane>
                   </ResizablePanel>
                 </ResizablePanelGroup>
@@ -145,17 +148,17 @@ export default function ResizablePage() {
             <div className="bg-muted p-8">
               <div className="h-52 overflow-hidden rounded-xl border border-border bg-background">
                 <ResizablePanelGroup direction="horizontal">
-                  <ResizablePanel defaultSize={40}>
+                  <ResizablePanel defaultSize="40">
                     <Pane>One</Pane>
                   </ResizablePanel>
                   <ResizableHandle withHandle />
-                  <ResizablePanel defaultSize={60}>
+                  <ResizablePanel defaultSize="60">
                     <ResizablePanelGroup direction="vertical">
-                      <ResizablePanel defaultSize={50}>
+                      <ResizablePanel defaultSize="50">
                         <Pane>Two</Pane>
                       </ResizablePanel>
                       <ResizableHandle withHandle />
-                      <ResizablePanel defaultSize={50}>
+                      <ResizablePanel defaultSize="50">
                         <Pane>Three</Pane>
                       </ResizablePanel>
                     </ResizablePanelGroup>
@@ -165,7 +168,7 @@ export default function ResizablePage() {
             </div>
             <div className="border-t border-border p-3">
               <CodeBlock
-                code={`<ResizablePanel defaultSize={60}>
+                code={`<ResizablePanel defaultSize="60">
   <ResizablePanelGroup direction="vertical">…</ResizablePanelGroup>
 </ResizablePanel>`}
                 size="sm"
@@ -188,11 +191,11 @@ export default function ResizablePage() {
             <div className="bg-muted p-8">
               <div className="h-40 overflow-hidden rounded-xl border border-border bg-background">
                 <ResizablePanelGroup direction="horizontal">
-                  <ResizablePanel defaultSize={50}>
+                  <ResizablePanel defaultSize="50">
                     <Pane>One</Pane>
                   </ResizablePanel>
                   <ResizableHandle />
-                  <ResizablePanel defaultSize={50}>
+                  <ResizablePanel defaultSize="50">
                     <Pane>Two</Pane>
                   </ResizablePanel>
                 </ResizablePanelGroup>
@@ -208,11 +211,11 @@ export default function ResizablePage() {
             <div className="bg-muted p-8">
               <div className="h-40 overflow-hidden rounded-xl border border-border bg-background">
                 <ResizablePanelGroup direction="horizontal">
-                  <ResizablePanel defaultSize={50}>
+                  <ResizablePanel defaultSize="50">
                     <Pane>One</Pane>
                   </ResizablePanel>
                   <ResizableHandle withHandle />
-                  <ResizablePanel defaultSize={50}>
+                  <ResizablePanel defaultSize="50">
                     <Pane>Two</Pane>
                   </ResizablePanel>
                 </ResizablePanelGroup>
@@ -229,15 +232,15 @@ export default function ResizablePage() {
               <div className="h-40 overflow-hidden rounded-xl border border-border bg-background">
                 <ResizablePanelGroup direction="horizontal">
                   <ResizablePanel
-                    defaultSize={12}
-                    minSize={12}
+                    defaultSize="12"
+                    minSize="12"
                     collapsible
-                    collapsedSize={12}
+                    collapsedSize="12"
                   >
                     <Pane>Rail</Pane>
                   </ResizablePanel>
                   <ResizableHandle withHandle />
-                  <ResizablePanel defaultSize={88}>
+                  <ResizablePanel defaultSize="88">
                     <Pane>Editor</Pane>
                   </ResizablePanel>
                 </ResizablePanelGroup>
@@ -290,7 +293,8 @@ export default function ResizablePage() {
           </div>
         </div>
         <p className="mt-2 text-small">
-          Sizes are percentages of the group. Give the{" "}
+          String sizes are percentages of the group; number sizes are pixels.
+          Give the{" "}
           <code className="font-mono">ResizablePanelGroup</code> a sized parent so
           it has room to lay the panels out.
         </p>

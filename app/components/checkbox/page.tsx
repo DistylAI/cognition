@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Checkbox } from "@/components/shadcn/checkbox";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
   title: "Checkbox",
   description:
-    "Checkbox component -- a control that toggles between checked, unchecked, and indeterminate. API matches fe-distillery components/ui/checkbox.tsx.",
+    "Checkbox component -- a control that toggles between checked, unchecked, and indeterminate. API matches @distylai/toolkit-ui.",
 };
 
 const states = [
@@ -30,7 +30,7 @@ const states = [
   },
 ] as const;
 
-const installCode = `import { Checkbox } from "@/components/ui/checkbox";
+const installCode = `import { Checkbox } from "@/components/shadcn/checkbox";
 
 export function Terms() {
   return (
@@ -173,7 +173,7 @@ export default function CheckboxPage() {
       <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
         <code className="font-mono text-foreground">
-          fe-distillery/components/ui/checkbox.tsx
+          @distylai/toolkit-ui
         </code>
         . The raw <code className="font-mono text-foreground">border-primary</code>{" "}
         / <code className="font-mono text-foreground">bg-primary</code>{" "}

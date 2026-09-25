@@ -4,7 +4,7 @@ import {
   InputOTPGroup,
   InputOTPSeparator,
   InputOTPSlot,
-} from "@/components/ui/input-otp";
+} from "@/components/shadcn/input-otp";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
@@ -70,7 +70,7 @@ const installCode = `import {
   InputOTP,
   InputOTPGroup,
   InputOTPSlot,
-} from "@/components/ui/input-otp";
+} from "@/components/shadcn/input-otp";
 import { REGEXP_ONLY_DIGITS } from "input-otp";
 
 export function VerifyCode() {

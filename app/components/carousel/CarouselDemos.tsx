@@ -8,7 +8,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
+} from "@/components/shadcn/carousel";
 import { cn } from "@/lib/utils";
 
 function Slide({ n, className }: { n: number; className?: string }) {

@@ -8,7 +8,7 @@ import {
   ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/ui/chart";
+} from "@/components/shadcn/chart";
 
 const data = [
   { metric: "Speed", a: 186, b: 120 },

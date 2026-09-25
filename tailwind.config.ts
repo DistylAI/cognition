@@ -1,4 +1,6 @@
 import type { Config } from "tailwindcss";
+import containerQueries from "@tailwindcss/container-queries";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 // Tailwind v3 config for the Folio tokens in content/folio-tokens.css.
 // The utility names are the same as the semantic names in the toolkit-ui
@@ -204,4 +206,7 @@ export default {
       },
     },
   },
+  // Same plugins as toolkit-ui, so the animate-in / fade-* / zoom-* / slide-*
+  // classes and the @container queries in the shadcn components work unchanged.
+  plugins: [tailwindcssAnimate, containerQueries],
 } satisfies Config;

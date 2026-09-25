@@ -7,15 +7,15 @@ import {
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
-} from "@/components/ui/empty";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+} from "@/components/shadcn/empty";
+import { Button } from "@/components/shadcn/button";
+import { Input } from "@/components/shadcn/input";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
   title: "Empty State",
   description:
-    "Empty State component: a centered placeholder for empty lists, searches, and first-run screens. Proposed canonical component (fe-distillery has none yet).",
+    "Empty State component: a centered placeholder for empty lists, searches, and first-run screens. API matches toolkit-ui components/shadcn/empty.",
 };
 
 const anatomyCode = `<Empty>
@@ -51,7 +51,7 @@ const installCode = `import {
   EmptyTitle,
   EmptyDescription,
   EmptyContent,
-} from "@/components/ui/empty";
+} from "@/components/shadcn/empty";
 
 export function NoResults() {
   return (
@@ -80,9 +80,8 @@ export default function EmptyStatePage() {
 
       <div className="mt-4 rounded-xl border border-border bg-primary-subtle p-4">
         <p className="text-small text-foreground">
-          <span className="font-bold">Proposed.</span> fe-distillery has no
-          first-class empty-state component yet. This documents the canonical{" "}
-          <code className="font-mono">Empty</code> the audit recommends: a
+          <span className="font-bold">Canonical.</span> This documents the{" "}
+          <code className="font-mono">Empty</code> component from toolkit-ui: a
           header, media, title, description, and content composition.
         </p>
       </div>
@@ -148,7 +147,10 @@ export default function EmptyStatePage() {
           <code className="font-mono">variant</code> (
           <code className="font-mono">default</code> for a bare icon or
           illustration, <code className="font-mono">icon</code> for the muted
-          rounded well). <code className="font-mono">EmptyContent</code> is
+          rounded well) and a <code className="font-mono">color</code> (
+          <code className="font-mono">default</code> or{" "}
+          <code className="font-mono">destructive</code> for an error state).{" "}
+          <code className="font-mono">EmptyContent</code> is
           optional: drop it for a purely informational state.
         </p>
       </section>
@@ -236,8 +238,7 @@ export default function EmptyStatePage() {
       </section>
 
       <footer className="mt-16 border-t border-border pt-6 text-small">
-        Proposed canonical component: fe-distillery has no empty-state primitive
-        yet. The parts compose as{" "}
+        API matches the toolkit-ui Empty component. The parts compose as{" "}
         <code className="font-mono text-foreground">Empty</code> (
         <code className="font-mono text-foreground">EmptyHeader</code>,{" "}
         <code className="font-mono text-foreground">EmptyMedia</code>,{" "}

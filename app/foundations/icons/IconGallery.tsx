@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Search } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import { Input } from "@/components/shadcn/input";
 import { icons } from "./iconData";
 
 // Searchable grid of common Lucide icons. Filters by name; clicking an icon

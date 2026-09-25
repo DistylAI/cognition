@@ -6,7 +6,7 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/components/ui/tabs";
+} from "@/components/shadcn/tabs";
 
 type Variant = "default" | "underline" | "secondary";
 

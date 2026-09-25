@@ -6,15 +6,15 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+} from "@/components/shadcn/card";
+import { Badge } from "@/components/shadcn/badge";
+import { Button } from "@/components/shadcn/button";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
   title: "Card",
   description:
-    "Card component -- a surface that groups a header, content, and footer. API matches fe-distillery components/ui/card.tsx.",
+    "Card component -- a surface that groups a header, content, and footer. API matches toolkit-ui components/shadcn/card.",
 };
 
 // Illustrative input -- the design system has no Input component yet, so the
@@ -57,7 +57,7 @@ const installCode = `import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "@/components/shadcn/card";
 
 export function EventCard() {
   return (
@@ -174,23 +174,22 @@ export default function CardPage() {
             </CardFooter>
           </Card>
 
-          {/* Small size variant */}
-          <Card size="sm" className="w-full">
-            <CardHeader>
-              <CardTitle>Small Card</CardTitle>
+          {/* Compact card: tighter padding on each part */}
+          <Card className="w-full">
+            <CardHeader className="p-3">
+              <CardTitle>Compact Card</CardTitle>
               <CardDescription>
-                This card uses the small size variant.
+                This card uses tighter padding.
               </CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="px-3 pb-3">
               <p className="text-sm text-foreground">
-                The card component supports a{" "}
-                <code className="font-mono">size</code> prop that can be set to{" "}
-                <code className="font-mono">&quot;sm&quot;</code> for a more
-                compact appearance.
+                Pass <code className="font-mono">p-3</code> to the header and
+                footer and <code className="font-mono">px-3 pb-3</code> to the
+                content for a more compact appearance.
               </p>
             </CardContent>
-            <CardFooter>
+            <CardFooter className="p-3">
               <Button variant="outline" className="w-full">
                 Action
               </Button>
@@ -199,9 +198,9 @@ export default function CardPage() {
         </div>
         <p className="mt-2 text-small">
           The featured card pairs the surface with media and a{" "}
-          <code className="font-mono">Badge</code>; the compact one is{" "}
-          <code className="font-mono">size=&quot;sm&quot;</code>, which tightens
-          padding and the title throughout the compound parts.
+          <code className="font-mono">Badge</code>; the compact one tightens the
+          padding with a <code className="font-mono">className</code> on each
+          compound part.
         </p>
       </section>
 
@@ -250,7 +249,7 @@ export default function CardPage() {
       <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
         <code className="font-mono text-foreground">
-          fe-distillery/components/ui/card.tsx
+          toolkit-ui/components/shadcn/card
         </code>{" "}
         -- <code className="font-mono text-foreground">Card</code>,{" "}
         <code className="font-mono text-foreground">CardHeader</code>,{" "}
@@ -260,8 +259,7 @@ export default function CardPage() {
         <code className="font-mono text-foreground">CardFooter</code>. The raw
         <code className="font-mono text-foreground"> bg-card</code> /{" "}
         <code className="font-mono text-foreground">text-muted-foreground</code>{" "}
-        utilities are replaced with Folio tokens, and a{" "}
-        <code className="font-mono text-foreground">size</code> prop is added.
+        utilities are replaced with Folio tokens.
       </footer>
     </div>
   );

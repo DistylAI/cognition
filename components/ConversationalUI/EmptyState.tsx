@@ -16,7 +16,7 @@ const chips = [
 export function EmptyState({ onChipClick }: EmptyStateProps) {
   return (
     <div className="flex flex-1 flex-col items-center justify-center gap-4 px-6 py-16 text-center">
-      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary">
+      <div className="flex size-10 items-center justify-center rounded-full bg-primary">
         <Binoculars className="size-5 text-inverse" aria-hidden />
       </div>
       <p className="text-sm font-medium text-foreground">

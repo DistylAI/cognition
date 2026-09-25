@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
-import { Slider } from "@/components/ui/slider";
+import { Slider } from "@/components/shadcn/slider";
 import { CodeBlock } from "@/components/CodeBlock";
 import { SliderDemo } from "./SliderDemos";
 
 export const metadata: Metadata = {
   title: "Slider",
   description:
-    "Slider component -- an input where the user selects a value from within a given range. API matches fe-distillery components/ui/slider.tsx.",
+    "Slider component -- an input where the user selects a value from within a given range. API matches @distylai/toolkit-ui Slider.",
 };
 
 const props = [
   {
     name: "defaultValue / value",
     type: "number[]",
-    def: "[min, max]",
-    desc: "Thumb positions. One entry = one thumb; two = a range. value makes it controlled (pair with onValueChange).",
+    def: "undefined",
+    desc: "Thumb position as a one-entry array. The slider renders one thumb. value makes it controlled (pair with onValueChange).",
   },
   {
     name: "min",
@@ -56,19 +56,18 @@ const props = [
 
 const singleCode = `<Slider defaultValue={[50]} max={100} step={1} />`;
 
-const rangeCode = `<Slider defaultValue={[25, 75]} max={100} step={1} />`;
+const customRangeCode = `<Slider defaultValue={[20]} min={10} max={40} step={1} />`;
 
-const verticalCode = `<Slider
-  defaultValue={[50]}
-  orientation="vertical"
-  className="h-44"
-/>`;
+const verticalCode = `<div className="flex h-44 gap-8">
+  <Slider defaultValue={[50]} orientation="vertical" />
+  <Slider defaultValue={[75]} orientation="vertical" />
+</div>`;
 
 const steppedCode = `<Slider defaultValue={[40]} max={100} step={10} />`;
 
 const disabledCode = `<Slider defaultValue={[40]} disabled />`;
 
-const installCode = `import { Slider } from "@/components/ui/slider";
+const installCode = `import { Slider } from "@/components/shadcn/slider";
 
 export function VolumeSlider() {
   const [value, setValue] = useState([50]);
@@ -107,8 +106,7 @@ export default function SliderDocsPage() {
       <h1 className="text-lead text-foreground">Slider</h1>
       <p className="mt-3 max-w-2xl text-body text-foreground">
         An input where the user selects a value from within a given range. Drag a
-        thumb along the track -- use one thumb for a single value or two for a
-        range, on either axis.
+        thumb along the track to pick one value, on either axis.
       </p>
 
       {/* Preview */}
@@ -136,10 +134,11 @@ export default function SliderDocsPage() {
               className="w-full max-w-xs"
             />
           </Cell>
-          <Cell code={rangeCode}>
+          <Cell code={customRangeCode}>
             <Slider
-              defaultValue={[25, 75]}
-              max={100}
+              defaultValue={[20]}
+              min={10}
+              max={40}
               step={1}
               className="w-full max-w-xs"
             />
@@ -147,7 +146,7 @@ export default function SliderDocsPage() {
           <Cell code={verticalCode}>
             <div className="flex h-44 gap-8">
               <Slider defaultValue={[50]} orientation="vertical" />
-              <Slider defaultValue={[25, 75]} orientation="vertical" />
+              <Slider defaultValue={[75]} orientation="vertical" />
             </div>
           </Cell>
           <Cell code={steppedCode}>
@@ -160,7 +159,9 @@ export default function SliderDocsPage() {
           </Cell>
         </div>
         <p className="mt-2 text-small">
-          One thumb selects a value; two select a range. Set{" "}
+          The thumb selects one value. Set{" "}
+          <code className="font-mono">min</code> and{" "}
+          <code className="font-mono">max</code> to change the scale. Set{" "}
           <code className="font-mono">orientation=&quot;vertical&quot;</code>{" "}
           (with a height) to stand it up, and{" "}
           <code className="font-mono">step</code> to snap to coarser increments.
@@ -271,13 +272,12 @@ export default function SliderDocsPage() {
       <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
         <code className="font-mono text-foreground">
-          fe-distillery/components/ui/slider.tsx
+          @distylai/toolkit-ui
         </code>{" "}
         -- a single <code className="font-mono text-foreground">Slider</code>{" "}
-        built on Radix. The raw{" "}
-        <code className="font-mono text-foreground">bg-primary</code> track and
-        thumb are replaced with Folio tokens, and thumb rendering is extended
-        to support range and vertical orientation.
+        built on Radix, with one thumb. The track, range fill, and thumb use
+        Folio tokens, and the track follows{" "}
+        <code className="font-mono text-foreground">orientation</code>.
       </footer>
     </div>
   );

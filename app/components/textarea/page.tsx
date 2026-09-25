@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Textarea } from "@/components/ui/textarea";
+import { Textarea } from "@/components/shadcn/textarea";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
   title: "Textarea",
   description:
-    "Textarea component -- a multi-line text input. API matches fe-distillery components/ui/textarea.tsx.",
+    "Textarea component -- a multi-line text input. API matches @distylai/toolkit-ui.",
 };
 
 const states = [
@@ -29,7 +29,7 @@ const states = [
   },
 ] as const;
 
-const installCode = `import { Textarea } from "@/components/ui/textarea";
+const installCode = `import { Textarea } from "@/components/shadcn/textarea";
 
 export function Message() {
   return <Textarea placeholder="Type your message here" rows={4} />;
@@ -172,7 +172,7 @@ export default function TextareaPage() {
       <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
         <code className="font-mono text-foreground">
-          fe-distillery/components/ui/textarea.tsx
+          @distylai/toolkit-ui
         </code>{" "}
         -- a single <code className="font-mono text-foreground">Textarea</code>{" "}
         spreading{" "}

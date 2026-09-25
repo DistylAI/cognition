@@ -14,7 +14,7 @@ import {
   MenubarSubContent,
   MenubarSubTrigger,
   MenubarTrigger,
-} from "@/components/ui/menubar";
+} from "@/components/shadcn/menubar";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
@@ -58,7 +58,7 @@ const installCode = `import {
   MenubarMenu,
   MenubarShortcut,
   MenubarTrigger,
-} from "@/components/ui/menubar";
+} from "@/components/shadcn/menubar";
 
 export function AppMenubar() {
   return (

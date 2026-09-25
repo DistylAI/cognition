@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Slider } from "@/components/ui/slider";
+import { Slider } from "@/components/shadcn/slider";
 
 // Controlled single slider with a live value readout for the preview.
 export function SliderDemo() {

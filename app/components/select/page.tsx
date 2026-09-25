@@ -5,7 +5,7 @@ import { FruitSelect, GroupedSelect } from "./SelectDemos";
 export const metadata: Metadata = {
   title: "Select",
   description:
-    "Select component: a control for choosing one option from a list. API matches fe-distillery components/ui/select.tsx.",
+    "Select component: a control for choosing one option from a list. API matches @distylai/toolkit-ui.",
 };
 
 const anatomyCode = `<Select>
@@ -27,7 +27,7 @@ const installCode = `import {
   SelectLabel,
   SelectItem,
   SelectSeparator,
-} from "@/components/ui/select";`;
+} from "@/components/shadcn/select";`;
 
 export default function SelectPage() {
   return (
@@ -65,7 +65,15 @@ export default function SelectPage() {
           label (or the <code className="font-mono">placeholder</code>);{" "}
           <code className="font-mono">SelectGroup</code> +{" "}
           <code className="font-mono">SelectLabel</code> +{" "}
-          <code className="font-mono">SelectSeparator</code> organize long lists.
+          <code className="font-mono">SelectSeparator</code> organize long lists.{" "}
+          <code className="font-mono">SelectTrigger</code> takes{" "}
+          <code className="font-mono">size</code> (
+          <code className="font-mono">&quot;default&quot;</code> 36px,{" "}
+          <code className="font-mono">&quot;sm&quot;</code> 32px) and{" "}
+          <code className="font-mono">variant</code> (
+          <code className="font-mono">&quot;default&quot;</code> bordered field,{" "}
+          <code className="font-mono">&quot;quiet&quot;</code> borderless inline
+          text).
         </p>
       </section>
 
@@ -128,7 +136,7 @@ export default function SelectPage() {
       <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
         <code className="font-mono text-foreground">
-          fe-distillery/components/ui/select.tsx
+          @distylai/toolkit-ui
         </code>{" "}
         <code className="font-mono text-foreground">Select</code>,{" "}
         <code className="font-mono text-foreground">SelectTrigger</code>,{" "}
@@ -137,8 +145,11 @@ export default function SelectPage() {
         <code className="font-mono text-foreground">SelectItem</code>,{" "}
         <code className="font-mono text-foreground">SelectGroup</code>,{" "}
         <code className="font-mono text-foreground">SelectLabel</code>,{" "}
-        <code className="font-mono text-foreground">SelectSeparator</code>. The
-        raw <code className="font-mono text-foreground">bg-popover</code> /{" "}
+        <code className="font-mono text-foreground">SelectSeparator</code>,
+        plus <code className="font-mono text-foreground">SelectPortal</code>,
+        the scroll buttons, and{" "}
+        <code className="font-mono text-foreground">selectTriggerVariants</code>
+        . The raw <code className="font-mono text-foreground">bg-popover</code> /{" "}
         <code className="font-mono text-foreground">border-input</code>{" "}
         utilities are replaced with Folio tokens.
       </footer>

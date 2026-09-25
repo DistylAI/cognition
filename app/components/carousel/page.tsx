@@ -9,7 +9,7 @@ import {
 export const metadata: Metadata = {
   title: "Carousel",
   description:
-    "Carousel component -- a swipeable, motion-driven set of slides built on Embla. API matches fe-distillery components/ui/carousel.tsx.",
+    "Carousel component -- a swipeable, motion-driven set of slides built on Embla. API matches the @distylai/toolkit-ui Carousel.",
 };
 
 const parts = [
@@ -61,7 +61,7 @@ const installCode = `import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
+} from "@/components/shadcn/carousel";
 
 export function Gallery({ items }) {
   return (
@@ -232,12 +232,11 @@ export default function CarouselDocsPage() {
       <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
         <code className="font-mono text-foreground">
-          fe-distillery/components/ui/carousel.tsx
+          @distylai/toolkit-ui
         </code>{" "}
         -- <code className="font-mono text-foreground">Carousel</code> and its
-        Content / Item / Previous / Next parts (plus{" "}
-        <code className="font-mono text-foreground">useCarousel</code> and{" "}
-        <code className="font-mono text-foreground">CarouselApi</code>), built
+        Content / Item / Previous / Next parts (plus the{" "}
+        <code className="font-mono text-foreground">CarouselApi</code> type), built
         on <code className="font-mono text-foreground">embla-carousel-react</code>.
         The arrows are Button (outline), so it inherits Folio tokens.
       </footer>

@@ -5,7 +5,7 @@ import { AccountMenu, ViewMenu } from "./DropdownDemos";
 export const metadata: Metadata = {
   title: "Dropdown Menu",
   description:
-    "Dropdown Menu: a menu of actions or options triggered by a button. API matches fe-distillery components/ui/dropdown-menu.tsx.",
+    "Dropdown Menu: a menu of actions or options triggered by a button. API matches @distylai/toolkit-ui DropdownMenu.",
 };
 
 const anatomyCode = `<DropdownMenu>
@@ -32,7 +32,7 @@ const installCode = `import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuShortcut,
-} from "@/components/ui/dropdown-menu";`;
+} from "@/components/shadcn/dropdown-menu";`;
 
 export default function DropdownMenuPage() {
   return (
@@ -112,7 +112,7 @@ export default function DropdownMenuPage() {
             <pre className="overflow-x-auto">
               <code className="font-mono text-caption leading-6 text-foreground">
                 {`// Import the Folio wrapper, not the Radix primitive
-import { DropdownMenu } from "@/components/ui/dropdown-menu";`}
+import { DropdownMenu } from "@/components/shadcn/dropdown-menu";`}
               </code>
             </pre>
           </div>
@@ -134,20 +134,20 @@ import { DropdownMenu } from "@/components/ui/dropdown-menu";`}
       <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
         <code className="font-mono text-foreground">
-          fe-distillery/components/ui/dropdown-menu.tsx
+          @distylai/toolkit-ui
         </code>{" "}
-        the full set (
+        DropdownMenu, the full set (
         <code className="font-mono text-foreground">DropdownMenu</code>,{" "}
         <code className="font-mono text-foreground">Trigger</code>,{" "}
         <code className="font-mono text-foreground">Content</code>,{" "}
         <code className="font-mono text-foreground">Item</code>,{" "}
         <code className="font-mono text-foreground">CheckboxItem</code>,{" "}
         <code className="font-mono text-foreground">RadioGroup</code>,{" "}
-        <code className="font-mono text-foreground">Sub*</code>, …). The raw{" "}
-        <code className="font-mono text-foreground">bg-popover</code> /{" "}
-        <code className="font-mono text-foreground">bg-accent</code> /{" "}
-        <code className="font-mono text-foreground">bg-muted</code> utilities
-        are replaced with Folio tokens.
+        <code className="font-mono text-foreground">Sub*</code>, …). Only the
+        class strings differ: the panel uses{" "}
+        <code className="font-mono text-foreground">bg-background</code> and
+        items highlight with{" "}
+        <code className="font-mono text-foreground">bg-secondary</code>.
       </footer>
     </div>
   );

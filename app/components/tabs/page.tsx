@@ -5,7 +5,7 @@ import { IconTabs, VariantTabs } from "./TabsDemos";
 export const metadata: Metadata = {
   title: "Tabs",
   description:
-    "Tabs component: layered sections of content shown one at a time. API matches fe-distillery components/ui/tabs.tsx.",
+    "Tabs component: layered sections of content shown one at a time. API matches toolkit-ui components/shadcn/tabs.",
 };
 
 const variants = [
@@ -39,7 +39,7 @@ const variants = [
   },
 ];
 
-const installCode = `import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+const installCode = `import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/shadcn/tabs";
 
 export function ProjectTabs() {
   return (
@@ -209,7 +209,7 @@ export default function TabsPage() {
       <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
         <code className="font-mono text-foreground">
-          fe-distillery/components/ui/tabs.tsx
+          toolkit-ui/components/shadcn/tabs
         </code>{" "}
         <code className="font-mono text-foreground">Tabs</code>,{" "}
         <code className="font-mono text-foreground">TabsList</code>,{" "}

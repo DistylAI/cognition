@@ -13,7 +13,7 @@ import {
   type ChartConfig,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/ui/chart";
+} from "@/components/shadcn/chart";
 
 // Each bar carries its own fill, pointing at a --color-<name> var the config
 // defines. Colors are the Folio chart tokens (chart-1 through chart-5) -- never hardcoded
@@ -35,12 +35,13 @@ const catConfig = {
   direct: { label: "Direct", color: "var(--color-chart-5)" },
 } satisfies ChartConfig;
 
-const stackData = [{ period: "H1", desktop: 1260, mobile: 570 }];
+const stackPeriod = { period: "H1", desktop: 1260, mobile: 570 };
+const stackData = [stackPeriod];
 const stackConfig = {
   desktop: { label: "Desktop", color: "var(--color-chart-1)" },
   mobile: { label: "Mobile", color: "var(--color-chart-2)" },
 } satisfies ChartConfig;
-const stackTotal = stackData[0].desktop + stackData[0].mobile;
+const stackTotal = stackPeriod.desktop + stackPeriod.mobile;
 
 export function BasicRadial() {
   return (

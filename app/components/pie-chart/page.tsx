@@ -65,7 +65,7 @@ import {
   type ChartConfig,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/ui/chart";
+} from "@/components/shadcn/chart";
 
 const chartConfig = {
   visitors: { label: "Visitors" },
@@ -249,7 +249,7 @@ const config = {
       <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
         <code className="font-mono text-foreground">
-          fe-distillery/components/ui/chart.tsx
+          @distylai/toolkit-ui
         </code>{" "}
         -- <code className="font-mono text-foreground">ChartContainer</code>,{" "}
         <code className="font-mono text-foreground">ChartTooltip</code>/

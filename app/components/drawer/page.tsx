@@ -11,7 +11,7 @@ import {
 export const metadata: Metadata = {
   title: "Drawer",
   description:
-    "Drawer component: a panel that slides up from the bottom of the screen for focused, touch-friendly tasks. API matches fe-distillery components/ui/drawer.tsx.",
+    "Drawer component: a panel that slides up from the bottom of the screen for focused, touch-friendly tasks. API matches @distylai/toolkit-ui components/shadcn/drawer.",
 };
 
 const parts = [
@@ -105,7 +105,7 @@ const installCode = `import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/components/ui/drawer";
+} from "@/components/shadcn/drawer";
 
 export function GoalDrawer() {
   return (
@@ -299,7 +299,7 @@ export default function DrawerDocsPage() {
       <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
         <code className="font-mono text-foreground">
-          fe-distillery/components/ui/drawer.tsx
+          @distylai/toolkit-ui components/shadcn/drawer
         </code>{" "}
         <code className="font-mono text-foreground">Drawer</code> and its
         Trigger / Content / Header / Footer / Title / Description / Close parts,

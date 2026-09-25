@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { type DateRange } from "react-day-picker";
-import { Calendar } from "@/components/ui/calendar";
+import { Calendar } from "@/components/shadcn/calendar";
 
 // Interactive calendars hold their own selection state, so they live in a client
 // component. None auto-focus on mount, so the demos stay inert at rest.

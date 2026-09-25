@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { CircleAlert, CircleCheck, Info, TriangleAlert } from "lucide-react";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Alert, AlertDescription, AlertTitle } from "@/components/shadcn/alert";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
   title: "Alert",
   description:
-    "Alert component -- a callout for user attention. API matches fe-distillery components/ui/alert.tsx.",
+    "Alert component -- a callout for user attention. API matches toolkit-ui components/shadcn/alert.",
 };
 
 const variants = [
@@ -16,6 +16,14 @@ const variants = [
   <CircleAlert />
   <AlertTitle>Changes saved</AlertTitle>
   <AlertDescription>Your edits are live.</AlertDescription>
+</Alert>`,
+  },
+  {
+    key: "muted",
+    code: `<Alert variant="muted">
+  <Info />
+  <AlertTitle>Draft</AlertTitle>
+  <AlertDescription>Only you can see this page.</AlertDescription>
 </Alert>`,
   },
   {
@@ -36,7 +44,8 @@ const variants = [
   },
   {
     key: "success",
-    code: `<Alert variant="success">
+    code: `// No success variant: color the default alert with tokens
+<Alert className="border-success/30 bg-success-subtle text-success [&>svg]:text-success">
   <CircleCheck />
   <AlertTitle>Payment received</AlertTitle>
   <AlertDescription>Your plan is now active.</AlertDescription>
@@ -44,7 +53,8 @@ const variants = [
   },
   {
     key: "info",
-    code: `<Alert variant="info">
+    code: `// No info variant: color the default alert with tokens
+<Alert className="border-info/30 bg-info-subtle text-info [&>svg]:text-info">
   <Info />
   <AlertTitle>A new version is available</AlertTitle>
   <AlertDescription>Refresh to get the latest.</AlertDescription>
@@ -52,7 +62,7 @@ const variants = [
   },
 ] as const;
 
-const installCode = `import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+const installCode = `import { Alert, AlertTitle, AlertDescription } from "@/components/shadcn/alert";
 import { CircleAlert } from "lucide-react";
 
 export function SavedAlert() {
@@ -113,6 +123,15 @@ export default function AlertPage() {
                     </AlertDescription>
                   </Alert>
                 )}
+                {v.key === "muted" && (
+                  <Alert variant="muted">
+                    <Info />
+                    <AlertTitle>Draft</AlertTitle>
+                    <AlertDescription>
+                      Only you can see this page. Publish it to share it.
+                    </AlertDescription>
+                  </Alert>
+                )}
                 {v.key === "destructive" && (
                   <Alert variant="destructive">
                     <CircleAlert />
@@ -132,7 +151,7 @@ export default function AlertPage() {
                   </Alert>
                 )}
                 {v.key === "success" && (
-                  <Alert variant="success">
+                  <Alert className="border-success/30 bg-success-subtle text-success [&>svg]:text-success">
                     <CircleCheck />
                     <AlertTitle>Payment received</AlertTitle>
                     <AlertDescription>
@@ -141,7 +160,7 @@ export default function AlertPage() {
                   </Alert>
                 )}
                 {v.key === "info" && (
-                  <Alert variant="info">
+                  <Alert className="border-info/30 bg-info-subtle text-info [&>svg]:text-info">
                     <Info />
                     <AlertTitle>A new version is available</AlertTitle>
                     <AlertDescription>
@@ -163,7 +182,9 @@ export default function AlertPage() {
         <p className="mt-2 text-small">
           Every status variant tints its surface, softens the border to the
           feedback color, and colors the icon and title to match -- the body
-          stays default for readability. The same recipe drives the Toast, so
+          stays default for readability. Alert has no success or info variant,
+          so those two use the same recipe with a{" "}
+          <code className="font-mono">className</code>. The same recipe drives the Toast, so
           the two read as one system. All via tokens, so dark mode is automatic.
         </p>
       </section>
@@ -209,7 +230,7 @@ export default function AlertPage() {
             </div>
             <div className="divide-y divide-border">
               {[
-                { name: "Alert", desc: "Root container. The variant prop (\"default\" | \"destructive\" | \"warning\" | \"success\" | \"info\") sets the color." },
+                { name: "Alert", desc: "Root container. The variant prop (\"default\" | \"muted\" | \"destructive\" | \"warning\") sets the color." },
                 { name: "AlertTitle", desc: "The bold heading line." },
                 { name: "AlertDescription", desc: "Supporting body text beneath the title." },
               ].map((p) => (
@@ -272,7 +293,7 @@ export default function AlertPage() {
       <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
         <code className="font-mono text-foreground">
-          fe-distillery/components/ui/alert.tsx
+          toolkit-ui/components/shadcn/alert
         </code>{" "}
         -- <code className="font-mono text-foreground">Alert</code>,{" "}
         <code className="font-mono text-foreground">AlertTitle</code>,{" "}

@@ -8,7 +8,7 @@ import {
   ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/ui/chart";
+} from "@/components/shadcn/chart";
 
 const data = [
   { month: "Jan", desktop: 186, mobile: 80 },

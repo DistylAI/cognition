@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Badge } from "@/components/ui/badge";
-import { Tag } from "@/components/ui/tag";
+import { Badge } from "@/components/shadcn/badge";
+import { Tag } from "@/components/folio/tag";
 import { CodeBlock } from "@/components/CodeBlock";
 import { FilterChips } from "./filter-chips";
 
 export const metadata: Metadata = {
   title: "Badge & Tag",
   description:
-    "Badge (status) and Tag (label) -- one implementation split by a kind axis, on Folio tokens. Tag adds removable filter chips.",
+    "Badge (status) and Tag (label) on Folio tokens. Tag is a neutral wrapper over Badge and adds removable filter chips.",
 };
 
 const colors = [
@@ -34,8 +34,8 @@ const doCode = `// Status = colored Badge; label/category = Tag
 <Badge color="success">Active</Badge>
 <Tag>Engineering</Tag>`;
 
-const installCode = `import { Badge } from "@/components/ui/badge";
-import { Tag } from "@/components/ui/tag";
+const installCode = `import { Badge } from "@/components/shadcn/badge";
+import { Tag } from "@/components/folio/tag";
 
 // Live status (color/count/state)
 <Badge color="success">Active</Badge>
@@ -52,14 +52,11 @@ export default function BadgePage() {
       <p className="mb-2 text-caption">Components</p>
       <h1 className="text-lead text-foreground">Badge &amp; Tag</h1>
       <p className="mt-3 max-w-2xl text-body text-foreground">
-        One component, two jobs, split by <code className="font-mono">kind</code>
-        . <strong className="font-semibold">Badge</strong> (
-        <code className="font-mono">kind=&quot;status&quot;</code>) is a colored
-        status pill -- counts, states, severity.{" "}
-        <strong className="font-semibold">Tag</strong> (a wrapper locking{" "}
-        <code className="font-mono">kind=&quot;label&quot;</code>) is a neutral
-        label / category / keyword, and the only one that can be{" "}
-        <code className="font-mono">removable</code>.
+        One component, two jobs. <strong className="font-semibold">Badge</strong>{" "}
+        is a colored status pill -- counts, states, severity.{" "}
+        <strong className="font-semibold">Tag</strong> (a wrapper over Badge
+        with a fixed neutral look) is a label / category / keyword, and the
+        only one that can be <code className="font-mono">removable</code>.
       </p>
 
       {/* Preview */}
@@ -128,11 +125,15 @@ export default function BadgePage() {
           </div>
           <div className="overflow-hidden rounded-xl border border-border">
             <div className="flex items-center justify-center bg-muted p-8">
-              <Badge kind="label">Neutral label</Badge>
+              <Badge variant="outline" className="bg-secondary">
+                Neutral label
+              </Badge>
             </div>
             <div className="border-t border-border p-3">
               <CodeBlock
-                code={`<Badge kind="label">Neutral label</Badge>`}
+                code={`<Badge variant="outline" className="bg-secondary">
+  Neutral label
+</Badge>`}
                 size="sm"
                 className="rounded-lg border border-border-subtle bg-muted"
               />
@@ -140,8 +141,9 @@ export default function BadgePage() {
           </div>
         </div>
         <p className="mt-2 text-small">
-          A Tag is just <code className="font-mono">Badge kind=&quot;label&quot;</code>{" "}
-          -- neutral, no color axis. Use it for taxonomy, not state.
+          A Tag is just an outline <code className="font-mono">Badge</code> on
+          the secondary surface -- neutral, no color axis. Use it for taxonomy,
+          not state.
         </p>
       </section>
 
@@ -176,9 +178,8 @@ export default function BadgePage() {
             </div>
             <div className="divide-y divide-border">
               {[
-                { name: "kind", type: "\"status\" | \"label\"", def: "\"status\"", desc: "Colored status pill, or neutral label chip." },
-                { name: "variant", type: "\"default\" | \"secondary\" | \"outline\"", def: "\"default\"", desc: "Fill style (status only) -- solid, tonal, or bordered." },
-                { name: "color", type: "\"default\" | \"primary\" | \"destructive\" | \"success\" | \"warning\" | \"info\"", def: "\"default\"", desc: "Semantic color (status only)." },
+                { name: "variant", type: "\"default\" | \"secondary\" | \"outline\"", def: "\"default\"", desc: "Fill style -- solid, tonal, or bordered." },
+                { name: "color", type: "\"default\" | \"primary\" | \"destructive\" | \"success\" | \"warning\" | \"info\" | \"orange\" | \"amber\" | \"lime\" | \"emerald\" | \"teal\" | \"cyan\" | \"sky\" | \"fuchsia\" | \"pink\" | \"rose\"", def: "\"default\"", desc: "Semantic color. Folio has no raw palette, so each hue color uses the closest status token." },
                 { name: "size", type: "\"default\" | \"sm\"", def: "\"default\"", desc: "Standard or compact." },
                 { name: "asChild", type: "boolean", def: "false", desc: "Render the child element as the badge." },
               ].map((p) => (
@@ -196,7 +197,7 @@ export default function BadgePage() {
           </div>
         </div>
         <div className="mt-6 mb-2 text-small font-medium text-foreground">
-          Tag <span className="text-muted-foreground">(wrapper, kind=&quot;label&quot;)</span>
+          Tag <span className="text-muted-foreground">(wrapper over Badge)</span>
         </div>
         <div className="overflow-x-auto rounded-xl border border-border">
           <div className="min-w-[640px]">
@@ -266,10 +267,9 @@ export default function BadgePage() {
 
       <footer className="mt-16 border-t border-border pt-6 text-small">
         One implementation:{" "}
-        <code className="font-mono text-foreground">Badge</code> with a{" "}
-        <code className="font-mono text-foreground">kind</code> axis;{" "}
-        <code className="font-mono text-foreground">Tag</code> is the{" "}
-        <code className="font-mono text-foreground">kind=&quot;label&quot;</code>{" "}
+        <code className="font-mono text-foreground">Badge</code> from{" "}
+        <code className="font-mono text-foreground">@distylai/toolkit-ui</code>;{" "}
+        <code className="font-mono text-foreground">Tag</code> is the neutral
         wrapper that adds <code className="font-mono text-foreground">removable</code>.
         Colors are Folio tokens.
       </footer>

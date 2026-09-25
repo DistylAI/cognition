@@ -7,7 +7,7 @@ import {
   TriangleAlert,
 } from "lucide-react";
 import { CodeBlock } from "@/components/CodeBlock";
-import { Spinner } from "@/components/ui/spinner";
+import { Spinner } from "@/components/shadcn/spinner";
 import { ToastButton } from "./toast-demos";
 
 export const metadata: Metadata = {
@@ -33,7 +33,7 @@ const api = [
     name: "toast.error(message)",
     type: "(message, options?) => id",
     def: "—",
-    desc: "Error toast with danger styling.",
+    desc: "Error toast with danger styling. It stays until dismissed and shows a close button. Pass duration to override.",
   },
   {
     name: "toast.warning(message)",
@@ -75,7 +75,7 @@ const api = [
     name: "options.duration",
     type: "number",
     def: "4000",
-    desc: "Milliseconds the toast stays before auto-dismiss.",
+    desc: "Milliseconds the toast stays before auto-dismiss. toast.error defaults to Infinity.",
   },
 ] as const;
 
@@ -87,19 +87,23 @@ toast("Workspace archived", {
 });`;
 
 const installCode = `// 1. Mount the Toaster once at the app root
-import { Toaster } from "@/components/ui/sonner";
+import { Toaster } from "@/components/shadcn/sonner";
+import { Spinner } from "@/components/shadcn/spinner";
 
 export default function RootLayout({ children }) {
   return (
     <body>
       {children}
-      <Toaster />
+      <Toaster
+        position="bottom-right"
+        icons={{ loading: <Spinner className="size-4" /> }}
+      />
     </body>
   );
 }
 
 // 2. Fire toasts imperatively from anywhere
-import { toast } from "sonner";
+import { toast } from "@/components/shadcn/sonner";
 
 toast.success("Changes saved");`;
 
@@ -173,8 +177,10 @@ const variantCells: { fire: FireKind; show: ToastKind; code: string }[] = [
   },
 ];
 
+type SurfaceKind = Exclude<ToastKind, "loading" | "action" | "description">;
+
 const toastVariants: Record<
-  string,
+  SurfaceKind,
   { surface: string; tone: string; title: string; icon?: LucideIcon }
 > = {
   default: {
@@ -215,7 +221,7 @@ function VariantToast({ kind }: { kind: ToastKind }) {
   if (kind === "loading") {
     return (
       <div className={`${base} border-border bg-background`}>
-        <Spinner size="sm" className="mt-0.5" />
+        <Spinner className="mt-0.5 size-4" />
         <p className="flex-1 font-medium text-foreground">Saving changes…</p>
       </div>
     );
@@ -376,7 +382,16 @@ export default function ToastPage() {
           Toast is powered by Sonner. The{" "}
           <code className="font-mono">&lt;Toaster&gt;</code> component must be
           mounted once at the app root; individual toasts are fired imperatively
-          through the <code className="font-mono">toast()</code> function.
+          through the <code className="font-mono">toast()</code> function. Import
+          both from <code className="font-mono">@/components/shadcn/sonner</code>
+          , not from <code className="font-mono">sonner</code>, so{" "}
+          <code className="font-mono">toast.error</code> gets its sticky
+          default. <code className="font-mono">Toaster</code> takes every Sonner
+          prop, plus <code className="font-mono">variant</code>:{" "}
+          <code className="font-mono">&quot;default&quot;</code> (the Folio
+          surfaces above) or{" "}
+          <code className="font-mono">&quot;semantic&quot;</code> (Sonner rich
+          colors mapped to the same Folio tokens).
         </p>
       </section>
 

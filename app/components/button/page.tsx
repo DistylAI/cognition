@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { Check, Plus } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/shadcn/button";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
   title: "Button",
   description:
-    "Button component -- variants, states, usage, and a drop-in snippet. API matches fe-distillery components/ui/button.tsx.",
+    "Button component -- variants, states, usage, and a drop-in snippet. API matches @distylai/toolkit-ui Button.",
 };
 
 const variants = [
@@ -39,7 +39,7 @@ const doCode = `// Triggers a mutation or event
   Delete
 </Button>`;
 
-const installCode = `import { Button } from "@/components/ui/button";
+const installCode = `import { Button } from "@/components/shadcn/button";
 
 export function SaveChanges() {
   return <Button onClick={handleSave}>Save changes</Button>;
@@ -159,8 +159,10 @@ export default function ButtonPage() {
         <p className="mt-2 text-small">
           Icons and the loading spinner scale with the button size -- no
           per-instance sizing.{" "}
-          <code className="font-mono">default</code> is the top of the scale;{" "}
-          <code className="font-mono">lg</code> is retired.
+          <code className="font-mono">default</code> is the top of the scale.
+          The API also has <code className="font-mono">xs</code>,{" "}
+          <code className="font-mono">xxs</code>, and{" "}
+          <code className="font-mono">icon-xxs</code> for dense toolbars.
         </p>
       </section>
 
@@ -215,10 +217,14 @@ export default function ButtonPage() {
             </div>
             <div className="divide-y divide-border">
               {[
-                { name: "variant", type: "\"default\" | \"destructive\" | \"outline\" | \"ghost\" | \"link\"", def: "\"default\"", desc: "Visual style of the button." },
-                { name: "size", type: "\"default\" | \"sm\" | \"icon\" | \"icon-sm\" | \"icon-xs\"", def: "\"default\"", desc: "Height and padding; icons scale with the size. Icon sizes are square." },
+                { name: "variant", type: "\"default\" | \"destructive\" | \"outline\" | \"secondary\" | \"ghost\" | \"link\"", def: "\"default\"", desc: "Visual style of the button. Prefer outline over secondary for a bordered button." },
+                { name: "size", type: "\"default\" | \"sm\" | \"xs\" | \"xxs\" | \"icon\" | \"icon-sm\" | \"icon-xs\" | \"icon-xxs\"", def: "\"default\"", desc: "Height and padding; icons scale with the size. Icon sizes are square." },
                 { name: "asChild", type: "boolean", def: "false", desc: "Render the child element as the button (e.g. a link), keeping the styles." },
                 { name: "disabled", type: "boolean", def: "false", desc: "Dims to 50% and blocks interaction (native button prop)." },
+                { name: "loading", type: "boolean", def: "false", desc: "Shows a spinner in place of the children and disables the button." },
+                { name: "loadingText", type: "string", def: "--", desc: "Label shown next to the spinner while loading is true." },
+                { name: "tooltipText", type: "string", def: "--", desc: "Wraps the button in a Tooltip that shows on hover, enabled or disabled." },
+                { name: "disabledTooltipText", type: "string", def: "--", desc: "Replaces tooltipText while the button is disabled. Use it to explain why." },
               ].map((p) => (
                 <div
                   key={p.name}
@@ -277,8 +283,9 @@ export default function ButtonPage() {
       <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
         <code className="font-mono text-foreground">
-          fe-distillery/components/ui/button.tsx
+          @distylai/toolkit-ui
         </code>{" "}
+        Button
         -- variants, sizes, and props (
         <code className="font-mono text-foreground">asChild</code>,{" "}
         <code className="font-mono text-foreground">loading</code>,{" "}

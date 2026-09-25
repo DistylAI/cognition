@@ -24,14 +24,16 @@ import {
   SidebarMenuSubItem,
   SidebarProvider,
   SidebarTrigger,
-} from "@/components/ui/sidebar";
+} from "@/components/shadcn/sidebar";
 
 export function SidebarDemo() {
   return (
-    <SidebarProvider className="h-[480px] overflow-hidden rounded-xl border border-border">
-      <Sidebar>
+    // The toolkit Sidebar is a fixed, full-height app shell. These classes hold
+    // it inside the 480px preview box.
+    <SidebarProvider className="relative isolate h-[480px] min-h-0 overflow-hidden rounded-xl border border-border">
+      <Sidebar collapsible="icon" className="absolute h-full">
         <SidebarHeader>
-          <SidebarMenuButton className="h-12">
+          <SidebarMenuButton size="lg">
             <div className="flex size-8 shrink-0 items-center justify-center rounded-xl bg-inverse text-inverse">
               <GalleryVerticalEnd className="size-4" />
             </div>
@@ -90,7 +92,7 @@ export function SidebarDemo() {
           </SidebarMenuButton>
         </SidebarFooter>
       </Sidebar>
-      <SidebarInset>
+      <SidebarInset className="min-h-0">
         <header className="flex h-12 shrink-0 items-center gap-2 border-b border-border px-4">
           <SidebarTrigger />
           <span className="text-sm font-medium text-foreground">Overview</span>

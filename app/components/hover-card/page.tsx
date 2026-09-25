@@ -4,8 +4,8 @@ import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from "@/components/ui/hover-card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+} from "@/components/shadcn/hover-card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/shadcn/avatar";
 import { CodeBlock } from "@/components/CodeBlock";
 
 export const metadata: Metadata = {
@@ -18,6 +18,7 @@ const api = [
   { name: "HoverCard", type: "component", def: "—", desc: "Root that wires the trigger to the card." },
   { name: "HoverCardTrigger", type: "component", def: "—", desc: "The element that opens the card on hover or focus." },
   { name: "HoverCardContent", type: "component", def: "—", desc: "The floating card surface." },
+  { name: "disabled", type: "boolean", def: "false", desc: "Keeps the card closed. Takes precedence over open." },
   { name: "openDelay", type: "number", def: "700", desc: "Milliseconds to wait on hover before opening." },
   { name: "closeDelay", type: "number", def: "300", desc: "Milliseconds to wait after leaving before closing." },
   { name: "side", type: '"top" | "right" | "bottom" | "left"', def: '"bottom"', desc: "Preferred side of the trigger to place the card." },
@@ -35,7 +36,7 @@ const installCode = `import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from "@/components/ui/hover-card";
+} from "@/components/shadcn/hover-card";
 
 export function HandlePreview() {
   return (
@@ -237,7 +238,8 @@ export default function HoverCardPage() {
           </div>
         </div>
         <p className="mt-2 text-small">
-          <code className="font-mono">openDelay</code> and{" "}
+          <code className="font-mono">disabled</code>,{" "}
+          <code className="font-mono">openDelay</code>, and{" "}
           <code className="font-mono">closeDelay</code> are set on{" "}
           <code className="font-mono">HoverCard</code>;{" "}
           <code className="font-mono">side</code> and{" "}
