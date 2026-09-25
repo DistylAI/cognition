@@ -7,7 +7,7 @@ import { IconGallery } from "./IconGallery";
 export const metadata: Metadata = {
   title: "Icons",
   description:
-    "Iconography in Cognition -- Lucide is the canonical icon library. Sizing, color tokens, usage patterns, and a searchable icon grid.",
+    "Iconography in Folio -- Lucide is the canonical icon library. Sizing, color tokens, usage patterns, and a searchable icon grid.",
 };
 
 const sizingCode = `<Bell className="size-4" />   {/* 16px -- default, inline with text */}
@@ -60,14 +60,14 @@ export default function IconsPage() {
       <p className="mb-2 text-caption">Foundations</p>
       <h1 className="text-lead text-text-default">Icons</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
-        Cognition uses one icon library, sized on the 4px scale and colored with
+        Folio uses one icon library, sized on the 4px scale and colored with
         text tokens. Icons clarify actions and status -- they don&apos;t decorate.
       </p>
 
       {/* Library */}
       <section id="library" className="scroll-mt-8">
         <h3 className="mt-12 mb-4 text-lead text-text-default">Library</h3>
-        <div className="rounded-lg border border-border-default bg-background-accent p-4">
+        <div className="rounded-lg border border-border-default bg-background-primary-subtle p-4">
           <p className="text-small text-text-default">
             <span className="font-semibold">Lucide is the only icon set.</span>{" "}
             Import every icon from{" "}
@@ -259,7 +259,7 @@ export default function IconsPage() {
 
       <footer className="mt-16 border-t border-border-default pt-6 text-small">
         <code className="font-mono text-text-default">lucide-react</code> is the
-        canonical icon set for Cognition. Size on the 4px scale (
+        canonical icon set for Folio. Size on the 4px scale (
         <code className="font-mono text-text-default">size-4</code> /{" "}
         <code className="font-mono text-text-default">size-5</code> /{" "}
         <code className="font-mono text-text-default">size-6</code>) and color

@@ -7,7 +7,7 @@ import { Spinner } from "@/components/ui/spinner";
 
 // API mirrors fe-distillery/components/ui/sonner.tsx (the Sonner Toaster). This
 // project has no next-themes, so the toaster syncs to the [data-theme] attribute
-// on <html> via a MutationObserver. Every toast surface is styled with Cognition
+// on <html> via a MutationObserver. Every toast surface is styled with Folio
 // tokens (base plus per-type success/error/warning/info) so it themes via
 // [data-theme="dark"] with no dark: classes and no leaking of Sonner's palette.
 const Toaster = ({ ...props }: ToasterProps) => {
@@ -32,7 +32,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
       position="bottom-right"
       className="toaster group"
       // Loading is a neutral, indeterminate state -- no feedback color. It uses
-      // the neutral base toast surface plus the canonical Cognition Spinner
+      // the neutral base toast surface plus the canonical Folio Spinner
       // (purple arc / neutral track), not Sonner's default loader.
       icons={{ loading: <Spinner size="sm" /> }}
       toastOptions={{

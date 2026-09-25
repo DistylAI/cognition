@@ -8,8 +8,8 @@ import { cn } from "@/lib/utils";
 
 // API mirrors fe-distillery/components/ui/select.tsx (full Radix Select set). v4
 // migration: every part is a plain function component + data-slot. border-input /
-// bg-popover / focus:bg-accent / bg-muted / ring stay mapped to Cognition v1.2
-// tokens; the trigger matches the migrated Cognition Input field -- rounded-md
+// bg-popover / focus:bg-accent / bg-muted / ring stay mapped to Folio v1.2
+// tokens; the trigger matches the migrated Folio Input field -- rounded-md
 // and a stroke-only focus (border shift, no ring). No dark: classes.
 
 function Select(props: React.ComponentProps<typeof SelectPrimitive.Root>) {
@@ -37,7 +37,7 @@ function SelectTrigger({
     <SelectPrimitive.Trigger
       data-slot="select-trigger"
       className={cn(
-        "flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border border-border-default bg-background-default px-3 py-2 text-sm text-text-default shadow-xs transition-colors outline-none data-[placeholder]:text-text-subtle focus:border-border-primary aria-invalid:border-border-danger disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1",
+        "flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border border-border-default bg-background-default px-3 py-2 text-sm text-text-default shadow-sm transition-colors outline-none data-[placeholder]:text-text-subtle focus:border-border-primary aria-[invalid=true]:border-border-danger disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1",
         className,
       )}
       {...props}

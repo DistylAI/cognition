@@ -4,7 +4,7 @@ import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-// A Cognition layout-and-style wrapper that joins multiple Button instances into
+// A Folio layout-and-style wrapper that joins multiple Button instances into
 // one control: a shared edge with the radius applied only to the outermost
 // corners. The orientation joining logic mirrors fe-distillery's button-group;
 // group-level size and disabled are forwarded to each Button child (item-level

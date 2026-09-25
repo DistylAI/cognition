@@ -52,7 +52,7 @@ export default function DropdownMenuPage() {
         </div>
         <p className="mt-2 text-small">
           Live and interactive: open it, then toggle the theme. The panel,
-          item focus highlight, and separators all remap from Cognition tokens,
+          item focus highlight, and separators all remap from Folio tokens,
           no <code className="font-mono">dark:</code> classes. Focus is trapped
           and arrow keys navigate.
         </p>
@@ -102,7 +102,7 @@ export default function DropdownMenuPage() {
               Don&apos;t import from{" "}
               <code className="font-mono">@radix-ui/*</code>{" "}
               directly and restyle inline: that&apos;s how unstyled,
-              off-token menus creep in. Use the Cognition wrapper. And
+              off-token menus creep in. Use the Folio wrapper. And
               don&apos;t use it for primary navigation; that&apos;s a nav or a
               Select.
             </p>
@@ -111,7 +111,7 @@ export default function DropdownMenuPage() {
             <div className="mb-2 text-sm font-bold text-text-success">Do</div>
             <pre className="overflow-x-auto">
               <code className="font-mono text-caption leading-6 text-text-default">
-                {`// Import the Cognition wrapper, not the Radix primitive
+                {`// Import the Folio wrapper, not the Radix primitive
 import { DropdownMenu } from "@/components/ui/dropdown-menu";`}
               </code>
             </pre>
@@ -147,7 +147,7 @@ import { DropdownMenu } from "@/components/ui/dropdown-menu";`}
         <code className="font-mono text-text-default">bg-popover</code> /{" "}
         <code className="font-mono text-text-default">bg-accent</code> /{" "}
         <code className="font-mono text-text-default">bg-muted</code> utilities
-        are replaced with Cognition tokens.
+        are replaced with Folio tokens.
       </footer>
     </div>
   );

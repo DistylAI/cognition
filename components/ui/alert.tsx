@@ -4,7 +4,7 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 // API mirrors fe-distillery/components/ui/alert.tsx (Alert / AlertTitle /
-// AlertDescription). Every color is a Cognition v1.2 semantic token, so the
+// AlertDescription). Every color is a Folio v1.2 semantic token, so the
 // alert themes via [data-theme="dark"] with NO dark: classes.
 //
 // One color recipe across every feedback variant (danger/warning/success/info),

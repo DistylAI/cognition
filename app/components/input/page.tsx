@@ -70,7 +70,7 @@ export default function InputPage() {
           <Input placeholder="Enter text" className="max-w-sm" />
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens -- the surface, border, and focus
+          Rendered with live Folio tokens -- the surface, border, and focus
           ring remap on theme change, no{" "}
           <code className="font-mono">dark:</code> classes.
         </p>
@@ -207,7 +207,7 @@ export default function InputPage() {
           <code className="font-mono">input</code> props (
           <code className="font-mono">type</code>,{" "}
           <code className="font-mono">value</code>,{" "}
-          <code className="font-mono">onChange</code>, …) and the Cognition tokens
+          <code className="font-mono">onChange</code>, …) and the Folio tokens
           are baked in.
         </p>
       </section>
@@ -222,7 +222,7 @@ export default function InputPage() {
         <code className="font-mono text-text-default">
           React.ComponentProps&lt;&quot;input&quot;&gt;
         </code>
-        . The raw Tailwind utilities are replaced with Cognition tokens.
+        . The raw Tailwind utilities are replaced with Folio tokens.
       </footer>
     </div>
   );

@@ -88,7 +88,7 @@ export default function AlertPage() {
           </Alert>
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens -- surface, border, and every
+          Rendered with live Folio tokens -- surface, border, and every
           variant color remap on theme change, no{" "}
           <code className="font-mono">dark:</code> classes.
         </p>
@@ -265,7 +265,7 @@ export default function AlertPage() {
         <p className="mt-2 text-small">
           Drop the icon in as the first child -- the{" "}
           <code className="font-mono">[&amp;&gt;svg]</code> rules position it and
-          pad the text. Cognition tokens are baked in.
+          pad the text. Folio tokens are baked in.
         </p>
       </section>
 
@@ -279,7 +279,7 @@ export default function AlertPage() {
         <code className="font-mono text-text-default">AlertDescription</code>{" "}
         with the <code className="font-mono text-text-default">variant</code>{" "}
         axis. The source file&apos;s <code className="font-mono text-text-default">dark:</code>{" "}
-        class violations are replaced with Cognition tokens.
+        class violations are replaced with Folio tokens.
       </footer>
     </div>
   );

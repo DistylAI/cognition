@@ -10,7 +10,7 @@ className="bg-background-default text-text-default"`;
 export const metadata: Metadata = {
   title: "Guidelines",
   description:
-    "Cognition component semantics, anti-patterns, the legacy migration map, and the dark mode contract.",
+    "Folio component semantics, anti-patterns, the legacy migration map, and the dark mode contract.",
 };
 
 const componentRules = [
@@ -22,7 +22,7 @@ const componentRules = [
 ];
 
 export default async function GuidelinesPage() {
-  const spec = await loadContent("cognition-spec.md");
+  const spec = await loadContent("folio-spec.md");
 
   return (
     <div>

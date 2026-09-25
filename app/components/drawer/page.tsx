@@ -73,8 +73,8 @@ const formCode = `<DrawerContent>
       <DrawerDescription>Make changes to your profile here.</DrawerDescription>
     </DrawerHeader>
     <div className="grid gap-4 p-4">
-      <Input id="name" defaultValue="Tony Yates" />
-      <Input id="username" defaultValue="@tony" />
+      <Input id="name" placeholder="Name" />
+      <Input id="username" placeholder="@username" />
     </div>
     <DrawerFooter>…</DrawerFooter>
   </div>
@@ -166,7 +166,7 @@ export default function DrawerDocsPage() {
         tapping outside.
       </p>
 
-      <div className="mt-4 rounded-lg border border-border-default bg-background-accent p-4">
+      <div className="mt-4 rounded-lg border border-border-default bg-background-primary-subtle p-4">
         <p className="text-small text-text-default">
           <span className="font-bold">Drawer vs Sheet.</span> Drawer is reserved
           for touch-first, bottom-anchored surfaces (its drag handle and
@@ -184,7 +184,7 @@ export default function DrawerDocsPage() {
           <StatisticDrawer />
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens: the panel surface, overlay scrim,
+          Rendered with live Folio tokens: the panel surface, overlay scrim,
           and text remap on theme change, no{" "}
           <code className="font-mono">dark:</code> classes. Trigger it to slide
           the panel up.
@@ -304,7 +304,7 @@ export default function DrawerDocsPage() {
         <code className="font-mono text-text-default">Drawer</code> and its
         Trigger / Content / Header / Footer / Title / Description / Close parts,
         built on <code className="font-mono text-text-default">vaul</code>. The
-        raw surface, scrim, handle, and muted text are replaced with Cognition
+        raw surface, scrim, handle, and muted text are replaced with Folio
         tokens.
       </footer>
     </div>

@@ -1,17 +1,19 @@
-# Cognition — engineering standards
+# Folio — engineering standards
 
-Standards for building on the Cognition design system. These are non-negotiable.
+Standards for building on the Folio design system. These are non-negotiable.
 
 ## Color & tokens
 
-- **Use Cognition semantic token classes only.** Never hardcode a hex, `rgb()`,
+- **Use Folio semantic token classes only.** Never hardcode a hex, `rgb()`,
   or `hsl()`, and never use raw Tailwind palette utilities (`text-gray-500`,
   `bg-blue-200`).
 - **Dark mode lives at the semantic layer**, remapped via `[data-theme="dark"]`
   on `<html>`. Never use `dark:` classes.
-- **Data-series colors use the `chart-1`…`chart-5` tokens**, in order. Never use
+- **Data-series colors use the `chart-1`…`chart-10` tokens**, in order. Never use
   the brand primary (purple) or `feedback-*` tokens for neutral data series —
   primary is reserved for brand/interactive, feedback for status.
+- **Brand-tinted surfaces use `bg-background-primary-subtle`.** `bg-background-accent`
+  is a neutral hover and highlight surface, not a brand tint.
 
 ## Typography
 

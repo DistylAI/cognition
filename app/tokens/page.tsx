@@ -11,7 +11,7 @@ import {
 export const metadata: Metadata = {
   title: "Tokens",
   description:
-    "Cognition v1.2 tokens -- backgrounds, text, borders, feedback, radius, spacing, and type scale.",
+    "Folio v1.2 tokens -- backgrounds, text, borders, feedback, radius, spacing, and type scale.",
 };
 
 export default function TokensPage() {
@@ -24,7 +24,7 @@ export default function TokensPage() {
         Tokens
       </h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
-        The canonical Cognition v1.2 token set. Swatches below render from the
+        The canonical Folio v1.2 token set. Swatches below render from the
         live CSS variables -- toggle the theme and they remap automatically.
         Never hardcode a hex value; always reference the token utility.
       </p>
@@ -247,7 +247,7 @@ export default function TokensPage() {
 
       <footer className="mt-16 border-t border-border-default pt-6 text-description">
         Values mirror{" "}
-        <code className="font-mono text-text-default">cognition-tokens.css</code>
+        <code className="font-mono text-text-default">folio-tokens.css</code>
         . Adding a token is a MINOR bump; changing a value is a PATCH or MINOR.
       </footer>
     </div>

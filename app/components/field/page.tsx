@@ -79,7 +79,7 @@ export default function FieldPage() {
         accessibility.
       </p>
 
-      <div className="mt-4 rounded-lg border border-border-default bg-background-accent p-4">
+      <div className="mt-4 rounded-lg border border-border-default bg-background-primary-subtle p-4">
         <p className="text-small text-text-default">
           Field is a higher-order component. It composes a Label with a control
           (Input, Select, Textarea, and the like) and does not replace them. It
@@ -102,7 +102,7 @@ export default function FieldPage() {
           </div>
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens. Type in the field, no{" "}
+          Rendered with live Folio tokens. Type in the field, no{" "}
           <code className="font-mono">dark:</code> classes.
         </p>
       </section>
@@ -182,7 +182,7 @@ export default function FieldPage() {
             <div className="flex items-center justify-center bg-background-subtle p-8">
               <div className="w-full max-w-md">
                 <Field label="Bio" helperText="24 / 160 characters">
-                  <Textarea defaultValue="Co-founder at Distyl. Building the Cognition design system." />
+                  <Textarea defaultValue="Co-founder at Distyl. Building the Folio design system." />
                 </Field>
               </div>
             </div>
@@ -354,7 +354,7 @@ export default function FieldPage() {
         <p className="mt-2 text-small">
           Use Field any time a control needs a label, helper text, or a
           validation message. It is the standard wrapper for form inputs in
-          Cognition.
+          Folio.
         </p>
       </section>
 
@@ -367,23 +367,7 @@ export default function FieldPage() {
       </section>
 
       <footer className="mt-16 border-t border-border-default pt-6 text-small">
-        Cognition v1.2 · June 2026 · Questions? Ask{" "}
-        <a
-          href="https://distylai.slack.com/team/U07KY4SEFH7"
-          target="_blank"
-          rel="noreferrer"
-          className="font-medium text-text-primary underline-offset-4 hover:underline"
-        >
-          Tony Yates
-        </a>{" "}
-        <a
-          href="https://distylai.slack.com/archives/C0A22RR2N6P"
-          target="_blank"
-          rel="noreferrer"
-          className="font-medium text-text-primary underline-offset-4 hover:underline"
-        >
-          #research-and-design
-        </a>
+        Folio v1.2 · June 2026
       </footer>
     </div>
   );

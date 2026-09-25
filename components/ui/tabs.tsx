@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 // API mirrors fe-distillery/components/ui/tabs.tsx (Tabs / TabsList /
 // TabsTrigger / TabsContent, variant axis default|underline|secondary). v4
-// migration: plain function components + data-slot. Every color is a Cognition
+// migration: plain function components + data-slot. Every color is a Folio
 // v1.2 token, so the tabs theme via [data-theme="dark"] with no dark: classes.
 //   secondary = segmented pill
 //   underline = bottom-border line
@@ -57,7 +57,7 @@ const tabsTriggerVariants = cva(
         underline:
           "rounded-none border-b-2 border-transparent bg-transparent data-[state=active]:border-text-default data-[state=active]:bg-transparent data-[state=active]:text-text-default",
         secondary:
-          "h-full flex-1 gap-1.5 rounded-md border border-transparent px-2 py-1 data-[state=active]:bg-background-default data-[state=active]:text-text-default data-[state=active]:shadow-sm",
+          "h-full flex-1 gap-1.5 rounded-md border border-transparent px-2 py-1 data-[state=active]:bg-background-default data-[state=active]:text-text-default data-[state=active]:shadow",
       },
     },
     defaultVariants: {

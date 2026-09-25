@@ -156,7 +156,7 @@ export default function PaginationDocsPage() {
           <PaginationDemo total={10} />
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens: it composes the Button ghost and
+          Rendered with live Folio tokens: it composes the Button ghost and
           outline variants, so it remaps on theme change with no{" "}
           <code className="font-mono">dark:</code> classes. Click a page or the
           Previous / Next links.
@@ -272,7 +272,7 @@ export default function PaginationDocsPage() {
         </code>{" "}
         <code className="font-mono text-text-default">Pagination</code> and its
         Content / Item / Link / Previous / Next / Ellipsis parts. It composes the
-        Button ghost and outline variants, so it inherits Cognition tokens with
+        Button ghost and outline variants, so it inherits Folio tokens with
         no extra mapping.
       </footer>
     </div>

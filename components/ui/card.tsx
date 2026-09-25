@@ -7,10 +7,10 @@ import { cn } from "@/lib/utils";
 // API mirrors fe-distillery/components/ui/card.tsx -- the Card + CardHeader /
 // CardTitle / CardDescription / CardContent / CardFooter compound parts. v4
 // migration: plain function components + data-slot. Visual classes stay mapped
-// to Cognition v1.2 semantic tokens so the card themes via [data-theme="dark"]
+// to Folio v1.2 semantic tokens so the card themes via [data-theme="dark"]
 // with no dark: classes.
 //
-// `size` ("default" | "sm") is a Cognition addition that tightens padding and
+// `size` ("default" | "sm") is a Folio addition that tightens padding and
 // the title size. It is propagated to the sub-parts through context so the
 // header/content/footer stay padding-aware without each call site repeating it.
 
@@ -29,7 +29,7 @@ function Card({ className, size = "default", ...props }: CardProps) {
         data-slot="card"
         data-size={size}
         className={cn(
-          "flex flex-col overflow-hidden rounded-xl border border-border-default bg-background-default text-text-default shadow-sm",
+          "flex flex-col overflow-hidden rounded-xl border border-border-default bg-background-default text-text-default shadow",
           className,
         )}
         {...props}

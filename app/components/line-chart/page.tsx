@@ -5,7 +5,7 @@ import { BasicLine, DotsLine, MultipleLine, StepLine } from "./LineChartDemos";
 export const metadata: Metadata = {
   title: "Line Chart",
   description:
-    "Line Chart -- a Recharts line chart wrapped in the Cognition Chart primitives, with token-driven series colors, tooltips, and legends.",
+    "Line Chart -- a Recharts line chart wrapped in the Folio Chart primitives, with token-driven series colors, tooltips, and legends.",
 };
 
 const parts = [
@@ -15,7 +15,7 @@ const parts = [
   },
   {
     name: "ChartConfig",
-    desc: "Per-series label, optional icon, and color. Use a Cognition token var for color (e.g. var(--color-chart-1)).",
+    desc: "Per-series label, optional icon, and color. Use a Folio token var for color (e.g. var(--color-chart-1)).",
   },
   {
     name: "ChartTooltip / ChartTooltipContent",
@@ -110,7 +110,7 @@ export default function LineChartDocsPage() {
       <p className="mb-2 text-caption">Components</p>
       <h1 className="text-lead text-text-default">Line Chart</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
-        A line chart built on Recharts and wrapped in the Cognition Chart
+        A line chart built on Recharts and wrapped in the Folio Chart
         primitives. A <code className="font-mono">ChartConfig</code> maps each
         series to a label and a token color; the container, tooltip, and legend
         handle the rest.
@@ -123,7 +123,7 @@ export default function LineChartDocsPage() {
           <BasicLine />
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens -- the line, axes, grid, and tooltip
+          Rendered with live Folio tokens -- the line, axes, grid, and tooltip
           all remap on theme change, no <code className="font-mono">dark:</code>{" "}
           classes. Series colors are injected from the config as{" "}
           <code className="font-mono">--color-*</code> CSS vars.
@@ -135,7 +135,7 @@ export default function LineChartDocsPage() {
         <h3 className="mt-12 mb-4 text-lead text-text-default">Config</h3>
         <p className="mb-4 text-small">
           Every chart starts with a <code className="font-mono">ChartConfig</code>{" "}
-          -- one entry per series, each pointing at a Cognition token. The
+          -- one entry per series, each pointing at a Folio token. The
           container turns those into <code className="font-mono">--color-*</code>{" "}
           variables the lines reference.
         </p>
@@ -256,7 +256,7 @@ export default function LineChartDocsPage() {
         <code className="font-mono text-text-default">Content</code>,{" "}
         <code className="font-mono text-text-default">ChartLegend</code>/
         <code className="font-mono text-text-default">Content</code> on Recharts.
-        The muted / border / background colors are replaced with Cognition
+        The muted / border / background colors are replaced with Folio
         tokens, and series colors are chart-token vars from the config.
       </footer>
     </div>

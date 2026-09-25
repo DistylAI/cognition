@@ -5,7 +5,7 @@ import { CodeBlock } from "@/components/CodeBlock";
 export const metadata: Metadata = {
   title: "Stack",
   description:
-    "Stack component: a flexbox layout primitive for consistent row and column composition using Cognition spacing tokens.",
+    "Stack component: a flexbox layout primitive for consistent row and column composition using Folio spacing tokens.",
 };
 
 const installCode = `import { Stack } from "@/components/ui/stack";
@@ -20,7 +20,7 @@ export function Example() {
   );
 }`;
 
-const doCode = `// Stack with Cognition tokens
+const doCode = `// Stack with Folio tokens
 <Stack direction="column" gap="md" align="start">
   <span>Item one</span>
   <span>Item two</span>
@@ -87,7 +87,7 @@ export default function StackPage() {
             </div>
             {[
               { prop: "direction", type: `"row" | "column"`, def: `"column"`, desc: "Flex direction." },
-              { prop: "gap", type: `"none" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl"`, def: "—", desc: "Gap between children. Maps to the Cognition spacing scale." },
+              { prop: "gap", type: `"none" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl"`, def: "—", desc: "Gap between children. Maps to the Folio spacing scale." },
               { prop: "align", type: `"start" | "center" | "end" | "stretch" | "baseline"`, def: "—", desc: "Cross-axis alignment (align-items)." },
               { prop: "justify", type: `"start" | "center" | "end" | "between" | "around" | "evenly"`, def: "—", desc: "Main-axis alignment (justify-content)." },
               { prop: "wrap", type: "boolean", def: "false", desc: "Allows children to wrap onto multiple lines." },
@@ -137,7 +137,7 @@ export default function StackPage() {
       </section>
 
       <p className="mt-12 text-small text-text-subtle">
-        Cognition v1.3 · June 2026 · Questions? Ask Tony Yates #research-and-design
+        Folio v1.3 · June 2026
       </p>
     </div>
   );

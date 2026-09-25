@@ -61,7 +61,7 @@ export default function SidebarPage() {
         <code className="font-mono">SidebarInset</code>.
       </p>
 
-      <div className="mt-4 rounded-lg border border-border-default bg-background-accent p-4">
+      <div className="mt-4 rounded-lg border border-border-default bg-background-primary-subtle p-4">
         <p className="text-small text-text-default">
           <span className="font-bold">Canonical pattern.</span> The full
           fe-distillery primitive ships 14 variants (mobile sheet, rail,
@@ -80,7 +80,7 @@ export default function SidebarPage() {
         <p className="mt-2 text-small">
           Live and interactive -- hit the toggle to collapse to an icon rail, then
           switch the theme. Every surface, the active-item highlight, and the
-          brand badge remap from Cognition tokens, no{" "}
+          brand badge remap from Folio tokens, no{" "}
           <code className="font-mono">dark:</code> classes.
         </p>
       </section>
@@ -158,7 +158,7 @@ export default function SidebarPage() {
         <code className="font-mono text-text-default">SidebarInset</code>,{" "}
         <code className="font-mono text-text-default">useSidebar</code>, … The
         bespoke <code className="font-mono text-text-default">sidebar-*</code>{" "}
-        tokens are mapped to Cognition semantic tokens; the 14 sidebar variants
+        tokens are mapped to Folio semantic tokens; the 14 sidebar variants
         are intentionally not all documented here.
       </footer>
     </div>

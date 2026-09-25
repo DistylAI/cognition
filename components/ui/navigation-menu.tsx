@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 // API mirrors fe-distillery/components/ui/navigation-menu.tsx (the full Radix
 // NavigationMenu set). v4 migration: plain function components + data-slot. The
 // raw bg-background / bg-accent / bg-popover / border colors stay mapped to
-// Cognition tokens so it themes via [data-theme="dark"] with no dark: classes
+// Folio tokens so it themes via [data-theme="dark"] with no dark: classes
 // and no animation plugin.
 function NavigationMenu({
   className,

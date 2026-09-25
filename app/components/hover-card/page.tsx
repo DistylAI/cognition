@@ -80,7 +80,7 @@ function MockCard({
         <div className="space-y-1">
           <p className="text-sm font-semibold text-text-default">Derek Ho</p>
           <p className="text-description">
-            Co-founder at Distyl. Building the team behind the Cognition design
+            Co-founder at Distyl. Building the team behind the Folio design
             system.
           </p>
         </div>
@@ -132,7 +132,7 @@ export default function HoverCardPage() {
                     Derek Ho
                   </p>
                   <p className="text-description">
-                    Co-founder at Distyl. Building the team behind the Cognition
+                    Co-founder at Distyl. Building the team behind the Folio
                     design system.
                   </p>
                   <div className="flex items-center gap-1 pt-1 text-caption">
@@ -145,7 +145,7 @@ export default function HoverCardPage() {
           </HoverCard>
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens. Hover the handle to open the real
+          Rendered with live Folio tokens. Hover the handle to open the real
           card, no <code className="font-mono">dark:</code> classes.
         </p>
       </section>
@@ -287,23 +287,7 @@ export default function HoverCardPage() {
       </section>
 
       <footer className="mt-16 border-t border-border-default pt-6 text-small">
-        Cognition v1.2 · June 2026 · Questions? Ask{" "}
-        <a
-          href="https://distylai.slack.com/team/U07KY4SEFH7"
-          target="_blank"
-          rel="noreferrer"
-          className="font-medium text-text-primary underline-offset-4 hover:underline"
-        >
-          Tony Yates
-        </a>{" "}
-        <a
-          href="https://distylai.slack.com/archives/C0A22RR2N6P"
-          target="_blank"
-          rel="noreferrer"
-          className="font-medium text-text-primary underline-offset-4 hover:underline"
-        >
-          #research-and-design
-        </a>
+        Folio v1.2 · June 2026
       </footer>
     </div>
   );

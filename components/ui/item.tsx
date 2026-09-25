@@ -4,10 +4,10 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-// A Cognition single-row primitive: a leading element (icon, avatar, checkbox),
+// A Folio single-row primitive: a leading element (icon, avatar, checkbox),
 // a primary label with an optional secondary label, and a trailing element
 // (action, badge, status). It renders as a button when given an onClick,
-// otherwise a div. Colors are Cognition tokens, so it themes via
+// otherwise a div. Colors are Folio tokens, so it themes via
 // [data-theme="dark"] with no dark: classes.
 interface ItemProps {
   label: string;

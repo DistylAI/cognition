@@ -118,7 +118,7 @@ export default function CarouselDocsPage() {
           <BasicCarousel />
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens -- slides, borders, and the arrow
+          Rendered with live Folio tokens -- slides, borders, and the arrow
           controls remap on theme change, no{" "}
           <code className="font-mono">dark:</code> classes. Drag, use the arrows,
           or press the left/right keys.
@@ -239,7 +239,7 @@ export default function CarouselDocsPage() {
         <code className="font-mono text-text-default">useCarousel</code> and{" "}
         <code className="font-mono text-text-default">CarouselApi</code>), built
         on <code className="font-mono text-text-default">embla-carousel-react</code>.
-        The arrows are Button (outline), so it inherits Cognition tokens.
+        The arrows are Button (outline), so it inherits Folio tokens.
       </footer>
     </div>
   );

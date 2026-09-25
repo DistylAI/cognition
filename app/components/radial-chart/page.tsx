@@ -10,7 +10,7 @@ import {
 export const metadata: Metadata = {
   title: "Radial Chart",
   description:
-    "Radial Chart -- a Recharts radial bar chart wrapped in the Cognition Chart primitives, with token-driven colors and tooltips.",
+    "Radial Chart -- a Recharts radial bar chart wrapped in the Folio Chart primitives, with token-driven colors and tooltips.",
 };
 
 const parts = [
@@ -20,7 +20,7 @@ const parts = [
   },
   {
     name: "ChartConfig",
-    desc: "Per-bar label and color, keyed by name. Use Cognition token vars for colors (e.g. var(--color-chart-1)).",
+    desc: "Per-bar label and color, keyed by name. Use Folio token vars for colors (e.g. var(--color-chart-1)).",
   },
   {
     name: "ChartTooltip / ChartTooltipContent",
@@ -119,7 +119,7 @@ export default function RadialChartDocsPage() {
       <p className="mb-2 text-caption">Components</p>
       <h1 className="text-lead text-text-default">Radial Chart</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
-        A radial bar chart built on Recharts and wrapped in the Cognition Chart
+        A radial bar chart built on Recharts and wrapped in the Folio Chart
         primitives -- bars drawn around a center rather than along an axis. Colors
         come from the config.
       </p>
@@ -131,7 +131,7 @@ export default function RadialChartDocsPage() {
           <StackedRadial />
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens -- bars, track, and center label
+          Rendered with live Folio tokens -- bars, track, and center label
           remap on theme change, no <code className="font-mono">dark:</code>{" "}
           classes. Bar colors are injected from the config as{" "}
           <code className="font-mono">--color-*</code> CSS vars.
@@ -145,7 +145,7 @@ export default function RadialChartDocsPage() {
           Give each datum a <code className="font-mono">fill</code> that points at
           a <code className="font-mono">--color-&lt;name&gt;</code> var, and define
           those names in the <code className="font-mono">ChartConfig</code> with
-          Cognition tokens.
+          Folio tokens.
         </p>
         <CodeBlock
           code={setupCode}

@@ -94,7 +94,7 @@ export function MessageBubble({ role, content, error }: MessageBubbleProps) {
     return (
       <div className="flex flex-col items-end gap-1">
         <p className="px-0.5 text-caption">You</p>
-        <div className="max-w-[75%] whitespace-pre-wrap rounded-xl rounded-br-sm bg-background-accent px-4 py-2.5 text-sm leading-relaxed text-text-primary">
+        <div className="max-w-[75%] whitespace-pre-wrap rounded-xl rounded-br-sm bg-background-primary-subtle px-4 py-2.5 text-sm leading-relaxed text-text-primary">
           {content}
         </div>
       </div>

@@ -29,7 +29,7 @@ export default function KbdPage() {
         shortcut hints and key references -- not for general inline code.
       </p>
 
-      <div className="mt-4 rounded-lg border border-border-default bg-background-accent p-4">
+      <div className="mt-4 rounded-lg border border-border-default bg-background-primary-subtle p-4">
         <p className="text-small text-text-default">
           <span className="font-bold">Proposed.</span> fe-distillery has no{" "}
           <code className="font-mono">Kbd</code> primitive yet. This documents the
@@ -48,7 +48,7 @@ export default function KbdPage() {
           </KbdGroup>
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens -- the muted surface and text remap
+          Rendered with live Folio tokens -- the muted surface and text remap
           on theme change, no <code className="font-mono">dark:</code> classes.
         </p>
       </section>
@@ -163,7 +163,7 @@ export default function KbdPage() {
         <code className="font-mono text-text-default">kbd</code> primitive yet.
         Built on the semantic{" "}
         <code className="font-mono text-text-default">&lt;kbd&gt;</code> element
-        with the muted surface mapped to the Cognition{" "}
+        with the muted surface mapped to the Folio{" "}
         <code className="font-mono text-text-default">background-secondary</code>{" "}
         token.
       </footer>

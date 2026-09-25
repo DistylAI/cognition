@@ -166,7 +166,7 @@ export default function AccordionDocsPage() {
           <BasicAccordion />
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens: item borders, the chevron, and
+          Rendered with live Folio tokens: item borders, the chevron, and
           text remap on theme change, no{" "}
           <code className="font-mono">dark:</code> classes. Expand/collapse uses
           the <code className="font-mono">animate-accordion-*</code> utilities.
@@ -413,7 +413,7 @@ export default function AccordionDocsPage() {
         <code className="font-mono text-text-default">AccordionItem</code>,{" "}
         <code className="font-mono text-text-default">AccordionTrigger</code>,{" "}
         <code className="font-mono text-text-default">AccordionContent</code>.
-        The bare border and muted chevron are replaced with Cognition tokens; the
+        The bare border and muted chevron are replaced with Folio tokens; the
         bordered and in-card layouts are compositions.
       </footer>
     </div>

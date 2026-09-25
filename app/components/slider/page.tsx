@@ -118,7 +118,7 @@ export default function SliderDocsPage() {
           <SliderDemo />
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens -- the track, range fill, and thumb
+          Rendered with live Folio tokens -- the track, range fill, and thumb
           remap on theme change, no <code className="font-mono">dark:</code>{" "}
           classes. Drag the thumb to update the value.
         </p>
@@ -276,7 +276,7 @@ export default function SliderDocsPage() {
         -- a single <code className="font-mono text-text-default">Slider</code>{" "}
         built on Radix. The raw{" "}
         <code className="font-mono text-text-default">bg-primary</code> track and
-        thumb are replaced with Cognition tokens, and thumb rendering is extended
+        thumb are replaced with Folio tokens, and thumb rendering is extended
         to support range and vertical orientation.
       </footer>
     </div>

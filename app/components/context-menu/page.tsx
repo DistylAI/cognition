@@ -192,7 +192,7 @@ export default function ContextMenuPage() {
           </ContextMenu>
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens. Right-click the area to open the
+          Rendered with live Folio tokens. Right-click the area to open the
           real menu, no <code className="font-mono">dark:</code> classes.
         </p>
       </section>
@@ -393,23 +393,7 @@ export default function ContextMenuPage() {
       </section>
 
       <footer className="mt-16 border-t border-border-default pt-6 text-small">
-        Cognition v1.2 · June 2026 · Questions? Ask{" "}
-        <a
-          href="https://distylai.slack.com/team/U07KY4SEFH7"
-          target="_blank"
-          rel="noreferrer"
-          className="font-medium text-text-primary underline-offset-4 hover:underline"
-        >
-          Tony Yates
-        </a>{" "}
-        <a
-          href="https://distylai.slack.com/archives/C0A22RR2N6P"
-          target="_blank"
-          rel="noreferrer"
-          className="font-medium text-text-primary underline-offset-4 hover:underline"
-        >
-          #research-and-design
-        </a>
+        Folio v1.2 · June 2026
       </footer>
     </div>
   );

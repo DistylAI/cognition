@@ -90,7 +90,7 @@ export default function DialogPage() {
         </div>
         <p className="mt-2 text-small">
           Live and interactive: open it, then toggle the theme. The surface,
-          border, footer tint, and overlay all remap from Cognition tokens, no{" "}
+          border, footer tint, and overlay all remap from Folio tokens, no{" "}
           <code className="font-mono">dark:</code> classes. Focus is trapped and{" "}
           <code className="font-mono">Esc</code> closes it.
         </p>
@@ -170,7 +170,7 @@ export default function DialogPage() {
         <p className="mt-2 text-small">
           Focus management, scroll lock, and{" "}
           <code className="font-mono">Esc</code> / overlay-click dismissal come
-          for free. Cognition tokens are baked in.
+          for free. Folio tokens are baked in.
         </p>
       </section>
 
@@ -187,7 +187,7 @@ export default function DialogPage() {
         <code className="font-mono text-text-default">DialogDescription</code>,{" "}
         <code className="font-mono text-text-default">DialogFooter</code>,{" "}
         <code className="font-mono text-text-default">DialogClose</code>. The raw
-        utilities are replaced with Cognition tokens and the sectioned layout.
+        utilities are replaced with Folio tokens and the sectioned layout.
       </footer>
     </div>
   );

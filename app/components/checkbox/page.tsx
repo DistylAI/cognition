@@ -60,7 +60,7 @@ export default function CheckboxPage() {
           </label>
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens -- the box, check, and focus ring
+          Rendered with live Folio tokens -- the box, check, and focus ring
           remap on theme change, no <code className="font-mono">dark:</code>{" "}
           classes. Clicking the label toggles it.
         </p>
@@ -177,7 +177,7 @@ export default function CheckboxPage() {
         </code>
         . The raw <code className="font-mono text-text-default">border-primary</code>{" "}
         / <code className="font-mono text-text-default">bg-primary</code>{" "}
-        utilities are replaced with Cognition tokens.
+        utilities are replaced with Folio tokens.
       </footer>
     </div>
   );

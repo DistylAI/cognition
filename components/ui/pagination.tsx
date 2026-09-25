@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 // API mirrors fe-distillery/components/ui/pagination.tsx (Pagination + Content /
 // Item / Link / Previous / Next / Ellipsis). v4 migration: plain function
 // components + data-slot. It composes the project's Button variants (ghost /
-// outline), which already carry Cognition tokens, so it themes via
+// outline), which already carry Folio tokens, so it themes via
 // [data-theme="dark"] with no dark: classes.
 function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
   return (

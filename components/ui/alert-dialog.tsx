@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 // API mirrors fe-distillery/components/ui/alert-dialog.tsx (the full Radix
 // AlertDialog set). v4 migration: every part is a plain function component +
 // data-slot. The raw bg-background / border / overlay / muted-foreground
-// utilities stay mapped to Cognition tokens, matching this project's Dialog, so
+// utilities stay mapped to Folio tokens, matching this project's Dialog, so
 // it themes via [data-theme="dark"] with no dark: classes and no animation
 // plugin. Action and Cancel reuse the tokenized buttonVariants.
 

@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 // Portal / Overlay / Content / Header / Footer / Title / Description) on Radix
 // Dialog. v4 migration: every part is a plain function component + data-slot.
 // The raw bg-background / border / muted-foreground / ring colors stay mapped to
-// Cognition tokens and the overlay matches the project's Dialog scrim, so it
+// Folio tokens and the overlay matches the project's Dialog scrim, so it
 // themes via [data-theme="dark"] with no dark: classes. Entrance/exit animation
 // classes are dropped -- the site has no animation plugin (consistent with
 // Dialog, Dropdown Menu, and Popover).

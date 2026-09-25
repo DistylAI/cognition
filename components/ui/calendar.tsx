@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 // react-day-picker v9 -- the version this project installs. The documented props
 // (mode, selected, onSelect, disabled, numberOfMonths) are identical across
 // versions; only the internal classNames structure differs. All raw primary /
-// accent / muted colors are mapped to Cognition tokens and the day cells are
+// accent / muted colors are mapped to Folio tokens and the day cells are
 // fully styled via classNames (no day-picker stylesheet), so it themes via
 // [data-theme="dark"] with no dark: classes.
 export type CalendarProps = React.ComponentProps<typeof DayPicker>;
@@ -90,10 +90,10 @@ function CalendarDayButton({
       className={cn(
         "flex size-8 w-full min-w-8 items-center justify-center rounded-md text-sm font-normal text-text-default transition-colors",
         "hover:bg-background-secondary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-border-primary disabled:pointer-events-none disabled:opacity-50",
-        "data-[today=true]:bg-background-accent data-[today=true]:text-text-primary",
+        "data-[today=true]:bg-background-primary-subtle data-[today=true]:text-text-primary",
         "data-[outside=true]:text-text-subtle",
         "data-[selected-single=true]:bg-background-primary data-[selected-single=true]:text-text-inverse data-[selected-single=true]:hover:bg-background-primary data-[selected-single=true]:hover:text-text-inverse",
-        "data-[range-middle=true]:rounded-none data-[range-middle=true]:bg-background-accent data-[range-middle=true]:text-text-default",
+        "data-[range-middle=true]:rounded-none data-[range-middle=true]:bg-background-primary-subtle data-[range-middle=true]:text-text-default",
         "data-[range-start=true]:rounded-r-none data-[range-start=true]:bg-background-primary data-[range-start=true]:text-text-inverse data-[range-start=true]:hover:bg-background-primary",
         "data-[range-end=true]:rounded-l-none data-[range-end=true]:bg-background-primary data-[range-end=true]:text-text-inverse data-[range-end=true]:hover:bg-background-primary",
         className,

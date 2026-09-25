@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 // (Empty / EmptyHeader / EmptyMedia / EmptyTitle / EmptyDescription /
 // EmptyContent). v4 migration: plain function components + data-slot, and v4
 // sizing (gap-6, responsive padding, text-balance, size-6 media, larger title).
-// All visual classes are Cognition v1.2 tokens/named styles, so it themes via
+// All visual classes are Folio v1.2 tokens/named styles, so it themes via
 // [data-theme="dark"] with no dark: classes.
 
 function Empty({ className, ...props }: React.ComponentProps<"div">) {

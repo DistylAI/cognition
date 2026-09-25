@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 // API mirrors fe-distillery/components/ui/dropdown-menu.tsx (the full Radix
 // DropdownMenu set). v4 migration: every part is a plain function component +
 // data-slot. bg-popover / text-popover-foreground / focus:bg-accent / bg-muted
-// stay mapped to Cognition v1.2 tokens, so the menu themes via
+// stay mapped to Folio v1.2 tokens, so the menu themes via
 // [data-theme="dark"] with no dark: classes.
 
 function DropdownMenu(

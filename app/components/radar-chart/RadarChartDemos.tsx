@@ -19,7 +19,7 @@ const data = [
   { metric: "Value", a: 264, b: 170 },
 ];
 
-// Series colors come from the Cognition chart tokens (chart-1 through chart-5) -- never hardcoded hex, and
+// Series colors come from the Folio chart tokens (chart-1 through chart-5) -- never hardcoded hex, and
 // never feedback or primary tokens for neutral data series.
 const config = {
   a: { label: "Model A", color: "var(--color-chart-1)" },

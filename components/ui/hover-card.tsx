@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 // API mirrors fe-distillery/components/ui/hover-card.tsx (Radix HoverCard). v4
 // migration: HoverCardContent is a plain function component + data-slot. The raw
-// bg-popover / text-popover-foreground / border stay mapped to Cognition tokens,
+// bg-popover / text-popover-foreground / border stay mapped to Folio tokens,
 // matching this project's Popover, so it themes via [data-theme="dark"] with no
 // dark: classes and no animation plugin.
 const HoverCard = HoverCardPrimitive.Root;

@@ -5,7 +5,7 @@ import { CodeBlock } from "@/components/CodeBlock";
 export const metadata: Metadata = {
   title: "Box",
   description:
-    "Box component: a layout primitive for controlled padding, background, and border composition using Cognition tokens.",
+    "Box component: a layout primitive for controlled padding, background, and border composition using Folio tokens.",
 };
 
 const installCode = `import { Box } from "@/components/ui/box";
@@ -18,7 +18,7 @@ export function Example() {
   );
 }`;
 
-const doCode = `// Box with Cognition tokens
+const doCode = `// Box with Folio tokens
 <Box p="md" bg="subtle" border radius="md">
   Content
 </Box>`;
@@ -96,7 +96,7 @@ export default function BoxPage() {
               { prop: "py", type: `"none" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl"`, def: "—", desc: "Vertical padding. Overrides p on the y axis." },
               { prop: "bg", type: `"default" | "subtle" | "secondary" | "accent" | "inverse" | "danger" | "success" | "warning"`, def: "—", desc: "Background token. Maps to bg-background-* utilities." },
               { prop: "border", type: "boolean", def: "false", desc: "Adds a border using border-border-default." },
-              { prop: "radius", type: `"none" | "sm" | "md" | "lg" | "xl" | "full"`, def: "—", desc: "Border radius. Maps to the Cognition radius scale." },
+              { prop: "radius", type: `"none" | "sm" | "md" | "lg" | "xl" | "full"`, def: "—", desc: "Border radius. Maps to the Folio radius scale." },
               { prop: "as", type: "React.ElementType", def: `"div"`, desc: "Render as a different HTML element." },
             ].map((row) => (
               <div key={row.prop} className="grid grid-cols-[1.4fr_1.8fr_1fr_3fr] gap-4 border-b border-border-default px-4 py-3 text-small last:border-0">
@@ -144,7 +144,7 @@ export default function BoxPage() {
       </section>
 
       <p className="mt-12 text-small text-text-subtle">
-        Cognition v1.3 · June 2026 · Questions? Ask Tony Yates #research-and-design
+        Folio v1.3 · June 2026
       </p>
     </div>
   );

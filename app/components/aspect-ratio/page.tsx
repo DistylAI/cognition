@@ -87,7 +87,7 @@ export default function AspectRatioDocsPage() {
           </div>
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens -- the placeholder surface remaps on
+          Rendered with live Folio tokens -- the placeholder surface remaps on
           theme change, no <code className="font-mono">dark:</code> classes. The
           box keeps its ratio as its width changes.
         </p>

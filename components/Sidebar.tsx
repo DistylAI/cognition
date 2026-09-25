@@ -100,7 +100,7 @@ export function Sidebar() {
           <div className="flex items-center gap-2">
             <span className="inline-block h-6 w-6 rounded-full bg-background-primary" />
             <span className="text-lg font-bold tracking-tight text-text-default">
-              Cognition
+              Folio
             </span>
           </div>
         </Link>
@@ -267,23 +267,7 @@ export function Sidebar() {
 
       <div className="mt-8 border-t border-border-default px-6 pb-8 pt-6">
         <div className="flex flex-col gap-1 text-caption">
-          <span>Cognition v1.2</span>
-          <a
-            href="https://distylai.slack.com/archives/C0A22RR2N6P"
-            target="_blank"
-            rel="noreferrer"
-            className="text-text-default transition-colors hover:text-text-primary"
-          >
-            #research-and-design
-          </a>
-          <a
-            href="https://distylai.slack.com/archives/C079VBDTJLA"
-            target="_blank"
-            rel="noreferrer"
-            className="text-text-default transition-colors hover:text-text-primary"
-          >
-            #engineering-fe
-          </a>
+          <span>Folio v1.2</span>
         </div>
       </div>
     </aside>

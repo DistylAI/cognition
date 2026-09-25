@@ -86,7 +86,7 @@ export default function InputGroupPage() {
         still reads as a single control.
       </p>
 
-      <div className="mt-4 rounded-lg border border-border-default bg-background-accent p-4">
+      <div className="mt-4 rounded-lg border border-border-default bg-background-primary-subtle p-4">
         <p className="text-small text-text-default">
           Input Group is a composed pattern built on the Input primitive. It does
           not replace Input. It extends it for the cases where attached context
@@ -111,7 +111,7 @@ export default function InputGroupPage() {
           </div>
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens. Focus it and the whole group rings,
+          Rendered with live Folio tokens. Focus it and the whole group rings,
           no <code className="font-mono">dark:</code> classes.
         </p>
       </section>
@@ -245,7 +245,7 @@ export default function InputGroupPage() {
           </div>
           <div className="overflow-hidden rounded-lg border border-border-default">
             <div className="flex items-center justify-center bg-background-subtle p-8">
-              <InputGroup leadingIcon={<Globe />} defaultValue="cognition" />
+              <InputGroup leadingIcon={<Globe />} defaultValue="folio" />
             </div>
             <div className="border-t border-border-default p-3">
               <p className="text-caption">Filled. Holds a value.</p>
@@ -271,7 +271,7 @@ export default function InputGroupPage() {
             <div className="flex items-center justify-center bg-background-subtle p-8">
               <InputGroup
                 leadingIcon={<Globe />}
-                defaultValue="cognition"
+                defaultValue="folio"
                 disabled
               />
             </div>
@@ -369,23 +369,7 @@ export default function InputGroupPage() {
       </section>
 
       <footer className="mt-16 border-t border-border-default pt-6 text-small">
-        Cognition v1.2 · June 2026 · Questions? Ask{" "}
-        <a
-          href="https://distylai.slack.com/team/U07KY4SEFH7"
-          target="_blank"
-          rel="noreferrer"
-          className="font-medium text-text-primary underline-offset-4 hover:underline"
-        >
-          Tony Yates
-        </a>{" "}
-        <a
-          href="https://distylai.slack.com/archives/C0A22RR2N6P"
-          target="_blank"
-          rel="noreferrer"
-          className="font-medium text-text-primary underline-offset-4 hover:underline"
-        >
-          #research-and-design
-        </a>
+        Folio v1.2 · June 2026
       </footer>
     </div>
   );

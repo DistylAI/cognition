@@ -12,7 +12,7 @@ import { getGeneratedVersions } from "@/lib/changelog";
 export const metadata: Metadata = {
   title: "Changelog",
   description:
-    "Cognition version history: what shipped, what changed, and where the system is going.",
+    "Folio version history: what shipped, what changed, and where the system is going.",
 };
 
 type ReleaseStatus = "current" | "stable" | "foundation";
@@ -49,8 +49,8 @@ const legacyReleases: LegacyRelease[] = [
     changes: [
       "60+ components documented and live: all shadcn primitives plus Conversational UI, Graph Canvas Node, Charts, Field, Item, Spinner, and more",
       "Full sitewide compliance pass: em dashes removed from prose across all 19 component pages, Radix references removed from user-facing copy, ChatShell inline style replaced with utility class",
-      "Cognition skill rewritten as an agent briefing: distributed via ai-tools for use in Claude Code, Cursor, Copilot, and Windsurf",
-      "System vs Language distinction established: Cognition is the token and component infrastructure; the Language (Pro Blocks, motion, app shells, opinionated patterns) builds on top",
+      "Folio skill rewritten as an agent briefing: distributed via ai-tools for use in Claude Code, Cursor, Copilot, and Windsurf",
+      "System vs Language distinction established: Folio is the token and component infrastructure; the Language (Pro Blocks, motion, app shells, opinionated patterns) builds on top",
       "Roadmap expanded to 10 epics: Motion Foundations, ApiTable component, API accuracy pass, and Docs site copy sweep added",
       "Governance model defined: token changes versioned, all proposals go through design before landing",
       "New FE architect onboarded: system greenlit as platform infrastructure",
@@ -140,13 +140,13 @@ export default function ChangelogPage() {
       <p className="mb-2 text-caption">Status</p>
       <h1 className="text-lead text-text-default">Changelog</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
-        Cognition version history. What shipped, what changed, and what the
+        Folio version history. What shipped, what changed, and what the
         system has become.
       </p>
 
-      <div className="mt-4 rounded-lg border border-border-default bg-background-accent p-4">
+      <div className="mt-4 rounded-lg border border-border-default bg-background-primary-subtle p-4">
         <p className="text-small text-text-default">
-          Cognition is currently in development. Goal is production
+          Folio is currently in development. Goal is production
           infrastructure for Distyl AI, distributed as a versioned skill across
           the team&apos;s AI toolchain.
         </p>
@@ -165,7 +165,7 @@ export default function ChangelogPage() {
                       {release.version} · {formatDate(release.date)}
                     </span>
                     <CardTitle className="text-lg">
-                      Cognition {release.version}
+                      Folio {release.version}
                     </CardTitle>
                   </div>
                   <Badge color={badge.color} variant={badge.variant}>
@@ -203,7 +203,7 @@ export default function ChangelogPage() {
                       <span className="text-text-subtle">Legacy</span>
                     </span>
                     <CardTitle className="text-lg">
-                      Cognition v{release.version}
+                      Folio v{release.version}
                     </CardTitle>
                   </div>
                   <Badge color={badge.color} variant={badge.variant}>
@@ -221,8 +221,7 @@ export default function ChangelogPage() {
       </div>
 
       <p className="mt-8 text-small text-text-subtle">
-        Cognition v1.3 · June 2026 · Questions? Ask Tony Yates
-        #research-and-design
+        Folio v1.3 · June 2026
       </p>
     </div>
   );

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 // Illustrative input -- the design system has no Input component yet, so the
-// playground renders the field shells with tokens to match the Cognition Input.
+// playground renders the field shells with tokens to match the Folio Input.
 function FieldShell({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex flex-col gap-2">
@@ -114,7 +114,7 @@ export default function CardPage() {
           </Card>
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens -- toggle the theme and the surface,
+          Rendered with live Folio tokens -- toggle the theme and the surface,
           border, and footer tint remap, no{" "}
           <code className="font-mono">dark:</code> classes.
         </p>
@@ -242,7 +242,7 @@ export default function CardPage() {
         />
         <p className="mt-2 text-small">
           Drop-in ready. The surface, border, shadow, and footer tint are baked
-          into the component as Cognition tokens -- no{" "}
+          into the component as Folio tokens -- no{" "}
           <code className="font-mono">className</code> needed for standard usage.
         </p>
       </section>
@@ -260,7 +260,7 @@ export default function CardPage() {
         <code className="font-mono text-text-default">CardFooter</code>. The raw
         <code className="font-mono text-text-default"> bg-card</code> /{" "}
         <code className="font-mono text-text-default">text-muted-foreground</code>{" "}
-        utilities are replaced with Cognition tokens, and a{" "}
+        utilities are replaced with Folio tokens, and a{" "}
         <code className="font-mono text-text-default">size</code> prop is added.
       </footer>
     </div>

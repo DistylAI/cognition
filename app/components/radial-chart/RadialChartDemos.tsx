@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/chart";
 
 // Each bar carries its own fill, pointing at a --color-<name> var the config
-// defines. Colors are the Cognition chart tokens (chart-1 through chart-5) -- never hardcoded
+// defines. Colors are the Folio chart tokens (chart-1 through chart-5) -- never hardcoded
 // hex, and never the brand primary (purple).
 const catData = [
   { source: "organic", visitors: 275, fill: "var(--color-organic)" },

@@ -62,7 +62,7 @@ export default function ButtonPage() {
           <Button>Button</Button>
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens -- toggle the theme and it remaps,
+          Rendered with live Folio tokens -- toggle the theme and it remaps,
           no <code className="font-mono">dark:</code> classes.
         </p>
       </section>
@@ -268,7 +268,7 @@ export default function ButtonPage() {
           className="rounded-lg border border-border-default bg-background-subtle"
         />
         <p className="mt-2 text-small">
-          Drop-in ready. Variants and Cognition tokens are baked into the
+          Drop-in ready. Variants and Folio tokens are baked into the
           component -- no <code className="font-mono">className</code> needed for
           standard usage.
         </p>

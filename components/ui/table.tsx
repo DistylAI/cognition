@@ -4,8 +4,8 @@ import { cn } from "@/lib/utils";
 
 // Mirrors fe-distillery/components/ui/table.tsx (the Table primitive set the
 // platform DataTable renders through). v4 migration: plain function components +
-// data-slot. Visual classes mapped to Cognition v1.2 tokens: bg-muted/50 →
-// bg-background-subtle, data-[state=selected]:bg-primary/5 → bg-background-accent,
+// data-slot. Visual classes mapped to Folio v1.2 tokens: bg-muted/50 →
+// bg-background-subtle, data-[state=selected]:bg-primary/5 → bg-background-primary-subtle,
 // text-muted-foreground → text-text-subtle. Borders are explicit
 // border-border-default (Tailwind v4 defaults border to currentColor).
 
@@ -59,7 +59,7 @@ function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
     <tr
       data-slot="table-row"
       className={cn(
-        "border-b border-border-default transition-colors hover:bg-background-subtle data-[state=selected]:bg-background-accent",
+        "border-b border-border-default transition-colors hover:bg-background-subtle data-[state=selected]:bg-background-primary-subtle",
         className,
       )}
       {...props}

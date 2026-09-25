@@ -3,10 +3,10 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Typography",
   description:
-    "Geist for all UI and body copy. Geist Mono for code and technical values only -- the Cognition v1.2 type scale and weights.",
+    "Geist for all UI and body copy. Geist Mono for code and technical values only -- the Folio v1.2 type scale and weights.",
 };
 
-// The 8 canonical Cognition named text styles, ordered strictly by px descending
+// The 8 canonical Folio named text styles, ordered strictly by px descending
 // (by size, not perceived prominence -- text-lead is heavier than text-large but
 // sorts below it). Each row renders live via its own text-* class, so size /
 // weight / color are the real token, never an inline override.
@@ -127,9 +127,9 @@ export default function TypographyPage() {
 
         <div className="rounded-lg border border-border-default bg-background-subtle p-8">
           <article className="mx-auto max-w-2xl">
-            <p className="text-lead text-text-default">Building Cognition</p>
+            <p className="text-lead text-text-default">Building Folio</p>
             <p className="text-body mt-4">
-              Cognition is Distyl AI&apos;s design system -- the shared foundation
+              Folio is Distyl AI&apos;s design system -- the shared foundation
               every product implementation sits on. It exists so engineers ship
               faster, interfaces stay consistent, and the cost of a rebrand is one
               token file, not a codebase.
@@ -227,7 +227,7 @@ export default function TypographyPage() {
         <div className="rounded-lg border border-border-default bg-background-inverse p-5">
           <pre className="overflow-x-auto">
             <code className="font-mono text-sm leading-6 text-text-inverse">
-              {`const system = "Cognition";
+              {`const system = "Folio";
 const tokens = { primary: "var(--color-background-primary)" };
 const theme = (key: string) => \`var(--color-\${key})\`;
 export default { system, tokens, theme };`}
@@ -251,7 +251,7 @@ export default { system, tokens, theme };`}
       </section>
 
       <footer className="mt-16 border-t border-border-default pt-6 text-description">
-        Type styles are the Cognition v1.2 named text styles in{" "}
+        Type styles are the Folio v1.2 named text styles in{" "}
         <code className="font-mono text-text-default">globals.css</code> -- set the
         type with the <code className="font-mono text-text-default">text-*</code>{" "}
         class, the color with a token. The full token scale lives under{" "}

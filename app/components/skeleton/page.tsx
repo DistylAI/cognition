@@ -45,7 +45,7 @@ export default function SkeletonPage() {
           </div>
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens -- the muted fill pulses and remaps
+          Rendered with live Folio tokens -- the muted fill pulses and remaps
           on theme change, no <code className="font-mono">dark:</code> classes.
         </p>
       </section>
@@ -153,7 +153,7 @@ export default function SkeletonPage() {
           fe-distillery/components/ui/skeleton.tsx
         </code>
         . The raw <code className="font-mono text-text-default">bg-primary/10</code>{" "}
-        fill is replaced with the Cognition{" "}
+        fill is replaced with the Folio{" "}
         <code className="font-mono text-text-default">background-secondary</code>{" "}
         token.
       </footer>

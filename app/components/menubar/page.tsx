@@ -81,7 +81,7 @@ const itemClass =
 
 function MenuBarMock({ open }: { open?: string }) {
   return (
-    <div className="flex h-9 items-center gap-1 rounded-md border border-border-default bg-background-default p-1 shadow-sm">
+    <div className="flex h-9 items-center gap-1 rounded-md border border-border-default bg-background-default p-1 shadow">
       {["File", "Edit", "View"].map((label) => (
         <span
           key={label}
@@ -163,7 +163,7 @@ export default function MenubarPage() {
         desktop application. Each item opens a dropdown of grouped commands.
       </p>
 
-      <div className="mt-4 rounded-lg border border-border-default bg-background-accent p-4">
+      <div className="mt-4 rounded-lg border border-border-default bg-background-primary-subtle p-4">
         <p className="text-small text-text-default">
           Menubar is for application commands, not navigation. For moving around
           a site or app, use Navigation Menu or Sidebar.
@@ -230,7 +230,7 @@ export default function MenubarPage() {
           </Menubar>
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens. Open a menu and arrow across the
+          Rendered with live Folio tokens. Open a menu and arrow across the
           bar, no <code className="font-mono">dark:</code> classes.
         </p>
       </section>
@@ -423,23 +423,7 @@ export default function MenubarPage() {
       </section>
 
       <footer className="mt-16 border-t border-border-default pt-6 text-small">
-        Cognition v1.2 · June 2026 · Questions? Ask{" "}
-        <a
-          href="https://distylai.slack.com/team/U07KY4SEFH7"
-          target="_blank"
-          rel="noreferrer"
-          className="font-medium text-text-primary underline-offset-4 hover:underline"
-        >
-          Tony Yates
-        </a>{" "}
-        <a
-          href="https://distylai.slack.com/archives/C0A22RR2N6P"
-          target="_blank"
-          rel="noreferrer"
-          className="font-medium text-text-primary underline-offset-4 hover:underline"
-        >
-          #research-and-design
-        </a>
+        Folio v1.2 · June 2026
       </footer>
     </div>
   );

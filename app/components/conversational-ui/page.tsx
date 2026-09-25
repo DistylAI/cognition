@@ -13,7 +13,7 @@ import {
 export const metadata: Metadata = {
   title: "Conversational UI",
   description:
-    "The canonical AI conversation surface for Distyl products -- ChatShell, MessageBubble, ChatInput, and LoadingBubble composed from Cognition components.",
+    "The canonical AI conversation surface for Distyl products -- ChatShell, MessageBubble, ChatInput, and LoadingBubble composed from Folio components.",
 };
 
 const props = [
@@ -219,7 +219,7 @@ export default function ConversationalUIPage() {
         that supports a full turn-based AI exchange.
       </p>
 
-      <div className="mt-4 rounded-lg border border-border-default bg-background-accent p-4">
+      <div className="mt-4 rounded-lg border border-border-default bg-background-primary-subtle p-4">
         <p className="text-small text-text-default">
           <span className="font-semibold">Distyl-specific.</span> This component
           has no external library counterpart or design-tool source yet. It is
@@ -232,14 +232,14 @@ export default function ConversationalUIPage() {
       <section id="preview" className="scroll-mt-8">
         <h3 className="mt-12 mb-4 text-lead text-text-default">Preview</h3>
         <p className="mb-3 text-small">
-          This preview is live -- it&apos;s running Meno, Cognition&apos;s
+          This preview is live -- it&apos;s running Meno, Folio&apos;s
           built-in assistant. Ask it anything about tokens, components, or system
           rules.
         </p>
         <div className="overflow-hidden rounded-lg border border-border-default">
           <ChatShell
             systemPrompt={menoPrompt}
-            placeholder="Ask Meno about Cognition..."
+            placeholder="Ask Meno about Folio..."
           />
         </div>
       </section>

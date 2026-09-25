@@ -4,12 +4,12 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-// Single impl for both status and label chips (Cognition pass-2 merge). The
+// Single impl for both status and label chips (Folio pass-2 merge). The
 // `kind` axis splits the two jobs Badge used to conflate:
 //   kind="status" (default) → colored semantic pill: variant × color matrix.
 //   kind="label"            → neutral taxonomy chip (the old Tag look).
 // Tag (./tag) is a thin wrapper that locks kind="label" and adds `removable`.
-// Every color is a Cognition v1.2 token -- no raw palette utilities.
+// Every color is a Folio v1.2 token -- no raw palette utilities.
 const badgeBase =
   "inline-flex items-center gap-1 rounded-md border font-medium focus:outline-none focus:ring-2 focus:ring-border-primary focus:ring-offset-2 [&_svg]:pointer-events-none [&_svg]:size-3 [&_svg]:shrink-0";
 
@@ -58,11 +58,11 @@ const badgeVariants = cva(badgeBase, {
     { variant: "default", color: "info", class: "bg-feedback-info text-text-inverse" },
     // secondary -- soft tint
     { variant: "secondary", color: "default", class: "bg-background-secondary text-text-default" },
-    { variant: "secondary", color: "primary", class: "bg-background-accent text-text-primary" },
+    { variant: "secondary", color: "primary", class: "bg-background-primary-subtle text-text-primary" },
     { variant: "secondary", color: "destructive", class: "bg-background-danger text-text-danger" },
     { variant: "secondary", color: "success", class: "bg-background-success text-text-success" },
     { variant: "secondary", color: "warning", class: "bg-background-warning text-text-warning" },
-    { variant: "secondary", color: "info", class: "bg-background-accent text-text-primary" },
+    { variant: "secondary", color: "info", class: "bg-background-primary-subtle text-text-primary" },
     // outline -- bordered
     { variant: "outline", color: "default", class: "border-border-default text-text-default" },
     { variant: "outline", color: "primary", class: "border-border-primary text-text-primary" },

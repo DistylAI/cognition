@@ -7,7 +7,7 @@ import { FilterChips } from "./filter-chips";
 export const metadata: Metadata = {
   title: "Badge & Tag",
   description:
-    "Badge (status) and Tag (label) -- one implementation split by a kind axis, on Cognition tokens. Tag adds removable filter chips.",
+    "Badge (status) and Tag (label) -- one implementation split by a kind axis, on Folio tokens. Tag adds removable filter chips.",
 };
 
 const colors = [
@@ -70,7 +70,7 @@ export default function BadgePage() {
           <Tag>Engineering</Tag>
         </div>
         <p className="mt-2 text-small">
-          Every color maps to a Cognition feedback token -- no raw Tailwind
+          Every color maps to a Folio feedback token -- no raw Tailwind
           palette utilities.
         </p>
       </section>
@@ -271,7 +271,7 @@ export default function BadgePage() {
         <code className="font-mono text-text-default">Tag</code> is the{" "}
         <code className="font-mono text-text-default">kind=&quot;label&quot;</code>{" "}
         wrapper that adds <code className="font-mono text-text-default">removable</code>.
-        Colors are Cognition tokens.
+        Colors are Folio tokens.
       </footer>
     </div>
   );

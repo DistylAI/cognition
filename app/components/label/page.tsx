@@ -64,7 +64,7 @@ export default function LabelPage() {
         its control, and assistive tech reads them together.
       </p>
 
-      <div className="mt-4 rounded-lg border border-border-default bg-background-accent p-4">
+      <div className="mt-4 rounded-lg border border-border-default bg-background-primary-subtle p-4">
         <p className="text-small text-text-default">
           Label is a form primitive. It appears composed inside Input, Checkbox,
           and other form components. This page documents it as a standalone
@@ -85,7 +85,7 @@ export default function LabelPage() {
           </div>
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens. Toggle the theme and it remaps,
+          Rendered with live Folio tokens. Toggle the theme and it remaps,
           no <code className="font-mono">dark:</code> classes.
         </p>
       </section>
@@ -262,23 +262,7 @@ export default function LabelPage() {
       </section>
 
       <footer className="mt-16 border-t border-border-default pt-6 text-small">
-        Cognition v1.2 · June 2026 · Questions? Ask{" "}
-        <a
-          href="https://distylai.slack.com/team/U07KY4SEFH7"
-          target="_blank"
-          rel="noreferrer"
-          className="font-medium text-text-primary underline-offset-4 hover:underline"
-        >
-          Tony Yates
-        </a>{" "}
-        <a
-          href="https://distylai.slack.com/archives/C0A22RR2N6P"
-          target="_blank"
-          rel="noreferrer"
-          className="font-medium text-text-primary underline-offset-4 hover:underline"
-        >
-          #research-and-design
-        </a>
+        Folio v1.2 · June 2026
       </footer>
     </div>
   );

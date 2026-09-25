@@ -60,7 +60,7 @@ export default function TextareaPage() {
           </div>
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens -- surface, border, and focus ring
+          Rendered with live Folio tokens -- surface, border, and focus ring
           remap on theme change, no <code className="font-mono">dark:</code>{" "}
           classes. It matches the Input field, just multi-line.
         </p>
@@ -179,7 +179,7 @@ export default function TextareaPage() {
         <code className="font-mono text-text-default">
           React.ComponentProps&lt;&quot;textarea&quot;&gt;
         </code>
-        . Raw Tailwind utilities are replaced with Cognition tokens.
+        . Raw Tailwind utilities are replaced with Folio tokens.
       </footer>
     </div>
   );

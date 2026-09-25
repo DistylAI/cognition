@@ -1,18 +1,22 @@
 // Build-time guard: fail if the hand-authored Tokens page data (lib/tokens.ts)
-// drifts from the source of truth (app/globals.css). The Tokens page swatches
-// render live from CSS vars, but the printed light/dark hex values and the set
-// of documented tokens are hand-maintained — this keeps them honest.
+// or the Tailwind config drifts from the source of truth
+// (content/folio-tokens.css). The Tokens page swatches render live from CSS
+// vars, but the printed light/dark hex values and the set of documented tokens
+// are hand-maintained — this keeps them honest.
 //
 // Checks color tokens only (the --color-* vars with hex values): value drift in
-// either theme, stale tokens documented but absent from globals, and tokens in
-// @theme that aren't documented on the page. Runs in `npm run build`.
+// either theme, stale tokens documented but absent from the token file, tokens
+// that aren't documented on the page, and tokens with no Tailwind utility.
+// Runs in `npm run build`.
 import { readFileSync } from "node:fs";
 
-const cssPath = process.argv[2] || "app/globals.css";
+const cssPath = process.argv[2] || "content/folio-tokens.css";
 const tokensPath = process.argv[3] || "lib/tokens.ts";
+const configPath = process.argv[4] || "tailwind.config.ts";
 
 const css = readFileSync(cssPath, "utf-8");
 const toks = readFileSync(tokensPath, "utf-8");
+const config = readFileSync(configPath, "utf-8");
 
 const COLOR_RE = /(--color-[a-z0-9-]+):\s*(#[0-9A-Fa-f]{3,6})/g;
 
@@ -25,11 +29,9 @@ function block(re, label) {
   return Object.fromEntries([...m[1].matchAll(COLOR_RE)].map((x) => [x[1], x[2].toLowerCase()]));
 }
 
-const light = block(/@theme\s*\{([^}]*)\}/, "@theme");
-const dark = {};
-for (const m of css.matchAll(/\[data-theme="dark"\]\s*\{([^}]*)\}/g)) {
-  for (const x of m[1].matchAll(COLOR_RE)) dark[x[1]] = x[2].toLowerCase();
-}
+const light = block(/^:root\s*\{([^}]*)\}/m, ":root");
+// Tokens the dark block does not remap (chart) keep their light value.
+const dark = { ...light, ...block(/^\[data-theme="dark"\]\s*\{([^}]*)\}/m, '[data-theme="dark"]') };
 
 const entries = [
   ...toks.matchAll(
@@ -37,37 +39,50 @@ const entries = [
   ),
 ].map((m) => ({ cssVar: m[1], light: m[2].toLowerCase(), dark: m[3].toLowerCase() }));
 
+const configured = new Set(
+  [...config.matchAll(/tokens\("([a-z]+)",\s*\[([^\]]*)\]\)/g)].flatMap((m) =>
+    [...m[2].matchAll(/"([a-z0-9-]+)"/g)].map((n) => `--color-${m[1]}-${n[1]}`),
+  ),
+);
+
 const errors = [];
 const documented = new Set(entries.map((e) => e.cssVar));
 
 for (const e of entries) {
   if (!(e.cssVar in light)) {
-    errors.push(`${e.cssVar}: documented in ${tokensPath} but missing from @theme in ${cssPath}`);
+    errors.push(`${e.cssVar}: documented in ${tokensPath} but missing from :root in ${cssPath}`);
     continue;
   }
   if (light[e.cssVar] !== e.light) {
-    errors.push(`${e.cssVar} light: page=${e.light} globals=${light[e.cssVar]}`);
+    errors.push(`${e.cssVar} light: page=${e.light} tokens=${light[e.cssVar]}`);
   }
-  const gd = dark[e.cssVar];
-  if (gd && gd !== e.dark) {
-    errors.push(`${e.cssVar} dark: page=${e.dark} globals=${gd}`);
+  if (dark[e.cssVar] !== e.dark) {
+    errors.push(`${e.cssVar} dark: page=${e.dark} tokens=${dark[e.cssVar]}`);
   }
 }
 for (const k of Object.keys(light)) {
   if (!documented.has(k)) {
-    errors.push(`${k}: in @theme but NOT documented on the Tokens page (lib/tokens.ts)`);
+    errors.push(`${k}: in ${cssPath} but NOT documented on the Tokens page (${tokensPath})`);
+  }
+  if (!configured.has(k)) {
+    errors.push(`${k}: in ${cssPath} but has no utility in ${configPath}`);
+  }
+}
+for (const k of configured) {
+  if (!(k in light)) {
+    errors.push(`${k}: in ${configPath} but missing from ${cssPath}`);
   }
 }
 
 if (errors.length) {
   console.error(
-    `\n✗ check-tokens: ${errors.length} drift issue(s) between ${tokensPath} and ${cssPath}:\n` +
+    `\n✗ check-tokens: ${errors.length} drift issue(s) between ${cssPath}, ${tokensPath}, and ${configPath}:\n` +
       errors.map((e) => `  • ${e}`).join("\n") +
-      `\n\nUpdate lib/tokens.ts (or globals.css) so they match, then rebuild.\n`,
+      `\n\nUpdate the files so they match, then rebuild.\n`,
   );
   process.exit(1);
 }
 
 console.log(
-  `✓ check-tokens: ${entries.length} color tokens in lib/tokens.ts match app/globals.css (light + dark).`,
+  `✓ check-tokens: ${entries.length} color tokens match across ${cssPath}, ${tokensPath}, and ${configPath} (light + dark).`,
 );

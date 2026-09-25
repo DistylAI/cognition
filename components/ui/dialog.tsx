@@ -8,8 +8,8 @@ import { cn } from "@/lib/utils";
 
 // API mirrors fe-distillery/components/ui/dialog.tsx (Radix Dialog). v4
 // migration: every part is a plain function component + data-slot. The raw
-// bg-background / border / bg-black\80 / ring utilities stay mapped to Cognition
-// v1.2 tokens, and the sectioned layout follows the Cognition Dialog --
+// bg-background / border / bg-black\80 / ring utilities stay mapped to Folio
+// v1.2 tokens, and the sectioned layout follows the Folio Dialog --
 // header/footer own their padding and the footer carries the top border +
 // subtle tint (like Card). Themes via [data-theme="dark"], no dark:.
 
@@ -76,7 +76,7 @@ function DialogContent({
 }
 
 // Header and footer own their padding so the footer can be full-bleed with a
-// top border + subtle tint, matching the Cognition Dialog. Body content
+// top border + subtle tint, matching the Folio Dialog. Body content
 // sits between them -- wrap it in `px-4 pb-4` (see the docs examples).
 function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (

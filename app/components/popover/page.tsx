@@ -142,7 +142,7 @@ export default function PopoverDocsPage() {
           <DimensionsPopover />
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens -- the panel surface, border, and
+          Rendered with live Folio tokens -- the panel surface, border, and
           text remap on theme change, no{" "}
           <code className="font-mono">dark:</code> classes. Trigger it to float
           the content over the page.
@@ -271,7 +271,7 @@ export default function PopoverDocsPage() {
         <code className="font-mono text-text-default">PopoverTrigger</code>,{" "}
         <code className="font-mono text-text-default">PopoverAnchor</code>,{" "}
         <code className="font-mono text-text-default">PopoverContent</code>. The
-        raw popover surface and foreground are replaced with Cognition tokens,
+        raw popover surface and foreground are replaced with Folio tokens,
         matching the Dropdown Menu and Dialog content.
       </footer>
     </div>

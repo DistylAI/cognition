@@ -9,18 +9,18 @@ import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: {
-    default: "Cognition -- Distyl AI Design System",
-    template: "%s · Cognition",
+    default: "Folio -- Distyl AI Design System",
+    template: "%s · Folio",
   },
   description:
-    "Cognition v1.2 -- the canonical design system for Distyl AI. Tokens, component rules, and the current codebase audit.",
+    "Folio v1.2 -- the canonical design system for Distyl AI. Tokens, component rules, and the current codebase audit.",
 };
 
 // Set the theme before first paint to avoid a flash of the wrong theme.
 const themeScript = `
 (function () {
   try {
-    var stored = localStorage.getItem('cognition-theme');
+    var stored = localStorage.getItem('folio-theme');
     var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', theme);
   } catch (e) {}

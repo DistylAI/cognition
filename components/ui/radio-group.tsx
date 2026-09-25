@@ -9,8 +9,8 @@ import { cn } from "@/lib/utils";
 
 // API mirrors fe-distillery/components/ui/radio-group.tsx (Radix RadioGroup +
 // Item + a labeled-option helper). v4 migration: plain function components +
-// data-slot, shadow-xs, and the v4 focus ring (matching Checkbox). The raw
-// primary / ring / muted colors stay mapped to Cognition tokens -- the control
+// data-slot, shadow-sm, and the v4 focus ring (matching Checkbox). The raw
+// primary / ring / muted colors stay mapped to Folio tokens -- the control
 // uses the brand primary (interactive selection) -- so it themes via
 // [data-theme="dark"] with no dark: classes.
 function RadioGroup({
@@ -34,7 +34,7 @@ function RadioGroupItem({
     <RadioGroupPrimitive.Item
       data-slot="radio-group-item"
       className={cn(
-        "aspect-square size-4 shrink-0 rounded-full border border-border-primary text-text-primary shadow-xs transition-[color,box-shadow] outline-none focus-visible:border-border-primary focus-visible:ring-border-primary/50 focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-border-danger aria-invalid:ring-border-danger/20",
+        "aspect-square size-4 shrink-0 rounded-full border border-border-primary text-text-primary shadow-sm transition-[color,box-shadow] outline-none focus-visible:border-border-primary focus-visible:ring-border-primary/50 focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 aria-[invalid=true]:border-border-danger aria-[invalid=true]:ring-border-danger/20",
         className,
       )}
       {...props}

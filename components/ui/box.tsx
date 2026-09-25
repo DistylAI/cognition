@@ -78,7 +78,7 @@ const bgMap: Record<Background, string> = {
   default: "bg-background-default",
   subtle: "bg-background-subtle",
   secondary: "bg-background-secondary",
-  accent: "bg-background-accent",
+  accent: "bg-background-primary-subtle",
   inverse: "bg-background-inverse",
   danger: "bg-background-danger",
   success: "bg-background-success",

@@ -145,7 +145,7 @@ export default function AlertDialogPage() {
         anything else can happen.
       </p>
 
-      <div className="mt-4 rounded-lg border border-border-default bg-background-accent p-4">
+      <div className="mt-4 rounded-lg border border-border-default bg-background-primary-subtle p-4">
         <p className="text-small text-text-default">
           Alert Dialog is for destructive or irreversible actions only. For
           general content, forms, and non-critical interactions, use Dialog. An
@@ -178,7 +178,7 @@ export default function AlertDialogPage() {
           </AlertDialog>
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens. Press the button to open the real
+          Rendered with live Folio tokens. Press the button to open the real
           modal, no <code className="font-mono">dark:</code> classes.
         </p>
       </section>
@@ -329,23 +329,7 @@ export default function AlertDialogPage() {
       </section>
 
       <footer className="mt-16 border-t border-border-default pt-6 text-small">
-        Cognition v1.2 · June 2026 · Questions? Ask{" "}
-        <a
-          href="https://distylai.slack.com/team/U07KY4SEFH7"
-          target="_blank"
-          rel="noreferrer"
-          className="font-medium text-text-primary underline-offset-4 hover:underline"
-        >
-          Tony Yates
-        </a>{" "}
-        <a
-          href="https://distylai.slack.com/archives/C0A22RR2N6P"
-          target="_blank"
-          rel="noreferrer"
-          className="font-medium text-text-primary underline-offset-4 hover:underline"
-        >
-          #research-and-design
-        </a>
+        Folio v1.2 · June 2026
       </footer>
     </div>
   );

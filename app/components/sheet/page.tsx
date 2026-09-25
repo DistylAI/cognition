@@ -60,8 +60,8 @@ const previewCode = `<Sheet>
       </SheetDescription>
     </SheetHeader>
     <div className="grid gap-4 py-4">
-      <Input id="name" defaultValue="Tony Yates" />
-      <Input id="username" defaultValue="@tony" />
+      <Input id="name" placeholder="Name" />
+      <Input id="username" placeholder="@username" />
     </div>
     <SheetFooter>
       <SheetClose asChild>
@@ -124,7 +124,7 @@ function ProfileSheet() {
             >
               Name
             </label>
-            <Input id="sheet-name" defaultValue="Tony Yates" />
+            <Input id="sheet-name" placeholder="Name" />
           </div>
           <div className="grid gap-2">
             <label
@@ -133,7 +133,7 @@ function ProfileSheet() {
             >
               Username
             </label>
-            <Input id="sheet-username" defaultValue="@tony" />
+            <Input id="sheet-username" placeholder="@username" />
           </div>
         </div>
         <SheetFooter>
@@ -164,7 +164,7 @@ export default function SheetDocsPage() {
           <ProfileSheet />
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens -- the panel surface, overlay scrim,
+          Rendered with live Folio tokens -- the panel surface, overlay scrim,
           and text remap on theme change, no{" "}
           <code className="font-mono">dark:</code> classes. Trigger it to open the
           panel from the right.
@@ -291,7 +291,7 @@ export default function SheetDocsPage() {
         -- <code className="font-mono text-text-default">Sheet</code> and its
         Trigger / Content / Header / Footer / Title / Description / Close parts,
         built on Radix Dialog. The raw surface, scrim, border, and muted text are
-        replaced with Cognition tokens; the entrance animation is omitted to match
+        replaced with Folio tokens; the entrance animation is omitted to match
         the site&apos;s other overlays.
       </footer>
     </div>

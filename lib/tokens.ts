@@ -1,6 +1,6 @@
-// Cognition v1.2 — canonical token data.
-// Values mirror content/cognition-tokens.css. The Tokens page renders swatches
-// from this single source so the docs cannot drift from the spec.
+// Folio token data for the Tokens page.
+// Values mirror content/folio-tokens.css; scripts/check-tokens.mjs fails the
+// build when they drift.
 
 export type ColorToken = {
   name: string;
@@ -33,12 +33,13 @@ export const colorGroups: ColorGroup[] = [
       { name: "background.default", cssVar: "--color-background-default", utility: "bg-background-default", light: "#FFFFFF", dark: "#0F1117", usage: "Main page / app background" },
       { name: "background.subtle", cssVar: "--color-background-subtle", utility: "bg-background-subtle", light: "#F9FAFB", dark: "#141820", usage: "Sidebars, off-white surfaces" },
       { name: "background.secondary", cssVar: "--color-background-secondary", utility: "bg-background-secondary", light: "#F3F4F6", dark: "#1F2937", usage: "Secondary surfaces, hover states" },
-      { name: "background.accent", cssVar: "--color-background-accent", utility: "bg-background-accent", light: "#EFEDFD", dark: "#06041B", usage: "Brand-tinted surfaces" },
+      { name: "background.primary-subtle", cssVar: "--color-background-primary-subtle", utility: "bg-background-primary-subtle", light: "#EFEDFD", dark: "#1A1733", usage: "Brand-tinted surfaces" },
+      { name: "background.accent", cssVar: "--color-background-accent", utility: "bg-background-accent", light: "#F3F4F6", dark: "#1E1B4B", usage: "Hover and highlight surfaces" },
       { name: "background.primary", cssVar: "--color-background-primary", utility: "bg-background-primary", light: "#5D4EE7", dark: "#7C6FF7", usage: "Primary brand fills, buttons" },
       { name: "background.inverse", cssVar: "--color-background-inverse", utility: "bg-background-inverse", light: "#0F1117", dark: "#F9FAFB", usage: "Dark surfaces" },
       { name: "background.danger", cssVar: "--color-background-danger", utility: "bg-background-danger", light: "#FEF2F2", dark: "#450A0A", usage: "Error background tints" },
       { name: "background.success", cssVar: "--color-background-success", utility: "bg-background-success", light: "#F0FDF4", dark: "#052E16", usage: "Success background tints" },
-      { name: "background.warning", cssVar: "--color-background-warning", utility: "bg-background-warning", light: "#FFFBEB", dark: "#431407", usage: "Warning background tints" },
+      { name: "background.warning", cssVar: "--color-background-warning", utility: "bg-background-warning", light: "#FFFBEB", dark: "#451A03", usage: "Warning background tints" },
       { name: "background.info", cssVar: "--color-background-info", utility: "bg-background-info", light: "#EFF6FF", dark: "#172554", usage: "Info background tints" },
     ],
   },
@@ -69,6 +70,8 @@ export const colorGroups: ColorGroup[] = [
       { name: "border.primary", cssVar: "--color-border-primary", utility: "border-border-primary", light: "#5D4EE7", dark: "#7C6FF7", usage: "Focused / active inputs" },
       { name: "border.danger", cssVar: "--color-border-danger", utility: "border-border-danger", light: "#EF4444", dark: "#F87171", usage: "Error state borders" },
       { name: "border.success", cssVar: "--color-border-success", utility: "border-border-success", light: "#15803D", dark: "#4ADE80", usage: "Valid / success borders" },
+      { name: "border.warning", cssVar: "--color-border-warning", utility: "border-border-warning", light: "#B45309", dark: "#FBBF24", usage: "Warning state borders" },
+      { name: "border.info", cssVar: "--color-border-info", utility: "border-border-info", light: "#3B82F6", dark: "#60A5FA", usage: "Info state borders" },
     ],
   },
   {
@@ -86,13 +89,18 @@ export const colorGroups: ColorGroup[] = [
     id: "chart",
     title: "Chart",
     description:
-      "Data series colors for charts. Use in order — chart-1 first, chart-5 last. Never use feedback or primary tokens for neutral data series.",
+      "Data series colors for charts. Use in order, from chart-1 to chart-10. The values are the same in light and dark. Never use feedback or primary tokens for neutral data series.",
     tokens: [
-      { name: "chart.1", cssVar: "--color-chart-1", utility: "var(--color-chart-1)", light: "#7C6FF7", dark: "#9089F9", usage: "First data series" },
-      { name: "chart.2", cssVar: "--color-chart-2", utility: "var(--color-chart-2)", light: "#38BDF8", dark: "#7DD3FC", usage: "Second data series" },
-      { name: "chart.3", cssVar: "--color-chart-3", utility: "var(--color-chart-3)", light: "#34D399", dark: "#6EE7B7", usage: "Third data series" },
-      { name: "chart.4", cssVar: "--color-chart-4", utility: "var(--color-chart-4)", light: "#FB923C", dark: "#FDBA74", usage: "Fourth data series" },
-      { name: "chart.5", cssVar: "--color-chart-5", utility: "var(--color-chart-5)", light: "#EC4899", dark: "#F9A8D4", usage: "Fifth data series" },
+      { name: "chart.1", cssVar: "--color-chart-1", utility: "var(--color-chart-1)", light: "#7C6FF7", dark: "#7C6FF7", usage: "First data series" },
+      { name: "chart.2", cssVar: "--color-chart-2", utility: "var(--color-chart-2)", light: "#38BDF8", dark: "#38BDF8", usage: "Second data series" },
+      { name: "chart.3", cssVar: "--color-chart-3", utility: "var(--color-chart-3)", light: "#34D399", dark: "#34D399", usage: "Third data series" },
+      { name: "chart.4", cssVar: "--color-chart-4", utility: "var(--color-chart-4)", light: "#FB923C", dark: "#FB923C", usage: "Fourth data series" },
+      { name: "chart.5", cssVar: "--color-chart-5", utility: "var(--color-chart-5)", light: "#EC4899", dark: "#EC4899", usage: "Fifth data series" },
+      { name: "chart.6", cssVar: "--color-chart-6", utility: "var(--color-chart-6)", light: "#2A9D90", dark: "#2A9D90", usage: "Sixth data series" },
+      { name: "chart.7", cssVar: "--color-chart-7", utility: "var(--color-chart-7)", light: "#16A249", dark: "#16A249", usage: "Seventh data series" },
+      { name: "chart.8", cssVar: "--color-chart-8", utility: "var(--color-chart-8)", light: "#E963A6", dark: "#E963A6", usage: "Eighth data series" },
+      { name: "chart.9", cssVar: "--color-chart-9", utility: "var(--color-chart-9)", light: "#A855F7", dark: "#A855F7", usage: "Ninth data series" },
+      { name: "chart.10", cssVar: "--color-chart-10", utility: "var(--color-chart-10)", light: "#2E4C6B", dark: "#2E4C6B", usage: "Tenth data series" },
     ],
   },
 ];
@@ -129,7 +137,7 @@ export type TypeScaleToken = {
   sample: string;
 };
 
-// The 8 canonical Cognition named text styles, ordered strictly px-descending
+// The 8 canonical Folio named text styles, ordered strictly px-descending
 // (nothing above 20px). Each row renders at the token's real size/weight.
 export const typeScale: TypeScaleToken[] = [
   { px: 20, token: "text-large", weight: 400, weightLabel: "Regular", sample: "Largest display text" },

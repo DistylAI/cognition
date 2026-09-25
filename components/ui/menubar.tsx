@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 // API mirrors fe-distillery/components/ui/menubar.tsx (the full Radix Menubar
 // set). v4 migration: every part is a plain function component + data-slot. The
 // raw bg-background / bg-accent / bg-popover / bg-muted colors stay mapped to
-// Cognition tokens, matching this project's DropdownMenu, so it themes via
+// Folio tokens, matching this project's DropdownMenu, so it themes via
 // [data-theme="dark"] with no dark: classes and no animation plugin.
 
 function MenubarMenu(
@@ -50,7 +50,7 @@ function Menubar({
     <MenubarPrimitive.Root
       data-slot="menubar"
       className={cn(
-        "flex h-9 items-center gap-1 rounded-md border border-border-default bg-background-default p-1 shadow-sm",
+        "flex h-9 items-center gap-1 rounded-md border border-border-default bg-background-default p-1 shadow",
         className,
       )}
       {...props}

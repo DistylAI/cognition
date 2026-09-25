@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 // API mirrors fe-distillery/components/ui/command.tsx (cmdk Command + Dialog,
 // Input, List, Empty, Group, Separator, Item, Shortcut). v4 migration: every
 // part is a plain function component + data-slot. The raw popover /
-// muted-foreground / accent / border colors stay mapped to Cognition tokens so
+// muted-foreground / accent / border colors stay mapped to Folio tokens so
 // it themes via [data-theme="dark"] with no dark: classes.
 
 function Command({

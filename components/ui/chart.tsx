@@ -8,9 +8,9 @@ import { cn } from "@/lib/utils";
 // API mirrors fe-distillery/components/ui/chart.tsx (ChartContainer, ChartTooltip
 // / ChartTooltipContent, ChartLegend / ChartLegendContent, ChartStyle,
 // ChartConfig) on Recharts. The muted-foreground / border / muted / background
-// classes are mapped to Cognition tokens, and the dark theme selector is the
+// classes are mapped to Folio tokens, and the dark theme selector is the
 // project's [data-theme="dark"] -- so charts theme with no dark: classes. Series
-// colors come from the config (use Cognition token vars, never hardcoded hex).
+// colors come from the config (use Folio token vars, never hardcoded hex).
 
 // Format: { THEME_NAME: CSS_SELECTOR }
 const THEMES = { light: "", dark: '[data-theme="dark"]' } as const;

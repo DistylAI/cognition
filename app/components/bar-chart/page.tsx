@@ -11,7 +11,7 @@ import {
 export const metadata: Metadata = {
   title: "Bar Chart",
   description:
-    "Bar Chart -- a Recharts bar chart wrapped in the Cognition Chart primitives, with token-driven series colors, tooltips, and legends.",
+    "Bar Chart -- a Recharts bar chart wrapped in the Folio Chart primitives, with token-driven series colors, tooltips, and legends.",
 };
 
 const parts = [
@@ -21,7 +21,7 @@ const parts = [
   },
   {
     name: "ChartConfig",
-    desc: "Per-series label, optional icon, and color. Use a Cognition token var for color (e.g. var(--color-chart-1)).",
+    desc: "Per-series label, optional icon, and color. Use a Folio token var for color (e.g. var(--color-chart-1)).",
   },
   {
     name: "ChartTooltip / ChartTooltipContent",
@@ -123,7 +123,7 @@ export default function BarChartDocsPage() {
       <p className="mb-2 text-caption">Components</p>
       <h1 className="text-lead text-text-default">Bar Chart</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
-        A bar chart built on Recharts and wrapped in the Cognition Chart
+        A bar chart built on Recharts and wrapped in the Folio Chart
         primitives. A <code className="font-mono">ChartConfig</code> maps each
         series to a label and a token color; the container, tooltip, and legend
         handle the rest.
@@ -136,7 +136,7 @@ export default function BarChartDocsPage() {
           <BasicBar />
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens -- bars, axes, grid, and tooltip all
+          Rendered with live Folio tokens -- bars, axes, grid, and tooltip all
           remap on theme change, no <code className="font-mono">dark:</code>{" "}
           classes. Series colors are injected from the config as{" "}
           <code className="font-mono">--color-*</code> CSS vars.
@@ -148,7 +148,7 @@ export default function BarChartDocsPage() {
         <h3 className="mt-12 mb-4 text-lead text-text-default">Config</h3>
         <p className="mb-4 text-small">
           Every chart starts with a <code className="font-mono">ChartConfig</code>{" "}
-          -- one entry per series, each pointing at a Cognition token. The
+          -- one entry per series, each pointing at a Folio token. The
           container turns those into <code className="font-mono">--color-*</code>{" "}
           variables the bars reference.
         </p>
@@ -273,7 +273,7 @@ export default function BarChartDocsPage() {
         <code className="font-mono text-text-default">Content</code>,{" "}
         <code className="font-mono text-text-default">ChartLegend</code>/
         <code className="font-mono text-text-default">Content</code> on Recharts.
-        The muted / border / background colors are replaced with Cognition
+        The muted / border / background colors are replaced with Folio
         tokens, and series colors are token vars from the config.
       </footer>
     </div>

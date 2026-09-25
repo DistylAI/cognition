@@ -138,7 +138,7 @@ export default function ToggleDocsPage() {
           </Toggle>
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens -- hover and the pressed state (an
+          Rendered with live Folio tokens -- hover and the pressed state (an
           accent surface with primary text) remap on theme change, no{" "}
           <code className="font-mono">dark:</code> classes. Click a control to
           toggle it.
@@ -298,7 +298,7 @@ export default function ToggleDocsPage() {
         -- <code className="font-mono text-text-default">Toggle</code> and{" "}
         <code className="font-mono text-text-default">toggleVariants</code> on
         Radix. The raw muted / accent / ring / primary-50 colors are replaced
-        with Cognition tokens.
+        with Folio tokens.
       </footer>
     </div>
   );

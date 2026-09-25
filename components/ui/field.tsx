@@ -5,11 +5,11 @@ import * as React from "react";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 
-// A Cognition higher-order form component. Field composes a Label, a control
+// A Folio higher-order form component. Field composes a Label, a control
 // (passed as children -- Input, Select, Textarea, etc.), and optional helper or
 // error text into one labelled, accessible unit. It does not replace those
 // primitives; it wires them together: the label's htmlFor, the control's id,
-// aria-invalid, and aria-describedby are all linked. Colors are Cognition
+// aria-invalid, and aria-describedby are all linked. Colors are Folio
 // tokens, so it themes via [data-theme="dark"] with no dark: classes.
 type ControlProps = {
   id?: string;

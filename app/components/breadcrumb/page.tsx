@@ -168,7 +168,7 @@ export default function BreadcrumbDocsPage() {
           <ChevronTrail />
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens: link, hover, and current-page
+          Rendered with live Folio tokens: link, hover, and current-page
           colors remap on theme change, no{" "}
           <code className="font-mono">dark:</code> classes.
         </p>
@@ -353,7 +353,7 @@ export default function BreadcrumbDocsPage() {
         <code className="font-mono text-text-default">BreadcrumbPage</code>,{" "}
         <code className="font-mono text-text-default">BreadcrumbSeparator</code>,{" "}
         <code className="font-mono text-text-default">BreadcrumbEllipsis</code>.
-        The raw muted-foreground / foreground colors are replaced with Cognition
+        The raw muted-foreground / foreground colors are replaced with Folio
         tokens.
       </footer>
     </div>

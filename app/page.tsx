@@ -5,7 +5,7 @@ export default function HomePage() {
     <div>
       {/* Hero */}
       <p className="mb-2 text-caption">
-        Cognition v1.2 · Distyl AI
+        Folio v1.2 · Distyl AI
       </p>
 
       <h1 className="text-lead tracking-[-0.025em] text-text-default">
@@ -13,13 +13,13 @@ export default function HomePage() {
       </h1>
 
       <p className="mt-4 max-w-2xl text-lead text-text-default">
-        Cognition is Distyl&apos;s Product Experience Platform. It captures the
+        Folio is Distyl&apos;s Product Experience Platform. It captures the
         reusable decisions that define how every product surface looks, behaves,
         and evolves.
       </p>
 
       <p className="mt-4 max-w-2xl text-body text-text-default">
-        Product Experience is built on systems, not one-off decisions. Cognition
+        Product Experience is built on systems, not one-off decisions. Folio
         transforms validated design and engineering decisions into shared
         infrastructure that every product, implementation, and team can build
         upon. Every token, component, pattern, and interaction exists for one
@@ -91,7 +91,7 @@ export default function HomePage() {
         ))}
       </div>
 
-      {/* Stages of Cognition */}
+      {/* Stages of Folio */}
       <h2 className="mt-16 text-lead text-text-default">
         Belief. Truth. Coherence.
       </h2>
@@ -144,7 +144,7 @@ export default function HomePage() {
           {
             href: "/audit",
             title: "Codebase Audit",
-            body: "Where the three Distyl repos stand against Cognition v1.2 today -- and what blocks the rebrand.",
+            body: "Where the three Distyl repos stand against Folio v1.2 today -- and what blocks the rebrand.",
           },
         ].map((item) => (
           <Link
@@ -164,15 +164,7 @@ export default function HomePage() {
       </div>
 
       <footer className="mt-16 border-t border-border-default pt-6 text-small">
-        Cognition v1.2 · June 2026 · Questions?{" "}
-        <a
-          href="https://distylai.slack.com/team/U07KY4SEFH7"
-          target="_blank"
-          rel="noreferrer"
-          className="text-text-primary transition-opacity hover:opacity-80"
-        >
-          Ask Tony Yates
-        </a>
+        Folio v1.2 · June 2026
       </footer>
     </div>
   );

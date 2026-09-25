@@ -5,7 +5,7 @@ import { CodeBlock } from "@/components/CodeBlock";
 export const metadata: Metadata = {
   title: "Scroll Area",
   description:
-    "Scroll Area component -- a bounded container that replaces native browser scrollbars with custom Cognition-styled ones.",
+    "Scroll Area component -- a bounded container that replaces native browser scrollbars with custom Folio-styled ones.",
 };
 
 const tags = Array.from({ length: 24 }, (_, i) => `v1.2.0-beta.${50 - i}`);
@@ -73,7 +73,7 @@ export default function ScrollAreaPage() {
       <h1 className="text-lead text-text-default">Scroll Area</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
         A bounded container that replaces native browser scrollbars with custom
-        Cognition-styled ones. Use it when content can exceed the space it has.
+        Folio-styled ones. Use it when content can exceed the space it has.
       </p>
 
       {/* Preview */}
@@ -96,7 +96,7 @@ export default function ScrollAreaPage() {
           </ScrollArea>
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens. Toggle the theme and it remaps,
+          Rendered with live Folio tokens. Toggle the theme and it remaps,
           no <code className="font-mono">dark:</code> classes.
         </p>
       </section>
@@ -346,23 +346,7 @@ export default function ScrollAreaPage() {
       </section>
 
       <footer className="mt-16 border-t border-border-default pt-6 text-small">
-        Cognition v1.2 · June 2026 · Questions? Ask{" "}
-        <a
-          href="https://distylai.slack.com/team/U07KY4SEFH7"
-          target="_blank"
-          rel="noreferrer"
-          className="font-medium text-text-primary underline-offset-4 hover:underline"
-        >
-          Tony Yates
-        </a>{" "}
-        <a
-          href="https://distylai.slack.com/archives/C0A22RR2N6P"
-          target="_blank"
-          rel="noreferrer"
-          className="font-medium text-text-primary underline-offset-4 hover:underline"
-        >
-          #research-and-design
-        </a>
+        Folio v1.2 · June 2026
       </footer>
     </div>
   );

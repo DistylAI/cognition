@@ -11,7 +11,7 @@ import {
 export const metadata: Metadata = {
   title: "Chart Tooltip",
   description:
-    "Chart Tooltip -- the styled tooltip for Cognition charts, with dot / line / dashed indicators, optional labels, and custom formatters.",
+    "Chart Tooltip -- the styled tooltip for Folio charts, with dot / line / dashed indicators, optional labels, and custom formatters.",
 };
 
 const props = [
@@ -96,7 +96,7 @@ export default function ChartTooltipDocsPage() {
       <p className="mb-2 text-caption">Components</p>
       <h1 className="text-lead text-text-default">Chart Tooltip</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
-        The styled tooltip for Cognition charts. Drop{" "}
+        The styled tooltip for Folio charts. Drop{" "}
         <code className="font-mono">ChartTooltip</code> with a{" "}
         <code className="font-mono">ChartTooltipContent</code> into any chart;
         labels and colors come from the same <code className="font-mono">ChartConfig</code>.
@@ -110,7 +110,7 @@ export default function ChartTooltipDocsPage() {
           <DotTooltip />
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens -- the tooltip surface, border, and
+          Rendered with live Folio tokens -- the tooltip surface, border, and
           text remap on theme change, no <code className="font-mono">dark:</code>{" "}
           classes. Hover a bar to reveal it.
         </p>
@@ -246,7 +246,7 @@ export default function ChartTooltipDocsPage() {
         </code>{" "}
         -- <code className="font-mono text-text-default">ChartTooltip</code> and{" "}
         <code className="font-mono text-text-default">ChartTooltipContent</code> on
-        Recharts. The surface, border, and text use Cognition tokens; indicator
+        Recharts. The surface, border, and text use Folio tokens; indicator
         colors come from the series config.
       </footer>
     </div>

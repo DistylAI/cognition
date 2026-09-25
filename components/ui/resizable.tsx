@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 // API mirrors fe-distillery/components/ui/resizable.tsx (react-resizable-panels:
 // PanelGroup, Panel, PanelResizeHandle). The raw bg-border / ring-ring are mapped
-// to Cognition tokens, and the grip handle uses the brand accent surface +
+// to Folio tokens, and the grip handle uses the brand accent surface +
 // primary icon (fe used the primary-100/600 scale, which this project does not
 // expose), so it themes via [data-theme="dark"] with no dark: classes.
 const ResizablePanelGroup = ({
@@ -40,7 +40,7 @@ const ResizableHandle = ({
     {...props}
   >
     {withHandle && (
-      <div className="z-10 flex h-4 w-3 items-center justify-center rounded-sm border border-border-default bg-background-accent">
+      <div className="z-10 flex h-4 w-3 items-center justify-center rounded-sm border border-border-default bg-background-primary-subtle">
         <GripVertical className="size-2.5 text-text-primary" />
       </div>
     )}

@@ -22,12 +22,12 @@ export function slug(text: string): string {
     .replace(/^-+|-+$/g, "");
 }
 
-// Styled Markdown -- every element maps to Cognition semantic tokens, so the
+// Styled Markdown -- every element maps to Folio semantic tokens, so the
 // rendered docs are themselves a demonstration of the system (and dark mode
 // works with zero dark: classes).
 export function Markdown({ content }: { content: string }) {
   return (
-    <div className="cognition-prose">
+    <div className="folio-prose">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
@@ -80,7 +80,7 @@ export function Markdown({ content }: { content: string }) {
           em: ({ children }) => <em className="italic">{children}</em>,
           hr: () => <hr className="my-10 border-border-default" />,
           blockquote: ({ children }) => (
-            <blockquote className="my-6 border-l-4 border-border-primary bg-background-accent px-4 py-2 text-blockquote text-text-default">
+            <blockquote className="my-6 border-l-4 border-border-primary bg-background-primary-subtle px-4 py-2 text-blockquote text-text-default">
               {children}
             </blockquote>
           ),

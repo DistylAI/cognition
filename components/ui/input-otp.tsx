@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 // Group/Slot/Separator). v4 migration: plain function components + data-slot;
 // the active slot follows the migrated field-focus decision (stroke-color
 // change, no ring). The raw border-input / ring-ring / bg-foreground stay mapped
-// to Cognition tokens so it themes via [data-theme="dark"] with no dark: classes.
+// to Folio tokens so it themes via [data-theme="dark"] with no dark: classes.
 // The active-slot caret uses Tailwind's built-in animate-pulse.
 function InputOTP({
   className,
@@ -53,7 +53,7 @@ function InputOTPSlot({
       data-slot="input-otp-slot"
       data-active={isActive}
       className={cn(
-        "relative flex size-9 items-center justify-center border-y border-r border-border-default text-sm text-text-default shadow-xs transition-all first:rounded-l-md first:border-l last:rounded-r-md",
+        "relative flex size-9 items-center justify-center border-y border-r border-border-default text-sm text-text-default shadow-sm transition-all first:rounded-l-md first:border-l last:rounded-r-md",
         isActive && "z-10 border-border-primary",
         className,
       )}

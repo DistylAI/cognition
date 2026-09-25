@@ -47,7 +47,7 @@ export default function SelectPage() {
         </div>
         <p className="mt-2 text-small">
           Live and interactive: open it, then toggle the theme. The trigger,
-          panel, and selected-item check remap from Cognition tokens, no{" "}
+          panel, and selected-item check remap from Folio tokens, no{" "}
           <code className="font-mono">dark:</code> classes. The trigger matches
           the Input field.
         </p>
@@ -93,7 +93,7 @@ export default function SelectPage() {
               Don&apos;t reach for a native{" "}
               <code className="font-mono">&lt;select&gt;</code> when you need
               token styling, groups, or icons: it can&apos;t theme with
-              Cognition. And don&apos;t use Select for 2–3 options; a Radio Group
+              Folio. And don&apos;t use Select for 2–3 options; a Radio Group
               is clearer.
             </p>
           </div>
@@ -140,7 +140,7 @@ export default function SelectPage() {
         <code className="font-mono text-text-default">SelectSeparator</code>. The
         raw <code className="font-mono text-text-default">bg-popover</code> /{" "}
         <code className="font-mono text-text-default">border-input</code>{" "}
-        utilities are replaced with Cognition tokens.
+        utilities are replaced with Folio tokens.
       </footer>
     </div>
   );

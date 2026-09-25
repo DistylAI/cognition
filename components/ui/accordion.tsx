@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 // API mirrors fe-distillery/components/ui/accordion.tsx (Accordion, AccordionItem,
 // AccordionTrigger, AccordionContent) on Radix. v4 migration: plain function
 // components + data-slot. The bare border-b and the chevron's muted-foreground
-// stay mapped to Cognition tokens (border-default / text-subtle), so it themes
+// stay mapped to Folio tokens (border-default / text-subtle), so it themes
 // via [data-theme="dark"] with no dark: classes. Expand/collapse uses the
 // animate-accordion-* utilities defined in globals.css.
 function Accordion(

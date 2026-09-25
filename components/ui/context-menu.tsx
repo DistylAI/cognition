@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 // API mirrors fe-distillery/components/ui/context-menu.tsx (the full Radix
 // ContextMenu set). v4 migration: every part is a plain function component +
 // data-slot. bg-popover / focus:bg-accent / bg-border / muted stay mapped to
-// Cognition v1.2 tokens, matching this project's DropdownMenu, so the menu
+// Folio v1.2 tokens, matching this project's DropdownMenu, so the menu
 // themes via [data-theme="dark"] with no dark: classes and no animation plugin.
 
 function ContextMenu(

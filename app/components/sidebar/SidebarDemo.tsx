@@ -86,7 +86,7 @@ export function SidebarDemo() {
         <SidebarFooter>
           <SidebarMenuButton>
             <User />
-            <span>Tony Yates</span>
+            <span>Account</span>
           </SidebarMenuButton>
         </SidebarFooter>
       </Sidebar>

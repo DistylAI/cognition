@@ -20,7 +20,7 @@ export function ThemeToggle() {
     const next: Theme = theme === "dark" ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", next);
     try {
-      localStorage.setItem("cognition-theme", next);
+      localStorage.setItem("folio-theme", next);
     } catch {}
     setTheme(next);
   }

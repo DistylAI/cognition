@@ -5,7 +5,7 @@ import { CodeBlock } from "@/components/CodeBlock";
 export const metadata: Metadata = {
   title: "Grid",
   description:
-    "Grid component: a CSS grid layout primitive with named column counts and Cognition spacing tokens.",
+    "Grid component: a CSS grid layout primitive with named column counts and Folio spacing tokens.",
 };
 
 const installCode = `import { Grid } from "@/components/ui/grid";
@@ -20,7 +20,7 @@ export function Example() {
   );
 }`;
 
-const doCode = `// Grid with Cognition tokens
+const doCode = `// Grid with Folio tokens
 <Grid cols={3} gap="lg">
   <div>Cell one</div>
   <div>Cell two</div>
@@ -33,7 +33,7 @@ export default function GridPage() {
       <p className="mb-2 text-caption">Components</p>
       <h1 className="text-lead text-text-default">Grid</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
-        A CSS grid layout primitive with named column counts and Cognition
+        A CSS grid layout primitive with named column counts and Folio
         spacing tokens. Replaces inline grid utilities across the codebase.
       </p>
 
@@ -88,7 +88,7 @@ export default function GridPage() {
             </div>
             {[
               { prop: "cols", type: "1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12", def: "1", desc: "Number of grid columns." },
-              { prop: "gap", type: `"none" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl"`, def: "—", desc: "Gap between all cells. Maps to the Cognition spacing scale." },
+              { prop: "gap", type: `"none" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl"`, def: "—", desc: "Gap between all cells. Maps to the Folio spacing scale." },
               { prop: "gapX", type: `"none" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl"`, def: "—", desc: "Column gap only. Overrides gap on the x axis." },
               { prop: "gapY", type: `"none" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl"`, def: "—", desc: "Row gap only. Overrides gap on the y axis." },
             ].map((row) => (
@@ -137,7 +137,7 @@ export default function GridPage() {
       </section>
 
       <p className="mt-12 text-small text-text-subtle">
-        Cognition v1.3 · June 2026 · Questions? Ask Tony Yates #research-and-design
+        Folio v1.3 · June 2026
       </p>
     </div>
   );

@@ -1,4 +1,4 @@
-# Cognition Design System
+# Folio Design System
 
 **Distyl AI · v1.2.1 · June 2026**
 
@@ -16,12 +16,14 @@ Never use hardcoded hex, rgb(), hsl(), or Tailwind color utilities directly in c
 color.background.default      /* --color-background-default    Main page/app background */
 color.background.subtle       /* --color-background-subtle     Sidebars, off-white surfaces */
 color.background.secondary    /* --color-background-secondary  Secondary surfaces, hover states */
-color.background.accent       /* --color-background-accent     Brand-tinted surfaces */
+color.background.primary-subtle /* --color-background-primary-subtle Brand-tinted surfaces */
+color.background.accent       /* --color-background-accent     Hover and highlight surfaces */
 color.background.primary      /* --color-background-primary    Primary brand fills, buttons */
 color.background.inverse      /* --color-background-inverse    Dark surfaces */
 color.background.danger       /* --color-background-danger     Error background tints */
 color.background.success      /* --color-background-success    Success background tints */
 color.background.warning      /* --color-background-warning    Warning background tints */
+color.background.info         /* --color-background-info       Info background tints */
 ```
 
 **Text**
@@ -35,6 +37,7 @@ color.text.primary            /* --color-text-primary          Brand text, links
 color.text.danger             /* --color-text-danger           Error messages */
 color.text.success            /* --color-text-success          Success messages */
 color.text.warning            /* --color-text-warning          Warning messages */
+color.text.info               /* --color-text-info             Info messages */
 ```
 
 **Borders**
@@ -46,6 +49,8 @@ color.border.strong           /* --color-border-strong         Emphasized border
 color.border.primary          /* --color-border-primary        Focused/active inputs */
 color.border.danger           /* --color-border-danger         Error state borders */
 color.border.success          /* --color-border-success        Valid/success borders */
+color.border.warning          /* --color-border-warning        Warning state borders */
+color.border.info             /* --color-border-info           Info state borders */
 ```
 
 **Feedback (canonical — use these for all status states)**
@@ -165,7 +170,7 @@ badge.background.warning        /* Warning badge */
 
 ## 3. Higher-Order Components
 
-Before building any page-level UI from scratch, check the Cognition Component Library for existing patterns. The library includes production-ready blocks for:
+Before building any page-level UI from scratch, check the Folio Component Library for existing patterns. The library includes production-ready blocks for:
 
 - **App shells** — sidebar + topnav + content area layouts
 - **Headers** — page headers with actions, breadcrumbs, titles
@@ -232,7 +237,8 @@ className="p-3 m-2"  // 12px, 8px
 // These are now properly differentiated — use the correct semantic token
 color.background.subtle; // was --muted
 color.background.secondary; // was --secondary
-color.background.accent; // was --accent (now purple.50, not gray.100)
+color.background.accent; // was --accent (neutral hover surface)
+color.background.primary-subtle; // brand tint (purple.50)
 ```
 
 ---
@@ -276,7 +282,7 @@ className = "bg-background-default text-text-default";
 
 ### Segment 1 — AI Tools
 
-Drop this file as `CLAUDE.md` in the root of `fe-distillery`. Also add as `.cursorrules` for Cursor users. AI coding tools will generate Cognition-compliant code on new work without additional prompting.
+Drop this file as `CLAUDE.md` in the root of `fe-distillery`. Also add as `.cursorrules` for Cursor users. AI coding tools will generate Folio-compliant code on new work without additional prompting.
 
 ### Segment 2 — Figma to Repo
 
@@ -284,7 +290,7 @@ Set up Code Connect to map Figma components to their React equivalents. Engineer
 
 ### Segment 3 — External Sessions
 
-The portable system prompt version of this doc (`cognition-skill.md`) applies to any Claude session, Lovable build, v0 export, or Bolt project outside the repo.
+The portable system prompt version of this doc (`folio-skill.md`) applies to any Claude session, Lovable build, v0 export, or Bolt project outside the repo.
 
 ---
 
@@ -296,5 +302,3 @@ The portable system prompt version of this doc (`cognition-skill.md`) applies to
 - **New component** — MINOR version bump
 
 All token changes proposed via Figma branch first. No direct edits to the main library.
-
-Questions: #engineering-fe or #research-and-design.

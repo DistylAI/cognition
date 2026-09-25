@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 // API mirrors fe-distillery/components/ui/scroll-area.tsx (Radix ScrollArea +
 // ScrollBar). v4 migration: plain function components + data-slot. The raw
-// bg-border thumb stays mapped to the Cognition border-strong token so the
+// bg-border thumb stays mapped to the Folio border-strong token so the
 // custom scrollbar stays visible on both themes via [data-theme="dark"], with
 // no dark: classes.
 function ScrollArea({

@@ -19,7 +19,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "./popover";
 // A composed pattern: Combobox is a higher-order component built from the
 // Command and Popover primitives. API mirrors fe-distillery/components/ui/
 // combobox.tsx, extended with optional per-option icon and group so the same
-// component covers the default, grouped, and icon variants. Colors are Cognition
+// component covers the default, grouped, and icon variants. Colors are Folio
 // tokens; no dark: classes.
 export interface ComboboxOption {
   label: string;

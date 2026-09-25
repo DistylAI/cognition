@@ -5,14 +5,14 @@ import { loadContent } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Codebase Audit",
   description:
-    "Cognition v1.2 design system audit across fe-distillery, distillery, and distillery-platform.",
+    "Folio v1.2 design system audit across fe-distillery, distillery, and distillery-platform.",
 };
 
 // Every headline number is a critical finding -- all red.
 const headline = [
   { stat: "344", label: "Hardcoded hex in fe-distillery" },
   { stat: "2,061", label: "Raw Tailwind color utilities" },
-  { stat: "0", label: "Cognition tokens defined" },
+  { stat: "0", label: "Folio tokens defined" },
   { stat: "26", label: "Rogue dark: classes" },
 ];
 
@@ -64,7 +64,7 @@ export default async function AuditPage() {
         Codebase Audit
       </h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
-        Where the three Distyl repos stand against Cognition v1.2 today. Run as a
+        Where the three Distyl repos stand against Folio v1.2 today. Run as a
         three-subagent parallel sweep against the canonical token set and
         hard-rule checklist.
       </p>
@@ -104,10 +104,10 @@ export default async function AuditPage() {
       </div>
 
       {/* BLUF -- the stop */}
-      <div className="mt-6 rounded-lg border border-border-default bg-background-accent p-5">
+      <div className="mt-6 rounded-lg border border-border-default bg-background-primary-subtle p-5">
         <p className="text-body">
           <strong className="font-bold">BLUF:</strong> the codebase is not
-          yet ready to receive Cognition v1.2 values. The brand purple{" "}
+          yet ready to receive Folio v1.2 values. The brand purple{" "}
           <code className="font-mono text-text-default">#5D4EE7</code> is already
           present, so a clean rename plus a dark-mode reshape preserves brand
           exactly -- but the rename is full-stack.

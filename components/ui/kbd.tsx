@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 
 // Canonical Keyboard Input. fe-distillery has no kbd primitive yet, so this is
 // the proposed component, built on the semantic <kbd> element. v4 migration:
-// plain function components + data-slot. Visuals use Cognition v1.2 tokens
+// plain function components + data-slot. Visuals use Folio v1.2 tokens
 // (muted surface → background-secondary), so it themes via [data-theme="dark"]
 // with no dark: classes. KbdGroup lays out key sequences (e.g. ⌘ K) with
 // consistent spacing.

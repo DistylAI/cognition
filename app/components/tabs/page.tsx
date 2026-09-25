@@ -12,7 +12,7 @@ const variants = [
   {
     key: "secondary" as const,
     label: "secondary",
-    note: "Segmented pill: the Cognition default.",
+    note: "Segmented pill: the Folio default.",
     code: `<Tabs defaultValue="overview">
   <TabsList variant="secondary">
     <TabsTrigger variant="secondary" value="overview">Overview</TabsTrigger>
@@ -64,7 +64,7 @@ export default function TabsPage() {
         one at a time. Use for switching views within a single context.
       </p>
 
-      <div className="mt-4 rounded-lg border border-border-default bg-background-accent p-4">
+      <div className="mt-4 rounded-lg border border-border-default bg-background-primary-subtle p-4">
         <p className="text-small text-text-default">
           Tabs swap <em>panels of content</em>. For a compact one-of control
           that doesn&apos;t swap a panel (a mode or filter), reach for a
@@ -82,7 +82,7 @@ export default function TabsPage() {
         </div>
         <p className="mt-2 text-small">
           Live and interactive: switch tabs, then toggle the theme. The track,
-          active pill, and text all remap from Cognition tokens, no{" "}
+          active pill, and text all remap from Folio tokens, no{" "}
           <code className="font-mono">dark:</code> classes (the fix for the
           source file&apos;s <code className="font-mono">dark:</code> violations).
         </p>
@@ -217,7 +217,7 @@ export default function TabsPage() {
         <code className="font-mono text-text-default">TabsContent</code> with the{" "}
         <code className="font-mono text-text-default">variant</code> axis. The{" "}
         <code className="font-mono text-text-default">dark:</code> class
-        violations and raw palette colors are replaced with Cognition tokens.
+        violations and raw palette colors are replaced with Folio tokens.
       </footer>
     </div>
   );

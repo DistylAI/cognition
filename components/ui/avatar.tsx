@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 // API mirrors fe-distillery/components/ui/avatar.tsx (Radix Avatar / AvatarImage
 // / AvatarFallback). v4 migration: plain function components + data-slot. The raw
-// bg-muted on the fallback stays mapped to the Cognition background-secondary
+// bg-muted on the fallback stays mapped to the Folio background-secondary
 // token (with muted text), so it themes via [data-theme="dark"] with no dark:
 // classes. Size (sm/default/lg), status badge, and avatar groups are
 // compositions -- size via className, see the docs.

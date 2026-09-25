@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 // API mirrors fe-distillery/components/ui/progress.tsx (Progress) on Radix. v4
 // migration: plain function component + data-slot. The raw bg-primary
-// track/indicator stays mapped to the Cognition background-primary token (track
+// track/indicator stays mapped to the Folio background-primary token (track
 // at 20% opacity), so it themes via [data-theme="dark"] with no dark: classes.
 // The indicator slides via a transform tied to value.
 function Progress({

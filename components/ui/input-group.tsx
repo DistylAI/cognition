@@ -2,12 +2,12 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-// A Cognition composed pattern built on the Input primitive: a single field with
+// A Folio composed pattern built on the Input primitive: a single field with
 // optional leading or trailing affordances (icon, prefix/suffix text, or an
 // action) attached inside one visual boundary. It does not replace Input, it
 // extends it for cases that need attached context. v4 migration: plain function
 // component, rounded-md to match the migrated Input/Button, the v4 focus ring
-// (ring-[3px]), and shadow-xs. Colors are Cognition tokens; the field shows
+// (ring-[3px]), and shadow-sm. Colors are Folio tokens; the field shows
 // focus via focus-within, so no dark: classes.
 interface InputGroupProps extends Omit<React.ComponentProps<"input">, "size"> {
   leadingIcon?: React.ReactNode;
@@ -48,7 +48,7 @@ function InputGroup({
       data-slot="input-group"
       aria-disabled={disabled || undefined}
       className={cn(
-        "flex h-9 w-full items-center gap-2 rounded-md border border-border-default bg-background-default pl-3 text-sm shadow-xs transition-colors",
+        "flex h-9 w-full items-center gap-2 rounded-md border border-border-default bg-background-default pl-3 text-sm shadow-sm transition-colors",
         // Focus is a stroke-color change only -- no ring (matches Input).
         "focus-within:border-border-primary",
         trailingAction ? "pr-1" : "pr-3",

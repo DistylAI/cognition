@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 // function components + data-slot (ref is a regular prop in React 19).
 //
 // The source uses bespoke sidebar-* tokens (bg-sidebar, sidebar-accent,
-// sidebar-primary, …) that don't exist in Cognition v1.2, so they're mapped to
+// sidebar-primary, …) that don't exist in Folio v1.2, so they're mapped to
 // existing semantic tokens: bg-sidebar → background-subtle, sidebar-accent →
 // background-secondary, sidebar-primary → background-inverse, border → border.
 // No dark: classes -- it themes via [data-theme="dark"].

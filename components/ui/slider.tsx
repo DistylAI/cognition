@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 // Based on fe-distillery/components/ui/slider.tsx (Radix Slider). v4 migration:
 // plain function component + data-slot, and the v4 thumb focus ring. The raw
 // bg-primary track/range, border-primary thumb, and bg-background stay mapped to
-// Cognition tokens, so it themes via [data-theme="dark"] with no dark: classes.
+// Folio tokens, so it themes via [data-theme="dark"] with no dark: classes.
 // Thumbs render from the value array (so range works) and the track is
 // orientation-aware (so vertical works).
 function Slider({
@@ -55,7 +55,7 @@ function Slider({
         <SliderPrimitive.Thumb
           data-slot="slider-thumb"
           key={i}
-          className="block size-4 shrink-0 rounded-full border border-border-primary/50 bg-background-default shadow-sm transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:ring-border-primary/50 disabled:pointer-events-none disabled:opacity-50"
+          className="block size-4 shrink-0 rounded-full border border-border-primary/50 bg-background-default shadow transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:ring-border-primary/50 disabled:pointer-events-none disabled:opacity-50"
         />
       ))}
     </SliderPrimitive.Root>

@@ -5,7 +5,7 @@ import { BasicPie, DonutPie, DonutTextPie, LegendPie } from "./PieChartDemos";
 export const metadata: Metadata = {
   title: "Pie Chart",
   description:
-    "Pie Chart -- a Recharts pie/donut chart wrapped in the Cognition Chart primitives, with token-driven slice colors and tooltips.",
+    "Pie Chart -- a Recharts pie/donut chart wrapped in the Folio Chart primitives, with token-driven slice colors and tooltips.",
 };
 
 const parts = [
@@ -15,7 +15,7 @@ const parts = [
   },
   {
     name: "ChartConfig",
-    desc: "Per-slice label and color, keyed by nameKey value. Use Cognition token vars for colors (e.g. var(--color-chart-1)).",
+    desc: "Per-slice label and color, keyed by nameKey value. Use Folio token vars for colors (e.g. var(--color-chart-1)).",
   },
   {
     name: "ChartTooltip / ChartTooltipContent",
@@ -112,7 +112,7 @@ export default function PieChartDocsPage() {
       <p className="mb-2 text-caption">Components</p>
       <h1 className="text-lead text-text-default">Pie Chart</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
-        A pie or donut chart built on Recharts and wrapped in the Cognition Chart
+        A pie or donut chart built on Recharts and wrapped in the Folio Chart
         primitives. Each slice draws its color from the config; the container and
         tooltip handle the rest.
       </p>
@@ -124,7 +124,7 @@ export default function PieChartDocsPage() {
           <DonutTextPie />
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens -- slices and the center label remap
+          Rendered with live Folio tokens -- slices and the center label remap
           on theme change, no <code className="font-mono">dark:</code> classes.
           Each slice&apos;s color is injected from the config as a{" "}
           <code className="font-mono">--color-*</code> CSS var.
@@ -138,7 +138,7 @@ export default function PieChartDocsPage() {
           Give each datum a <code className="font-mono">fill</code> that points at
           a <code className="font-mono">--color-&lt;name&gt;</code> var, and define
           those names in the <code className="font-mono">ChartConfig</code> with
-          Cognition tokens.
+          Folio tokens.
         </p>
         <CodeBlock
           code={setupCode}

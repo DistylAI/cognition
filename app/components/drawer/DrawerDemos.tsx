@@ -107,7 +107,7 @@ export function FormDrawer() {
               >
                 Name
               </label>
-              <Input id="drawer-name" defaultValue="Tony Yates" />
+              <Input id="drawer-name" placeholder="Name" />
             </div>
             <div className="grid gap-2">
               <label
@@ -116,7 +116,7 @@ export function FormDrawer() {
               >
                 Username
               </label>
-              <Input id="drawer-username" defaultValue="@tony" />
+              <Input id="drawer-username" placeholder="@username" />
             </div>
           </div>
           <DrawerFooter>

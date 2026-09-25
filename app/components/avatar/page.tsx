@@ -122,7 +122,7 @@ export default function AvatarPage() {
           <StatusAvatar />
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens: the fallback surface and the
+          Rendered with live Folio tokens: the fallback surface and the
           status ring remap on theme change, no{" "}
           <code className="font-mono">dark:</code> classes.
         </p>
@@ -302,7 +302,7 @@ export default function AvatarPage() {
         <code className="font-mono text-text-default">AvatarImage</code>,{" "}
         <code className="font-mono text-text-default">AvatarFallback</code>. The
         raw <code className="font-mono text-text-default">bg-muted</code> fallback
-        is replaced with Cognition tokens; sizes, the status badge, and groups
+        is replaced with Folio tokens; sizes, the status badge, and groups
         are compositions.
       </footer>
     </div>

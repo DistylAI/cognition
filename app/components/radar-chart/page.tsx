@@ -10,7 +10,7 @@ import {
 export const metadata: Metadata = {
   title: "Radar Chart",
   description:
-    "Radar Chart -- a Recharts radar chart wrapped in the Cognition Chart primitives, with token-driven series colors and tooltips.",
+    "Radar Chart -- a Recharts radar chart wrapped in the Folio Chart primitives, with token-driven series colors and tooltips.",
 };
 
 const parts = [
@@ -20,7 +20,7 @@ const parts = [
   },
   {
     name: "ChartConfig",
-    desc: "Per-series label and color. Use a Cognition token var for color (e.g. var(--color-chart-1)).",
+    desc: "Per-series label and color. Use a Folio token var for color (e.g. var(--color-chart-1)).",
   },
   {
     name: "ChartTooltip / ChartTooltipContent",
@@ -115,7 +115,7 @@ export default function RadarChartDocsPage() {
       <p className="mb-2 text-caption">Components</p>
       <h1 className="text-lead text-text-default">Radar Chart</h1>
       <p className="mt-3 max-w-2xl text-body text-text-default">
-        A radar chart built on Recharts and wrapped in the Cognition Chart
+        A radar chart built on Recharts and wrapped in the Folio Chart
         primitives. Good for comparing a handful of metrics across one or two
         series; colors come from the config.
       </p>
@@ -127,7 +127,7 @@ export default function RadarChartDocsPage() {
           <BasicRadar />
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens -- the web, grid, and fill remap on
+          Rendered with live Folio tokens -- the web, grid, and fill remap on
           theme change, no <code className="font-mono">dark:</code> classes.
           Series colors are injected from the config as{" "}
           <code className="font-mono">--color-*</code> CSS vars.
@@ -139,7 +139,7 @@ export default function RadarChartDocsPage() {
         <h3 className="mt-12 mb-4 text-lead text-text-default">Config</h3>
         <p className="mb-4 text-small">
           Every chart starts with a <code className="font-mono">ChartConfig</code>{" "}
-          -- one entry per series, each pointing at a Cognition token. The
+          -- one entry per series, each pointing at a Folio token. The
           container turns those into <code className="font-mono">--color-*</code>{" "}
           variables the radars reference.
         </p>

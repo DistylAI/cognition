@@ -20,7 +20,7 @@ export function EmptyState({ onChipClick }: EmptyStateProps) {
         <Binoculars className="size-5 text-text-inverse" aria-hidden />
       </div>
       <p className="text-sm font-medium text-text-default">
-        Ask Meno anything about Cognition
+        Ask Meno anything about Folio
       </p>
       <p className="max-w-xs text-sm leading-relaxed text-text-subtle">
         Tokens, components, and the rules that hold the system together.

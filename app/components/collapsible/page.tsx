@@ -182,7 +182,7 @@ export default function CollapsibleDocsPage() {
           <OrderCollapsible />
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens -- the trigger, border, and text
+          Rendered with live Folio tokens -- the trigger, border, and text
           remap on theme change, no{" "}
           <code className="font-mono">dark:</code> classes. Toggle the control to
           collapse the panel.
@@ -306,7 +306,7 @@ export default function CollapsibleDocsPage() {
         <code className="font-mono text-text-default">CollapsibleTrigger</code>,{" "}
         <code className="font-mono text-text-default">CollapsibleContent</code> on
         Radix. A re-export with no styling of its own; the trigger and content
-        use Cognition tokens. For stacked sections, use{" "}
+        use Folio tokens. For stacked sections, use{" "}
         <code className="font-mono text-text-default">Accordion</code>.
       </footer>
     </div>

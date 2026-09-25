@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 // BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage,
 // BreadcrumbSeparator, BreadcrumbEllipsis). v4 migration: plain function
 // components + data-slot. The raw muted-foreground / foreground colors stay
-// mapped to Cognition tokens (text-subtle / text-default), so it themes via
+// mapped to Folio tokens (text-subtle / text-default), so it themes via
 // [data-theme="dark"] with no dark: classes.
 function Breadcrumb({
   ...props

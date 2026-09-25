@@ -59,7 +59,7 @@ export function MobileNav() {
         <Link href="/" className="flex items-center gap-2">
           <span className="inline-block h-5 w-5 rounded-full bg-background-primary" />
           <span className="font-bold tracking-tight text-text-default">
-            Cognition
+            Folio
           </span>
         </Link>
         <div className="flex items-center gap-1">
@@ -95,7 +95,7 @@ export function MobileNav() {
               >
                 <span className="inline-block h-5 w-5 rounded-full bg-background-primary" />
                 <span className="font-bold tracking-tight text-text-default">
-                  Cognition
+                  Folio
                 </span>
               </Link>
               <button

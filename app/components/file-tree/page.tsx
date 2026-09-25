@@ -10,7 +10,7 @@ import { FileTreeDemo } from "./FileTreeDemo";
 export const metadata: Metadata = {
   title: "File Tree",
   description:
-    "File Tree -- an interactive, collapsible hierarchy of folders and files, composed from the Sidebar primitives and themed with Cognition tokens.",
+    "File Tree -- an interactive, collapsible hierarchy of folders and files, composed from the Sidebar primitives and themed with Folio tokens.",
 };
 
 const doCode = `<SidebarMenu>
@@ -51,7 +51,7 @@ export default function FileTreePage() {
         <p className="mt-2 text-small">
           Click a folder to expand or collapse it, and a file to select it. Switch
           the theme -- every surface and the selected-row highlight remap from
-          Cognition tokens, no <code className="font-mono">dark:</code> classes.
+          Folio tokens, no <code className="font-mono">dark:</code> classes.
         </p>
       </section>
 
@@ -262,7 +262,7 @@ export default function FileTreePage() {
       <footer className="mt-16 border-t border-border-default pt-6 text-small">
         Composed entirely from the Sidebar primitives and{" "}
         <code className="font-mono text-text-default">lucide-react</code> icons,
-        themed with Cognition tokens -- no hardcoded colors and no{" "}
+        themed with Folio tokens -- no hardcoded colors and no{" "}
         <code className="font-mono text-text-default">dark:</code> classes. The
         file names shown are placeholders for documentation only.
       </footer>

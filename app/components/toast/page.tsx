@@ -275,7 +275,7 @@ export default function ToastPage() {
           </ToastButton>
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens. Fire a toast bottom-right here, or
+          Rendered with live Folio tokens. Fire a toast bottom-right here, or
           hit <span className="font-medium text-text-default">Try it</span> on any
           type in Variants below. No <code className="font-mono">dark:</code>{" "}
           classes.
@@ -313,7 +313,7 @@ export default function ToastPage() {
           Each type as it appears — hit{" "}
           <span className="font-medium text-text-default">Try it</span> on any
           tile to fire it live. Success, error, warning, and info take the
-          matching Cognition feedback tokens; loading is neutral (spinner, no
+          matching Folio feedback tokens; loading is neutral (spinner, no
           feedback color) since it is an in-progress state, not an outcome.
         </p>
       </section>
@@ -421,23 +421,7 @@ export default function ToastPage() {
       </section>
 
       <footer className="mt-16 border-t border-border-default pt-6 text-small">
-        Cognition v1.2 · June 2026 · Questions? Ask{" "}
-        <a
-          href="https://distylai.slack.com/team/U07KY4SEFH7"
-          target="_blank"
-          rel="noreferrer"
-          className="font-medium text-text-primary underline-offset-4 hover:underline"
-        >
-          Tony Yates
-        </a>{" "}
-        <a
-          href="https://distylai.slack.com/archives/C0A22RR2N6P"
-          target="_blank"
-          rel="noreferrer"
-          className="font-medium text-text-primary underline-offset-4 hover:underline"
-        >
-          #research-and-design
-        </a>
+        Folio v1.2 · June 2026
       </footer>
     </div>
   );

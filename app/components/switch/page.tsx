@@ -54,7 +54,7 @@ export default function SwitchPage() {
           </label>
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens -- the track flips to the brand
+          Rendered with live Folio tokens -- the track flips to the brand
           token when on and the thumb stays on the surface token, no{" "}
           <code className="font-mono">dark:</code> classes.
         </p>
@@ -164,7 +164,7 @@ export default function SwitchPage() {
         . The raw <code className="font-mono text-text-default">bg-primary</code>{" "}
         / <code className="font-mono text-text-default">bg-input</code> /{" "}
         <code className="font-mono text-text-default">bg-background</code>{" "}
-        utilities are replaced with Cognition tokens.
+        utilities are replaced with Folio tokens.
       </footer>
     </div>
   );

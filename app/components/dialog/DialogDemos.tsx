@@ -63,7 +63,7 @@ export function FormDialog() {
             >
               Name
             </label>
-            <Input id="dialog-name" defaultValue="Tony Yates" />
+            <Input id="dialog-name" placeholder="Name" />
           </div>
           <div className="flex flex-col gap-2">
             <label
@@ -72,7 +72,7 @@ export function FormDialog() {
             >
               Username
             </label>
-            <Input id="dialog-username" defaultValue="@tony" />
+            <Input id="dialog-username" placeholder="@username" />
           </div>
         </div>
         <DialogFooter>

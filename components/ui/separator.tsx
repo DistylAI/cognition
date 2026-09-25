@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 // API mirrors fe-distillery/components/ui/separator.tsx (Radix Separator). v4
 // migration: plain function component + data-slot. The raw bg-border stays
-// mapped to the Cognition border-default token, so it themes via
+// mapped to the Folio border-default token, so it themes via
 // [data-theme="dark"] with no dark: classes.
 function Separator({
   className,

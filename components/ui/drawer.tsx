@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 // Close / Overlay / Content / Header / Footer / Title / Description) on vaul. v4
 // migration: every part is a plain function component + data-slot. The raw
 // bg-background / border / bg-muted / muted-foreground values stay mapped to
-// Cognition tokens, and the overlay matches the project's Dialog scrim, so it
+// Folio tokens, and the overlay matches the project's Dialog scrim, so it
 // themes via [data-theme="dark"] with no dark: classes.
 function Drawer({
   shouldScaleBackground = true,

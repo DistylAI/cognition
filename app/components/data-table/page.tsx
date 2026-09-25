@@ -63,7 +63,7 @@ export default function DataTablePage() {
         <p className="mt-2 text-small">
           Live and interactive -- sort by Email, filter, select rows, page. Toggle
           the theme: the header, row borders, hover, and selected-row tint all
-          remap from Cognition tokens, no <code className="font-mono">dark:</code>{" "}
+          remap from Folio tokens, no <code className="font-mono">dark:</code>{" "}
           classes.
         </p>
       </section>
@@ -75,7 +75,7 @@ export default function DataTablePage() {
           A Data Table is <code className="font-mono">columns</code> +{" "}
           <code className="font-mono">data</code> fed to{" "}
           <code className="font-mono">useReactTable</code>, rendered through the
-          Cognition <code className="font-mono">Table</code> primitive with{" "}
+          Folio <code className="font-mono">Table</code> primitive with{" "}
           <code className="font-mono">flexRender</code>. Define columns
           declaratively:
         </p>
@@ -130,7 +130,7 @@ export default function DataTablePage() {
               Don&apos;t reach for{" "}
               <code className="font-mono">MaterialReactTable</code> or the{" "}
               <code className="font-mono">MUI DataGrid</code> for new tables --
-              they pull in MUI, bypass Cognition tokens, and can&apos;t theme
+              they pull in MUI, bypass Folio tokens, and can&apos;t theme
               with the design system. TanStack Table is the canonical stack.
             </p>
           </div>
@@ -138,7 +138,7 @@ export default function DataTablePage() {
             <div className="mb-2 text-sm font-bold text-text-success">Do</div>
             <pre className="overflow-x-auto">
               <code className="font-mono text-caption leading-6 text-text-default">
-                {`// Headless TanStack + the Cognition Table primitive
+                {`// Headless TanStack + the Folio Table primitive
 const table = useReactTable({ data, columns, ... });
 // render <Table> / <TableRow> / <TableCell>`}
               </code>
@@ -168,7 +168,7 @@ const table = useReactTable({ data, columns, ... });
       <footer className="mt-16 border-t border-border-default pt-6 text-small">
         Built on{" "}
         <code className="font-mono text-text-default">@tanstack/react-table</code>{" "}
-        with the Cognition{" "}
+        with the Folio{" "}
         <code className="font-mono text-text-default">Table</code> primitive
         (mirrors fe-distillery{" "}
         <code className="font-mono text-text-default">
@@ -178,7 +178,7 @@ const table = useReactTable({ data, columns, ... });
         <code className="font-mono text-text-default">DataTable</code> pattern).
         Raw <code className="font-mono text-text-default">muted</code> /{" "}
         <code className="font-mono text-text-default">primary</code> utilities are
-        replaced with Cognition tokens.
+        replaced with Folio tokens.
       </footer>
     </div>
   );

@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
 // / Previous / Next, useCarousel, CarouselApi) on embla-carousel-react. v4
 // migration: plain function components + data-slot (ref is a regular prop in
 // React 19). It's structural -- the arrows are Button (variant outline), which
-// already carries Cognition tokens -- so it themes via [data-theme="dark"] with
+// already carries Folio tokens -- so it themes via [data-theme="dark"] with
 // no dark: classes.
 type CarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;

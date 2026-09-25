@@ -78,7 +78,7 @@ export default function EmptyStatePage() {
         action.
       </p>
 
-      <div className="mt-4 rounded-lg border border-border-default bg-background-accent p-4">
+      <div className="mt-4 rounded-lg border border-border-default bg-background-primary-subtle p-4">
         <p className="text-small text-text-default">
           <span className="font-bold">Proposed.</span> fe-distillery has no
           first-class empty-state component yet. This documents the canonical{" "}
@@ -112,7 +112,7 @@ export default function EmptyStatePage() {
           </Empty>
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens: the muted media well, text, and
+          Rendered with live Folio tokens: the muted media well, text, and
           buttons remap on theme change, no{" "}
           <code className="font-mono">dark:</code> classes.
         </p>
@@ -231,7 +231,7 @@ export default function EmptyStatePage() {
         />
         <p className="mt-2 text-small">
           Drop-in ready. Compose only the parts you need: every piece is plain
-          markup styled with Cognition tokens.
+          markup styled with Folio tokens.
         </p>
       </section>
 
@@ -244,7 +244,7 @@ export default function EmptyStatePage() {
         <code className="font-mono text-text-default">EmptyTitle</code>,{" "}
         <code className="font-mono text-text-default">EmptyDescription</code>,{" "}
         <code className="font-mono text-text-default">EmptyContent</code>), built
-        on Cognition tokens.
+        on Folio tokens.
       </footer>
     </div>
   );

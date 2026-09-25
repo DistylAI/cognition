@@ -109,7 +109,7 @@ export default function ProgressDocsPage() {
           <AnimatedProgress />
         </div>
         <p className="mt-2 text-small">
-          Rendered with live Cognition tokens -- the track and indicator remap on
+          Rendered with live Folio tokens -- the track and indicator remap on
           theme change, no <code className="font-mono">dark:</code> classes. The
           indicator slides via <code className="font-mono">transition-all</code>{" "}
           as the value changes.
@@ -243,7 +243,7 @@ export default function ProgressDocsPage() {
         -- a single <code className="font-mono text-text-default">Progress</code>{" "}
         built on Radix. The raw{" "}
         <code className="font-mono text-text-default">bg-primary</code> track and
-        indicator are replaced with the Cognition background-primary token.
+        indicator are replaced with the Folio background-primary token.
       </footer>
     </div>
   );
