@@ -28,7 +28,7 @@
    Named text styles — the canonical Folio typography roles.
    Each class is composed entirely from the --text-* tokens in
    content/folio-tokens.css, so the Folio spec drives every heading, paragraph, and code block.
-   Layout/color utilities (mt-*, border-b, text-text-danger, …) still compose.
+   Layout/color utilities (mt-*, border-b, text-destructive, …) still compose.
    ────────────────────────────────────────────────────────────────────────── */
 @layer components {
   .text-caption {

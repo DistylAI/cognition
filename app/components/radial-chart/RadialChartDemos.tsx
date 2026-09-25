@@ -74,7 +74,7 @@ export function LabelRadial() {
           <LabelList
             position="insideStart"
             dataKey="source"
-            className="fill-text-inverse capitalize"
+            className="fill-[--color-text-inverse] capitalize"
             fontSize={11}
           />
         </RadialBar>
@@ -117,14 +117,14 @@ export function StackedRadial() {
                     <tspan
                       x={viewBox.cx}
                       y={(viewBox.cy || 0) - 12}
-                      className="fill-text-default text-2xl font-bold"
+                      className="fill-foreground text-2xl font-bold"
                     >
                       {stackTotal.toLocaleString()}
                     </tspan>
                     <tspan
                       x={viewBox.cx}
                       y={(viewBox.cy || 0) + 8}
-                      className="fill-text-subtle text-xs"
+                      className="fill-muted-foreground text-xs"
                     >
                       Visitors
                     </tspan>

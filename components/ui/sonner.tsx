@@ -38,23 +38,23 @@ const Toaster = ({ ...props }: ToasterProps) => {
       toastOptions={{
         classNames: {
           toast:
-            "group toast group-[.toaster]:rounded-lg group-[.toaster]:border group-[.toaster]:border-border-default group-[.toaster]:bg-background-default group-[.toaster]:text-text-default group-[.toaster]:shadow-lg",
-          description: "group-[.toast]:!text-text-default",
+            "group toast group-[.toaster]:rounded-xl group-[.toaster]:border group-[.toaster]:border-border group-[.toaster]:bg-background group-[.toaster]:text-foreground group-[.toaster]:shadow-lg",
+          description: "group-[.toast]:!text-foreground",
           actionButton:
-            "group-[.toast]:bg-background-primary group-[.toast]:text-text-inverse",
+            "group-[.toast]:bg-primary group-[.toast]:text-inverse",
           cancelButton:
-            "group-[.toast]:bg-background-secondary group-[.toast]:text-text-subtle",
+            "group-[.toast]:bg-secondary group-[.toast]:text-muted-foreground",
           // Per-type surface: shared verbatim with the Alert recipe -- tinted
           // background + SOFT in-hue stroke (feedback color at 30%) + icon/title
           // in the contrast-tuned text-<type> token (every title clears 4.5:1 on
           // its tint). The stroke stays feedback-<type> (status hue) at low alpha.
           success:
-            "group-[.toaster]:!border-feedback-success/30 group-[.toaster]:!bg-background-success group-[.toaster]:!text-text-success",
+            "group-[.toaster]:!border-success/30 group-[.toaster]:!bg-success-subtle group-[.toaster]:!text-success",
           error:
-            "group-[.toaster]:!border-feedback-danger/30 group-[.toaster]:!bg-background-danger group-[.toaster]:!text-text-danger",
+            "group-[.toaster]:!border-destructive/30 group-[.toaster]:!bg-destructive-subtle group-[.toaster]:!text-destructive",
           warning:
-            "group-[.toaster]:!border-feedback-warning/30 group-[.toaster]:!bg-background-warning group-[.toaster]:!text-text-warning",
-          info: "group-[.toaster]:!border-feedback-info/30 group-[.toaster]:!bg-background-info group-[.toaster]:!text-text-info",
+            "group-[.toaster]:!border-warning/30 group-[.toaster]:!bg-warning-subtle group-[.toaster]:!text-warning",
+          info: "group-[.toaster]:!border-info/30 group-[.toaster]:!bg-info-subtle group-[.toaster]:!text-info",
         },
       }}
       {...props}

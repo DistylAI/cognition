@@ -33,19 +33,19 @@ function Item({
   const interactive = Boolean(onClick);
 
   const classes = cn(
-    "flex w-full items-center gap-3 rounded-md px-3 py-2 text-left",
-    selected && "bg-background-secondary",
+    "flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left",
+    selected && "bg-secondary",
     disabled
       ? "opacity-50"
       : interactive &&
-          "cursor-pointer transition-colors hover:bg-background-secondary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-border-primary",
+          "cursor-pointer transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
     className,
   );
 
   const inner = (
     <>
       {leading && (
-        <span className="flex shrink-0 items-center text-text-subtle [&>svg]:size-4">
+        <span className="flex shrink-0 items-center text-muted-foreground [&>svg]:size-4">
           {leading}
         </span>
       )}

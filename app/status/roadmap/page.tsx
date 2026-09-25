@@ -111,14 +111,14 @@ export default function RoadmapPage() {
   return (
     <div>
       <p className="mb-2 text-caption">Status</p>
-      <h1 className="text-lead text-text-default">Roadmap</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-default">
+      <h1 className="text-lead text-foreground">Roadmap</h1>
+      <p className="mt-3 max-w-2xl text-body text-foreground">
         The work required to move fe-distillery from the current legacy token
         system to full Folio v1.3 compliance.
       </p>
 
-      <div className="mt-4 rounded-lg border border-border-default bg-background-primary-subtle p-4">
-        <p className="text-small text-text-default">
+      <div className="mt-4 rounded-xl border border-border bg-primary-subtle p-4">
+        <p className="text-small text-foreground">
           Epics 1 and 2 are rebrand blockers. Epics 7 through 10 are Folio
           v1.3 additions. A brand color swap becomes a single CSS file change
           once Epics 1 and 2 land.
@@ -145,7 +145,7 @@ export default function RoadmapPage() {
                 <CardDescription>{epic.summary}</CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-text-default marker:text-text-subtle">
+                <ul className="list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-foreground marker:text-muted-foreground">
                   {epic.tickets.map((ticket) => (
                     <li key={ticket}>{ticket}</li>
                   ))}

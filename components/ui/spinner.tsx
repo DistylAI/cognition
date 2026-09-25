@@ -49,7 +49,7 @@ function Spinner({ className, size, label = "Loading", ...props }: SpinnerProps)
           cy="12"
           r="9"
           strokeWidth="2.5"
-          className="stroke-border-default"
+          className="stroke-border"
         />
         {/* Rotating arc -- static dasharray draws the sweep; only the SVG rotates. */}
         <circle
@@ -59,7 +59,7 @@ function Spinner({ className, size, label = "Loading", ...props }: SpinnerProps)
           strokeWidth="2.5"
           strokeLinecap="round"
           strokeDasharray="42 100"
-          className="stroke-background-primary"
+          className="stroke-[--color-background-primary]"
         />
       </svg>
     </span>

@@ -34,7 +34,7 @@ export interface BoxProps extends React.HTMLAttributes<HTMLDivElement> {
   py?: Space;
   /** Background token */
   bg?: Background;
-  /** Border using border-border-default */
+  /** Border using border-border */
   border?: boolean;
   /** Border radius */
   radius?: BorderRadius;
@@ -75,22 +75,22 @@ const pyMap: Record<Space, string> = {
 };
 
 const bgMap: Record<Background, string> = {
-  default: "bg-background-default",
-  subtle: "bg-background-subtle",
-  secondary: "bg-background-secondary",
-  accent: "bg-background-primary-subtle",
-  inverse: "bg-background-inverse",
-  danger: "bg-background-danger",
-  success: "bg-background-success",
-  warning: "bg-background-warning",
+  default: "bg-background",
+  subtle: "bg-muted",
+  secondary: "bg-secondary",
+  accent: "bg-primary-subtle",
+  inverse: "bg-inverse",
+  danger: "bg-destructive-subtle",
+  success: "bg-success-subtle",
+  warning: "bg-warning-subtle",
 };
 
 const radiusMap: Record<BorderRadius, string> = {
   none: "rounded-none",
   sm: "rounded-sm",
-  md: "rounded-md",
-  lg: "rounded-lg",
-  xl: "rounded-xl",
+  md: "rounded-lg",
+  lg: "rounded-xl",
+  xl: "rounded-2xl",
   full: "rounded-full",
 };
 
@@ -113,7 +113,7 @@ function Box({
         px && pxMap[px],
         py && pyMap[py],
         bg && bgMap[bg],
-        border && "border border-border-default",
+        border && "border border-border",
         radius && radiusMap[radius],
         className,
       )}

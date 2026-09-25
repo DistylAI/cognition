@@ -26,7 +26,7 @@ export function FilterChips() {
         <button
           type="button"
           onClick={() => setChips(FILTERS)}
-          className="text-small text-text-primary underline-offset-4 hover:underline"
+          className="text-small text-primary underline-offset-4 hover:underline"
         >
           Reset filters
         </button>

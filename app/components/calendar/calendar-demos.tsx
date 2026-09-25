@@ -8,7 +8,7 @@ import { Calendar } from "@/components/ui/calendar";
 // component. None auto-focus on mount, so the demos stay inert at rest.
 const JUNE_2026 = new Date(2026, 5, 1);
 const cardClass =
-  "rounded-md border border-border-default bg-background-default";
+  "rounded-lg border border-border bg-background";
 
 export function CalendarSingle() {
   const [date, setDate] = React.useState<Date | undefined>(

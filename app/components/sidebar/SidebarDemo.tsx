@@ -28,11 +28,11 @@ import {
 
 export function SidebarDemo() {
   return (
-    <SidebarProvider className="h-[480px] overflow-hidden rounded-lg border border-border-default">
+    <SidebarProvider className="h-[480px] overflow-hidden rounded-xl border border-border">
       <Sidebar>
         <SidebarHeader>
           <SidebarMenuButton className="h-12">
-            <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-background-inverse text-text-inverse">
+            <div className="flex size-8 shrink-0 items-center justify-center rounded-xl bg-inverse text-inverse">
               <GalleryVerticalEnd className="size-4" />
             </div>
             <span className="flex min-w-0 flex-col leading-tight">
@@ -91,11 +91,11 @@ export function SidebarDemo() {
         </SidebarFooter>
       </Sidebar>
       <SidebarInset>
-        <header className="flex h-12 shrink-0 items-center gap-2 border-b border-border-default px-4">
+        <header className="flex h-12 shrink-0 items-center gap-2 border-b border-border px-4">
           <SidebarTrigger />
-          <span className="text-sm font-medium text-text-default">Overview</span>
+          <span className="text-sm font-medium text-foreground">Overview</span>
         </header>
-        <div className="p-6 text-sm text-text-subtle">
+        <div className="p-6 text-sm text-muted-foreground">
           Toggle the sidebar with the button in the header. Collapsed, it shows
           icons only -- the labels and sub-menu hide.
         </div>

@@ -79,7 +79,7 @@ function Sidebar({ className, children, ...props }: React.ComponentProps<"div">)
       data-slot="sidebar"
       data-state={state}
       className={cn(
-        "group flex h-full shrink-0 flex-col overflow-hidden border-r border-border-default bg-background-subtle text-text-default transition-[width] duration-200 ease-in-out",
+        "group flex h-full shrink-0 flex-col overflow-hidden border-r border-border bg-muted text-foreground transition-[width] duration-200 ease-in-out",
         "w-[--sidebar-width] data-[state=collapsed]:w-[--sidebar-width-icon]",
         className,
       )}
@@ -118,7 +118,7 @@ function SidebarFooter({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="sidebar-footer"
       className={cn(
-        "flex flex-col gap-2 border-t border-border-default p-2",
+        "flex flex-col gap-2 border-t border-border p-2",
         className,
       )}
       {...props}
@@ -130,7 +130,7 @@ function SidebarSeparator({ className, ...props }: React.ComponentProps<"div">) 
   return (
     <div
       data-slot="sidebar-separator"
-      className={cn("mx-2 h-px bg-border-default", className)}
+      className={cn("mx-2 h-px bg-border", className)}
       {...props}
     />
   );
@@ -194,8 +194,8 @@ function SidebarMenuButton({
       data-slot="sidebar-menu-button"
       data-active={isActive}
       className={cn(
-        "flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left text-sm outline-none transition-[width,height,padding] hover:bg-background-secondary hover:text-text-default focus-visible:ring-2 focus-visible:ring-border-primary disabled:pointer-events-none disabled:opacity-50",
-        "data-[active=true]:bg-background-secondary data-[active=true]:text-text-default",
+        "flex w-full items-center gap-2 overflow-hidden rounded-lg p-2 text-left text-sm outline-none transition-[width,height,padding] hover:bg-secondary hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
+        "data-[active=true]:bg-secondary data-[active=true]:text-foreground",
         "group-data-[state=collapsed]:size-8 group-data-[state=collapsed]:justify-center group-data-[state=collapsed]:p-2 group-data-[state=collapsed]:[&>span]:hidden",
         "[&>svg]:size-4 [&>svg]:shrink-0 [&>span:last-child]:truncate",
         className,
@@ -210,7 +210,7 @@ function SidebarMenuSub({ className, ...props }: React.ComponentProps<"ul">) {
     <ul
       data-slot="sidebar-menu-sub"
       className={cn(
-        "ml-3.5 flex flex-col gap-1 border-l border-border-default px-2.5 py-0.5 group-data-[state=collapsed]:hidden",
+        "ml-3.5 flex flex-col gap-1 border-l border-border px-2.5 py-0.5 group-data-[state=collapsed]:hidden",
         className,
       )}
       {...props}
@@ -243,8 +243,8 @@ function SidebarMenuSubButton({
       data-slot="sidebar-menu-sub-button"
       data-active={isActive}
       className={cn(
-        "flex h-7 min-w-0 cursor-pointer items-center gap-2 rounded-md px-2 text-sm text-text-default outline-none hover:bg-background-secondary focus-visible:ring-2 focus-visible:ring-border-primary",
-        "data-[active=true]:bg-background-secondary",
+        "flex h-7 min-w-0 cursor-pointer items-center gap-2 rounded-lg px-2 text-sm text-foreground outline-none hover:bg-secondary focus-visible:ring-2 focus-visible:ring-ring",
+        "data-[active=true]:bg-secondary",
         "[&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0",
         className,
       )}
@@ -269,7 +269,7 @@ function SidebarTrigger({
         toggleSidebar();
       }}
       className={cn(
-        "inline-flex size-8 shrink-0 items-center justify-center rounded-md text-text-default outline-none transition-colors hover:bg-background-secondary focus-visible:ring-2 focus-visible:ring-border-primary [&>svg]:size-4",
+        "inline-flex size-8 shrink-0 items-center justify-center rounded-lg text-foreground outline-none transition-colors hover:bg-secondary focus-visible:ring-2 focus-visible:ring-ring [&>svg]:size-4",
         className,
       )}
       {...props}
@@ -284,7 +284,7 @@ function SidebarInset({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="sidebar-inset"
       className={cn(
-        "flex min-w-0 flex-1 flex-col bg-background-default",
+        "flex min-w-0 flex-1 flex-col bg-background",
         className,
       )}
       {...props}

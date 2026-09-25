@@ -35,15 +35,37 @@ const dark = { ...light, ...block(/^\[data-theme="dark"\]\s*\{([^}]*)\}/m, '[dat
 
 const entries = [
   ...toks.matchAll(
-    /cssVar:\s*"(--color-[a-z0-9-]+)"[\s\S]*?light:\s*"(#[0-9A-Fa-f]{3,6})"[\s\S]*?dark:\s*"(#[0-9A-Fa-f]{3,6})"/g,
+    /cssVar:\s*"(--color-[a-z0-9-]+)",\s*utility:\s*"([^"]+)"[\s\S]*?light:\s*"(#[0-9A-Fa-f]{3,6})"[\s\S]*?dark:\s*"(#[0-9A-Fa-f]{3,6})"/g,
   ),
-].map((m) => ({ cssVar: m[1], light: m[2].toLowerCase(), dark: m[3].toLowerCase() }));
+].map((m) => ({ cssVar: m[1], utility: m[2], light: m[3].toLowerCase(), dark: m[4].toLowerCase() }));
 
-const configured = new Set(
-  [...config.matchAll(/tokens\("([a-z]+)",\s*\[([^\]]*)\]\)/g)].flatMap((m) =>
-    [...m[2].matchAll(/"([a-z0-9-]+)"/g)].map((n) => `--color-${m[1]}-${n[1]}`),
-  ),
-);
+// Map each Tailwind utility in the config to the token it reads, for example
+// "bg-muted" -> "--color-background-subtle".
+const PREFIX = {
+  accentColor: "accent",
+  backgroundColor: "bg",
+  borderColor: "border",
+  boxShadowColor: "shadow",
+  divideColor: "divide",
+  fill: "fill",
+  gradientColorStops: "from",
+  outlineColor: "outline",
+  ringColor: "ring",
+  ringOffsetColor: "ring-offset",
+  stroke: "stroke",
+  textColor: "text",
+  textDecorationColor: "decoration",
+};
+const utilities = new Map();
+for (const [, section, body] of config.matchAll(/\n {6}(\w+): \{\n([\s\S]*?)\n {6}\},/g)) {
+  const prefix = PREFIX[section];
+  if (!prefix) continue;
+  for (const [, name, token] of body.matchAll(/"?([\w-]+)"?: token\("([a-z0-9-]+)"\)/g)) {
+    if (name === "DEFAULT") continue;
+    utilities.set(`${prefix}-${name}`, `--color-${token}`);
+  }
+}
+const configured = new Set(utilities.values());
 
 const errors = [];
 const documented = new Set(entries.map((e) => e.cssVar));
@@ -59,12 +81,16 @@ for (const e of entries) {
   if (dark[e.cssVar] !== e.dark) {
     errors.push(`${e.cssVar} dark: page=${e.dark} tokens=${dark[e.cssVar]}`);
   }
+  if (!e.utility.startsWith("var(") && utilities.get(e.utility) !== e.cssVar) {
+    errors.push(`${e.cssVar}: page lists utility ${e.utility}, but ${configPath} maps it to ${utilities.get(e.utility) ?? "nothing"}`);
+  }
 }
 for (const k of Object.keys(light)) {
   if (!documented.has(k)) {
     errors.push(`${k}: in ${cssPath} but NOT documented on the Tokens page (${tokensPath})`);
   }
-  if (!configured.has(k)) {
+  // Chart colors have no utility in toolkit-ui either; charts read the var.
+  if (!configured.has(k) && !k.startsWith("--color-chart-")) {
     errors.push(`${k}: in ${cssPath} but has no utility in ${configPath}`);
   }
 }

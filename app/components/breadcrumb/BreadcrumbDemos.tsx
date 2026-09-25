@@ -30,7 +30,7 @@ export function BreadcrumbCollapsed() {
         <BreadcrumbItem>
           <DropdownMenu>
             <DropdownMenuTrigger
-              className="flex items-center gap-1 hover:text-text-default"
+              className="flex items-center gap-1 hover:text-foreground"
               aria-label="Toggle menu"
             >
               <BreadcrumbEllipsis />

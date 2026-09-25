@@ -34,7 +34,7 @@ function Tag({
           type="button"
           aria-label="Remove"
           onClick={onRemove}
-          className="-mr-0.5 ml-0.5 inline-flex size-4 shrink-0 items-center justify-center rounded-sm text-text-subtle transition-colors hover:text-text-default focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-border-primary [&_svg]:size-3"
+          className="-mr-0.5 ml-0.5 inline-flex size-4 shrink-0 items-center justify-center rounded-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring [&_svg]:size-3"
         >
           <X />
         </button>

@@ -29,7 +29,7 @@ function Card({ className, size = "default", ...props }: CardProps) {
         data-slot="card"
         data-size={size}
         className={cn(
-          "flex flex-col overflow-hidden rounded-xl border border-border-default bg-background-default text-text-default shadow",
+          "flex flex-col overflow-hidden rounded-2xl border border-border bg-background text-foreground shadow",
           className,
         )}
         {...props}
@@ -94,7 +94,7 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card-footer"
       className={cn(
-        "flex items-center border-t border-border-default bg-background-subtle",
+        "flex items-center border-t border-border bg-muted",
         size === "sm" ? "p-3" : "p-4",
         className,
       )}

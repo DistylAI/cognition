@@ -71,15 +71,15 @@ export default function EmptyStatePage() {
   return (
     <div>
       <p className="mb-2 text-caption">Components</p>
-      <h1 className="text-lead text-text-default">Empty State</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-default">
+      <h1 className="text-lead text-foreground">Empty State</h1>
+      <p className="mt-3 max-w-2xl text-body text-foreground">
         A centered placeholder for empty lists, searches, and first-run screens.
         Use it to explain why there&apos;s nothing here and offer the next
         action.
       </p>
 
-      <div className="mt-4 rounded-lg border border-border-default bg-background-primary-subtle p-4">
-        <p className="text-small text-text-default">
+      <div className="mt-4 rounded-xl border border-border bg-primary-subtle p-4">
+        <p className="text-small text-foreground">
           <span className="font-bold">Proposed.</span> fe-distillery has no
           first-class empty-state component yet. This documents the canonical{" "}
           <code className="font-mono">Empty</code> the audit recommends: a
@@ -89,8 +89,8 @@ export default function EmptyStatePage() {
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-lead text-text-default">Preview</h3>
-        <div className="flex items-center justify-center rounded-lg border border-border-default bg-background-subtle p-10">
+        <h3 className="mt-12 mb-4 text-lead text-foreground">Preview</h3>
+        <div className="flex items-center justify-center rounded-xl border border-border bg-muted p-10">
           <Empty className="max-w-sm">
             <EmptyHeader>
               <EmptyMedia variant="icon">
@@ -120,9 +120,9 @@ export default function EmptyStatePage() {
 
       {/* API */}
       <section id="anatomy" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-lead text-text-default">API</h3>
+        <h3 className="mt-12 mb-4 text-lead text-foreground">API</h3>
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-          <div className="flex items-start justify-center rounded-lg border border-border-default bg-background-subtle p-8">
+          <div className="flex items-start justify-center rounded-xl border border-border bg-muted p-8">
             <Empty className="max-w-sm">
               <EmptyHeader>
                 <EmptyMedia variant="icon">
@@ -140,7 +140,7 @@ export default function EmptyStatePage() {
           </div>
           <CodeBlock
             code={anatomyCode}
-            className="rounded-lg border border-border-default bg-background-subtle"
+            className="rounded-xl border border-border bg-muted"
           />
         </div>
         <p className="mt-2 text-small">
@@ -155,10 +155,10 @@ export default function EmptyStatePage() {
 
       {/* Examples */}
       <section id="examples" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-lead text-text-default">Examples</h3>
+        <h3 className="mt-12 mb-4 text-lead text-foreground">Examples</h3>
         <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-2">
           {/* Search: no results, with input action */}
-          <div className="flex items-center justify-center rounded-lg border border-border-default bg-background-subtle p-8">
+          <div className="flex items-center justify-center rounded-xl border border-border bg-muted p-8">
             <Empty className="max-w-sm">
               <EmptyHeader>
                 <EmptyMedia variant="icon">
@@ -176,7 +176,7 @@ export default function EmptyStatePage() {
           </div>
 
           {/* Informational: no actions */}
-          <div className="flex items-center justify-center rounded-lg border border-dashed border-border-default bg-background-subtle p-8">
+          <div className="flex items-center justify-center rounded-xl border border-dashed border-border bg-muted p-8">
             <Empty className="max-w-sm">
               <EmptyHeader>
                 <EmptyMedia variant="icon">
@@ -200,22 +200,22 @@ export default function EmptyStatePage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-lead text-text-default">Don&apos;t and Do</h3>
+        <h3 className="mt-12 mb-4 text-lead text-foreground">Don&apos;t and Do</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div className="rounded-lg border border-border-danger bg-background-danger p-5">
-            <div className="mb-2 text-sm font-bold text-text-danger">
+          <div className="rounded-xl border border-destructive bg-destructive-subtle p-5">
+            <div className="mb-2 text-sm font-bold text-destructive">
               Don&apos;t
             </div>
-            <p className="text-small text-text-default">
+            <p className="text-small text-foreground">
               Don&apos;t leave a blank area or a bare “No data” string: and
               don&apos;t hardcode <code className="font-mono">bg-gray-50</code>{" "}
               for the media well. Explain the state and offer a way forward.
             </p>
           </div>
-          <div className="rounded-lg border border-border-success bg-background-success p-5">
-            <div className="mb-2 text-sm font-bold text-text-success">Do</div>
+          <div className="rounded-xl border border-success bg-success-subtle p-5">
+            <div className="mb-2 text-sm font-bold text-success">Do</div>
             <pre className="overflow-x-auto">
-              <code className="font-mono text-caption leading-6 text-text-default">
+              <code className="font-mono text-caption leading-6 text-foreground">
                 {doCode}
               </code>
             </pre>
@@ -227,7 +227,7 @@ export default function EmptyStatePage() {
       <section id="copy-paste" className="mt-12 scroll-mt-8">
         <CodeBlock
           code={installCode}
-          className="rounded-lg border border-border-default bg-background-subtle"
+          className="rounded-xl border border-border bg-muted"
         />
         <p className="mt-2 text-small">
           Drop-in ready. Compose only the parts you need: every piece is plain
@@ -235,15 +235,15 @@ export default function EmptyStatePage() {
         </p>
       </section>
 
-      <footer className="mt-16 border-t border-border-default pt-6 text-small">
+      <footer className="mt-16 border-t border-border pt-6 text-small">
         Proposed canonical component: fe-distillery has no empty-state primitive
         yet. The parts compose as{" "}
-        <code className="font-mono text-text-default">Empty</code> (
-        <code className="font-mono text-text-default">EmptyHeader</code>,{" "}
-        <code className="font-mono text-text-default">EmptyMedia</code>,{" "}
-        <code className="font-mono text-text-default">EmptyTitle</code>,{" "}
-        <code className="font-mono text-text-default">EmptyDescription</code>,{" "}
-        <code className="font-mono text-text-default">EmptyContent</code>), built
+        <code className="font-mono text-foreground">Empty</code> (
+        <code className="font-mono text-foreground">EmptyHeader</code>,{" "}
+        <code className="font-mono text-foreground">EmptyMedia</code>,{" "}
+        <code className="font-mono text-foreground">EmptyTitle</code>,{" "}
+        <code className="font-mono text-foreground">EmptyDescription</code>,{" "}
+        <code className="font-mono text-foreground">EmptyContent</code>), built
         on Folio tokens.
       </footer>
     </div>

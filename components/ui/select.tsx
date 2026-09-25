@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 // API mirrors fe-distillery/components/ui/select.tsx (full Radix Select set). v4
 // migration: every part is a plain function component + data-slot. border-input /
 // bg-popover / focus:bg-accent / bg-muted / ring stay mapped to Folio v1.2
-// tokens; the trigger matches the migrated Folio Input field -- rounded-md
+// tokens; the trigger matches the migrated Folio Input field -- rounded-lg
 // and a stroke-only focus (border shift, no ring). No dark: classes.
 
 function Select(props: React.ComponentProps<typeof SelectPrimitive.Root>) {
@@ -37,14 +37,14 @@ function SelectTrigger({
     <SelectPrimitive.Trigger
       data-slot="select-trigger"
       className={cn(
-        "flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border border-border-default bg-background-default px-3 py-2 text-sm text-text-default shadow-sm transition-colors outline-none data-[placeholder]:text-text-subtle focus:border-border-primary aria-[invalid=true]:border-border-danger disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1",
+        "flex h-9 w-full items-center justify-between whitespace-nowrap rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground shadow-sm transition-colors outline-none data-[placeholder]:text-muted-foreground focus:border-primary aria-[invalid=true]:border-destructive disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1",
         className,
       )}
       {...props}
     >
       {children}
       <SelectPrimitive.Icon asChild>
-        <ChevronDown className="size-4 shrink-0 text-text-subtle" />
+        <ChevronDown className="size-4 shrink-0 text-muted-foreground" />
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
   );
@@ -97,7 +97,7 @@ function SelectContent({
       <SelectPrimitive.Content
         data-slot="select-content"
         className={cn(
-          "relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-md border border-border-default bg-background-default text-text-default shadow-md",
+          "relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-lg border border-border bg-background text-foreground shadow-md",
           position === "popper" &&
             "data-[side=bottom]:translate-y-1 data-[side=top]:-translate-y-1",
           className,
@@ -129,7 +129,7 @@ function SelectLabel({
     <SelectPrimitive.Label
       data-slot="select-label"
       className={cn(
-        "px-2 py-1.5 text-sm font-semibold text-text-default",
+        "px-2 py-1.5 text-sm font-semibold text-foreground",
         className,
       )}
       {...props}
@@ -146,7 +146,7 @@ function SelectItem({
     <SelectPrimitive.Item
       data-slot="select-item"
       className={cn(
-        "relative flex w-full cursor-pointer select-none items-center rounded-sm py-1.5 pl-2 pr-8 text-sm outline-none focus:bg-background-secondary focus:text-text-default data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+        "relative flex w-full cursor-pointer select-none items-center rounded-sm py-1.5 pl-2 pr-8 text-sm outline-none focus:bg-secondary focus:text-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
         className,
       )}
       {...props}
@@ -168,7 +168,7 @@ function SelectSeparator({
   return (
     <SelectPrimitive.Separator
       data-slot="select-separator"
-      className={cn("-mx-1 my-1 h-px bg-border-default", className)}
+      className={cn("-mx-1 my-1 h-px bg-border", className)}
       {...props}
     />
   );

@@ -79,14 +79,14 @@ export function DonutTextPie() {
                     <tspan
                       x={viewBox.cx}
                       y={viewBox.cy}
-                      className="fill-text-default text-2xl font-bold"
+                      className="fill-foreground text-2xl font-bold"
                     >
                       {total.toLocaleString()}
                     </tspan>
                     <tspan
                       x={viewBox.cx}
                       y={(viewBox.cy || 0) + 22}
-                      className="fill-text-subtle text-xs"
+                      className="fill-muted-foreground text-xs"
                     >
                       Visitors
                     </tspan>

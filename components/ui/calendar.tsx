@@ -31,17 +31,17 @@ function Calendar({
         month: "flex w-full flex-col gap-4",
         nav: "absolute inset-x-0 top-0 flex items-center justify-between",
         button_previous:
-          "inline-flex size-8 items-center justify-center rounded-md border border-border-default bg-transparent text-text-default opacity-60 transition-opacity hover:opacity-100 aria-disabled:opacity-30",
+          "inline-flex size-8 items-center justify-center rounded-lg border border-border bg-transparent text-foreground opacity-60 transition-opacity hover:opacity-100 aria-disabled:opacity-30",
         button_next:
-          "inline-flex size-8 items-center justify-center rounded-md border border-border-default bg-transparent text-text-default opacity-60 transition-opacity hover:opacity-100 aria-disabled:opacity-30",
+          "inline-flex size-8 items-center justify-center rounded-lg border border-border bg-transparent text-foreground opacity-60 transition-opacity hover:opacity-100 aria-disabled:opacity-30",
         month_caption: "flex h-8 items-center justify-center",
-        caption_label: "select-none text-sm font-medium text-text-default",
+        caption_label: "select-none text-sm font-medium text-foreground",
         month_grid: "w-full border-collapse",
         weekdays: "flex",
         weekday: "w-8 select-none text-caption",
         week: "mt-2 flex w-full",
         day: "relative aspect-square size-8 select-none p-0 text-center",
-        disabled: "text-text-disabled",
+        disabled: "text-disabled",
         hidden: "invisible",
         ...classNames,
       }}
@@ -88,14 +88,14 @@ function CalendarDayButton({
       data-today={(modifiers.today && !modifiers.selected) || undefined}
       data-outside={(modifiers.outside && !modifiers.selected) || undefined}
       className={cn(
-        "flex size-8 w-full min-w-8 items-center justify-center rounded-md text-sm font-normal text-text-default transition-colors",
-        "hover:bg-background-secondary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-border-primary disabled:pointer-events-none disabled:opacity-50",
-        "data-[today=true]:bg-background-primary-subtle data-[today=true]:text-text-primary",
-        "data-[outside=true]:text-text-subtle",
-        "data-[selected-single=true]:bg-background-primary data-[selected-single=true]:text-text-inverse data-[selected-single=true]:hover:bg-background-primary data-[selected-single=true]:hover:text-text-inverse",
-        "data-[range-middle=true]:rounded-none data-[range-middle=true]:bg-background-primary-subtle data-[range-middle=true]:text-text-default",
-        "data-[range-start=true]:rounded-r-none data-[range-start=true]:bg-background-primary data-[range-start=true]:text-text-inverse data-[range-start=true]:hover:bg-background-primary",
-        "data-[range-end=true]:rounded-l-none data-[range-end=true]:bg-background-primary data-[range-end=true]:text-text-inverse data-[range-end=true]:hover:bg-background-primary",
+        "flex size-8 w-full min-w-8 items-center justify-center rounded-lg text-sm font-normal text-foreground transition-colors",
+        "hover:bg-secondary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
+        "data-[today=true]:bg-primary-subtle data-[today=true]:text-primary",
+        "data-[outside=true]:text-muted-foreground",
+        "data-[selected-single=true]:bg-primary data-[selected-single=true]:text-inverse data-[selected-single=true]:hover:bg-primary data-[selected-single=true]:hover:text-inverse",
+        "data-[range-middle=true]:rounded-none data-[range-middle=true]:bg-primary-subtle data-[range-middle=true]:text-foreground",
+        "data-[range-start=true]:rounded-r-none data-[range-start=true]:bg-primary data-[range-start=true]:text-inverse data-[range-start=true]:hover:bg-primary",
+        "data-[range-end=true]:rounded-l-none data-[range-end=true]:bg-primary data-[range-end=true]:text-inverse data-[range-end=true]:hover:bg-primary",
         className,
       )}
       {...props}

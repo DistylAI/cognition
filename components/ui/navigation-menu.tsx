@@ -57,7 +57,7 @@ function NavigationMenuItem(
 }
 
 const navigationMenuTriggerStyle = cva(
-  "group inline-flex h-9 w-max items-center justify-center rounded-md bg-background-default px-4 py-2 text-sm font-medium text-text-default transition-colors hover:bg-background-secondary hover:text-text-default focus:bg-background-secondary focus:text-text-default focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-background-secondary data-[state=open]:bg-background-secondary",
+  "group inline-flex h-9 w-max items-center justify-center rounded-lg bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-secondary hover:text-foreground focus:bg-secondary focus:text-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-secondary data-[state=open]:bg-secondary",
 );
 
 function NavigationMenuTrigger({
@@ -110,7 +110,7 @@ function NavigationMenuViewport({
       <NavigationMenuPrimitive.Viewport
         data-slot="navigation-menu-viewport"
         className={cn(
-          "relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full origin-top overflow-hidden rounded-md border border-border-default bg-background-default text-text-default shadow-md md:w-[var(--radix-navigation-menu-viewport-width)]",
+          "relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full origin-top overflow-hidden rounded-lg border border-border bg-background text-foreground shadow-md md:w-[var(--radix-navigation-menu-viewport-width)]",
           className,
         )}
         {...props}
@@ -132,7 +132,7 @@ function NavigationMenuIndicator({
       )}
       {...props}
     >
-      <div className="relative top-[60%] size-2 rotate-45 rounded-tl-sm border border-border-default bg-background-default shadow-md" />
+      <div className="relative top-[60%] size-2 rotate-45 rounded-tl-sm border border-border bg-background shadow-md" />
     </NavigationMenuPrimitive.Indicator>
   );
 }

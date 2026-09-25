@@ -43,7 +43,7 @@ function DatePicker({
             className={cn(
               "w-[240px] justify-start text-left font-normal",
               clearable && date && "pr-9",
-              !date && "text-text-subtle",
+              !date && "text-muted-foreground",
             )}
           >
             <CalendarIcon className="mr-2 size-4 shrink-0" />
@@ -59,7 +59,7 @@ function DatePicker({
           type="button"
           onClick={() => setDate(undefined)}
           aria-label="Clear date"
-          className="absolute right-2 top-1/2 -translate-y-1/2 rounded-sm p-1 text-text-subtle transition-colors hover:text-text-default focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-primary"
+          className="absolute right-2 top-1/2 -translate-y-1/2 rounded-sm p-1 text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           <X className="size-4" />
         </button>
@@ -83,7 +83,7 @@ function DateRangePicker({
           disabled={disabled}
           className={cn(
             "w-[280px] justify-start text-left font-normal",
-            !range?.from && "text-text-subtle",
+            !range?.from && "text-muted-foreground",
           )}
         >
           <CalendarIcon className="mr-2 size-4 shrink-0" />

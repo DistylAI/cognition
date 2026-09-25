@@ -70,7 +70,7 @@ function Field({
           id={messageId}
           className={cn(
             "text-xs",
-            hasError ? "text-text-danger" : "text-text-subtle",
+            hasError ? "text-destructive" : "text-muted-foreground",
           )}
         >
           {message}

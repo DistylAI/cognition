@@ -12,13 +12,13 @@ import { cn } from "@/lib/utils";
 // stay mapped to Folio tokens -- the pressed (data-[state=on]) state uses the
 // secondary surface -- so it themes via [data-theme="dark"] with no dark: classes.
 const toggleVariants = cva(
-  "inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-[color,box-shadow] hover:bg-background-secondary hover:text-text-default outline-none focus-visible:border-border-primary focus-visible:ring-border-primary/50 focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 aria-[invalid=true]:border-border-danger aria-[invalid=true]:ring-border-danger/20 data-[state=on]:bg-background-secondary data-[state=on]:text-text-default [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 rounded-lg text-sm font-medium transition-[color,box-shadow] hover:bg-secondary hover:text-foreground outline-none focus-visible:border-primary focus-visible:ring-ring/50 focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 aria-[invalid=true]:border-destructive aria-[invalid=true]:ring-destructive/20 data-[state=on]:bg-secondary data-[state=on]:text-foreground [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
         default: "bg-transparent",
         outline:
-          "border border-border-default bg-transparent hover:bg-background-secondary hover:text-text-default",
+          "border border-border bg-transparent hover:bg-secondary hover:text-foreground",
       },
       size: {
         default: "h-9 min-w-9 px-2",

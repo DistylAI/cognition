@@ -26,12 +26,12 @@ const noop = () => {};
 
 export function ItemListPreview() {
   return (
-    <div className="w-full max-w-sm rounded-lg border border-border-default bg-background-default p-1">
+    <div className="w-full max-w-sm rounded-xl border border-border bg-background p-1">
       <Item
         label="General"
         secondaryLabel="Workspace name and defaults"
         leading={<Settings />}
-        trailing={<ChevronRight className="size-4 text-text-subtle" />}
+        trailing={<ChevronRight className="size-4 text-muted-foreground" />}
         onClick={noop}
       />
       <Item
@@ -75,7 +75,7 @@ export function ItemWithIcon() {
       <Item
         label="Projects"
         leading={<Folder />}
-        trailing={<ChevronRight className="size-4 text-text-subtle" />}
+        trailing={<ChevronRight className="size-4 text-muted-foreground" />}
         onClick={noop}
       />
     </Frame>
@@ -179,7 +179,7 @@ export function ItemStateHover() {
         label="Inbox"
         leading={<Star />}
         onClick={noop}
-        className="bg-background-secondary"
+        className="bg-secondary"
       />
     </Frame>
   );

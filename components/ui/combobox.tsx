@@ -85,12 +85,12 @@ export function Combobox({
           disabled={disabled}
           className={cn(
             "w-full justify-between",
-            !selectedLabel && "text-text-subtle",
+            !selectedLabel && "text-muted-foreground",
             triggerClassName,
           )}
         >
           <span className="truncate">{selectedLabel || placeholder}</span>
-          <ChevronsUpDown className="ml-2 size-4 shrink-0 text-text-subtle" />
+          <ChevronsUpDown className="ml-2 size-4 shrink-0 text-muted-foreground" />
         </Button>
       </PopoverTrigger>
       <PopoverContent
@@ -119,7 +119,7 @@ export function Combobox({
                           option.disabled && "cursor-not-allowed opacity-50",
                         )}
                       >
-                        {Icon ? <Icon className="text-text-subtle" /> : null}
+                        {Icon ? <Icon className="text-muted-foreground" /> : null}
                         <span className="truncate">{option.label}</span>
                         <Check
                           className={cn(

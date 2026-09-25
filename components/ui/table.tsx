@@ -5,16 +5,16 @@ import { cn } from "@/lib/utils";
 // Mirrors fe-distillery/components/ui/table.tsx (the Table primitive set the
 // platform DataTable renders through). v4 migration: plain function components +
 // data-slot. Visual classes mapped to Folio v1.2 tokens: bg-muted/50 →
-// bg-background-subtle, data-[state=selected]:bg-primary/5 → bg-background-primary-subtle,
-// text-muted-foreground → text-text-subtle. Borders are explicit
-// border-border-default (Tailwind v4 defaults border to currentColor).
+// bg-muted, data-[state=selected]:bg-primary/5 → bg-primary-subtle,
+// text-muted-foreground → text-muted-foreground. Borders are explicit
+// border-border (Tailwind v4 defaults border to currentColor).
 
 function Table({ className, ...props }: React.ComponentProps<"table">) {
   return (
     <div data-slot="table-container" className="relative w-full overflow-auto">
       <table
         data-slot="table"
-        className={cn("w-full caption-bottom text-sm text-text-default", className)}
+        className={cn("w-full caption-bottom text-sm text-foreground", className)}
         {...props}
       />
     </div>
@@ -46,7 +46,7 @@ function TableFooter({ className, ...props }: React.ComponentProps<"tfoot">) {
     <tfoot
       data-slot="table-footer"
       className={cn(
-        "border-t border-border-default bg-background-subtle font-medium [&>tr]:last:border-b-0",
+        "border-t border-border bg-muted font-medium [&>tr]:last:border-b-0",
         className,
       )}
       {...props}
@@ -59,7 +59,7 @@ function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
     <tr
       data-slot="table-row"
       className={cn(
-        "border-b border-border-default transition-colors hover:bg-background-subtle data-[state=selected]:bg-background-primary-subtle",
+        "border-b border-border transition-colors hover:bg-muted data-[state=selected]:bg-primary-subtle",
         className,
       )}
       {...props}
@@ -72,7 +72,7 @@ function TableHead({ className, ...props }: React.ComponentProps<"th">) {
     <th
       data-slot="table-head"
       className={cn(
-        "h-10 px-2 text-left align-middle font-medium text-text-default [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
+        "h-10 px-2 text-left align-middle font-medium text-foreground [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
         className,
       )}
       {...props}
@@ -100,7 +100,7 @@ function TableCaption({
   return (
     <caption
       data-slot="table-caption"
-      className={cn("mt-4 text-sm text-text-subtle", className)}
+      className={cn("mt-4 text-sm text-muted-foreground", className)}
       {...props}
     />
   );

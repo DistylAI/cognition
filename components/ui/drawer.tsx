@@ -48,7 +48,7 @@ function DrawerOverlay({
     <DrawerPrimitive.Overlay
       data-slot="drawer-overlay"
       className={cn(
-        "fixed inset-0 z-50 bg-background-inverse/50 backdrop-blur-sm",
+        "fixed inset-0 z-50 bg-inverse/50 backdrop-blur-sm",
         className,
       )}
       {...props}
@@ -67,12 +67,12 @@ function DrawerContent({
       <DrawerPrimitive.Content
         data-slot="drawer-content"
         className={cn(
-          "fixed inset-x-0 bottom-0 z-50 mt-24 flex h-auto flex-col rounded-t-lg border border-border-default bg-background-default",
+          "fixed inset-x-0 bottom-0 z-50 mt-24 flex h-auto flex-col rounded-t-xl border border-border bg-background",
           className,
         )}
         {...props}
       >
-        <div className="mx-auto mt-4 h-2 w-24 rounded-full bg-background-secondary" />
+        <div className="mx-auto mt-4 h-2 w-24 rounded-full bg-secondary" />
         {children}
       </DrawerPrimitive.Content>
     </DrawerPortal>
@@ -107,7 +107,7 @@ function DrawerTitle({
     <DrawerPrimitive.Title
       data-slot="drawer-title"
       className={cn(
-        "text-lead leading-none tracking-tight text-text-default",
+        "text-lead leading-none tracking-tight text-foreground",
         className,
       )}
       {...props}

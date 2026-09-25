@@ -25,7 +25,7 @@ function AccordionItem({
   return (
     <AccordionPrimitive.Item
       data-slot="accordion-item"
-      className={cn("border-b border-border-default", className)}
+      className={cn("border-b border-border", className)}
       {...props}
     />
   );
@@ -47,7 +47,7 @@ function AccordionTrigger({
         {...props}
       >
         {children}
-        <ChevronDown className="size-4 shrink-0 text-text-subtle transition-transform duration-200" />
+        <ChevronDown className="size-4 shrink-0 text-muted-foreground transition-transform duration-200" />
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   );

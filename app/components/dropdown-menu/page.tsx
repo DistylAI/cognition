@@ -38,16 +38,16 @@ export default function DropdownMenuPage() {
   return (
     <div>
       <p className="mb-2 text-caption">Components</p>
-      <h1 className="text-lead text-text-default">Dropdown Menu</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-default">
+      <h1 className="text-lead text-foreground">Dropdown Menu</h1>
+      <p className="mt-3 max-w-2xl text-body text-foreground">
         Displays a menu of actions or options triggered by a button. Use it for
         contextual actions, account menus, and view toggles.
       </p>
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-lead text-text-default">Preview</h3>
-        <div className="flex min-h-[20rem] items-start justify-center rounded-lg border border-border-default bg-background-subtle p-10">
+        <h3 className="mt-12 mb-4 text-lead text-foreground">Preview</h3>
+        <div className="flex min-h-[20rem] items-start justify-center rounded-xl border border-border bg-muted p-10">
           <AccountMenu />
         </div>
         <p className="mt-2 text-small">
@@ -60,10 +60,10 @@ export default function DropdownMenuPage() {
 
       {/* API */}
       <section id="anatomy" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-lead text-text-default">API</h3>
+        <h3 className="mt-12 mb-4 text-lead text-foreground">API</h3>
         <CodeBlock
           code={anatomyCode}
-          className="rounded-lg border border-border-default bg-background-subtle"
+          className="rounded-xl border border-border bg-muted"
         />
         <p className="mt-2 text-small">
           <code className="font-mono">DropdownMenuLabel</code>,{" "}
@@ -76,10 +76,10 @@ export default function DropdownMenuPage() {
 
       {/* Examples */}
       <section id="examples" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-lead text-text-default">
+        <h3 className="mt-12 mb-4 text-lead text-foreground">
           Checkbox &amp; radio items
         </h3>
-        <div className="flex min-h-[20rem] items-start justify-center rounded-lg border border-border-default bg-background-subtle p-10">
+        <div className="flex min-h-[20rem] items-start justify-center rounded-xl border border-border bg-muted p-10">
           <ViewMenu />
         </div>
         <p className="mt-2 text-small">
@@ -92,13 +92,13 @@ export default function DropdownMenuPage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-lead text-text-default">Don&apos;t and Do</h3>
+        <h3 className="mt-12 mb-4 text-lead text-foreground">Don&apos;t and Do</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div className="rounded-lg border border-border-danger bg-background-danger p-5">
-            <div className="mb-2 text-sm font-bold text-text-danger">
+          <div className="rounded-xl border border-destructive bg-destructive-subtle p-5">
+            <div className="mb-2 text-sm font-bold text-destructive">
               Don&apos;t
             </div>
-            <p className="text-small text-text-default">
+            <p className="text-small text-foreground">
               Don&apos;t import from{" "}
               <code className="font-mono">@radix-ui/*</code>{" "}
               directly and restyle inline: that&apos;s how unstyled,
@@ -107,10 +107,10 @@ export default function DropdownMenuPage() {
               Select.
             </p>
           </div>
-          <div className="rounded-lg border border-border-success bg-background-success p-5">
-            <div className="mb-2 text-sm font-bold text-text-success">Do</div>
+          <div className="rounded-xl border border-success bg-success-subtle p-5">
+            <div className="mb-2 text-sm font-bold text-success">Do</div>
             <pre className="overflow-x-auto">
-              <code className="font-mono text-caption leading-6 text-text-default">
+              <code className="font-mono text-caption leading-6 text-foreground">
                 {`// Import the Folio wrapper, not the Radix primitive
 import { DropdownMenu } from "@/components/ui/dropdown-menu";`}
               </code>
@@ -123,7 +123,7 @@ import { DropdownMenu } from "@/components/ui/dropdown-menu";`}
       <section id="copy-paste" className="mt-12 scroll-mt-8">
         <CodeBlock
           code={installCode}
-          className="rounded-lg border border-border-default bg-background-subtle"
+          className="rounded-xl border border-border bg-muted"
         />
         <p className="mt-2 text-small">
           Keyboard navigation, typeahead, focus trapping, and submenus come for
@@ -131,22 +131,22 @@ import { DropdownMenu } from "@/components/ui/dropdown-menu";`}
         </p>
       </section>
 
-      <footer className="mt-16 border-t border-border-default pt-6 text-small">
+      <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
-        <code className="font-mono text-text-default">
+        <code className="font-mono text-foreground">
           fe-distillery/components/ui/dropdown-menu.tsx
         </code>{" "}
         the full set (
-        <code className="font-mono text-text-default">DropdownMenu</code>,{" "}
-        <code className="font-mono text-text-default">Trigger</code>,{" "}
-        <code className="font-mono text-text-default">Content</code>,{" "}
-        <code className="font-mono text-text-default">Item</code>,{" "}
-        <code className="font-mono text-text-default">CheckboxItem</code>,{" "}
-        <code className="font-mono text-text-default">RadioGroup</code>,{" "}
-        <code className="font-mono text-text-default">Sub*</code>, …). The raw{" "}
-        <code className="font-mono text-text-default">bg-popover</code> /{" "}
-        <code className="font-mono text-text-default">bg-accent</code> /{" "}
-        <code className="font-mono text-text-default">bg-muted</code> utilities
+        <code className="font-mono text-foreground">DropdownMenu</code>,{" "}
+        <code className="font-mono text-foreground">Trigger</code>,{" "}
+        <code className="font-mono text-foreground">Content</code>,{" "}
+        <code className="font-mono text-foreground">Item</code>,{" "}
+        <code className="font-mono text-foreground">CheckboxItem</code>,{" "}
+        <code className="font-mono text-foreground">RadioGroup</code>,{" "}
+        <code className="font-mono text-foreground">Sub*</code>, …). The raw{" "}
+        <code className="font-mono text-foreground">bg-popover</code> /{" "}
+        <code className="font-mono text-foreground">bg-accent</code> /{" "}
+        <code className="font-mono text-foreground">bg-muted</code> utilities
         are replaced with Folio tokens.
       </footer>
     </div>

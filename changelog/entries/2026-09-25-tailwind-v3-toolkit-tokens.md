@@ -10,8 +10,15 @@ pr: "#34"
 
 - `content/folio-tokens.css` is now the one token file. `app/globals.css`
   imports it.
-- Every `bg-background-accent` use moved to `bg-background-primary-subtle`, so
-  the brand-tinted surfaces look the same.
+- Every brand-tinted surface now uses `bg-primary-subtle`, so those surfaces
+  look the same.
+- Class names are now the same as the semantic names in the toolkit-ui
+  tokens preset: `bg-background`, `bg-muted`, `text-foreground`,
+  `text-muted-foreground`, `border-border`, and so on. The old names
+  (`bg-background-default`, `text-text-subtle`) are gone.
+- Radius classes follow toolkit-ui, where `rounded-lg` is 8px. To keep the
+  same look, `rounded-lg` → `rounded-xl`, `rounded-md` → `rounded-lg`, and
+  `rounded-xl` → `rounded-2xl`.
 - Tailwind v4-only classes were rewritten: `shadow-xs` → `shadow-sm`,
   `shadow-sm` → `shadow`, `aria-invalid:` → `aria-[invalid=true]:`,
   `field-sizing-content` → `[field-sizing:content]`.

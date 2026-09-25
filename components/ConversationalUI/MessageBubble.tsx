@@ -20,7 +20,7 @@ function renderInline(text: string, keyPrefix: string): ReactNode[] {
         return (
           <code
             key={key}
-            className="rounded-sm bg-background-secondary px-1 py-0.5 font-mono text-caption text-text-default"
+            className="rounded-sm bg-secondary px-1 py-0.5 font-mono text-caption text-foreground"
           >
             {part.slice(1, -1)}
           </code>
@@ -37,7 +37,7 @@ function renderInline(text: string, keyPrefix: string): ReactNode[] {
             {...(external
               ? { target: "_blank", rel: "noopener noreferrer" }
               : {})}
-            className="font-medium text-text-primary underline underline-offset-2 hover:opacity-80"
+            className="font-medium text-primary underline underline-offset-2 hover:opacity-80"
           >
             {label}
           </a>
@@ -78,7 +78,7 @@ function renderAssistant(content: string): ReactNode[] {
       <div key={`c-${block}`} className="my-2">
         <CodeBlock
           code={code}
-          className="rounded-md border border-border-default bg-background-subtle"
+          className="rounded-lg border border-border bg-muted"
         />
       </div>,
     );
@@ -94,7 +94,7 @@ export function MessageBubble({ role, content, error }: MessageBubbleProps) {
     return (
       <div className="flex flex-col items-end gap-1">
         <p className="px-0.5 text-caption">You</p>
-        <div className="max-w-[75%] whitespace-pre-wrap rounded-xl rounded-br-sm bg-background-primary-subtle px-4 py-2.5 text-sm leading-relaxed text-text-primary">
+        <div className="max-w-[75%] whitespace-pre-wrap rounded-2xl rounded-br-sm bg-primary-subtle px-4 py-2.5 text-sm leading-relaxed text-primary">
           {content}
         </div>
       </div>
@@ -105,7 +105,7 @@ export function MessageBubble({ role, content, error }: MessageBubbleProps) {
     return (
       <div className="flex flex-col items-start gap-1">
         <p className="px-0.5 text-caption">Meno</p>
-        <div className="flex max-w-[90%] items-start gap-2 rounded-xl rounded-bl-sm border border-border-danger bg-background-danger px-4 py-2.5 text-sm leading-relaxed text-text-danger">
+        <div className="flex max-w-[90%] items-start gap-2 rounded-2xl rounded-bl-sm border border-destructive bg-destructive-subtle px-4 py-2.5 text-sm leading-relaxed text-destructive">
           <CircleAlert className="mt-0.5 size-4 shrink-0" aria-hidden />
           <span>{content}</span>
         </div>
@@ -116,7 +116,7 @@ export function MessageBubble({ role, content, error }: MessageBubbleProps) {
   return (
     <div className="flex flex-col items-start gap-1">
       <p className="px-0.5 text-caption">Meno</p>
-      <div className="max-w-[90%] rounded-xl rounded-bl-sm border border-border-default bg-background-subtle px-4 py-2.5 text-sm leading-relaxed text-text-default">
+      <div className="max-w-[90%] rounded-2xl rounded-bl-sm border border-border bg-muted px-4 py-2.5 text-sm leading-relaxed text-foreground">
         {renderAssistant(content)}
       </div>
     </div>

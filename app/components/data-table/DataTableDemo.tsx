@@ -41,7 +41,7 @@ const data: Payment[] = [
 ];
 
 const checkboxClass =
-  "size-4 shrink-0 cursor-pointer accent-background-primary";
+  "size-4 shrink-0 cursor-pointer accent-primary";
 
 const columns: ColumnDef<Payment>[] = [
   {
@@ -146,7 +146,7 @@ export function DataTableDemo() {
           <ChevronDown />
         </Button>
       </div>
-      <div className="overflow-hidden rounded-md border border-border-default">
+      <div className="overflow-hidden rounded-lg border border-border">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -185,7 +185,7 @@ export function DataTableDemo() {
               <TableRow>
                 <TableCell
                   colSpan={columns.length}
-                  className="h-24 text-center text-text-subtle"
+                  className="h-24 text-center text-muted-foreground"
                 >
                   No results.
                 </TableCell>
@@ -195,7 +195,7 @@ export function DataTableDemo() {
         </Table>
       </div>
       <div className="flex items-center justify-between gap-2 pt-4">
-        <span className="text-sm text-text-subtle">
+        <span className="text-sm text-muted-foreground">
           {table.getFilteredSelectedRowModel().rows.length} of{" "}
           {table.getFilteredRowModel().rows.length} row(s) selected.
         </span>

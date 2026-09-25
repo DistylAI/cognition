@@ -23,7 +23,7 @@ function FieldShell({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex flex-col gap-2">
       <span className="text-label">{label}</span>
-      <div className="flex h-9 items-center rounded-lg border border-border-default bg-background-default px-3 text-description">
+      <div className="flex h-9 items-center rounded-xl border border-border bg-background px-3 text-description">
         {value}
       </div>
     </div>
@@ -79,16 +79,16 @@ export default function CardPage() {
   return (
     <div>
       <p className="mb-2 text-caption">Components</p>
-      <h1 className="text-lead text-text-default">Card</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-default">
+      <h1 className="text-lead text-foreground">Card</h1>
+      <p className="mt-3 max-w-2xl text-body text-foreground">
         Displays a card with header, content, and footer. Use it to group
         related content and actions on a single bordered surface.
       </p>
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-lead text-text-default">Preview</h3>
-        <div className="flex items-center justify-center rounded-lg border border-border-default bg-background-subtle p-10">
+        <h3 className="mt-12 mb-4 text-lead text-foreground">Preview</h3>
+        <div className="flex items-center justify-center rounded-xl border border-border bg-muted p-10">
           <Card className="w-full max-w-sm">
             <CardHeader className="flex-row items-start justify-between space-y-0">
               <div className="flex flex-col gap-1">
@@ -122,16 +122,16 @@ export default function CardPage() {
 
       {/* API */}
       <section id="anatomy" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-lead text-text-default">API</h3>
+        <h3 className="mt-12 mb-4 text-lead text-foreground">API</h3>
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-          <div className="flex items-start justify-center rounded-lg border border-border-default bg-background-subtle p-8">
+          <div className="flex items-start justify-center rounded-xl border border-border bg-muted p-8">
             <Card className="w-full max-w-sm">
               <CardHeader>
                 <CardTitle>Title</CardTitle>
                 <CardDescription>Supporting copy.</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-text-default">Body content.</p>
+                <p className="text-sm text-foreground">Body content.</p>
               </CardContent>
               <CardFooter>
                 <Button className="w-full">Action</Button>
@@ -140,7 +140,7 @@ export default function CardPage() {
           </div>
           <CodeBlock
             code={anatomyCode}
-            className="rounded-lg border border-border-default bg-background-subtle"
+            className="rounded-xl border border-border bg-muted"
           />
         </div>
         <p className="mt-2 text-small">
@@ -154,11 +154,11 @@ export default function CardPage() {
 
       {/* Examples */}
       <section id="examples" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-lead text-text-default">Examples</h3>
+        <h3 className="mt-12 mb-4 text-lead text-foreground">Examples</h3>
         <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-2">
           {/* Featured event card with media + badge */}
           <Card className="w-full">
-            <div className="aspect-[16/10] w-full bg-background-secondary" />
+            <div className="aspect-[16/10] w-full bg-secondary" />
             <CardHeader className="flex-row items-start justify-between space-y-0">
               <div className="flex flex-col gap-1">
                 <CardTitle>Design systems meetup</CardTitle>
@@ -183,7 +183,7 @@ export default function CardPage() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-text-default">
+              <p className="text-sm text-foreground">
                 The card component supports a{" "}
                 <code className="font-mono">size</code> prop that can be set to{" "}
                 <code className="font-mono">&quot;sm&quot;</code> for a more
@@ -207,15 +207,15 @@ export default function CardPage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-lead text-text-default">
+        <h3 className="mt-12 mb-4 text-lead text-foreground">
           Don&apos;t and Do
         </h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div className="rounded-lg border border-border-danger bg-background-danger p-5">
-            <div className="mb-2 text-sm font-bold text-text-danger">
+          <div className="rounded-xl border border-destructive bg-destructive-subtle p-5">
+            <div className="mb-2 text-sm font-bold text-destructive">
               Don&apos;t
             </div>
-            <p className="text-small text-text-default">
+            <p className="text-small text-foreground">
               Don&apos;t reach for a Card as a generic{" "}
               <code className="font-mono">div</code> wrapper or hardcode{" "}
               <code className="font-mono">bg-white</code> /{" "}
@@ -223,10 +223,10 @@ export default function CardPage() {
               breaks dark mode and the rebrand.
             </p>
           </div>
-          <div className="rounded-lg border border-border-success bg-background-success p-5">
-            <div className="mb-2 text-sm font-bold text-text-success">Do</div>
+          <div className="rounded-xl border border-success bg-success-subtle p-5">
+            <div className="mb-2 text-sm font-bold text-success">Do</div>
             <pre className="overflow-x-auto">
-              <code className="font-mono text-caption leading-6 text-text-default">
+              <code className="font-mono text-caption leading-6 text-foreground">
                 {doCode}
               </code>
             </pre>
@@ -238,7 +238,7 @@ export default function CardPage() {
       <section id="copy-paste" className="mt-12 scroll-mt-8">
         <CodeBlock
           code={installCode}
-          className="rounded-lg border border-border-default bg-background-subtle"
+          className="rounded-xl border border-border bg-muted"
         />
         <p className="mt-2 text-small">
           Drop-in ready. The surface, border, shadow, and footer tint are baked
@@ -247,21 +247,21 @@ export default function CardPage() {
         </p>
       </section>
 
-      <footer className="mt-16 border-t border-border-default pt-6 text-small">
+      <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
-        <code className="font-mono text-text-default">
+        <code className="font-mono text-foreground">
           fe-distillery/components/ui/card.tsx
         </code>{" "}
-        -- <code className="font-mono text-text-default">Card</code>,{" "}
-        <code className="font-mono text-text-default">CardHeader</code>,{" "}
-        <code className="font-mono text-text-default">CardTitle</code>,{" "}
-        <code className="font-mono text-text-default">CardDescription</code>,{" "}
-        <code className="font-mono text-text-default">CardContent</code>,{" "}
-        <code className="font-mono text-text-default">CardFooter</code>. The raw
-        <code className="font-mono text-text-default"> bg-card</code> /{" "}
-        <code className="font-mono text-text-default">text-muted-foreground</code>{" "}
+        -- <code className="font-mono text-foreground">Card</code>,{" "}
+        <code className="font-mono text-foreground">CardHeader</code>,{" "}
+        <code className="font-mono text-foreground">CardTitle</code>,{" "}
+        <code className="font-mono text-foreground">CardDescription</code>,{" "}
+        <code className="font-mono text-foreground">CardContent</code>,{" "}
+        <code className="font-mono text-foreground">CardFooter</code>. The raw
+        <code className="font-mono text-foreground"> bg-card</code> /{" "}
+        <code className="font-mono text-foreground">text-muted-foreground</code>{" "}
         utilities are replaced with Folio tokens, and a{" "}
-        <code className="font-mono text-text-default">size</code> prop is added.
+        <code className="font-mono text-foreground">size</code> prop is added.
       </footer>
     </div>
   );

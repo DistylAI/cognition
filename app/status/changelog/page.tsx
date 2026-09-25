@@ -123,8 +123,8 @@ function Bullets({ items }: { items: string[] }) {
   return (
     <ul className="space-y-2">
       {items.map((item, i) => (
-        <li key={i} className="flex gap-2 text-small text-text-default">
-          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-text-subtle" />
+        <li key={i} className="flex gap-2 text-small text-foreground">
+          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-muted-foreground" />
           {item}
         </li>
       ))}
@@ -138,14 +138,14 @@ export default function ChangelogPage() {
   return (
     <div>
       <p className="mb-2 text-caption">Status</p>
-      <h1 className="text-lead text-text-default">Changelog</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-default">
+      <h1 className="text-lead text-foreground">Changelog</h1>
+      <p className="mt-3 max-w-2xl text-body text-foreground">
         Folio version history. What shipped, what changed, and what the
         system has become.
       </p>
 
-      <div className="mt-4 rounded-lg border border-border-default bg-background-primary-subtle p-4">
-        <p className="text-small text-text-default">
+      <div className="mt-4 rounded-xl border border-border bg-primary-subtle p-4">
+        <p className="text-small text-foreground">
           Folio is currently in development. Goal is production
           infrastructure for Distyl AI, distributed as a versioned skill across
           the team&apos;s AI toolchain.
@@ -200,7 +200,7 @@ export default function ChangelogPage() {
                   <div className="flex flex-col gap-1">
                     <span className="text-caption font-medium uppercase tracking-wide">
                       v{release.version} · {release.date} ·{" "}
-                      <span className="text-text-subtle">Legacy</span>
+                      <span className="text-muted-foreground">Legacy</span>
                     </span>
                     <CardTitle className="text-lg">
                       Folio v{release.version}
@@ -220,7 +220,7 @@ export default function ChangelogPage() {
         })}
       </div>
 
-      <p className="mt-8 text-small text-text-subtle">
+      <p className="mt-8 text-small text-muted-foreground">
         Folio v1.3 · June 2026
       </p>
     </div>

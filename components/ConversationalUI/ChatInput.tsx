@@ -40,14 +40,14 @@ export function ChatInput({
         direction="row"
         align="end"
         gap="sm"
-        className="rounded-xl border border-border-default bg-background-subtle px-2 py-2 transition-colors focus-within:border-border-primary"
+        className="rounded-2xl border border-border bg-muted px-2 py-2 transition-colors focus-within:border-primary"
       >
         <Button
           type="button"
           variant="ghost"
           size="icon-sm"
           onClick={onAttach}
-          className="shrink-0 text-text-subtle"
+          className="shrink-0 text-muted-foreground"
         >
           <Plus aria-hidden />
           <span className="sr-only">Attach</span>
@@ -78,7 +78,7 @@ export function ChatInput({
           variant="ghost"
           size="icon-sm"
           onClick={onVoice}
-          className="shrink-0 text-text-subtle"
+          className="shrink-0 text-muted-foreground"
         >
           <Mic aria-hidden />
           <span className="sr-only">Voice input</span>

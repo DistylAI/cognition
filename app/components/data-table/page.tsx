@@ -46,17 +46,17 @@ export default function DataTablePage() {
   return (
     <div>
       <p className="mb-2 text-caption">Components</p>
-      <h1 className="text-lead text-text-default">Data Table</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-default">
+      <h1 className="text-lead text-foreground">Data Table</h1>
+      <p className="mt-3 max-w-2xl text-body text-foreground">
         Powerful tables and datagrids built using TanStack Table. Use it for
         sortable, filterable, selectable rows of structured data.
       </p>
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-lead text-text-default">Preview</h3>
-        <div className="rounded-lg border border-border-default bg-background-subtle p-6">
-          <div className="rounded-lg border border-border-default bg-background-default p-4">
+        <h3 className="mt-12 mb-4 text-lead text-foreground">Preview</h3>
+        <div className="rounded-xl border border-border bg-muted p-6">
+          <div className="rounded-xl border border-border bg-background p-4">
             <DataTableDemo />
           </div>
         </div>
@@ -70,8 +70,8 @@ export default function DataTablePage() {
 
       {/* Pattern */}
       <section id="pattern" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-lead text-text-default">Pattern</h3>
-        <p className="mb-4 max-w-2xl text-body text-text-default">
+        <h3 className="mt-12 mb-4 text-lead text-foreground">Pattern</h3>
+        <p className="mb-4 max-w-2xl text-body text-foreground">
           A Data Table is <code className="font-mono">columns</code> +{" "}
           <code className="font-mono">data</code> fed to{" "}
           <code className="font-mono">useReactTable</code>, rendered through the
@@ -81,7 +81,7 @@ export default function DataTablePage() {
         </p>
         <CodeBlock
           code={columnsCode}
-          className="rounded-lg border border-border-default bg-background-subtle"
+          className="rounded-xl border border-border bg-muted"
         />
         <p className="mt-2 text-small">
           Sorting, filtering, row selection, and pagination are TanStack row
@@ -91,14 +91,14 @@ export default function DataTablePage() {
 
       {/* API */}
       <section id="api" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-lead text-text-default">API</h3>
-        <div className="overflow-x-auto rounded-lg border border-border-default">
+        <h3 className="mt-12 mb-4 text-lead text-foreground">API</h3>
+        <div className="overflow-x-auto rounded-xl border border-border">
           <div className="min-w-[560px]">
-            <div className="grid grid-cols-[1.6fr_3fr] gap-4 border-b border-border-default bg-background-subtle px-4 py-2 text-caption font-medium">
+            <div className="grid grid-cols-[1.6fr_3fr] gap-4 border-b border-border bg-muted px-4 py-2 text-caption font-medium">
               <div>Part</div>
               <div>Description</div>
             </div>
-            <div className="divide-y divide-border-default">
+            <div className="divide-y divide-border">
               {[
                 { name: "columns", desc: "A ColumnDef array defining each column's header, cell, and sorting or selection behavior." },
                 { name: "useReactTable", desc: "TanStack hook that wires data, columns, and state (sorting, filters, pagination) into a table instance." },
@@ -109,7 +109,7 @@ export default function DataTablePage() {
                   key={p.name}
                   className="grid grid-cols-[1.6fr_3fr] gap-4 px-4 py-3"
                 >
-                  <div className="font-mono text-sm text-text-default">{p.name}</div>
+                  <div className="font-mono text-sm text-foreground">{p.name}</div>
                   <div className="text-description">{p.desc}</div>
                 </div>
               ))}
@@ -120,13 +120,13 @@ export default function DataTablePage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-lead text-text-default">Don&apos;t and Do</h3>
+        <h3 className="mt-12 mb-4 text-lead text-foreground">Don&apos;t and Do</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div className="rounded-lg border border-border-danger bg-background-danger p-5">
-            <div className="mb-2 text-sm font-bold text-text-danger">
+          <div className="rounded-xl border border-destructive bg-destructive-subtle p-5">
+            <div className="mb-2 text-sm font-bold text-destructive">
               Don&apos;t
             </div>
-            <p className="text-small text-text-default">
+            <p className="text-small text-foreground">
               Don&apos;t reach for{" "}
               <code className="font-mono">MaterialReactTable</code> or the{" "}
               <code className="font-mono">MUI DataGrid</code> for new tables --
@@ -134,10 +134,10 @@ export default function DataTablePage() {
               with the design system. TanStack Table is the canonical stack.
             </p>
           </div>
-          <div className="rounded-lg border border-border-success bg-background-success p-5">
-            <div className="mb-2 text-sm font-bold text-text-success">Do</div>
+          <div className="rounded-xl border border-success bg-success-subtle p-5">
+            <div className="mb-2 text-sm font-bold text-success">Do</div>
             <pre className="overflow-x-auto">
-              <code className="font-mono text-caption leading-6 text-text-default">
+              <code className="font-mono text-caption leading-6 text-foreground">
                 {`// Headless TanStack + the Folio Table primitive
 const table = useReactTable({ data, columns, ... });
 // render <Table> / <TableRow> / <TableCell>`}
@@ -151,7 +151,7 @@ const table = useReactTable({ data, columns, ... });
       <section id="copy-paste" className="mt-12 scroll-mt-8">
         <CodeBlock
           code={installCode}
-          className="rounded-lg border border-border-default bg-background-subtle"
+          className="rounded-xl border border-border bg-muted"
         />
         <p className="mt-2 text-small">
           In platform, prefer{" "}
@@ -165,19 +165,19 @@ const table = useReactTable({ data, columns, ... });
         </p>
       </section>
 
-      <footer className="mt-16 border-t border-border-default pt-6 text-small">
+      <footer className="mt-16 border-t border-border pt-6 text-small">
         Built on{" "}
-        <code className="font-mono text-text-default">@tanstack/react-table</code>{" "}
+        <code className="font-mono text-foreground">@tanstack/react-table</code>{" "}
         with the Folio{" "}
-        <code className="font-mono text-text-default">Table</code> primitive
+        <code className="font-mono text-foreground">Table</code> primitive
         (mirrors fe-distillery{" "}
-        <code className="font-mono text-text-default">
+        <code className="font-mono text-foreground">
           components/ui/table.tsx
         </code>{" "}
         and the platform{" "}
-        <code className="font-mono text-text-default">DataTable</code> pattern).
-        Raw <code className="font-mono text-text-default">muted</code> /{" "}
-        <code className="font-mono text-text-default">primary</code> utilities are
+        <code className="font-mono text-foreground">DataTable</code> pattern).
+        Raw <code className="font-mono text-foreground">muted</code> /{" "}
+        <code className="font-mono text-foreground">primary</code> utilities are
         replaced with Folio tokens.
       </footer>
     </div>

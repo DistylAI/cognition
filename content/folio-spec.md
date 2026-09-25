@@ -205,7 +205,7 @@ These patterns exist in the current codebase. Do not replicate them in new work.
 className = "bg-[#f5f5f5] text-gray-500 border-gray-300";
 
 // ✅ Correct
-className = "bg-background-subtle text-text-subtle border-border-default";
+className = "bg-muted text-muted-foreground border-border";
 ```
 
 ```tsx
@@ -221,7 +221,7 @@ className = "bg-background-subtle text-text-subtle border-border-default";
 className = "text-gray-500 border-gray-200 bg-gray-100";
 
 // ✅ Correct
-className = "text-text-subtle border-border-default bg-background-secondary";
+className = "text-muted-foreground border-border bg-secondary";
 ```
 
 ```tsx
@@ -273,7 +273,7 @@ Dark mode is implemented entirely at the semantic token layer. Never add `dark:`
 className = "bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-50";
 
 // ✅ Correct — tokens handle dark mode automatically
-className = "bg-background-default text-text-default";
+className = "bg-background text-foreground";
 ```
 
 ---

@@ -76,16 +76,16 @@ export default function DialogPage() {
   return (
     <div>
       <p className="mb-2 text-caption">Components</p>
-      <h1 className="text-lead text-text-default">Dialog</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-default">
+      <h1 className="text-lead text-foreground">Dialog</h1>
+      <p className="mt-3 max-w-2xl text-body text-foreground">
         A window overlaid on the primary window or another dialog, rendering the
         content underneath inert. Use it for focused tasks and confirmations.
       </p>
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-lead text-text-default">Preview</h3>
-        <div className="flex items-center justify-center rounded-lg border border-border-default bg-background-subtle p-10">
+        <h3 className="mt-12 mb-4 text-lead text-foreground">Preview</h3>
+        <div className="flex items-center justify-center rounded-xl border border-border bg-muted p-10">
           <ShareLinkDialog />
         </div>
         <p className="mt-2 text-small">
@@ -98,14 +98,14 @@ export default function DialogPage() {
 
       {/* API */}
       <section id="anatomy" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-lead text-text-default">API</h3>
+        <h3 className="mt-12 mb-4 text-lead text-foreground">API</h3>
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-          <div className="flex items-center justify-center rounded-lg border border-border-default bg-background-subtle p-8">
+          <div className="flex items-center justify-center rounded-xl border border-border bg-muted p-8">
             <FormDialog />
           </div>
           <CodeBlock
             code={anatomyCode}
-            className="rounded-lg border border-border-default bg-background-subtle"
+            className="rounded-xl border border-border bg-muted"
           />
         </div>
         <p className="mt-2 text-small">
@@ -119,13 +119,13 @@ export default function DialogPage() {
 
       {/* Examples */}
       <section id="examples" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-lead text-text-default">Examples</h3>
+        <h3 className="mt-12 mb-4 text-lead text-foreground">Examples</h3>
         <div className="grid grid-cols-1 items-start gap-6 sm:grid-cols-2">
-          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
+          <div className="flex flex-col items-center gap-3 rounded-xl border border-border bg-muted p-8">
             <FormDialog />
             <p className="text-small">Form: inputs with a Cancel / Save footer.</p>
           </div>
-          <div className="flex flex-col items-center gap-3 rounded-lg border border-border-default bg-background-subtle p-8">
+          <div className="flex flex-col items-center gap-3 rounded-xl border border-border bg-muted p-8">
             <TextDialog />
             <p className="text-small">
               Long content: the body scrolls, header and footer stay pinned.
@@ -136,13 +136,13 @@ export default function DialogPage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-lead text-text-default">Don&apos;t and Do</h3>
+        <h3 className="mt-12 mb-4 text-lead text-foreground">Don&apos;t and Do</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div className="rounded-lg border border-border-danger bg-background-danger p-5">
-            <div className="mb-2 text-sm font-bold text-text-danger">
+          <div className="rounded-xl border border-destructive bg-destructive-subtle p-5">
+            <div className="mb-2 text-sm font-bold text-destructive">
               Don&apos;t
             </div>
-            <p className="text-small text-text-default">
+            <p className="text-small text-foreground">
               Don&apos;t build a modal from a raw fixed{" "}
               <code className="font-mono">div</code> with a{" "}
               <code className="font-mono">bg-black/50</code> overlay and manual
@@ -150,10 +150,10 @@ export default function DialogPage() {
               <code className="font-mono">Esc</code> handling.
             </p>
           </div>
-          <div className="rounded-lg border border-border-success bg-background-success p-5">
-            <div className="mb-2 text-sm font-bold text-text-success">Do</div>
+          <div className="rounded-xl border border-success bg-success-subtle p-5">
+            <div className="mb-2 text-sm font-bold text-success">Do</div>
             <pre className="overflow-x-auto">
-              <code className="font-mono text-caption leading-6 text-text-default">
+              <code className="font-mono text-caption leading-6 text-foreground">
                 {doCode}
               </code>
             </pre>
@@ -165,7 +165,7 @@ export default function DialogPage() {
       <section id="copy-paste" className="mt-12 scroll-mt-8">
         <CodeBlock
           code={installCode}
-          className="rounded-lg border border-border-default bg-background-subtle"
+          className="rounded-xl border border-border bg-muted"
         />
         <p className="mt-2 text-small">
           Focus management, scroll lock, and{" "}
@@ -174,19 +174,19 @@ export default function DialogPage() {
         </p>
       </section>
 
-      <footer className="mt-16 border-t border-border-default pt-6 text-small">
+      <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches{" "}
-        <code className="font-mono text-text-default">
+        <code className="font-mono text-foreground">
           fe-distillery/components/ui/dialog.tsx
         </code>{" "}
-        <code className="font-mono text-text-default">Dialog</code>,{" "}
-        <code className="font-mono text-text-default">DialogTrigger</code>,{" "}
-        <code className="font-mono text-text-default">DialogContent</code>,{" "}
-        <code className="font-mono text-text-default">DialogHeader</code>,{" "}
-        <code className="font-mono text-text-default">DialogTitle</code>,{" "}
-        <code className="font-mono text-text-default">DialogDescription</code>,{" "}
-        <code className="font-mono text-text-default">DialogFooter</code>,{" "}
-        <code className="font-mono text-text-default">DialogClose</code>. The raw
+        <code className="font-mono text-foreground">Dialog</code>,{" "}
+        <code className="font-mono text-foreground">DialogTrigger</code>,{" "}
+        <code className="font-mono text-foreground">DialogContent</code>,{" "}
+        <code className="font-mono text-foreground">DialogHeader</code>,{" "}
+        <code className="font-mono text-foreground">DialogTitle</code>,{" "}
+        <code className="font-mono text-foreground">DialogDescription</code>,{" "}
+        <code className="font-mono text-foreground">DialogFooter</code>,{" "}
+        <code className="font-mono text-foreground">DialogClose</code>. The raw
         utilities are replaced with Folio tokens and the sectioned layout.
       </footer>
     </div>

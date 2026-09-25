@@ -54,15 +54,15 @@ export default function SidebarPage() {
   return (
     <div>
       <p className="mb-2 text-caption">Components</p>
-      <h1 className="text-lead text-text-default">Sidebar</h1>
-      <p className="mt-3 max-w-2xl text-body text-text-default">
+      <h1 className="text-lead text-foreground">Sidebar</h1>
+      <p className="mt-3 max-w-2xl text-body text-foreground">
         A composable, collapsible application sidebar -- header, grouped menu, and
         footer, paired with the main content via{" "}
         <code className="font-mono">SidebarInset</code>.
       </p>
 
-      <div className="mt-4 rounded-lg border border-border-default bg-background-primary-subtle p-4">
-        <p className="text-small text-text-default">
+      <div className="mt-4 rounded-xl border border-border bg-primary-subtle p-4">
+        <p className="text-small text-foreground">
           <span className="font-bold">Canonical pattern.</span> The full
           fe-distillery primitive ships 14 variants (mobile sheet, rail,
           floating/inset, skeletons, badges, …). This documents the one primary
@@ -73,8 +73,8 @@ export default function SidebarPage() {
 
       {/* Preview */}
       <section id="preview" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-lead text-text-default">Preview</h3>
-        <div className="rounded-lg border border-border-default bg-background-subtle p-6">
+        <h3 className="mt-12 mb-4 text-lead text-foreground">Preview</h3>
+        <div className="rounded-xl border border-border bg-muted p-6">
           <SidebarDemo />
         </div>
         <p className="mt-2 text-small">
@@ -87,10 +87,10 @@ export default function SidebarPage() {
 
       {/* API */}
       <section id="anatomy" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-lead text-text-default">API</h3>
+        <h3 className="mt-12 mb-4 text-lead text-foreground">API</h3>
         <CodeBlock
           code={anatomyCode}
-          className="rounded-lg border border-border-default bg-background-subtle"
+          className="rounded-xl border border-border bg-muted"
         />
         <p className="mt-2 text-small">
           <code className="font-mono">SidebarProvider</code> owns the
@@ -106,13 +106,13 @@ export default function SidebarPage() {
 
       {/* Don't and Do */}
       <section id="do-dont" className="scroll-mt-8">
-        <h3 className="mt-12 mb-4 text-lead text-text-default">Don&apos;t and Do</h3>
+        <h3 className="mt-12 mb-4 text-lead text-foreground">Don&apos;t and Do</h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div className="rounded-lg border border-border-danger bg-background-danger p-5">
-            <div className="mb-2 text-sm font-bold text-text-danger">
+          <div className="rounded-xl border border-destructive bg-destructive-subtle p-5">
+            <div className="mb-2 text-sm font-bold text-destructive">
               Don&apos;t
             </div>
-            <p className="text-small text-text-default">
+            <p className="text-small text-foreground">
               Don&apos;t hand-roll a fixed{" "}
               <code className="font-mono">aside</code> with{" "}
               <code className="font-mono">bg-gray-50</code> and ad-hoc collapse
@@ -120,10 +120,10 @@ export default function SidebarPage() {
               and token theming. Compose the provided parts.
             </p>
           </div>
-          <div className="rounded-lg border border-border-success bg-background-success p-5">
-            <div className="mb-2 text-sm font-bold text-text-success">Do</div>
+          <div className="rounded-xl border border-success bg-success-subtle p-5">
+            <div className="mb-2 text-sm font-bold text-success">Do</div>
             <pre className="overflow-x-auto">
-              <code className="font-mono text-caption leading-6 text-text-default">
+              <code className="font-mono text-caption leading-6 text-foreground">
                 {`<SidebarMenuButton asChild isActive={pathname === "/"}>
   <Link href="/"><LayoutDashboard /><span>Overview</span></Link>
 </SidebarMenuButton>`}
@@ -137,7 +137,7 @@ export default function SidebarPage() {
       <section id="copy-paste" className="mt-12 scroll-mt-8">
         <CodeBlock
           code={installCode}
-          className="rounded-lg border border-border-default bg-background-subtle"
+          className="rounded-xl border border-border bg-muted"
         />
         <p className="mt-2 text-small">
           Wrap the app in <code className="font-mono">SidebarProvider</code>,
@@ -147,17 +147,17 @@ export default function SidebarPage() {
         </p>
       </section>
 
-      <footer className="mt-16 border-t border-border-default pt-6 text-small">
+      <footer className="mt-16 border-t border-border pt-6 text-small">
         API matches the canonical parts of{" "}
-        <code className="font-mono text-text-default">
+        <code className="font-mono text-foreground">
           fe-distillery/components/ui/sidebar.tsx
         </code>{" "}
-        -- <code className="font-mono text-text-default">SidebarProvider</code>,{" "}
-        <code className="font-mono text-text-default">Sidebar</code>,{" "}
-        <code className="font-mono text-text-default">SidebarMenuButton</code>,{" "}
-        <code className="font-mono text-text-default">SidebarInset</code>,{" "}
-        <code className="font-mono text-text-default">useSidebar</code>, … The
-        bespoke <code className="font-mono text-text-default">sidebar-*</code>{" "}
+        -- <code className="font-mono text-foreground">SidebarProvider</code>,{" "}
+        <code className="font-mono text-foreground">Sidebar</code>,{" "}
+        <code className="font-mono text-foreground">SidebarMenuButton</code>,{" "}
+        <code className="font-mono text-foreground">SidebarInset</code>,{" "}
+        <code className="font-mono text-foreground">useSidebar</code>, … The
+        bespoke <code className="font-mono text-foreground">sidebar-*</code>{" "}
         tokens are mapped to Folio semantic tokens; the 14 sidebar variants
         are intentionally not all documented here.
       </footer>

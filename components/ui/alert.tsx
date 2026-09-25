@@ -16,20 +16,20 @@ import { cn } from "@/lib/utils";
 // tint. The stroke stays feedback-<type> (canonical status hue) at low alpha.
 const alertVariants = cva(
   // intentional: 10px optically balances the first line; see changelog 2026-07-22
-  "relative w-full rounded-lg border px-4 py-3 text-sm [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-2.5 [&>svg]:size-4 [&>svg+div]:translate-y-[-3px] [&>svg~*]:pl-7",
+  "relative w-full rounded-xl border px-4 py-3 text-sm [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-2.5 [&>svg]:size-4 [&>svg+div]:translate-y-[-3px] [&>svg~*]:pl-7",
   {
     variants: {
       variant: {
         default:
-          "border-border-default bg-background-default text-text-default [&>svg]:text-text-default",
+          "border-border bg-background text-foreground [&>svg]:text-foreground",
         destructive:
-          "border-feedback-danger/30 bg-background-danger text-text-danger [&>svg]:text-text-danger",
+          "border-destructive/30 bg-destructive-subtle text-destructive [&>svg]:text-destructive",
         warning:
-          "border-feedback-warning/30 bg-background-warning text-text-warning [&>svg]:text-text-warning",
+          "border-warning/30 bg-warning-subtle text-warning [&>svg]:text-warning",
         success:
-          "border-feedback-success/30 bg-background-success text-text-success [&>svg]:text-text-success",
+          "border-success/30 bg-success-subtle text-success [&>svg]:text-success",
         info:
-          "border-feedback-info/30 bg-background-info text-text-info [&>svg]:text-text-info",
+          "border-info/30 bg-info-subtle text-info [&>svg]:text-info",
       },
     },
     defaultVariants: {
@@ -67,7 +67,7 @@ function AlertDescription({ className, ...props }: React.ComponentProps<"div">) 
   return (
     <div
       data-slot="alert-description"
-      className={cn("text-sm text-text-default [&_p]:leading-relaxed", className)}
+      className={cn("text-sm text-foreground [&_p]:leading-relaxed", className)}
       {...props}
     />
   );

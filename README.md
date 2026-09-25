@@ -26,7 +26,7 @@ If it reads correctly in dark mode, the system is working. If it doesn't, someth
 
 `lib/tokens.ts` mirrors `folio-tokens.css` as structured data so the Tokens
 page renders directly from the spec. `tailwind.config.ts` maps each token to a
-utility (`bg-background-default`, `text-text-subtle`). `npm run build` runs
+utility (`bg-background`, `text-muted-foreground`). `npm run build` runs
 `scripts/check-tokens.mjs`, which fails when the three files drift.
 
 ## Develop

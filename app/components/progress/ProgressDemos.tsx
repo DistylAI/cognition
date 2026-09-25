@@ -13,7 +13,7 @@ export function AnimatedProgress() {
   return (
     <div className="w-full max-w-sm space-y-2">
       <Progress value={value} />
-      <p className="text-right text-sm tabular-nums text-text-subtle">
+      <p className="text-right text-sm tabular-nums text-muted-foreground">
         {value}%
       </p>
     </div>

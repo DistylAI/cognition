@@ -42,7 +42,7 @@ function SheetOverlay({
     <SheetPrimitive.Overlay
       data-slot="sheet-overlay"
       className={cn(
-        "fixed inset-0 z-50 bg-background-inverse/50 backdrop-blur-sm",
+        "fixed inset-0 z-50 bg-inverse/50 backdrop-blur-sm",
         className,
       )}
       {...props}
@@ -51,15 +51,15 @@ function SheetOverlay({
 }
 
 const sheetVariants = cva(
-  "fixed z-50 gap-4 bg-background-default p-6 shadow-lg",
+  "fixed z-50 gap-4 bg-background p-6 shadow-lg",
   {
     variants: {
       side: {
-        top: "inset-x-0 top-0 border-b border-border-default",
-        bottom: "inset-x-0 bottom-0 border-t border-border-default",
-        left: "inset-y-0 left-0 h-full w-3/4 border-r border-border-default sm:max-w-sm",
+        top: "inset-x-0 top-0 border-b border-border",
+        bottom: "inset-x-0 bottom-0 border-t border-border",
+        left: "inset-y-0 left-0 h-full w-3/4 border-r border-border sm:max-w-sm",
         right:
-          "inset-y-0 right-0 h-full w-3/4 border-l border-border-default sm:max-w-sm",
+          "inset-y-0 right-0 h-full w-3/4 border-l border-border sm:max-w-sm",
       },
     },
     defaultVariants: {
@@ -86,7 +86,7 @@ function SheetContent({
         className={cn(sheetVariants({ side }), className)}
         {...props}
       >
-        <SheetPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background-default transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-border-primary focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-background-secondary">
+        <SheetPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary">
           <X className="size-4" />
           <span className="sr-only">Close</span>
         </SheetPrimitive.Close>
@@ -126,7 +126,7 @@ function SheetTitle({
   return (
     <SheetPrimitive.Title
       data-slot="sheet-title"
-      className={cn("text-lg font-semibold text-text-default", className)}
+      className={cn("text-lg font-semibold text-foreground", className)}
       {...props}
     />
   );
@@ -139,7 +139,7 @@ function SheetDescription({
   return (
     <SheetPrimitive.Description
       data-slot="sheet-description"
-      className={cn("text-sm text-text-subtle", className)}
+      className={cn("text-sm text-muted-foreground", className)}
       {...props}
     />
   );

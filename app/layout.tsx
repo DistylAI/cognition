@@ -35,7 +35,7 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className="min-h-screen bg-background-default font-sans text-text-default antialiased">
+      <body className="min-h-screen bg-background font-sans text-foreground antialiased">
         <TooltipProvider>
           <div className="flex min-h-screen w-full max-w-[1400px]">
             <Sidebar />

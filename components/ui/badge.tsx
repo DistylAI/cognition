@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 // Tag (./tag) is a thin wrapper that locks kind="label" and adds `removable`.
 // Every color is a Folio v1.2 token -- no raw palette utilities.
 const badgeBase =
-  "inline-flex items-center gap-1 rounded-md border font-medium focus:outline-none focus:ring-2 focus:ring-border-primary focus:ring-offset-2 [&_svg]:pointer-events-none [&_svg]:size-3 [&_svg]:shrink-0";
+  "inline-flex items-center gap-1 rounded-lg border font-medium focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 [&_svg]:pointer-events-none [&_svg]:size-3 [&_svg]:shrink-0";
 
 // Shared size axis (used by both the status matrix and the neutral label style).
 const badgeSize = cva("", {
@@ -25,7 +25,7 @@ const badgeSize = cva("", {
 });
 
 // The neutral label chip -- today's Tag look.
-const badgeLabel = "border-border-default bg-background-secondary text-text-default";
+const badgeLabel = "border-border bg-secondary text-foreground";
 
 // Status matrix (variant × color). Exported for parity with other cva consumers.
 const badgeVariants = cva(badgeBase, {
@@ -50,26 +50,26 @@ const badgeVariants = cva(badgeBase, {
   },
   compoundVariants: [
     // default -- solid fill
-    { variant: "default", color: "default", class: "bg-background-inverse text-text-inverse" },
-    { variant: "default", color: "primary", class: "bg-background-primary text-text-inverse" },
-    { variant: "default", color: "destructive", class: "bg-feedback-danger text-text-inverse" },
-    { variant: "default", color: "success", class: "bg-feedback-success text-text-inverse" },
-    { variant: "default", color: "warning", class: "bg-feedback-warning text-text-inverse" },
-    { variant: "default", color: "info", class: "bg-feedback-info text-text-inverse" },
+    { variant: "default", color: "default", class: "bg-inverse text-inverse" },
+    { variant: "default", color: "primary", class: "bg-primary text-inverse" },
+    { variant: "default", color: "destructive", class: "bg-destructive text-inverse" },
+    { variant: "default", color: "success", class: "bg-success text-inverse" },
+    { variant: "default", color: "warning", class: "bg-warning text-inverse" },
+    { variant: "default", color: "info", class: "bg-info text-inverse" },
     // secondary -- soft tint
-    { variant: "secondary", color: "default", class: "bg-background-secondary text-text-default" },
-    { variant: "secondary", color: "primary", class: "bg-background-primary-subtle text-text-primary" },
-    { variant: "secondary", color: "destructive", class: "bg-background-danger text-text-danger" },
-    { variant: "secondary", color: "success", class: "bg-background-success text-text-success" },
-    { variant: "secondary", color: "warning", class: "bg-background-warning text-text-warning" },
-    { variant: "secondary", color: "info", class: "bg-background-primary-subtle text-text-primary" },
+    { variant: "secondary", color: "default", class: "bg-secondary text-foreground" },
+    { variant: "secondary", color: "primary", class: "bg-primary-subtle text-primary" },
+    { variant: "secondary", color: "destructive", class: "bg-destructive-subtle text-destructive" },
+    { variant: "secondary", color: "success", class: "bg-success-subtle text-success" },
+    { variant: "secondary", color: "warning", class: "bg-warning-subtle text-warning" },
+    { variant: "secondary", color: "info", class: "bg-primary-subtle text-primary" },
     // outline -- bordered
-    { variant: "outline", color: "default", class: "border-border-default text-text-default" },
-    { variant: "outline", color: "primary", class: "border-border-primary text-text-primary" },
-    { variant: "outline", color: "destructive", class: "border-border-danger text-text-danger" },
-    { variant: "outline", color: "success", class: "border-border-success text-text-success" },
-    { variant: "outline", color: "warning", class: "border-border-default text-text-warning" },
-    { variant: "outline", color: "info", class: "border-border-primary text-text-primary" },
+    { variant: "outline", color: "default", class: "border-border text-foreground" },
+    { variant: "outline", color: "primary", class: "border-primary text-primary" },
+    { variant: "outline", color: "destructive", class: "border-destructive text-destructive" },
+    { variant: "outline", color: "success", class: "border-success text-success" },
+    { variant: "outline", color: "warning", class: "border-border text-warning" },
+    { variant: "outline", color: "info", class: "border-primary text-primary" },
   ],
   defaultVariants: {
     variant: "default",

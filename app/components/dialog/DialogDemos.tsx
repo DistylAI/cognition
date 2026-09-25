@@ -59,7 +59,7 @@ export function FormDialog() {
           <div className="flex flex-col gap-2">
             <label
               htmlFor="dialog-name"
-              className="text-sm font-medium text-text-default"
+              className="text-sm font-medium text-foreground"
             >
               Name
             </label>
@@ -68,7 +68,7 @@ export function FormDialog() {
           <div className="flex flex-col gap-2">
             <label
               htmlFor="dialog-username"
-              className="text-sm font-medium text-text-default"
+              className="text-sm font-medium text-foreground"
             >
               Username
             </label>
@@ -101,7 +101,7 @@ export function TextDialog() {
             Please review the terms before continuing.
           </DialogDescription>
         </DialogHeader>
-        <div className="max-h-[50vh] space-y-4 overflow-y-auto px-4 pb-4 text-sm text-text-default">
+        <div className="max-h-[50vh] space-y-4 overflow-y-auto px-4 pb-4 text-sm text-foreground">
           <p>
             By using the Distyl platform you agree to these terms. Access is
             granted to authorized users within your organization for internal

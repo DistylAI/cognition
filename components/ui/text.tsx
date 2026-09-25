@@ -48,14 +48,14 @@ const weightMap: Record<Weight, string> = {
 };
 
 const colorMap: Record<Color, string> = {
-  default: "text-text-default",
-  subtle: "text-text-subtle",
-  disabled: "text-text-disabled",
-  inverse: "text-text-inverse",
-  primary: "text-text-primary",
-  danger: "text-text-danger",
-  success: "text-text-success",
-  warning: "text-text-warning",
+  default: "text-foreground",
+  subtle: "text-muted-foreground",
+  disabled: "text-disabled",
+  inverse: "text-inverse",
+  primary: "text-primary",
+  danger: "text-destructive",
+  success: "text-success",
+  warning: "text-warning",
 };
 
 const alignMap: Record<Align, string> = {

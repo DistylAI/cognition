@@ -18,22 +18,22 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "./tooltip";
 // (and the loading spinner) scale with the button. Consumers can still override
 // a glyph with an explicit `size-*` class (the :not([class*='size-']) guard).
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all outline-none focus-visible:border-border-primary focus-visible:ring-border-primary/50 focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 aria-[invalid=true]:border-border-danger aria-[invalid=true]:ring-border-danger/20 [&_svg]:pointer-events-none [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium transition-all outline-none focus-visible:border-primary focus-visible:ring-ring/50 focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 aria-[invalid=true]:border-destructive aria-[invalid=true]:ring-destructive/20 [&_svg]:pointer-events-none [&_svg]:shrink-0",
   {
     variants: {
       variant: {
         default:
-          "bg-background-primary text-text-inverse shadow hover:opacity-90",
+          "bg-primary text-inverse shadow hover:opacity-90",
         destructive:
-          "bg-feedback-danger text-text-inverse shadow hover:opacity-90",
+          "bg-destructive text-inverse shadow hover:opacity-90",
         outline:
-          "border border-border-default bg-background-default text-text-default shadow hover:bg-background-secondary",
-        ghost: "text-text-default hover:bg-background-secondary",
-        link: "text-text-primary underline-offset-4 hover:underline",
+          "border border-border bg-background text-foreground shadow hover:bg-secondary",
+        ghost: "text-foreground hover:bg-secondary",
+        link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
         default: "h-8 px-3 [&_svg:not([class*='size-'])]:size-4",
-        sm: "h-7 rounded-md px-2.5 text-xs [&_svg:not([class*='size-'])]:size-3.5",
+        sm: "h-7 rounded-lg px-2.5 text-xs [&_svg:not([class*='size-'])]:size-3.5",
         icon: "size-8 [&_svg:not([class*='size-'])]:size-4",
         "icon-sm": "size-7 [&_svg:not([class*='size-'])]:size-3.5",
         "icon-xs": "size-6 [&_svg:not([class*='size-'])]:size-3",
