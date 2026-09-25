@@ -5,7 +5,7 @@ category: token
 component: system
 summary: "Moved the site to Tailwind v3 and aligned the tokens with @distylai/toolkit-ui"
 rationale: "Folio is the source that toolkit-ui ports, so the two must agree. Toolkit-ui builds on Tailwind v3, so the site now uses Tailwind v3 with tailwind.config.ts. Color, radius, and space values were copied one time from the toolkit-ui Distyl Light and Distyl Dark themes (toolkit@df5dfcda89). New tokens: background.primary-subtle, border.warning, border.info, chart-6 to chart-10. Changed values: background.accent is now a neutral hover surface (#F3F4F6 light, #1E1B4B dark), and the brand tint moved to background.primary-subtle; dark background.warning is #451A03; chart tokens are the same in light and dark."
-pr: ""
+pr: "#34"
 ---
 
 - `content/folio-tokens.css` is now the one token file. `app/globals.css`
